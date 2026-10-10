@@ -1,8 +1,9 @@
--- MariaDB dump 10.19  Distrib 10.11.1-MariaDB, for Win64 (AMD64)
+/*M!999999\- enable the sandbox mode */ 
+-- MariaDB dump 10.19-11.8.6-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: tigerparty
+-- Host: localhost    Database: baseball
 -- ------------------------------------------------------
--- Server version	10.11.1-MariaDB
+-- Server version	11.8.6-MariaDB-5ubuntu0.1 from Ubuntu
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -13,7 +14,7 @@
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
 
 --
 -- Table structure for table `allstarfull`
@@ -21,7 +22,7 @@
 
 DROP TABLE IF EXISTS `allstarfull`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `allstarfull` (
   `allstarfull_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -44,6 +45,7 @@ CREATE TABLE `allstarfull` (
 -- Dumping data for table `allstarfull`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `allstarfull` WRITE;
 /*!40000 ALTER TABLE `allstarfull` DISABLE KEYS */;
 INSERT INTO `allstarfull` VALUES
@@ -5832,9 +5834,10 @@ INSERT INTO `allstarfull` VALUES
 (5783,'wilsoja04','AL','ATH',2025,'NLS202507150',1,6),
 (5784,'woodja03','NL','WAS',2025,'NLS202507150',1,NULL),
 (5785,'yamamyo01','NL','LAN',2025,'NLS202507150',0,NULL);
-
 /*!40000 ALTER TABLE `allstarfull` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `appearances`
@@ -5842,7 +5845,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `appearances`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `appearances` (
   `appearances_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -5877,6 +5880,7 @@ CREATE TABLE `appearances` (
 -- Dumping data for table `appearances`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `appearances` WRITE;
 /*!40000 ALTER TABLE `appearances` DISABLE KEYS */;
 INSERT INTO `appearances` VALUES
@@ -119606,8 +119610,7 @@ INSERT INTO `appearances` VALUES
 (113717,'weemsjo01',2023,'WAS',51,0,0,51,51,0,0,0,0,0,0,0,0,0,0,0,0),
 (113718,'william01',2023,'WAS',18,0,0,18,18,0,0,0,0,0,0,0,0,0,0,0,0),
 (113719,'willitr01',2023,'WAS',30,30,0,30,30,0,0,0,0,0,0,0,0,0,0,0,0),
-(113720,'youngja03',2023,'WAS',33,32,33,32,0,0,0,0,0,0,0,32,0,32,0,0,1);
-INSERT INTO `appearances` VALUES
+(113720,'youngja03',2023,'WAS',33,32,33,32,0,0,0,0,0,0,0,32,0,32,0,0,1),
 (113721,'abbotan01',2024,'CIN',25,25,0,25,25,0,0,0,0,0,0,0,0,0,0,0,0),
 (113722,'abbotan01',2025,'CIN',29,29,0,29,29,0,0,0,0,0,0,0,0,0,0,0,0),
 (113723,'abelmi01',2025,'MIN',4,2,0,4,4,0,0,0,0,0,0,0,0,0,0,0,0),
@@ -122701,7 +122704,8 @@ INSERT INTO `appearances` VALUES
 (116811,'verdual01',2024,'NYA',149,145,149,149,0,0,0,0,0,0,141,7,10,149,0,0,0),
 (116812,'verdual01',2025,'ATL',56,49,56,54,0,0,0,0,0,0,54,0,0,54,0,7,0),
 (116813,'verlaju01',2024,'HOU',17,17,0,17,17,0,0,0,0,0,0,0,0,0,0,0,0),
-(116814,'verlaju01',2025,'SFN',29,29,0,29,29,0,0,0,0,0,0,0,0,0,0,0,0),
+(116814,'verlaju01',2025,'SFN',29,29,0,29,29,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `appearances` VALUES
 (116815,'vesiaal01',2024,'LAN',67,0,0,67,67,0,0,0,0,0,0,0,0,0,0,0,0),
 (116816,'vesiaal01',2025,'LAN',68,0,0,68,68,0,0,0,0,0,0,0,0,0,0,0,0),
 (116817,'vespini01',2024,'BAL',11,0,0,11,11,0,0,0,0,0,0,0,0,0,0,0,0),
@@ -122946,6 +122950,8 @@ INSERT INTO `appearances` VALUES
 (117056,'zuniggu01',2024,'LAA',15,0,1,15,15,0,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `appearances` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `awards`
@@ -122953,7 +122959,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `awards`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `awards` (
   `awards_ID` int(12) NOT NULL AUTO_INCREMENT,
   `awardID` varchar(255) NOT NULL,
@@ -122975,6 +122981,7 @@ CREATE TABLE `awards` (
 -- Dumping data for table `awards`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `awards` WRITE;
 /*!40000 ALTER TABLE `awards` DISABLE KEYS */;
 INSERT INTO `awards` VALUES
@@ -129965,21 +129972,7 @@ INSERT INTO `awards` VALUES
 (6985,'Gold Glove',2017,'goldspa01','NL',NULL,'1B'),
 (6986,'Gold Glove',2017,'lemahdj01','NL',NULL,'2B'),
 (6987,'Gold Glove',2017,'arenano01','NL',NULL,'3B'),
-(6988,'Gold Glove',2017,'crawfbr01','NL',NULL,'SS');
-/*!40000 ALTER TABLE `awards` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- 2024-2025 data for table `awards`
--- Added from AwardsPlayers.csv and AwardsManagers.csv (Lahman 2025 release).
--- Note: repeat wins of weekly/monthly awards by the same player in the same year
--- are collapsed to one row each, because the unique_award key on
--- (awardID, yearID, playerID, lgID) does not permit duplicates.
---
-
-LOCK TABLES `awards` WRITE;
-/*!40000 ALTER TABLE `awards` DISABLE KEYS */;
-INSERT INTO `awards` VALUES
+(6988,'Gold Glove',2017,'crawfbr01','NL',NULL,'SS'),
 (6989,'ALCS MVP',2024,'stantmi03','AL',NULL,NULL),
 (6990,'ALCS MVP',2025,'guerrvl02','AL',NULL,NULL),
 (6991,'All-MLB Team - First Team',2024,'bettsmo01','ML',NULL,'OF'),
@@ -130404,7 +130397,8 @@ INSERT INTO `awards` VALUES
 (7410,'World Series MVP',2025,'yamamyo01','ML',NULL,NULL);
 /*!40000 ALTER TABLE `awards` ENABLE KEYS */;
 UNLOCK TABLES;
-
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `awardsshare`
@@ -130412,7 +130406,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `awardsshare`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `awardsshare` (
   `awardsshare_ID` int(12) NOT NULL AUTO_INCREMENT,
   `awardID` varchar(255) NOT NULL,
@@ -130433,6 +130427,7 @@ CREATE TABLE `awardsshare` (
 -- Dumping data for table `awardsshare`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `awardsshare` WRITE;
 /*!40000 ALTER TABLE `awardsshare` DISABLE KEYS */;
 INSERT INTO `awardsshare` VALUES
@@ -144440,8 +144435,7 @@ INSERT INTO `awardsshare` VALUES
 (15258,'Rookie of the Year',2023,'outmaja01','NL',20,150,0),
 (15259,'Rookie of the Year',2023,'perezeu02','NL',1,150,0),
 (15260,'Rookie of the Year',2023,'sengako01','NL',71,150,0),
-(15261,'Rookie of the Year',2023,'steersp01','NL',4,150,0);
-INSERT INTO `awardsshare` VALUES
+(15261,'Rookie of the Year',2023,'steersp01','NL',4,150,0),
 (15262,'Cy Young Award',2024,'burneco01','AL',47,210,0),
 (15263,'Cy Young Award',2024,'ceasedy01','NL',45,210,0),
 (15264,'Cy Young Award',2024,'claseem01','AL',66,210,0),
@@ -144639,6 +144633,8 @@ INSERT INTO `awardsshare` VALUES
 (15456,'BBWAA Manager of the Year',2025,'wilsoda01','AL',50,150,2);
 /*!40000 ALTER TABLE `awardsshare` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `batting`
@@ -144646,7 +144642,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `batting`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `batting` (
   `batting_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -144702,6 +144698,7 @@ CREATE TABLE `batting` (
 -- Dumping data for table `batting`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `batting` WRITE;
 /*!40000 ALTER TABLE `batting` DISABLE KEYS */;
 INSERT INTO `batting` VALUES
@@ -258511,8 +258508,7 @@ INSERT INTO `batting` VALUES
 (113796,'zwilldu01',1916,'CHN',1,35,53,4,6,1,0,1,8,0,NULL,4,6,NULL,0,2,NULL,NULL),
 (113797,'zychto01',2015,'SEA',1,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 (113798,'zychto01',2016,'SEA',1,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
-(113799,'zychto01',2017,'SEA',1,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `batting` VALUES
+(113799,'zychto01',2017,'SEA',1,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 (113800,'abbotan01',2024,'CIN',1,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 (113801,'abbotan01',2025,'CIN',1,29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 (113802,'abelmi01',2025,'PHI',1,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
@@ -261858,6 +261854,8 @@ INSERT INTO `batting` VALUES
 (117142,'zuniggu01',2024,'LAA',1,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `batting` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `battingpost`
@@ -261865,7 +261863,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `battingpost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `battingpost` (
   `battingpost_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -261901,6 +261899,7 @@ CREATE TABLE `battingpost` (
 -- Dumping data for table `battingpost`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `battingpost` WRITE;
 /*!40000 ALTER TABLE `battingpost` DISABLE KEYS */;
 INSERT INTO `battingpost` VALUES
@@ -278761,8 +278760,7 @@ INSERT INTO `battingpost` VALUES
 (16854,'taverle01',2023,'TEX','WS',5,16,2,0,0,0,0,0,0,0,3,5,0,0,0,0,0),
 (16855,'thomaal01',2023,'ARI','WS',5,21,2,5,1,0,0,0,1,0,0,4,0,0,0,0,0),
 (16856,'thompry02',2023,'ARI','WS',1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
-(16857,'walkech02',2023,'ARI','WS',5,21,1,6,2,0,0,0,2,0,2,5,0,0,0,0,0);
-INSERT INTO `battingpost` VALUES
+(16857,'walkech02',2023,'ARI','WS',5,21,1,6,2,0,0,0,2,0,2,5,0,0,0,0,0),
 (16858,'avilape01',2024,'CLE','ALCS',3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 (16859,'bertijo01',2024,'NYA','ALCS',2,4,1,0,0,0,0,0,0,0,0,2,0,0,0,0,1),
 (16860,'bibeeta01',2024,'CLE','ALCS',2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
@@ -279784,6 +279782,8 @@ INSERT INTO `battingpost` VALUES
 (17876,'yesavtr01',2025,'TOR','WS',3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `battingpost` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `collegeplaying`
@@ -279791,7 +279791,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `collegeplaying`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `collegeplaying` (
   `collegeplaying_ID` int(11) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -279810,6 +279810,7 @@ CREATE TABLE `collegeplaying` (
 -- Dumping data for table `collegeplaying`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `collegeplaying` WRITE;
 /*!40000 ALTER TABLE `collegeplaying` DISABLE KEYS */;
 INSERT INTO `collegeplaying` VALUES
@@ -297165,6 +297166,8 @@ INSERT INTO `collegeplaying` VALUES
 (17350,'zuvelpa01','stanford',1980);
 /*!40000 ALTER TABLE `collegeplaying` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `divisions`
@@ -297172,7 +297175,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `divisions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `divisions` (
   `divisions_ID` int(11) NOT NULL AUTO_INCREMENT,
   `divID` char(2) NOT NULL,
@@ -297192,6 +297195,7 @@ CREATE TABLE `divisions` (
 -- Dumping data for table `divisions`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `divisions` WRITE;
 /*!40000 ALTER TABLE `divisions` DISABLE KEYS */;
 INSERT INTO `divisions` VALUES
@@ -297203,6 +297207,8 @@ INSERT INTO `divisions` VALUES
 (6,'C','NL','NL Central','Y');
 /*!40000 ALTER TABLE `divisions` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `fielding`
@@ -297210,7 +297216,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `fielding`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fielding` (
   `fielding_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -297245,6 +297251,7 @@ CREATE TABLE `fielding` (
 -- Dumping data for table `fielding`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `fielding` WRITE;
 /*!40000 ALTER TABLE `fielding` DISABLE KEYS */;
 INSERT INTO `fielding` VALUES
@@ -484762,8 +484769,7 @@ INSERT INTO `fielding` VALUES
 (187499,'zupcibo01',1993,'BOS',1,'RF',54,29,883,78,4,2,1,0,0,0,0,0),
 (187500,'zupcibo01',1994,'BOS',1,'LF',2,1,36,2,0,0,0,0,0,0,0,0),
 (187501,'zupcibo01',1994,'CHA',2,'LF',15,13,318,22,0,0,0,0,0,0,0,0),
-(187502,'zupcibo01',1994,'CHA',2,'RF',14,8,265,23,2,0,0,0,0,0,0,0);
-INSERT INTO `fielding` VALUES
+(187502,'zupcibo01',1994,'CHA',2,'RF',14,8,265,23,2,0,0,0,0,0,0,0),
 (187503,'abbotan01',2024,'CIN',1,'P',25,25,414,6,8,0,0,NULL,NULL,NULL,NULL,NULL),
 (187504,'abbotan01',2025,'CIN',1,'P',29,29,499,2,15,1,1,NULL,NULL,NULL,NULL,NULL),
 (187505,'abelmi01',2025,'PHI',1,'P',6,6,75,3,0,0,0,NULL,NULL,NULL,NULL,NULL),
@@ -489159,6 +489165,8 @@ INSERT INTO `fielding` VALUES
 (191895,'zuniggu01',2024,'LAA',1,'P',15,0,53,0,1,0,0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `fielding` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `fieldingpost`
@@ -489166,7 +489174,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `fieldingpost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fieldingpost` (
   `fieldingpost_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -489195,6 +489203,7 @@ CREATE TABLE `fieldingpost` (
 -- Dumping data for table `fieldingpost`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `fieldingpost` WRITE;
 /*!40000 ALTER TABLE `fieldingpost` DISABLE KEYS */;
 INSERT INTO `fieldingpost` VALUES
@@ -505203,8 +505212,7 @@ INSERT INTO `fieldingpost` VALUES
 (31999,'zobribe01',2017,'CHN','NLDS2','LF',5,1,54,5,0,0,0,0,0),
 (32000,'zobribe01',2017,'CHN','NLDS2','RF',2,2,36,2,0,0,0,0,0),
 (32002,'zobribe01',2018,'CHN','NLWC','LF',1,0,3,1,0,0,0,0,0),
-(32003,'zobribe01',2018,'CHN','NLWC','RF',1,1,21,1,0,0,0,0,0);
-INSERT INTO `fieldingpost` VALUES
+(32003,'zobribe01',2018,'CHN','NLWC','RF',1,1,21,1,0,0,0,0,0),
 (32004,'abreubr01',2024,'HOU','ALWC1','P',1,0,4,0,1,0,0,NULL,NULL),
 (32005,'abreuwi02',2025,'BOS','ALWC2','RF',2,1,30,6,0,0,0,NULL,NULL),
 (32006,'acunalu01',2024,'NYN','NLCS','2B',1,0,6,0,1,0,0,NULL,NULL),
@@ -505911,7 +505919,8 @@ INSERT INTO `fieldingpost` VALUES
 (32707,'quintjo01',2024,'NYN','NLDS1','P',1,1,15,0,0,0,0,NULL,NULL),
 (32708,'quintjo01',2024,'NYN','NLWC1','P',1,1,18,0,1,0,0,NULL,NULL),
 (32709,'quintjo01',2025,'MIL','NLCS','P',1,1,6,0,0,0,0,NULL,NULL),
-(32710,'quintjo01',2025,'MIL','NLDS1','P',1,0,9,0,0,0,0,NULL,NULL),
+(32710,'quintjo01',2025,'MIL','NLDS1','P',1,0,9,0,0,0,0,NULL,NULL);
+INSERT INTO `fieldingpost` VALUES
 (32711,'rafaece01',2025,'BOS','ALWC2','CF',3,3,75,6,0,0,0,NULL,NULL),
 (32712,'raganco01',2024,'KCA','ALDS2','P',1,1,12,0,0,0,0,NULL,NULL),
 (32713,'raganco01',2024,'KCA','ALWC2','P',1,1,18,0,0,0,0,NULL,NULL),
@@ -506218,6 +506227,8 @@ INSERT INTO `fieldingpost` VALUES
 (33014,'zerpaan01',2024,'KCA','ALWC2','P',1,0,3,0,0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `fieldingpost` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `franchises`
@@ -506225,7 +506236,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `franchises`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `franchises` (
   `franchID` varchar(3) NOT NULL,
   `franchName` varchar(50) DEFAULT NULL,
@@ -506239,6 +506250,7 @@ CREATE TABLE `franchises` (
 -- Dumping data for table `franchises`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `franchises` WRITE;
 /*!40000 ALTER TABLE `franchises` DISABLE KEYS */;
 INSERT INTO `franchises` VALUES
@@ -506364,6 +506376,8 @@ INSERT INTO `franchises` VALUES
 ('WST','Washington Statesmen','N',NULL);
 /*!40000 ALTER TABLE `franchises` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `halloffame`
@@ -506371,7 +506385,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `halloffame`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `halloffame` (
   `halloffame_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -506396,6 +506410,7 @@ CREATE TABLE `halloffame` (
 -- Dumping data for table `halloffame`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `halloffame` WRITE;
 /*!40000 ALTER TABLE `halloffame` DISABLE KEYS */;
 INSERT INTO `halloffame` VALUES
@@ -512810,8 +512825,7 @@ INSERT INTO `halloffame` VALUES
 (10691,'youngro01',1963,'Veterans',NULL,NULL,NULL,'N','Player','Group A - Holdover from 1'),
 (10692,'youngro01',1964,'Veterans',NULL,NULL,NULL,'N','Player',NULL),
 (10693,'youngro01',1968,'Veterans',NULL,NULL,NULL,'N','Player',NULL),
-(10703,'zimmedo01',2007,'Veterans - Contributors',NULL,NULL,NULL,'N','Manager','Preliminary ballot (60 co');
-INSERT INTO `halloffame` VALUES
+(10703,'zimmedo01',2007,'Veterans - Contributors',NULL,NULL,NULL,'N','Manager','Preliminary ballot (60 co'),
 (10704,'abreubo01',2025,'BBWAA',394,296,77,'N','Player',NULL),
 (10705,'allendi01',2025,'Classic Baseball Era',16,12,13,'Y','Player',NULL),
 (10706,'beltrca01',2025,'BBWAA',394,296,277,'N','Player',NULL),
@@ -512850,6 +512864,8 @@ INSERT INTO `halloffame` VALUES
 (10739,'zobribe01',2025,'BBWAA',394,296,0,'N','Player',NULL);
 /*!40000 ALTER TABLE `halloffame` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `homegames`
@@ -512857,7 +512873,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `homegames`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `homegames` (
   `homegames_ID` int(12) NOT NULL AUTO_INCREMENT,
   `teamID` char(3) NOT NULL,
@@ -512879,6 +512895,7 @@ CREATE TABLE `homegames` (
 -- Dumping data for table `homegames`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `homegames` WRITE;
 /*!40000 ALTER TABLE `homegames` DISABLE KEYS */;
 INSERT INTO `homegames` VALUES
@@ -516213,6 +516230,8 @@ INSERT INTO `homegames` VALUES
 (12994,'WAS','WAS11',2025,'2025-03-27','2025-09-28',81,80,1916768);
 /*!40000 ALTER TABLE `homegames` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `leagues`
@@ -516220,7 +516239,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `leagues`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `leagues` (
   `lgID` char(2) NOT NULL,
   `league_name` varchar(50) NOT NULL,
@@ -516234,6 +516253,7 @@ CREATE TABLE `leagues` (
 -- Dumping data for table `leagues`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `leagues` WRITE;
 /*!40000 ALTER TABLE `leagues` DISABLE KEYS */;
 INSERT INTO `leagues` VALUES
@@ -516246,6 +516266,8 @@ INSERT INTO `leagues` VALUES
 ('UA','Union Association','N');
 /*!40000 ALTER TABLE `leagues` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `managers`
@@ -516253,7 +516275,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `managers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `managers` (
   `managers_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -516278,6 +516300,7 @@ CREATE TABLE `managers` (
 -- Dumping data for table `managers`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `managers` WRITE;
 /*!40000 ALTER TABLE `managers` DISABLE KEYS */;
 INSERT INTO `managers` VALUES
@@ -520201,6 +520224,8 @@ INSERT INTO `managers` VALUES
 (3918,'cairomi01',2025,'WAS',2,72,29,43,5,'N',NULL);
 /*!40000 ALTER TABLE `managers` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `parks`
@@ -520208,7 +520233,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `parks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `parks` (
   `parkID` varchar(255) NOT NULL,
   `park_alias` varchar(255) DEFAULT NULL,
@@ -520224,6 +520249,7 @@ CREATE TABLE `parks` (
 -- Dumping data for table `parks`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `parks` WRITE;
 /*!40000 ALTER TABLE `parks` DISABLE KEYS */;
 INSERT INTO `parks` VALUES
@@ -520247,6 +520273,7 @@ INSERT INTO `parks` VALUES
 ('BAL10','Oriole Park V','Terrapin Park','Baltimore','MD','US'),
 ('BAL11',NULL,'Memorial Stadium','Baltimore','MD','US'),
 ('BAL12',NULL,'Oriole Park at Camden Yards','Baltimore','MD','US'),
+('BIR01',NULL,'Rickwood Field','Birmingham','AL','US'),
 ('BOS01','Walpole Street Grounds','South End Grounds I','Boston','MA','US'),
 ('BOS02','Union Park','Dartmouth Grounds','Boston','MA','US'),
 ('BOS03',NULL,'South End Grounds II','Boston','MA','US'),
@@ -520255,6 +520282,7 @@ INSERT INTO `parks` VALUES
 ('BOS06',NULL,'Huntington Avenue Baseball Grounds','Boston','MA','US'),
 ('BOS07',NULL,'Fenway Park','Boston','MA','US'),
 ('BOS08','Bee Hive','Braves Field','Boston','MA','US'),
+('BST01','Bristol International Raceway; Bristol International Speedway','Bristol Motor Speedway','Bristol','TN','US'),
 ('BUF01',NULL,'Riverside Grounds','Buffalo','NY','US'),
 ('BUF02',NULL,'Olympic Park I','Buffalo','NY','US'),
 ('BUF03',NULL,'Olympic Park II','Buffalo','NY','US'),
@@ -520429,12 +520457,14 @@ INSERT INTO `parks` VALUES
 ('ROC01',NULL,'Culver Field I','Rochester','NY','US'),
 ('ROC02',NULL,'Culver Field II','Rochester','NY','US'),
 ('ROC03',NULL,'Ontario Beach Grounds','Rochester','NY','US'),
+('SAC01',NULL,'Sutter Health Field','West Sacramento','CA','US'),
 ('SAI01',NULL,'St. George Cricket Grounds','New York','NY','US'),
 ('SAN01','San Diego/Jack Murphy Stadium','Qualcomm Stadium','San Diego','CA','US'),
 ('SAN02',NULL,'PETCO Park','San Diego','CA','US'),
 ('SEA01',NULL,'Sick\'s Stadium','Seattle','WA','US'),
 ('SEA02',NULL,'Kingdome','Seattle','WA','US'),
 ('SEA03','T-Mobile Park','Safeco Field','Seattle','WA','US'),
+('SEO01',NULL,'Gocheok Sky Dome','Seoul','Seoul','South Korea'),
 ('SFO01',NULL,'Seals Stadium','San Francisco','CA','US'),
 ('SFO02','3Com Park','Candlestick Park','San Francisco','CA','US'),
 ('SFO03','Pacific Bell Park; SBC Park','AT&T Park','San Francisco','CA','US'),
@@ -520455,6 +520485,7 @@ INSERT INTO `parks` VALUES
 ('SYR01','Newell Park','Star Park I','Syracuse','NY','US'),
 ('SYR02',NULL,'Star Park II','Syracuse','NY','US'),
 ('SYR03',NULL,'Iron Pier','Syracuse','NY','US'),
+('TAM02','Legends Field','George M. Steinbrenner Field','Tampa','FL','US'),
 ('THR01',NULL,'Three Rivers Park','Three Rivers','NY','US'),
 ('TOK01',NULL,'Tokyo Dome','Tokyo','Tokyo','JP'),
 ('TOL01',NULL,'League Park','Toledo','OH','US'),
@@ -520486,14 +520517,11 @@ INSERT INTO `parks` VALUES
 ('WNY01',NULL,'West New York Field Club Grounds','West New York','NJ','US'),
 ('WOR01',NULL,'Agricultural County Fair Grounds I','Worcester','MA','US'),
 ('WOR02',NULL,'Agricultural County Fair Grounds II','Worcester','MA','US'),
-('WOR03',NULL,'Worcester Driving Park Grounds','Worcester','MA','US'),
-('SEO01',NULL,'Gocheok Sky Dome','Seoul','Seoul','South Korea'),
-('BIR01',NULL,'Rickwood Field','Birmingham','AL','US'),
-('SAC01',NULL,'Sutter Health Field','West Sacramento','CA','US'),
-('TAM02','Legends Field','George M. Steinbrenner Field','Tampa','FL','US'),
-('BST01','Bristol International Raceway; Bristol International Speedway','Bristol Motor Speedway','Bristol','TN','US');
+('WOR03',NULL,'Worcester Driving Park Grounds','Worcester','MA','US');
 /*!40000 ALTER TABLE `parks` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `people`
@@ -520501,7 +520529,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `people`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `people` (
   `playerID` varchar(9) NOT NULL,
   `birthYear` int(12) DEFAULT NULL,
@@ -520539,6 +520567,7 @@ CREATE TABLE `people` (
 -- Dumping data for table `people`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
 INSERT INTO `people` VALUES
@@ -520563,6 +520592,7 @@ INSERT INTO `people` VALUES
 ('abbotky01',1968,2,18,'USA','MA','Newburyport',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Abbott','Lawrence Kyle',200,76,'L','L','1991-09-10','1996-08-24'),
 ('abbotod01',1886,9,5,'USA','PA','New Eagle',1933,4,13,'USA','DC','Washington','Ody','Abbott','Ody Cleon',165,69,'L','R','1910-09-10','1910-10-15'),
 ('abbotpa01',1967,9,15,'USA','CA','Van Nuys',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Abbott','Paul David',185,75,'R','R','1990-08-21','2004-08-07'),
+('abelmi01',2001,8,18,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Mick','Abel','McLean Stine',190,77,'R','R','2025-05-18',NULL),
 ('aberal01',1927,7,31,'USA','OH','Cleveland',1993,5,20,'USA','OH','Garfield Heights','Al','Aber','Albert Julius',195,74,'L','L','1950-09-15','1957-09-11'),
 ('abercda01',1850,1,2,'USA','OK','Fort Towson',1939,11,11,'USA','PA','Philadelphia','Frank','Abercrombie','Francis Patterson',NULL,NULL,NULL,NULL,'1871-10-21','1871-10-21'),
 ('abercre01',1980,7,15,'USA','GA','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'Reggie','Abercrombie','Reginald Damascus',215,75,'R','R','2006-04-04','2008-09-28'),
@@ -520573,6 +520603,7 @@ INSERT INTO `people` VALUES
 ('abernwo01',1915,2,1,'USA','NC','Forest City',1994,12,5,'USA','KY','Louisville','Woody','Abernathy','Virgil Woodrow',170,72,'L','L','1946-07-28','1947-04-17'),
 ('aberscl01',1921,8,28,'USA','IL','Chicago',1973,6,23,'USA','CA','Vallejo','Cliff','Aberson','Clifford Alexander',200,72,'R','R','1947-07-18','1949-05-09'),
 ('ablesha01',1883,10,4,'USA','TX','Terrell',1951,2,8,'USA','TX','San Antonio','Harry','Ables','Harry Terrell',200,74,'R','L','1905-09-02','1911-05-05'),
+('abnerph01',2002,5,5,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Philip','Abner','Philip James',230,73,'L','L','2025-09-19',NULL),
 ('abnersh01',1966,6,17,'USA','OH','Hamilton',NULL,NULL,NULL,NULL,NULL,NULL,'Shawn','Abner','Shawn Wesley',190,73,'R','R','1987-09-08','1992-10-03'),
 ('abramca01',1924,3,2,'USA','PA','Philadelphia',1997,2,25,'USA','FL','Fort Lauderdale','Cal','Abrams','Calvin Ross',185,72,'L','L','1949-04-19','1956-05-09'),
 ('abramcj01',2000,10,3,'USA','GA','Alpharetta',NULL,NULL,NULL,NULL,NULL,NULL,'CJ','Abrams','Paul Christopher',185,74,'L','R','2022-04-08','2022-10-04'),
@@ -520602,10 +520633,12 @@ INSERT INTO `people` VALUES
 ('acosted01',1944,3,9,'Panama','Chiriqui','Boquete',NULL,NULL,NULL,NULL,NULL,NULL,'Ed','Acosta','Eduardo Elixbet',215,77,'B','R','1970-09-07','1972-10-04'),
 ('acostjo01',1891,3,4,'Cuba','La Habana','La Habana',1977,11,16,'Cuba','La Habana','La Habana','Jose','Acosta','Jose',134,66,'R','R','1920-07-28','1922-05-12'),
 ('acostma01',1981,5,1,'Panama','Colon','Colon',NULL,NULL,NULL,NULL,NULL,NULL,'Manny','Acosta','Manuel Alcides',215,76,'R','R','2007-08-12','2012-10-03'),
+('acostma02',2002,10,29,'Venezuela','Distrito Capital','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Maximo','Acosta','Maximo Douglas Jose',187,71,'R','R','2025-08-18',NULL),
 ('acostme01',1896,5,19,'Cuba','Artemisa','Bauta',1963,11,17,'USA','FL','Miami','Merito','Acosta','Baldomero Pedro',140,67,'L','L','1913-06-05','1918-09-02'),
 ('acrema01',1968,9,16,'USA','CA','Concord',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Acre','Mark Robert',235,80,'R','R','1994-05-13','1997-05-10'),
 ('actama99',1969,1,11,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Manny','Acta','Manuel Elias',172,74,'R','R',NULL,NULL),
 ('actonga01',1998,6,15,'USA','IL','Naperville',NULL,NULL,NULL,NULL,NULL,NULL,'Garrett','Acton','Garrett Patrick',215,74,'L','R','2023-05-14','2023-05-28'),
+('acunalu01',2002,3,12,'Venezuela','Distrito Capital','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Luisangel','Acuña','Luisangel Jose',181,68,'R','R','2024-09-14',NULL),
 ('acunaro01',1997,12,18,'Venezuela','La Guaira','La Guaira',NULL,NULL,NULL,NULL,NULL,NULL,'Ronald','Acuna','Ronald Jose',205,72,'R','R','2018-04-25','2022-10-04'),
 ('adairbi99',1913,2,10,'USA','AL','Mobile',2002,6,17,'USA','AL','Bay Minette','Bill','Adair','Marion Danne',168,72,'R','R',NULL,NULL),
 ('adairje01',1936,12,17,'USA','OK','Sand Springs',1987,5,31,'USA','OK','Tulsa','Jerry','Adair','Kenneth Jerry',175,72,'R','R','1958-09-02','1970-05-03'),
@@ -520651,6 +520684,7 @@ INSERT INTO `people` VALUES
 ('adamssp01',1894,8,26,'USA','PA','Zerbe',1989,2,24,'USA','PA','Pottsville','Sparky','Adams','Earl John',151,65,'R','R','1922-09-18','1934-09-30'),
 ('adamssp02',1898,6,21,'USA','UT','Layton',1970,11,24,'USA','UT','Salt Lake City','Spencer','Adams','Spencer Dewey',158,69,'L','R','1923-04-22','1927-10-02'),
 ('adamste01',1973,3,6,'USA','AL','Mobile',NULL,NULL,NULL,NULL,NULL,NULL,'Terry','Adams','Terry Wayne',180,75,'R','R','1995-08-10','2005-05-23'),
+('adamstr01',2000,1,19,'USA','CA','Palm Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Adams','Travis Michael',197,73,'R','R','2025-07-05',NULL),
 ('adamswi01',1890,9,27,'USA','PA','Clearfield',1937,6,18,'USA','NY','Albany','Willie','Adams','James Irvin',180,76,'R','R','1912-06-30','1919-09-06'),
 ('adamswi02',1972,10,8,'USA','NM','Gallup',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','Adams','William Edward',215,79,'R','R','1996-06-11','1997-08-14'),
 ('adcocjo01',1927,10,30,'USA','LA','Coushatta',1999,5,3,'USA','LA','Coushatta','Joe','Adcock','Joseph Wilbur',210,76,'R','R','1950-04-23','1966-10-01'),
@@ -520681,9 +520715,11 @@ INSERT INTO `people` VALUES
 ('agganha01',1929,4,20,'USA','MA','Lynn',1955,6,27,'USA','MA','Cambridge','Harry','Agganis','Harry',200,74,'L','L','1954-04-13','1955-06-02'),
 ('aglerjo01',1887,6,12,'USA','OH','Coshocton',1971,4,26,'USA','OH','Massillon','Joe','Agler','Joseph Abram',165,71,'L','L','1912-10-01','1915-10-02'),
 ('agnewsa01',1887,4,12,'USA','MO','Farmington',1951,7,19,'USA','CA','Sonoma','Sam','Agnew','Samuel Lester',185,71,'R','R','1913-04-10','1919-09-28'),
+('agnosza01',2000,8,15,'USA','VA','Haymarket',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Agnos','Zachary George',208,72,'R','R','2025-04-20',NULL),
 ('agostju01',1958,2,23,'P.R.',NULL,'Rio Piedras',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Agosto','Juan Roberto',190,74,'L','L','1981-09-07','1993-06-19'),
 ('agrazda01',1994,12,28,'Panama','Cocle','Aguadulce',NULL,NULL,NULL,NULL,NULL,NULL,'Dario','Agrazal','Dario Abdiel',225,74,'R','R','2019-06-15','2019-09-25'),
 ('aguaylu01',1959,3,13,'P.R.',NULL,'Vega Baja',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Aguayo','Luis',173,69,'R','R','1980-04-19','1989-09-30'),
+('aguiaju01',2001,6,4,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Julian','Aguiar','Julian',180,75,'L','R','2024-08-19',NULL),
 ('aguilch01',1979,2,23,'USA','CA','Redwood City',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Aguila','Christopher Louis',200,71,'R','R','2004-06-28','2008-07-10'),
 ('aguilje01',1990,6,30,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Jesus','Aguilar','Jesus Alexander',277,75,'R','R','2014-05-15','2022-10-05'),
 ('aguilmi01',1991,9,26,'Mexico','Sonora','Ciudad Obregon',NULL,NULL,NULL,NULL,NULL,NULL,'Miguel','Aguilar','Miguel Armando',194,68,'L','L','2021-07-30','2021-09-12'),
@@ -520727,12 +520763,14 @@ INSERT INTO `people` VALUES
 ('alcalsa01',1952,12,23,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Santo','Alcala','Santo',195,77,'R','R','1976-04-10','1977-09-25'),
 ('alcanar01',1991,10,29,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Arismendy','Alcantara','Arismendy',170,70,'B','R','2014-07-09','2017-08-09'),
 ('alcanis01',1973,5,6,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Israel','Alcantara','Israel',180,74,'R','R','2000-06-25','2002-08-22'),
+('alcanke01',2002,7,12,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Alcántara','Kevin',188,78,'R','R','2024-09-25',NULL),
 ('alcanra01',1992,12,4,'D.R.','Barahona','Barahona',NULL,NULL,NULL,NULL,NULL,NULL,'Raul','Alcantara','Raul',220,76,'R','R','2016-09-05','2017-09-29'),
 ('alcansa01',1995,9,7,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Sandy','Alcantara','Sandy',200,77,'R','R','2017-09-03','2022-09-30'),
 ('alcanse01',1996,7,10,'D.R.','Santo Domingo','Santo Domingo Este',NULL,NULL,NULL,NULL,NULL,NULL,'Sergio','Alcantara','Sergio Junior',151,69,'B','R','2020-09-06','2022-10-05'),
 ('alcanvi01',1993,4,3,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Alcantara','Victor Alfonso',190,74,'R','R','2017-09-05','2019-09-29'),
 ('alcarlu01',1941,6,20,'P.R.',NULL,'Humacao',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Alcaraz','Angel Luis',165,69,'R','R','1967-09-13','1970-06-07'),
 ('alcocsc01',1885,11,29,'USA','OH','Wooster',1973,1,30,'USA','OH','Wooster','Scotty','Alcock','John Forbes',160,69,'R','R','1914-04-19','1914-08-02'),
+('aldegsa01',2001,9,19,'Italy','Veneto','Verona',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Aldegheri','Samuel',210,73,'L','L','2024-08-30',NULL),
 ('alderda01',1918,3,9,'USA','NE','Belden',1982,2,12,'USA','CA','Garden Grove','Dale','Alderson','Dale Leonard',190,70,'R','R','1943-09-18','1944-07-05'),
 ('aldremi01',1961,1,29,'USA','CA','Carmel',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Aldrete','Michael Peter',180,71,'L','L','1986-05-28','1996-09-29'),
 ('aldresc01',1968,6,12,'USA','MI','Flint',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Aldred','Scott Phillip',195,76,'L','L','1990-09-09','2000-05-29'),
@@ -520740,7 +520778,9 @@ INSERT INTO `people` VALUES
 ('aldrija01',1961,4,14,'USA','LA','Alexandria',NULL,NULL,NULL,NULL,NULL,NULL,'Jay','Aldrich','Jay Robert',210,75,'R','R','1987-06-05','1990-04-26'),
 ('aldrivi01',1893,10,25,'USA','IN','Crane',1973,4,17,'USA','IN','Terre Haute','Vic','Aldridge','Victor',175,69,'R','R','1917-04-15','1928-08-29'),
 ('alenoch01',1917,2,19,'USA','MO','St. Louis',2003,2,10,'USA','FL','DeLand','Chuck','Aleno','Charles',215,73,'R','R','1941-05-15','1944-09-23'),
+('alexabl01',1999,6,11,'USA','FL','Cape Coral',NULL,NULL,NULL,NULL,NULL,NULL,'Blaze','Alexander','Blaze Chanee',160,72,'R','R','2024-03-28',NULL),
 ('alexabo01',1922,8,7,'CAN','BC','Vancouver',1993,4,7,'USA','CA','Oceanside','Bob','Alexander','Robert Somerville',205,74,'R','R','1955-04-11','1957-09-22'),
+('alexacj01',1996,7,17,'USA','IN','Merrillville',NULL,NULL,NULL,NULL,NULL,NULL,'CJ','Alexander','Charles Joseph Wesley',215,76,'L','R','2024-06-24',NULL),
 ('alexada01',1903,4,26,'USA','TN','Greeneville',1979,3,2,'USA','TN','Greeneville','Dale','Alexander','David Dale',210,75,'R','R','1929-04-16','1933-09-23'),
 ('alexado01',1950,9,4,'USA','AL','Cordova',NULL,NULL,NULL,NULL,NULL,NULL,'Doyle','Alexander','Doyle Lafayette',190,75,'R','R','1971-06-26','1989-09-27'),
 ('alexaga01',1953,3,27,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Gary','Alexander','Gary Wayne',195,74,'R','R','1975-09-12','1981-09-28'),
@@ -520858,10 +520898,13 @@ INSERT INTO `people` VALUES
 ('aluja01',1997,4,6,'USA','NJ','Hamilton',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Alu','Jacob Philip',186,70,'L','R','2023-05-09','2023-10-01'),
 ('alusige01',1935,2,11,'USA','PA','Ashley',2018,4,20,'USA','NJ','Woodbridge','George','Alusik','George Joseph',175,75,'R','R','1958-09-11','1964-10-02'),
 ('alvarab01',1982,10,17,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Abe','Alvarez','Abraham',190,74,'L','L','2004-07-22','2006-05-21'),
+('alvaran01',1999,6,13,'USA','CA','Anaheim',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Alvarez','Michael Andrew',215,75,'L','L','2025-09-01',NULL),
+('alvarar01',1994,7,14,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Armando','Alvarez','Armando Francisco',189,72,'R','R','2024-06-22',NULL),
 ('alvarcl01',1968,5,18,'Venezuela','Anzoategui','Guanta',NULL,NULL,NULL,NULL,NULL,NULL,'Clemente','Alvarez','Clemente Rafael',180,71,'R','R','2000-09-19','2000-10-01'),
 ('alvarda01',1989,1,17,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Dario','Alvarez','Dario Rafael',170,73,'L','L','2014-09-03','2017-06-28'),
 ('alvarda02',1988,11,7,'Cuba',NULL,'Camaguey',NULL,NULL,NULL,NULL,NULL,NULL,'Dariel','Alvarez','Dariel',180,74,'R','R','2015-08-28','2016-07-25'),
 ('alvared01',1990,1,30,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Eddy','Alvarez','Eduardo Cortes',185,69,'L','R','2020-08-05','2022-06-29'),
+('alvarel01',1999,2,23,'D.R.','Santiago Rodríguez','Sabaneta',NULL,NULL,NULL,NULL,NULL,NULL,'Elvis','Alvarado','Elvis Ernesto',183,76,'R','R','2025-05-09',NULL),
 ('alvarfr01',2001,11,19,'Venezuela','Miranda','Guatire',NULL,NULL,NULL,NULL,NULL,NULL,'Francisco','Alvarez','Francisco Javier',242,70,'R','R','2022-09-30','2022-10-05'),
 ('alvarga01',1974,3,6,'Mexico','Sonora','Navojoa',NULL,NULL,NULL,NULL,NULL,NULL,'Gabe','Alvarez','Gabriel de Jesus',185,73,'R','R','1998-06-22','2000-09-30'),
 ('alvarhe01',1990,4,18,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Henderson','Alvarez','Henderson Javier',205,72,'R','R','2011-08-10','2017-09-30'),
@@ -520870,6 +520913,7 @@ INSERT INTO `people` VALUES
 ('alvarjo03',1995,5,21,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Alvarado','Jose Antonio',240,72,'L','L','2017-05-03','2022-10-03'),
 ('alvarju01',1973,8,9,'USA','FL','Coral Gables',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Alvarez','Juan Manuel',180,73,'L','L','1999-09-01','2003-06-03'),
 ('alvarlu01',1949,1,15,'P.R.',NULL,'Lajas',2001,3,20,'P.R.',NULL,'Lajas','Luis','Alvarado','Luis Cesar',162,69,'R','R','1968-09-13','1977-04-30'),
+('alvarna01',2003,4,11,'USA','CA','Fontana',NULL,NULL,NULL,NULL,NULL,NULL,'Nacho','Alvarez','Ignacio',190,70,'R','R','2024-07-22',NULL),
 ('alvaror01',1952,2,28,'P.R.',NULL,'Rio Grande',2016,3,31,'P.R.',NULL,'Rio Grande','Orlando','Alvarez','Jesus Manuel Orlando',165,72,'R','R','1973-09-01','1976-06-18'),
 ('alvaros01',1933,10,19,'Cuba','Matanzas','Bolondron',2008,3,8,'Mexico','Jalisco','Guadalajara','Ossie','Alvarez','Oswaldo',165,70,'R','R','1958-04-19','1959-04-26'),
 ('alvarpe01',1987,2,6,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','Alvarez','Pedro Manuel',250,75,'L','R','2010-06-16','2018-06-15'),
@@ -520884,6 +520928,7 @@ INSERT INTO `people` VALUES
 ('alvorbi01',1863,8,10,'USA','MO','St. Louis',1927,4,7,'USA','FL','St. Petersburg','Billy','Alvord','William Crawford',187,70,'R','R','1885-04-30','1893-07-08'),
 ('alyeabr01',1940,12,8,'USA','NJ','Passaic',NULL,NULL,NULL,NULL,NULL,NULL,'Brant','Alyea','Garrabrant Ryerson',215,75,'R','R','1965-09-11','1972-10-03'),
 ('alzolad01',1995,3,1,'Venezuela','Bolivar','San Felix',NULL,NULL,NULL,NULL,NULL,NULL,'Adbert','Alzolay','Adbert Marcelo',208,73,'R','R','2019-06-20','2022-10-05'),
+('amadoad01',2003,4,11,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Adael','Amador','Adael Alexander',200,71,'B','R','2024-06-09',NULL),
 ('amalfjo01',1934,1,23,'USA','CA','San Pedro',NULL,NULL,NULL,NULL,NULL,NULL,'Joey','Amalfitano','John Joseph',175,71,'R','R','1954-05-02','1967-06-27'),
 ('amarari01',1962,4,1,'USA','CA','Visalia',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Amaral','Richard Louis',175,72,'R','R','1991-05-27','2000-06-14'),
 ('amarial01',1989,4,6,'Venezuela','Anzoategui','Barcelona',NULL,NULL,NULL,NULL,NULL,NULL,'Alexi','Amarista','Alexi Jose',160,66,'L','R','2011-04-26','2017-10-01'),
@@ -520998,6 +521043,7 @@ INSERT INTO `people` VALUES
 ('annisbi01',1857,5,24,'USA','MA','Stoneham',1923,6,10,'USA','ME','Kennebunkport','Bill','Annis','William Perley',150,67,'R',NULL,'1884-05-01','1884-08-08'),
 ('ansonca01',1852,4,17,'USA','IA','Marshalltown',1922,4,14,'USA','IL','Chicago','Cap','Anson','Adrian Constantine',227,72,'R','R','1871-05-06','1897-10-03'),
 ('anthoer01',1967,11,8,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Anthony','Eric Todd',195,74,'L','L','1989-07-28','1997-09-27'),
+('anthoro01',2004,5,13,'USA','FL','West Palm Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Roman','Anthony','Roman Joseph',200,75,'L','R','2025-06-09',NULL),
 ('antoldu01',1989,8,9,'USA','HI','Mililani',NULL,NULL,NULL,NULL,NULL,NULL,'Dustin','Antolin','Dustin Kamakana Mai Ku\'u Makualani',230,74,'R','R','2016-05-16','2016-05-16'),
 ('antoljo01',1916,4,11,'USA','PA','Hokendauqua',2002,6,25,'USA','PA','Catasauqua','Joe','Antolick','Joseph',185,72,'R','R','1944-09-20','1944-09-26'),
 ('antonbi01',1927,5,19,'USA','NY','Brooklyn',1993,3,4,'USA','MN','Fridley','Bill','Antonello','William James',185,71,'R','R','1953-04-30','1953-09-27'),
@@ -521050,6 +521096,7 @@ INSERT INTO `people` VALUES
 ('ariasga01',2000,2,27,'Venezuela','Aragua','La Victoria',NULL,NULL,NULL,NULL,NULL,NULL,'Gabriel','Arias','Gabriel Alejandro',217,73,'R','R','2022-04-20','2022-10-05'),
 ('ariasge01',1972,3,12,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'George','Arias','George Alberto',190,71,'R','R','1996-04-02','1999-07-28'),
 ('ariasjo01',1984,9,21,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Joaquin','Arias','Joaquin',185,73,'R','R','2006-09-13','2015-07-24'),
+('ariaslu01',2000,12,12,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Luarbert','Arias','Luarbert Elias',176,74,'R','R','2025-03-31',NULL),
 ('ariasru01',1931,6,6,'Cuba',NULL,'Las Villas',2018,1,12,'USA','FL','Miami','Rudy','Arias','Rodolfo',165,70,'L','L','1959-04-10','1959-08-26'),
 ('arihako01',1992,8,11,'Japan','Hiroshima','Hiroshima',NULL,NULL,NULL,NULL,NULL,NULL,'Kohei','Arihara','Kohei',210,74,'R','R','2021-04-03','2022-09-10'),
 ('arletbu01',1899,1,3,'USA','CA','Elmhurst',1964,5,16,'USA','MN','Minneapolis','Buzz','Arlett','Russell Loris',225,75,'B','R','1931-04-14','1931-09-27'),
@@ -521087,6 +521134,7 @@ INSERT INTO `people` VALUES
 ('arredjo01',1984,3,12,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Arredondo','Jose Juan',190,72,'R','R','2008-05-14','2012-10-03'),
 ('arrieja01',1986,3,6,'USA','MO','Farmington',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Arrieta','Jacob Joseph',230,76,'R','R','2010-06-10','2021-09-19'),
 ('arrigge01',1941,6,12,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Gerry','Arrigo','Gerald William',185,73,'L','L','1961-06-12','1970-06-05'),
+('arrigsp01',2000,1,2,'USA','NM','Albuquerque',NULL,NULL,NULL,NULL,NULL,NULL,'Spencer','Arrighetti','Spencer Zane',186,74,'R','R','2024-04-10',NULL),
 ('arrojro01',1965,7,18,'Cuba','Villa Clara','Santa Clara',NULL,NULL,NULL,NULL,NULL,NULL,'Rolando','Arrojo','Luis Rolando',215,76,'R','R','1998-04-01','2002-09-22'),
 ('arroybr01',1977,2,24,'USA','FL','Key West',NULL,NULL,NULL,NULL,NULL,NULL,'Bronson','Arroyo','Bronson Anthony',185,75,'R','R','2000-06-12','2017-06-18'),
 ('arroych01',1995,5,30,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Arroyo','Christian Israel',210,73,'R','R','2017-04-24','2022-10-05'),
@@ -521107,6 +521155,7 @@ INSERT INTO `people` VALUES
 ('ashbyaa01',1998,5,24,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Ashby','Aaron Phillip',181,74,'R','L','2021-06-30','2022-10-05'),
 ('ashbyal01',1951,7,8,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Alan','Ashby','Alan Dean',185,74,'B','R','1973-07-03','1989-05-09'),
 ('ashbyan01',1967,7,11,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Ashby','Andrew Jason',180,73,'R','R','1991-06-10','2004-09-14'),
+('ashcrbr01',1999,10,5,'USA','TX','Waco',NULL,NULL,NULL,NULL,NULL,NULL,'Braxton','Ashcraft','Braxton',220,77,'L','R','2025-05-26',NULL),
 ('ashcrgr01',1998,2,11,'USA','AL','Huntsville',NULL,NULL,NULL,NULL,NULL,NULL,'Graham','Ashcraft','Douglas Graham',240,74,'L','R','2022-05-22','2022-10-05'),
 ('asheral01',1991,10,4,'USA','FL','Lakeland',NULL,NULL,NULL,NULL,NULL,NULL,'Alec','Asher','Alec Edward',240,76,'R','R','2015-08-30','2018-07-12'),
 ('ashfotu01',1954,12,4,'USA','TN','Memphis',NULL,NULL,NULL,NULL,NULL,NULL,'Tucker','Ashford','Thomas Steven',195,73,'R','R','1976-09-21','1984-05-14'),
@@ -521169,6 +521218,7 @@ INSERT INTO `people` VALUES
 ('autrych01',1885,1,2,'USA','TN','Humboldt',1976,1,16,'USA','CA','Santa Rosa','Chick','Autry','William Askew',168,71,'L','L','1907-09-18','1909-10-07'),
 ('autrych02',1903,3,5,'USA','TX','Martindale',1950,1,26,'USA','GA','Savannah','Martin','Autry','Martin Gordon',180,72,'R','R','1924-04-20','1930-09-18'),
 ('autryge99',1907,9,29,'USA','TX','Tioga',1998,10,2,'Studio City','USA','CA','Gene','Autry','Orvon Grover',NULL,NULL,NULL,NULL,NULL,NULL),
+('avansdr01',1996,6,13,'USA','AL','Alabaster',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Avans','Drew',195,70,'L','L','2025-05-27',NULL),
 ('aveliab01',1995,2,14,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Abiatal','Avelino','Abiatal',210,72,'R','R','2018-09-08','2019-08-26'),
 ('avenbr01',1972,3,4,'USA','TX','Orange',NULL,NULL,NULL,NULL,NULL,NULL,'Bruce','Aven','David Bruce',180,69,'R','R','1997-08-27','2002-05-27'),
 ('averiea01',1902,5,21,'USA','WA','Snohomish',1983,8,16,'USA','WA','Everett','Earl','Averill','Howard Earl',172,69,'L','R','1929-04-16','1941-04-25'),
@@ -521178,6 +521228,8 @@ INSERT INTO `people` VALUES
 ('avilaal01',1987,1,29,'USA','FL','Hialeah',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Avila','Alexander Thomas',228,71,'L','R','2009-08-06','2021-10-03'),
 ('avilabo01',1924,4,2,'Mexico','Veracruz','Veracruz',2004,10,26,'Mexico','Veracruz','Veracruz','Bobby','Avila','Roberto Francisco',175,70,'R','R','1949-04-30','1959-09-29'),
 ('avilalu01',1989,7,19,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Avilan','Luis Armando',235,74,'L','L','2012-07-14','2021-04-15'),
+('avilalu02',2001,8,21,'Venezuela','Distrito Capital','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Luinder','Avila','Luinder Gabriel',195,75,'R','R','2025-08-13',NULL),
+('avilani01',1997,7,25,'USA','CA','Modesto',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Avila','Nicholas Paul',195,76,'R','R','2024-04-01',NULL),
 ('avilape01',1997,1,14,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','Avila','Pedro Manuel',210,71,'R','R','2019-04-11','2022-04-24'),
 ('avilemi01',1981,3,13,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Aviles','Michael Anthony',205,70,'R','R','2008-05-29','2017-10-01'),
 ('avilera01',1952,1,22,'P.R.',NULL,'Manati',2020,1,27,'P.R.',NULL,'Manati','Ramon','Aviles','Ramon Antonio',155,69,'R','R','1977-07-10','1981-10-04'),
@@ -521205,8 +521257,10 @@ INSERT INTO `people` VALUES
 ('babicjo01',1913,5,14,'USA','CA','Albion',2001,1,19,'USA','CA','Richmond','Johnny','Babich','John Charles',185,73,'R','R','1934-06-19','1941-08-28'),
 ('babinch01',1895,5,4,'USA','RI','Cranston',1957,3,22,'USA','RI','Providence','Charlie','Babington','Charles Percy',170,72,'R','R','1915-07-20','1915-09-26'),
 ('babitsh01',1959,3,9,'USA','CA','Oakland',NULL,NULL,NULL,NULL,NULL,NULL,'Shooty','Babitt','Mack Neal',174,68,'R','R','1981-04-09','1981-09-04'),
+('bachala01',1995,6,3,'USA','IL','Winfield',NULL,NULL,NULL,NULL,NULL,NULL,'Lake','Bachar','Lake David',219,74,'R','R','2024-09-08',NULL),
 ('bachmsa01',1999,9,30,'USA','IN','Indianapolis',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Bachman','Samuel Duane',235,73,'R','R','2023-05-26','2023-07-03'),
 ('backebr01',1978,4,5,'USA','TX','Galveston',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Backe','Brandon Allen',182,72,'R','R','2002-07-19','2009-06-18'),
+('backhky01',1998,1,31,'USA','TX','New Waverly',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Backhus','Kyle Jordan',185,76,'L','L','2025-06-08',NULL),
 ('backmle01',1888,3,20,'USA','OH','Cleves',1975,11,8,'USA','OH','Cincinnati','Les','Backman','Lester John',195,72,'R','R','1909-07-03','1910-08-28'),
 ('backmwa01',1959,9,22,'USA','OR','Hillsboro',NULL,NULL,NULL,NULL,NULL,NULL,'Wally','Backman','Walter Wayne',160,69,'B','R','1980-09-02','1993-05-14'),
 ('baconed01',1895,4,8,'USA','KY','Frankfort',1963,10,2,'USA','KY','Louisville','Eddie','Bacon','Edgar Suter',158,68,NULL,NULL,'1917-08-13','1917-08-20'),
@@ -521279,6 +521333,7 @@ INSERT INTO `people` VALUES
 ('bakerch01',1856,1,15,'USA','MA','West Boylston',1937,1,15,'USA','NH','Goffstown','Charlie','Baker','Charles Arthur',140,64,'R','R','1884-08-01','1884-08-27'),
 ('bakerch02',1952,12,6,'USA','WA','Seattle',NULL,NULL,NULL,NULL,NULL,NULL,'Chuck','Baker','Charles Joseph',180,71,'R','R','1978-04-07','1981-10-04'),
 ('bakerda01',1956,11,25,'USA','IA','Lacona',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Baker','David Glenn',185,72,'L','R','1982-09-12','1982-09-29'),
+('bakerda02',1999,2,11,'USA','CA','Redwood City',NULL,NULL,NULL,NULL,NULL,NULL,'Darren','Baker','Darren John',167,70,'L','R','2024-09-01',NULL),
 ('bakerde01',1892,5,3,'USA','OR','Sherwood',1973,9,11,'USA','TX','Olmos Park','Del','Baker','Delmer David',176,71,'R','R','1914-04-16','1916-09-30'),
 ('bakerdo01',1961,4,3,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Baker','Douglas Lee',165,69,'B','R','1984-07-02','1990-04-12'),
 ('bakerdu01',1949,6,15,'USA','CA','Riverside',NULL,NULL,NULL,NULL,NULL,NULL,'Dusty','Baker','Johnnie B.',183,74,'R','R','1968-09-07','1986-10-04'),
@@ -521316,7 +521371,9 @@ INSERT INTO `people` VALUES
 ('baldoal01',1993,2,1,'Panama','Colon','Colon',NULL,NULL,NULL,NULL,NULL,NULL,'Alberto','Baldonado','Alberto Louis',276,76,'L','L','2021-09-02','2021-10-01'),
 ('baldsja01',1936,10,16,'USA','OH','Greenville',2023,6,6,'USA','WI','Green Bay','Jack','Baldschun','Jack Edward',175,73,'R','R','1961-04-28','1970-08-21'),
 ('baldwbi01',1948,6,9,'USA','VA','Tazewell',2011,6,28,'USA','OH','Hudson','Billy','Baldwin','Robert Harvey',175,72,'L','L','1975-07-29','1976-09-28'),
+('baldwbr01',2000,8,15,'USA','NC','Whiteville',NULL,NULL,NULL,NULL,NULL,NULL,'Brooks','Baldwin','Riley Brooks',195,73,'B','R','2024-07-19',NULL),
 ('baldwda01',1938,3,30,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Baldwin','David George',200,74,'R','R','1966-09-06','1973-08-07'),
+('baldwdr01',2001,3,28,'USA','WI','Madison',NULL,NULL,NULL,NULL,NULL,NULL,'Drake','Baldwin','Drake Randall',225,73,'L','R','2025-03-27',NULL),
 ('baldwfr01',1928,12,25,'USA','NJ','High Bridge',2004,11,18,'USA','OH','Beaver','Frank','Baldwin','Frank DeWitt',195,71,'R','R','1953-04-22','1953-09-05'),
 ('baldwha01',1900,6,3,'USA','MD','Baltimore',1958,1,23,'USA','MD','Baltimore','Harry','Baldwin','Howard Edward',160,71,'R','R','1924-05-04','1925-04-24'),
 ('baldwhe01',1894,6,13,'USA','PA','Chadds Ford',1964,2,24,'USA','PA','West Chester','Henry','Baldwin','Henry Clay',180,71,'R','R','1927-05-22','1927-06-03'),
@@ -521338,6 +521395,7 @@ INSERT INTO `people` VALUES
 ('ballale99',1895,12,27,'USA','TX','Waco',1987,7,15,'Dallas','USA','TX','Lee','Ballanfant','Edward Lee',163,68,NULL,NULL,NULL,NULL),
 ('ballar01',1872,4,NULL,'USA','IN','Madison',1915,12,26,'USA','IL','Chicago','Art','Ball','Arthur',168,NULL,NULL,'R','1894-08-01','1898-10-15'),
 ('balleja01',1960,10,6,'USA','OR','Stayton',NULL,NULL,NULL,NULL,NULL,NULL,'Jay','Baller','Jay Scott',215,78,'R','R','1982-09-19','1992-08-31'),
+('ballemo01',2003,11,8,'Venezuela','Miranda','Los Teques',NULL,NULL,NULL,NULL,NULL,NULL,'Moisés','Ballesteros','Moisés Alejandro',215,68,'L','R','2025-05-13',NULL),
 ('ballepe01',1894,2,6,'USA','SC','Gilreath Mill',1948,12,8,'USA','SC','Gantt','Pelham','Ballenger','Pelham Ashby',160,71,'R','R','1928-05-07','1928-05-12'),
 ('ballima01',1949,1,31,'USA','CA','Glendale',2014,6,13,'USA','FL','Okeechobee','Mark','Ballinger','Mark Alan',205,78,'R','R','1971-08-06','1971-09-25'),
 ('ballje01',1969,4,17,'USA','CA','Merced',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Ball','Jeffery D.',185,70,'R','R','1998-06-10','1998-06-16'),
@@ -521356,6 +521414,7 @@ INSERT INTO `people` VALUES
 ('bandyje01',1990,3,26,'USA','CA','West Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Jett','Bandy','Jett Adam',235,76,'R','R','2015-09-14','2018-05-23'),
 ('baneed01',1952,3,22,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Eddie','Bane','Edward Norman',160,69,'R','L','1973-07-04','1976-09-12'),
 ('baneydi01',1946,11,1,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'Dick','Baney','Richard Lee',185,72,'R','R','1969-07-11','1974-10-02'),
+('banfiwi01',1999,11,18,'USA','GA','Lawrenceville',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Banfield','William Frank',215,72,'R','R','2025-08-23',NULL),
 ('banisje01',1964,1,15,'USA','OK','Weatherford',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Banister','Jeffery Todd',200,74,'R','R','1991-07-23','1991-07-23'),
 ('bankhda01',1920,5,3,'USA','AL','Empire',1976,5,2,'USA','TX','Houston','Dan','Bankhead','Daniel Robert',184,73,'R','R','1947-08-26','1951-07-18'),
 ('bankhsc01',1963,7,31,'USA','NC','Raleigh',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Bankhead','Michael Scott',175,70,'R','R','1986-05-25','1995-07-18'),
@@ -521377,6 +521436,7 @@ INSERT INTO `people` VALUES
 ('bannoto01',1869,5,8,'USA','MA','Amesbury',1950,1,26,'USA','MA','Lynn','Tom','Bannon','Thomas Edward',175,68,'R','R','1895-05-10','1896-09-25'),
 ('bantaja01',1925,6,24,'USA','KS','Hutchinson',2006,9,17,'USA','KS','Hutchinson','Jack','Banta','Jackie Kay',175,74,'L','R','1947-09-18','1950-06-21'),
 ('bantzbr01',1987,1,7,'USA','TX','Arlington',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Bantz','Brandon',205,73,'R','R','2013-06-08','2013-06-08'),
+('banueda01',1996,10,1,'USA','CA','Ontario',NULL,NULL,NULL,NULL,NULL,NULL,'David','Bañuelos','David Clemente',205,70,'R','R','2024-04-16',NULL),
 ('banuema01',1991,3,13,'Mexico','Durango','Gomez Palacio',NULL,NULL,NULL,NULL,NULL,NULL,'Manny','Banuelos','Manuel',215,70,'R','L','2015-07-02','2022-10-05'),
 ('baptitr01',1971,12,30,'USA','OR','Forest Grove',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Baptist','Travis Steven',195,72,'L','L','1998-08-01','1998-09-23'),
 ('baragca01',1994,4,9,'USA','MI','Jenison',NULL,NULL,NULL,NULL,NULL,NULL,'Caleb','Baragar','Caleb',215,75,'R','L','2020-07-25','2021-09-11'),
@@ -521397,6 +521457,7 @@ INSERT INTO `people` VALUES
 ('barcelo01',1977,8,10,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Lorenzo','Barcelo','Lorenzo Antonio',230,76,'R','R','2000-07-22','2002-04-19'),
 ('barclcu01',1931,8,22,'USA','IL','Chicago',1985,3,25,'USA','MT','Missoula','Curt','Barclay','Curtis Cordell',210,75,'R','R','1957-04-21','1959-04-16'),
 ('barclge01',1875,5,16,'USA','PA','Millville',1909,4,3,'USA','PA','Philadelphia','George','Barclay','George Oliver',162,70,'R','R','1902-04-17','1905-05-30'),
+('barcohu01',2000,12,15,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Barco','Hunter Harkins',235,76,'L','L','2025-09-23',NULL),
 ('bardda01',1985,6,25,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Bard','Daniel Paul',215,76,'R','R','2009-05-13','2022-10-04'),
 ('bardebr01',1981,4,2,'USA','CA','Templeton',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Barden','Brian David',190,71,'R','R','2007-04-03','2010-07-02'),
 ('bardjo01',1978,3,30,'USA','NY','Ithaca',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Bard','Joshua David',225,75,'B','R','2002-08-23','2011-09-17'),
@@ -521407,6 +521468,7 @@ INSERT INTO `people` VALUES
 ('barfijo02',1982,12,17,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Barfield','Joshua LaRoy',190,72,'R','R','2006-04-03','2009-06-25'),
 ('barfocl01',1891,7,8,'USA','VA','Richmond',1971,3,11,'USA','CA','Highland Park','Clyde','Barfoot','Clyde Raymond',170,72,'R','R','1922-04-13','1926-05-24'),
 ('bargagr01',1959,1,27,'USA','CA','Inglewood',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Bargar','Greg Robert',185,74,'R','R','1983-07-17','1986-10-02'),
+('bargead01',1999,11,12,'USA','WA','Bellevue',NULL,NULL,NULL,NULL,NULL,NULL,'Addison','Barger','Addison',210,72,'L','R','2024-04-24',NULL),
 ('bargecy01',1885,5,18,'USA','KY','Jamestown',1964,9,23,'USA','KY','Columbia','Cy','Barger','Eros Bolivar',160,72,'L','R','1906-08-30','1915-10-02'),
 ('barkbr01',1968,8,26,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Bark','Brian Stuart',170,69,'L','L','1995-07-06','1995-09-08'),
 ('barkeal01',1839,1,18,'USA','IN','Lost Creek',1912,9,15,'USA','IL','Rockford','Al','Barker','Alfred L.',162,72,NULL,NULL,'1871-06-01','1871-06-01'),
@@ -521451,6 +521513,7 @@ INSERT INTO `people` VALUES
 ('barnela01',1974,7,23,'USA','CA','Bakersfield',NULL,NULL,NULL,NULL,NULL,NULL,'Larry','Barnes','Larry Richard',195,73,'L','L','2001-04-11','2003-07-31'),
 ('barnelu01',1947,4,28,'USA','IA','Forest City',NULL,NULL,NULL,NULL,NULL,NULL,'Lute','Barnes','Luther Owens',160,70,'R','R','1972-08-06','1973-09-26'),
 ('barnema01',1990,6,17,'USA','CT','Danbury',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Barnes','Matthew David',208,76,'R','R','2014-09-09','2022-10-05'),
+('barnema02',2000,11,7,'USA','GA','Kennesaw',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Barnett','Mason McLendon',218,72,'R','R','2025-08-30',NULL),
 ('barnere01',1903,12,25,'USA','AL','Suggsville',1959,7,3,'USA','AL','Mobile','Red','Barnes','Emile Deering',158,70,'L','R','1927-09-29','1930-09-20'),
 ('barnere02',1924,12,19,'USA','NE','Omaha',1997,8,12,'USA','MD','Baltimore','Rex','Barney','Rex Edward',185,75,'R','R','1943-08-18','1950-09-04'),
 ('barneri01',1959,7,21,'USA','FL','Palm Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Barnes','Richard Monroe',186,76,'R','L','1982-07-18','1983-09-25'),
@@ -521508,6 +521571,7 @@ INSERT INTO `people` VALUES
 ('barroed99',1868,5,10,'USA','IL','Springfield',1953,12,15,'USA','NY','Port Chester','Ed','Barrow','Edward Grant',NULL,NULL,NULL,NULL,NULL,NULL),
 ('barrofr01',1844,10,22,'USA','OH','Hudson',1922,2,6,'USA','MA','Fitchburg','Frank','Barrows','Franklin Lee',NULL,NULL,NULL,NULL,'1871-05-20','1871-10-07'),
 ('barrofr02',1890,8,6,'USA','WV','St. Marys',1964,9,18,'USA','WV','St. Marys','Frank','Barron','Frank John',175,73,'L','L','1914-08-19','1914-08-19'),
+('barrojo01',2001,2,17,'Venezuela','Carabobo','Puerto Cabello',NULL,NULL,NULL,NULL,NULL,NULL,'Jorge','Barrosa','Jorge Luis',165,66,'B','L','2024-04-01',NULL),
 ('barrore01',1900,6,21,'USA','GA','Clarkesville',1982,10,4,'USA','GA','Atlanta','Red','Barron','David Irenus',185,71,'R','R','1929-06-10','1929-07-07'),
 ('barroto01',1966,8,17,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Barron','Anthony Dirk',185,72,'R','R','1996-06-02','1997-09-28'),
 ('barrsc01',1886,10,6,'USA','TN','Bristol',1934,12,2,'USA','TX','Fort Worth','Scotty','Barr','Hyder Edward',175,72,'R','R','1908-08-22','1909-07-17'),
@@ -521545,6 +521609,7 @@ INSERT INTO `people` VALUES
 ('basablu01',1996,8,26,'Venezuela','Merida','El Vigia',NULL,NULL,NULL,NULL,NULL,NULL,'Luis Alexander','Basabe','Luis Alexander',180,72,'B','R','2020-08-27','2020-09-22'),
 ('basabos01',2000,9,13,'Venezuela','Sucre','Bobures',NULL,NULL,NULL,NULL,NULL,NULL,'Osleivis','Basabe','Osleivis Jose',188,71,'R','R','2023-08-13','2023-10-01'),
 ('basakch01',1978,12,6,'USA','NE','North Platte',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Basak','Christopher Joseph',190,74,'R','R','2007-06-09','2007-07-31'),
+('basalsa01',2004,8,13,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Samuel','Basallo','Samuel Alexander',180,76,'L','R','2025-08-17',NULL),
 ('basgamo01',1922,2,8,'USA','KS','Pfeifer',2005,9,22,'USA','AZ','Sierra Vista','Monty','Basgall','Romanus',175,70,'R','R','1948-04-19','1951-08-11'),
 ('bashaal01',1888,8,22,'USA','OH','Cincinnati',1967,6,23,'USA','OH','Cincinnati','Al','Bashang','Albert C.',150,68,'B','R','1912-07-30','1918-07-13'),
 ('bashlty01',1993,4,16,'USA','GA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Bashlor','Tyler Morris',195,72,'R','R','2018-06-25','2020-09-09'),
@@ -521561,6 +521626,7 @@ INSERT INTO `people` VALUES
 ('basske01',1959,5,12,'USA','CA','Redwood City',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Bass','Kevin Charles',183,72,'B','R','1982-04-09','1995-10-01'),
 ('bassljo01',1895,6,3,'USA','PA','Lancaster',1979,6,29,'USA','CA','Santa Monica','Johnny','Bassler','John Landis',170,69,'L','R','1913-07-11','1927-09-30'),
 ('bassno01',1939,1,21,'USA','MS','Laurel',NULL,NULL,NULL,NULL,NULL,NULL,'Norm','Bass','Norman Delaney',205,75,'R','R','1961-04-23','1963-04-26'),
+('bassobr01',1997,10,8,'USA','TX','Pearland',NULL,NULL,NULL,NULL,NULL,NULL,'Brady','Basso','Brady Marshall',213,74,'R','L','2024-05-31',NULL),
 ('bassra01',1954,3,13,'USA','OK','Lawton',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Bass','Randy William',210,73,'L','R','1977-09-03','1982-06-07'),
 ('bastaan01',1985,9,21,'D.R.','Hato Mayor','Hato Mayor del Rey',NULL,NULL,NULL,NULL,NULL,NULL,'Antonio','Bastardo','Antonio Francisco',202,71,'R','L','2009-06-02','2017-07-07'),
 ('bastich01',1858,3,2,'USA','PA','Philadelphia',1943,11,10,'USA','PA','Philadelphia','Charlie','Bastian','Charles A.',145,66,'R','R','1884-08-18','1891-08-22'),
@@ -521680,6 +521746,7 @@ INSERT INTO `people` VALUES
 ('beaucji01',1939,8,21,'USA','OK','Vinita',2007,12,25,'USA','GA','Union City','Jim','Beauchamp','James Edward',190,74,'R','R','1963-09-22','1973-09-20'),
 ('beaumgi01',1876,7,23,'USA','WI','Rochester',1956,4,10,'USA','WI','Burlington','Ginger','Beaumont','Clarence Howeth',190,68,'L','R','1899-04-21','1910-10-15'),
 ('beavabl01',1989,1,17,'USA','TX','Irving',NULL,NULL,NULL,NULL,NULL,NULL,'Blake','Beavan','Blake William',255,79,'R','R','2011-07-03','2014-04-15'),
+('beavedy01',2001,8,11,'USA','CA','San Luis Obispo',NULL,NULL,NULL,NULL,NULL,NULL,'Dylan','Beavers','Dylan Matthew',206,77,'L','R','2025-08-16',NULL),
 ('beaveed01',1848,NULL,NULL,'USA','NY','Troy',NULL,NULL,NULL,NULL,NULL,NULL,'Edward','Beavens','Edward P.',138,68,NULL,NULL,'1871-05-09','1872-08-22'),
 ('beazljo01',1918,5,25,'USA','TN','Nashville',1990,4,21,'USA','TN','Nashville','Johnny','Beazley','John Andrew',190,73,'R','R','1941-09-28','1949-05-08'),
 ('becanbu01',1859,8,22,'USA','NY','New York',1923,11,5,'USA','NY','New York','Buck','Becannon','James Melvin',165,70,NULL,NULL,'1884-10-15','1887-05-28'),
@@ -521706,6 +521773,7 @@ INSERT INTO `people` VALUES
 ('beckge01',1890,2,21,'USA','IN','South Bend',1973,10,29,'USA','IN','South Bend','George','Beck','Ernest George Bernard',165,71,'R','R','1914-05-15','1914-05-15'),
 ('beckhgo01',1986,9,16,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Gordon','Beckham','James Gordon',188,72,'R','R','2009-06-04','2019-09-28'),
 ('beckhti01',1990,1,27,'USA','GA','Griffin',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Beckham','Timothy Lamar',215,72,'R','R','2013-09-19','2022-08-24'),
+('beckjo01',2001,4,19,'USA','AL','Hazel Green',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Beck','Jordan Alexander',225,74,'R','R','2024-04-30',NULL),
 ('becklja01',1867,8,4,'USA','MO','Hannibal',1918,6,25,'USA','MO','Kansas City','Jake','Beckley','Jacob Peter',200,70,'L','L','1888-06-20','1907-06-15'),
 ('beckmbi01',1907,12,8,'USA','MO','Clayton',1990,1,2,'USA','MO','Florissant','Bill','Beckmann','William Aloysius',175,72,'R','R','1939-05-02','1942-09-20'),
 ('beckmji01',1905,3,1,'USA','OH','Cincinnati',1974,12,5,'USA','OH','Montgomery','Jim','Beckman','James Joseph',172,70,'R','R','1927-07-27','1928-09-22'),
@@ -521738,6 +521806,7 @@ INSERT INTO `people` VALUES
 ('beenefr01',1942,11,24,'USA','TX','Angleton',NULL,NULL,NULL,NULL,NULL,NULL,'Fred','Beene','Freddy Ray',155,69,'B','R','1968-09-18','1975-09-28'),
 ('beerscl01',1918,12,9,'USA','KS','El Dorado',2002,12,6,'USA','AZ','Tucson','Clarence','Beers','Clarence Scott',175,72,'R','R','1948-05-02','1948-05-02'),
 ('beerse01',1996,9,18,'USA','IL','Maryville',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Beer','Seth Michael',213,75,'L','R','2021-09-10','2022-08-16'),
+('beetecl01',1998,10,9,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Clayton','Beeter','Clayton Howard',220,74,'R','R','2024-03-29',NULL),
 ('beggsjo01',1910,11,4,'USA','PA','Rankin',1983,7,19,'USA','IN','Indianapolis','Joe','Beggs','Joseph Stanley',182,73,'R','R','1938-04-19','1948-04-24'),
 ('begleed01',1863,10,NULL,'USA','NY','New York',1919,7,24,'USA','CT','Waterbury','Ed','Bagley','Edward H.',173,68,NULL,NULL,'1884-05-03','1885-07-04'),
 ('beglege01',1861,6,7,'USA','NY','New York',1901,8,15,'USA','NY','Long Island City','Gene','Bagley','Eugene T.',NULL,NULL,NULL,NULL,'1886-09-11','1886-10-01'),
@@ -521802,6 +521871,7 @@ INSERT INTO `people` VALUES
 ('bellobr01',1999,5,17,'D.R.','Samana','Samana',NULL,NULL,NULL,NULL,NULL,NULL,'Brayan','Bello','Brayan',170,73,'R','R','2022-07-06','2022-10-01'),
 ('belloed01',1982,2,21,'Venezuela','Bolivar','San Felix',NULL,NULL,NULL,NULL,NULL,NULL,'Edwin','Bellorin','Edwin Daniel',240,70,'R','R','2007-08-07','2009-06-06'),
 ('belloro01',1948,7,13,'Germany','Baden-Wurttemberg','Heidelberg',NULL,NULL,NULL,NULL,NULL,NULL,'Rob','Belloir','Robert Edward',155,70,'R','R','1975-08-02','1978-09-29'),
+('bellova01',2000,1,4,'México','Baja California','Mexicali',NULL,NULL,NULL,NULL,NULL,NULL,'Valente','Bellozo','Valente',208,70,'R','R','2024-06-26',NULL),
 ('bellra01',1890,11,16,'USA','IA','Argyle',1959,10,18,'USA','IA','Burlington','Ralph','Bell','Ralph Albert',170,71,'L','L','1912-07-16','1912-07-22'),
 ('bellro01',1977,1,17,'USA','NY','Newburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Rob','Bell','Robert Allen',225,77,'R','R','2000-04-08','2007-09-30'),
 ('bellru01',1881,1,1,'USA','WI','Wausau',1955,7,28,'USA','NM','Albuquerque','Rudy','Baerwald','Rudolph Fred',158,68,'R','R','1907-09-14','1907-10-05'),
@@ -521890,6 +521960,7 @@ INSERT INTO `people` VALUES
 ('bergejo02',1901,8,27,'USA','PA','Philadelphia',1979,5,7,'USA','LA','Lake Charles','Johnny','Berger','John Henne',165,69,'R','R','1922-04-20','1927-09-06'),
 ('bergema01',1871,10,25,'USA','MA','North Brookfield',1900,1,19,'USA','MA','North Brookfield','Marty','Bergen','Martin',170,70,NULL,'R','1896-04-17','1899-10-13'),
 ('bergepe01',1977,11,9,'USA','MA','Greenfield',NULL,NULL,NULL,NULL,NULL,NULL,'Peter','Bergeron','Peter Francis',185,74,'L','R','1999-09-07','2004-04-18'),
+('bergery01',2000,3,8,'USA','OH','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Bergert','Ryan Michael',210,73,'R','R','2025-04-26',NULL),
 ('bergetr01',1993,10,8,'USA','GA','McDonough',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Bergen','Travis Michael',223,73,'L','L','2019-03-29','2021-05-23'),
 ('bergetu01',1867,12,6,'USA','PA','Pittsburgh',1907,6,10,'USA','PA','Pittsburgh','Tun','Berger','John Henry',178,66,NULL,'R','1890-05-09','1892-08-28'),
 ('bergewa01',1905,10,10,'USA','IL','Chicago',1988,11,30,'USA','CA','Redondo Beach','Wally','Berger','Walter Anton',198,74,'R','R','1930-04-15','1940-07-04'),
@@ -521910,6 +521981,7 @@ INSERT INTO `people` VALUES
 ('berkmla01',1976,2,10,'USA','TX','Waco',NULL,NULL,NULL,NULL,NULL,NULL,'Lance','Berkman','William Lance',220,73,'B','L','1999-07-16','2013-09-17'),
 ('berlyja01',1903,5,24,'USA','LA','Natchitoches',1977,6,26,'USA','TX','Houston','Jack','Berly','John Chambers',190,71,'R','R','1924-04-22','1933-09-24'),
 ('bermabo01',1899,1,24,'USA','NY','New York',1988,8,2,'USA','CT','Bridgeport','Bob','Berman','Robert Leon',147,68,'R','R','1918-06-04','1918-06-12'),
+('bermujo01',1995,10,16,'P.R.',NULL,'Coamo',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Bermúdez','Jonathan Alberto',226,74,'L','L','2024-08-27',NULL),
 ('bernabr01',1992,1,15,'USA','CA','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Brennan','Bernardino','Brennan Allen',180,76,'L','L','2022-07-31','2022-08-06'),
 ('bernacu01',1878,2,18,'USA','WV','Parkersburg',1955,4,10,'USA','CA','Culver City','Curt','Bernard','Curtis Henry',150,70,'L','R','1900-09-17','1901-06-24'),
 ('bernadw01',1952,5,31,'USA','IL','Mount Vernon',NULL,NULL,NULL,NULL,NULL,NULL,'Dwight','Bernard','Dwight Vern',170,74,'R','R','1978-06-29','1982-10-02'),
@@ -521917,6 +521989,7 @@ INSERT INTO `people` VALUES
 ('bernaro01',1984,6,12,'Curacao',NULL,'Willemstad',NULL,NULL,NULL,NULL,NULL,NULL,'Roger','Bernadina','Rogearvin Argelo',210,74,'L','L','2008-06-29','2014-09-28'),
 ('bernato01',1956,8,24,'P.R.',NULL,'Caguas',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Bernazard','Antonio',150,69,'B','R','1979-07-13','1991-04-26'),
 ('bernavi01',1953,10,6,'USA','CA','Los Angeles',2006,9,2,'USA','CA','Arcadia','Victor','Bernal','Victor Hugo',175,73,'R','R','1977-04-06','1977-05-17'),
+('bernawa01',2002,6,6,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Warming','Bernabel','Warming Jose',180,73,'R','R','2025-07-26',NULL),
 ('bernawy01',1990,9,24,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Wynton','Bernard','Wynton Allen',195,74,'R','R','2022-08-12','2022-08-28'),
 ('bernead01',1976,11,28,'USA','CA','San Jose',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Bernero','Adam Gino',205,76,'R','R','2000-08-01','2006-09-30'),
 ('bernhbi01',1871,3,16,'USA','NY','Clarence',1949,3,30,'USA','CA','San Diego','Bill','Bernhard','William Henry',205,73,'B','R','1899-04-24','1907-09-27'),
@@ -521933,6 +522006,7 @@ INSERT INTO `people` VALUES
 ('berroan01',1978,1,27,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Angel','Berroa','Angel Maria',195,72,'R','R','2001-09-18','2009-08-06'),
 ('berroge01',1965,3,18,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Geronimo','Berroa','Geronimo Emiliano Letta',165,72,'R','R','1989-04-05','2000-05-30'),
 ('berropr01',2000,4,18,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Prelander','Berroa','Prelander',170,71,'R','R','2023-07-21','2023-10-01'),
+('berrost01',1999,6,5,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Steward','Berroa','Steward',178,69,'B','R','2024-06-23',NULL),
 ('berrych01',1860,9,6,'USA','NJ','Elizabeth',1940,2,16,'USA','NJ','Phillipsburg','Charlie','Berry','Charles Joseph',175,71,'R','R','1884-04-30','1884-08-27'),
 ('berrych02',1902,10,18,'USA','NJ','Phillipsburg',1972,9,6,'USA','IL','Evanston','Charlie','Berry','Charles Francis',185,72,'R','R','1925-06-15','1938-09-08'),
 ('berrycl01',1880,2,14,'USA','IN','Losantville',1974,2,1,'USA','IN','Richmond','Claude','Berry','Claude Elzy',165,67,'R','R','1904-04-22','1915-10-03'),
@@ -522019,6 +522093,7 @@ INSERT INTO `people` VALUES
 ('bigbely01',1893,8,22,'USA','OR','Waterloo',1942,8,3,'USA','OR','Portland','Lyle','Bigbee','Lyle Randolph',180,72,'L','R','1920-04-15','1921-09-15'),
 ('bigbila01',1977,11,4,'USA','IN','Hobart',NULL,NULL,NULL,NULL,NULL,NULL,'Larry','Bigbie','Larry Robert',190,76,'L','R','2001-06-23','2006-06-04'),
 ('bigelel01',1897,10,13,'USA','FL','Tarpon Springs',1933,8,13,'USA','FL','Tampa','Elliot','Bigelow','Elliot Allardice',185,71,'L','L','1929-04-18','1929-10-06'),
+('biggehu01',1998,6,12,'USA','FL','Orlando',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Bigge','Hunter Bradford',215,72,'R','R','2024-07-09',NULL),
 ('biggica01',1995,4,11,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Cavan','Biggio','Cavan Thomas',200,74,'L','R','2019-05-24','2022-10-05'),
 ('biggicr01',1965,12,14,'USA','NY','Smithtown',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Biggio','Craig Alan',185,71,'R','R','1988-06-26','2007-09-30'),
 ('biggsch01',1906,9,15,'USA','IN','French Lick',1954,5,24,'USA','IN','French Lick','Charlie','Biggs','Charles Orval',185,73,'R','R','1932-09-03','1932-09-24'),
@@ -522048,6 +522123,7 @@ INSERT INTO `people` VALUES
 ('birdky01',1993,4,12,'USA','FL','Orange Park',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Bird','Ronald Kyle',220,75,'L','L','2019-03-28','2019-07-30'),
 ('birdre01',1890,4,25,'USA','TX','Stephenville',1972,3,23,'USA','AR','Murfreesboro','Red','Bird','James Edward',170,71,'L','L','1921-09-17','1921-09-17'),
 ('birdsda01',1838,7,16,'USA','NY','New York',1896,12,30,'USA','MA','Boston','Dave','Birdsall','David Solomon',126,69,NULL,NULL,'1871-05-05','1873-05-17'),
+('birdsha01',2001,8,30,'USA','IL','Mattoon',NULL,NULL,NULL,NULL,NULL,NULL,'Hayden','Birdsong','Hayden',216,76,'R','R','2024-06-26',NULL),
 ('birkbmi01',1961,3,10,'USA','OH','Orrville',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Birkbeck','Michael Lawrence',190,73,'R','R','1986-08-17','1995-06-11'),
 ('birkiku01',1980,8,11,'USA','CA','West Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Kurt','Birkins','Kurt Daniel',188,74,'L','L','2006-05-04','2008-05-04'),
 ('birkora01',1908,11,5,'USA','OH','Cincinnati',1971,3,16,'USA','OH','Cincinnati','Ralph','Birkofer','Ralph Joseph',213,71,'L','L','1933-04-25','1937-07-11'),
@@ -522072,6 +522148,7 @@ INSERT INTO `people` VALUES
 ('bitkejo01',1964,2,12,'USA','CA','Glendale',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Bitker','Joseph Anthony',175,73,'R','R','1990-07-31','1991-06-19'),
 ('bittije01',1962,4,13,'USA','NJ','Jersey City',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Bittiger','Jeffrey Scott',175,70,'R','R','1986-09-02','1989-05-30'),
 ('bittmre01',1862,7,22,'USA','OH','Cincinnati',1929,11,8,'USA','OH','Cincinnati','Red','Bittmann','Henry Peter',180,69,NULL,NULL,'1889-10-10','1889-10-14'),
+('bivensp01',1994,6,28,'USA','VA','Virginia Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Spencer','Bivens','Spencer',217,77,'R','R','2024-06-16',NULL),
 ('bivinji01',1909,12,11,'USA','MS','Jackson',1982,11,7,'USA','CO','Pueblo','Jim','Bivin','James Nathaniel',155,72,'R','R','1935-04-16','1935-09-29'),
 ('bixlebr01',1982,10,22,'USA','OH','Sandusky',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Bixler','Brian Joseph',195,73,'R','R','2008-04-06','2012-07-28'),
 ('bjorkge01',1956,8,26,'USA','CA','Ontario',NULL,NULL,NULL,NULL,NULL,NULL,'George','Bjorkman','George Anton',190,74,'R','R','1983-07-10','1983-10-02'),
@@ -522094,12 +522171,14 @@ INSERT INTO `people` VALUES
 ('blackjo01',1890,2,23,'USA','KY','Covington',1962,3,20,'USA','NJ','Rutherford','John','Black','John Falconor',185,73,'R','R','1911-06-20','1911-09-12'),
 ('blackjo02',1924,2,8,'USA','NJ','Plainfield',2002,5,17,'USA','AZ','Scottsdale','Joe','Black','Joseph',220,74,'R','R','1952-05-01','1957-09-11'),
 ('blackle01',1886,10,23,'USA','PA','Clifton Heights',1968,2,28,'USA','NJ','Riverside','Lena','Blackburne','Russell Aubrey',160,71,'R','R','1910-04-14','1929-06-05'),
+('blackma01',1999,12,10,'USA','PA','Scranton',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Black','Mason Peter',228,75,'R','R','2024-05-06',NULL),
 ('blackni01',1982,2,24,'USA','OK','Ada',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Blackburn','Robert Nicholas',240,76,'R','R','2007-09-03','2012-08-17'),
 ('blackpa01',1993,12,4,'USA','CA','Antioch',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Blackburn','Paul Cady',196,73,'R','R','2017-07-01','2022-08-04'),
 ('blackra01',1990,6,26,'USA','PA','Wilkes-Barre',NULL,NULL,NULL,NULL,NULL,NULL,'Ray','Black','Raymond Anthony',230,75,'R','R','2018-07-08','2020-09-24'),
 ('blackro01',1935,4,23,'USA','NC','Mount Airy',1998,4,29,'USA','NC','Morganton','Ron','Blackburn','Ronald Hamilton',160,72,'R','R','1958-04-15','1959-07-28'),
 ('blackti01',1952,8,19,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Blackwell','Timothy P.',170,71,'B','R','1974-07-03','1983-05-17'),
 ('blacktr01',1982,11,4,'Australia','Victoria','Melbourne',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Blackley','Travis Jarred',190,75,'L','L','2004-07-01','2013-09-13'),
+('blackty01',2000,7,26,'CAN','ON','Toronto',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Black','Tyler Alexander',199,73,'L','R','2024-04-30',NULL),
 ('blackvi01',1988,5,23,'USA','TX','Amarillo',NULL,NULL,NULL,NULL,NULL,NULL,'Vic','Black','Victor Laurence',210,76,'R','R','2013-07-25','2014-09-13'),
 ('bladera01',1896,8,6,'USA','IL','Mount Vernon',1979,5,18,'USA','IL','Lincoln','Ray','Blades','Francis Raymond',163,67,'R','R','1922-08-19','1932-09-25'),
 ('bladtri01',1946,12,9,'USA','CA','Santa Cruz',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Bladt','Richard Alan',160,73,'R','R','1969-06-15','1975-09-28'),
@@ -522121,6 +522200,7 @@ INSERT INTO `people` VALUES
 ('blakeli01',1912,2,12,'USA','CA','Oakland',1976,9,28,'USA','CA','Oakland','Linc','Blakely','Lincoln Howard',180,72,'R','R','1934-04-29','1934-06-27'),
 ('blakesh01',1899,9,17,'USA','WV','Ansted',1982,10,31,'USA','WV','Beckley','Sheriff','Blake','John Frederick',180,72,'B','R','1920-06-29','1937-09-26'),
 ('blakibo01',1855,10,2,'USA','CA','San Francisco',1918,12,26,'USA','CA','San Francisco','Bob','Blakiston','John Robert',180,68,'R',NULL,'1882-05-02','1884-10-15'),
+('blalobr01',2000,12,25,'USA','GA','Conyers',NULL,NULL,NULL,NULL,NULL,NULL,'Bradley','Blalock','Bradley Christopher',213,74,'R','R','2024-06-20',NULL),
 ('blaloha01',1980,11,21,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Hank','Blalock','Hank Joe',192,73,'L','R','2002-04-01','2010-06-27'),
 ('blancal01',1909,9,21,'USA','MA','Somerville',1997,4,2,'USA','MA','Melrose','Al','Blanche','Prosper Albert',178,72,'R','R','1935-08-23','1936-06-19'),
 ('blancan01',1984,4,11,'Venezuela','Carabobo','Urama',NULL,NULL,NULL,NULL,NULL,NULL,'Andres','Blanco','Andres Eloy',192,70,'B','R','2004-04-17','2017-09-12'),
@@ -522177,6 +522257,7 @@ INSERT INTO `people` VALUES
 ('blissel01',1875,3,9,'USA','PA','Penfield',1962,3,18,'USA','PA','Bradford','Elmer','Bliss','Elmer Ward',180,72,'L','R','1903-09-28','1904-05-11'),
 ('blissfr01',1852,12,10,'USA','IL','Chicago',1929,1,9,'USA','TN','Nashville','Frank','Bliss','Frank Eugene',NULL,NULL,NULL,NULL,'1878-06-20','1878-06-22'),
 ('blissja01',1882,1,9,'USA','WA','Vancouver',1968,10,23,'USA','CA','Temple City','Jack','Bliss','John Joseph Albert',185,69,'R','R','1908-05-10','1912-09-30'),
+('blissry01',1999,12,13,'USA','CA','Burbank',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Bliss','Ryan Isiah',165,67,'R','R','2024-05-27',NULL),
 ('blockbr01',1885,3,13,'USA','WI','Wisconsin Rapids',1937,8,6,'USA','WI','South Milwaukee','Bruno','Block','James John',185,69,'R','R','1907-08-05','1914-10-04'),
 ('blockcy01',1919,5,4,'USA','NY','Brooklyn',2004,9,22,'USA','NY','Manhasset','Cy','Block','Seymour',180,72,'R','R','1942-09-07','1946-09-23'),
 ('blockte01',1959,8,18,'USA','SC','Columbia',NULL,NULL,NULL,NULL,NULL,NULL,'Terry','Blocker','Terry Fennell',195,74,'L','L','1985-04-11','1989-06-11'),
@@ -522188,8 +522269,10 @@ INSERT INTO `people` VALUES
 ('bloombu01',1936,1,5,'USA','OK','Oklahoma City',2011,12,21,'USA','AR','Huntsville','Bud','Bloomfield','Clyde Stalcup',175,71,'R','R','1963-09-25','1964-06-22'),
 ('bloomwi01',1977,11,27,'USA','WA','Bremerton',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','Bloomquist','William Paul',200,71,'R','R','2002-09-01','2015-06-28'),
 ('blossgr01',1971,6,26,'USA','FL','Manatee',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Blosser','Gregory Brent',200,75,'L','L','1993-09-05','1994-04-17'),
+('blossja01',2001,6,23,'USA','NC','Greensboro',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Bloss','John',223,75,'R','R','2024-06-21',NULL),
 ('blottja01',1902,8,24,'USA','OH','Girard',1964,6,11,'USA','MI','Ann Arbor','Jack','Blott','John Leonard',210,72,'R','R','1924-07-30','1924-09-03'),
 ('blowemi01',1965,4,24,'Germany','Bavaria','Wurzburg',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Blowers','Michael Roy',190,74,'R','R','1989-09-01','1999-10-03'),
+('blubaaj01',2000,7,4,'USA','OH','Mansfield',NULL,NULL,NULL,NULL,NULL,NULL,'AJ','Blubaugh','Alan Joseph',190,74,'R','R','2025-04-30',NULL),
 ('bluebe01',1877,12,9,'USA','OH','Bettsville',1929,9,2,'USA','MI','Detroit','Bert','Blue','Bird Wayne',200,75,'R','R','1908-06-15','1908-09-04'),
 ('bluegos01',1900,10,24,'USA','IL','Chicago',1985,10,14,'USA','MN','Edina','Ossie','Bluege','Oswald Louis',162,71,'R','R','1922-04-24','1939-07-13'),
 ('bluegot01',1909,7,20,'USA','IL','Chicago',1977,6,28,'USA','IL','Chicago','Otto','Bluege','Otto Adam',154,70,'R','R','1932-04-12','1933-10-01'),
@@ -522319,6 +522402,7 @@ INSERT INTO `people` VALUES
 ('booneik01',1897,2,17,'USA','AL','Samantha',1958,8,1,'USA','AL','Northport','Ike','Boone','Isaac Morgan',195,72,'L','R','1922-04-22','1932-05-09'),
 ('boonelu01',1890,5,6,'USA','PA','Pittsburgh',1982,7,29,'USA','PA','Pittsburgh','Luke','Boone','Lute Joseph',160,69,'R','R','1913-09-09','1918-09-02'),
 ('boonera01',1923,7,27,'USA','CA','San Diego',2004,10,17,'USA','CA','San Diego','Ray','Boone','Raymond Otis',172,72,'R','R','1948-09-03','1960-08-11'),
+('booseca01',1992,5,4,'USA','WA','Seattle',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Booser','Cameron Joseph',230,75,'L','L','2024-04-19',NULL),
 ('bootcch01',1978,10,24,'USA','IN','La Porte',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Bootcheck','Christopher Brandon',210,77,'R','R','2003-09-09','2013-06-14'),
 ('booth01',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Booth',NULL,NULL,NULL,NULL,NULL,'1875-05-01','1875-05-01'),
 ('bootham01',1848,9,4,'USA','OH','Lebanon',1921,7,1,'USA','OH','Miamisburg','Amos','Booth','Amos Smith',159,69,'R','R','1876-04-25','1882-09-28'),
@@ -522718,6 +522802,7 @@ INSERT INTO `people` VALUES
 ('brookje01',1967,3,23,'USA','NY','Syracuse',NULL,NULL,NULL,NULL,NULL,NULL,'Jerry','Brooks','Jerome Edward',195,72,'R','R','1993-09-06','1996-09-28'),
 ('brookma01',1897,8,18,'USA','WI','Milwaukee',1976,12,6,'USA','WI','Fort Atkinson','Mandy','Brooks','Jonathan',165,69,'R','R','1925-05-30','1926-06-22'),
 ('brookto01',1953,8,10,'USA','PA','Chambersburg',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Brookens','Thomas Dale',165,70,'R','R','1979-07-10','1990-09-30'),
+('brooktr01',1995,7,3,'USA','CA','Alpine',NULL,NULL,NULL,NULL,NULL,NULL,'Trenton','Brooks','Trenton Alan',195,71,'L','L','2024-05-28',NULL),
 ('brosisc01',1966,8,15,'USA','OR','Hillsboro',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Brosius','Scott David',200,73,'R','R','1991-08-07','2001-10-06'),
 ('brosksi01',1911,3,23,'USA','PA','Iselin',1975,5,17,'USA','OH','Canton','Sig','Broskie','Sigmund Theodore',200,71,'R','R','1940-09-11','1940-09-29'),
 ('brosnji01',1929,10,24,'USA','OH','Cincinnati',2014,6,28,'USA','IL','Park Ridge','Jim','Brosnan','James Patrick',197,76,'R','R','1954-04-15','1963-09-21'),
@@ -522742,6 +522827,7 @@ INSERT INTO `people` VALUES
 ('brownan01',1981,2,17,'USA','OH','Chardon',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Brown','Andrew Aaron',230,78,'R','R','2006-08-13','2008-07-25'),
 ('brownan02',1984,9,10,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Brown','Andrew Marshall',200,72,'R','R','2011-06-12','2014-06-15'),
 ('brownba01',1984,12,28,'USA','GA','Brunswick',NULL,NULL,NULL,NULL,NULL,NULL,'Barret','Browning','Gary Barret',230,74,'L','L','2012-06-30','2012-08-23'),
+('brownbe01',1999,9,9,'USA','NY','East Setauket',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Brown','Benjamin',210,78,'R','R','2024-03-30',NULL),
 ('brownbi01',1893,7,8,'USA','TX','Coleman',1965,5,13,'USA','TX','Lubbock','Bill','Brown','William Verna',185,68,'L','L','1912-08-15','1912-09-13'),
 ('brownbo01',1889,2,20,'USA','NJ','Woodbury',1977,2,8,'USA','NJ','Burlington','Carroll','Brown','Carroll William',178,73,'R','R','1911-09-27','1915-10-07'),
 ('brownbo02',1911,4,1,'USA','MA','Dorchester',1990,8,3,'USA','MA','Pembroke','Bob','Brown','Robert Murray',190,72,'R','R','1930-04-21','1936-05-03'),
@@ -522810,6 +522896,7 @@ INSERT INTO `people` VALUES
 ('brownma03',1963,1,23,'USA','OK','Lawton',NULL,NULL,NULL,NULL,NULL,NULL,'Marty','Brown','Marty Leo',190,73,'R','R','1988-09-04','1990-05-30'),
 ('brownma04',1975,6,17,'USA','FL','Lake Worth',2017,2,1,'USA','FL','Lake Worth','Mark','Brownson','Marshall Phillip',175,74,'L','R','1998-07-21','2000-07-20'),
 ('brownma05',1982,8,8,'USA','WA','Bellevue',NULL,NULL,NULL,NULL,NULL,NULL,'Matthew','Brown','Matthew Benjamin',200,72,'R','R','2007-05-10','2008-09-28'),
+('brownmc01',2000,8,15,'USA','IL','Normal',NULL,NULL,NULL,NULL,NULL,NULL,'McCade','Brown','McCade David',225,78,'R','R','2025-08-24',NULL),
 ('brownmi01',1959,3,24,'USA','NJ','Camden County',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Brown','Michael Gary',195,74,'R','R','1982-09-16','1987-08-15'),
 ('brownmi02',1959,12,29,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Brown','Michael Charles',195,74,'R','R','1983-07-21','1988-10-02'),
 ('brownmo01',1876,10,19,'USA','IN','Nyesville',1948,2,14,'USA','IN','Terre Haute','Mordecai','Brown','Mordecai Peter Centennial',175,70,'B','R','1903-04-19','1916-09-04'),
@@ -522893,6 +522980,7 @@ INSERT INTO `people` VALUES
 ('brydetr01',1959,1,17,'USA','WA','Moses Lake',NULL,NULL,NULL,NULL,NULL,NULL,'T. R.','Bryden','Thomas Ray',190,76,'R','R','1986-04-10','1986-06-08'),
 ('bryest01',1949,2,4,'USA','CA','Alameda',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Brye','Stephen Robert',190,72,'R','R','1970-09-03','1978-10-01'),
 ('brynato01',1863,7,30,'USA','PA','Philadelphia',1925,5,10,'USA','PA','Philadelphia','Tod','Brynan','Charles Ruley',155,70,'R','R','1888-06-22','1891-05-26'),
+('brzykza01',1999,7,12,'USA','NC','Hickory',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Brzykcy','Zachary John-William',208,74,'R','R','2024-09-01',NULL),
 ('bubelja01',1978,6,6,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Jaime','Bubela','Jaime Lee',200,73,'L','R','2005-09-15','2005-10-02'),
 ('bubickr01',1997,8,19,'USA','CA','Cupertino',NULL,NULL,NULL,NULL,NULL,NULL,'Kris','Bubic','Kristofer',225,75,'L','L','2020-07-31','2022-10-01'),
 ('bubseha01',1895,9,28,'USA','IL','Chicago',1959,6,22,'USA','IL','Melrose Park','Hal','Bubser','Harold Frederick',170,71,'R','R','1922-04-15','1922-05-04'),
@@ -522990,6 +523078,8 @@ INSERT INTO `people` VALUES
 ('burgoen01',1965,10,7,'Panama','West Panama','Chorrera',NULL,NULL,NULL,NULL,NULL,NULL,'Enrique','Burgos','Enrique',195,76,'L','L','1993-07-15','1995-07-02'),
 ('burgoen02',1990,11,23,'Panama','Panama','Panama',NULL,NULL,NULL,NULL,NULL,NULL,'Enrique','Burgos','Enrique',255,75,'R','R','2015-04-29','2016-09-27'),
 ('burgohi01',1987,8,4,'P.R.',NULL,'Cayey',NULL,NULL,NULL,NULL,NULL,NULL,'Hiram','Burgos','Hiram Alexis',210,71,'R','R','2013-04-20','2013-05-21'),
+('burgoju01',1999,12,22,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Burgos','Juan',185,72,'R','R','2025-07-01',NULL),
+('burgora01',1998,11,29,'P.R.',NULL,'Rio Grande',NULL,NULL,NULL,NULL,NULL,NULL,'Raymond','Burgos','Raymond',209,77,'L','L','2024-06-24',NULL),
 ('buricbi01',1918,5,29,'USA','MI','Calumet',2009,12,25,'USA','CA','Apple Valley','Bill','Burich','William Max',180,72,'R','R','1942-04-14','1946-06-10'),
 ('burkach01',1892,10,13,'USA','MI','Benton Harbor',1964,5,9,'USA','MI','Kalamazoo','Chauncey','Burkam','Chauncey DePew',175,71,'L','R','1915-06-24','1915-06-24'),
 ('burkael01',1917,2,1,'USA','PA','Philadelphia',1995,2,6,'USA','MD','Baltimore','Elmer','Burkart','Elmer Robert',190,74,'R','R','1936-09-14','1939-05-05'),
@@ -523015,6 +523105,7 @@ INSERT INTO `people` VALUES
 ('burkele02',1934,5,6,'USA','MD','Hagerstown',2023,10,13,'USA','VA','Riner','Leo','Burke','Leo Patrick',185,71,'R','R','1958-09-07','1965-05-26'),
 ('burkemi01',1854,NULL,NULL,'USA','NY',NULL,1889,6,9,'USA','NY','Albany','Mike','Burke','Michael E.',190,72,'R','R','1879-05-01','1879-07-19'),
 ('burkepa01',1901,5,13,'USA','MO','St. Louis',1965,7,7,'USA','MO','St. Louis','Pat','Burke','Patrick Edward',170,70,'R','R','1924-09-23','1924-09-23'),
+('burkese01',1999,12,18,'USA','MA','Sutton',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Burke','Sean Michael',240,78,'R','R','2024-09-10',NULL),
 ('burkest01',1955,3,5,'USA','CA','Stockton',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Burke','Steven Michael',200,74,'B','R','1977-09-10','1978-06-02'),
 ('burketi01',1959,2,19,'USA','NE','Omaha',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Burke','Timothy Philip',205,75,'R','R','1985-04-08','1992-09-22'),
 ('burkhke01',1916,11,18,'USA','TN','Knoxville',2004,12,29,'USA','TN','Knoxville','Ken','Burkhart','Kenneth William',190,73,'R','R','1945-04-21','1949-09-25'),
@@ -523039,6 +523130,7 @@ INSERT INTO `people` VALUES
 ('burnsbi02',1989,8,30,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Burns','William John',170,69,'B','R','2014-07-28','2017-07-21'),
 ('burnsbr01',1959,6,8,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Britt','Burns','Robert Britt',215,77,'L','L','1978-08-05','1985-09-30'),
 ('burnscb01',1879,5,15,'USA','MD','Bayview',1968,6,6,'USA','MD','Havre de Grace','C. B.','Burns','Charles Brittingham',175,72,'R','R','1902-08-19','1902-08-19'),
+('burnsch01',2003,1,16,'Italy','Campania','Napoli',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Burns','Chase David',210,75,'R','R','2025-06-24',NULL),
 ('burnsco01',1987,10,9,'USA','AZ','Phoenix',NULL,NULL,NULL,NULL,NULL,NULL,'Cory','Burns','Cory Wade',205,73,'R','R','2012-08-04','2013-09-04'),
 ('burnsde01',1898,5,24,'USA','MO','Tiff City',1969,5,21,'USA','OK','Tulsa','Dennis','Burns','Dennis',180,70,'R','R','1923-09-19','1924-09-26'),
 ('burnsdi01',1863,12,26,'USA','MA','Holyoke',1937,11,16,'USA','MA','Holyoke','Dick','Burns','Richard Simon',140,67,'L','L','1883-05-03','1885-07-23'),
@@ -523074,6 +523166,7 @@ INSERT INTO `people` VALUES
 ('burrohe01',1845,2,3,'USA','NJ','Newark',1878,3,31,'USA','NJ','Newark','Henry','Burroughs','Henry S.',147,68,NULL,NULL,'1871-05-05','1872-05-07'),
 ('burroje01',1951,3,7,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Burroughs','Jeffrey Alan',200,73,'R','R','1970-07-20','1985-10-06'),
 ('burrojo01',1913,10,30,'USA','LA','Winnfield',1987,4,27,'USA','OH','Coal Run','John','Burrows','John',200,70,'R','L','1943-04-25','1944-05-17'),
+('burromi01',1999,11,8,'USA','CT','Waterford',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Burrows','Michael Thomas',200,73,'R','R','2024-09-28',NULL),
 ('burrose01',1980,9,12,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Burroughs','Sean Patrick',195,73,'L','R','2002-04-02','2012-04-30'),
 ('burrote01',1968,11,28,'USA','LA','Lake Charles',NULL,NULL,NULL,NULL,NULL,NULL,'Terry','Burrows','Terry Dale',185,73,'L','L','1994-06-12','1997-06-11'),
 ('burrry01',1994,5,28,'USA','CO','Highlands Ranch',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Burr','Ryan Matthew',220,76,'R','R','2018-08-23','2022-05-18'),
@@ -523107,6 +523200,7 @@ INSERT INTO `people` VALUES
 ('bushho01',1972,11,12,'USA','IL','East St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Homer','Bush','Homer Giles',180,70,'R','R','1997-08-16','2004-06-08'),
 ('bushich01',1967,11,4,'USA','NY','Rockville Centre',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Bushing','Christopher Shaun',183,72,'R','R','1993-09-03','1993-09-24'),
 ('bushjo01',1892,11,27,'USA','MN','Ehime',1974,11,1,'USA','FL','Fort Lauderdale','Bullet Joe','Bush','Leslie Ambrose',173,69,'R','R','1912-09-30','1928-09-30'),
+('bushky01',1999,11,12,'USA','UT','Ogden',NULL,NULL,NULL,NULL,NULL,NULL,'Ky','Bush','Kyler Spencer',250,78,'L','L','2024-08-05',NULL),
 ('bushma01',1986,2,8,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Bush','Matthew Brian',180,69,'R','R','2016-05-13','2022-10-02'),
 ('bushodo01',1856,9,15,'USA','PA','Philadelphia',1908,8,19,'USA','NY','Brooklyn','Doc','Bushong','Albert John',165,71,'R','R','1875-07-19','1890-09-09'),
 ('bushra01',1958,10,5,'USA','DE','Dover',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Bush','Robert Randall',186,73,'L','L','1982-05-01','1993-06-23'),
@@ -523215,6 +523309,7 @@ INSERT INTO `people` VALUES
 ('caffijo01',1931,2,14,'USA','AL','Ramer',2011,8,1,'USA','OH','Warren','Joe','Caffie','Joseph Clifford',180,70,'L','R','1956-09-13','1957-09-28'),
 ('caffybe01',1879,2,10,'USA','IL','Peoria',1942,11,22,'USA','IL','Peoria','Ben','Caffyn','Benjamin Thomas',175,70,'L','L','1906-08-21','1906-10-07'),
 ('cagewa01',1951,11,23,'USA','LA','Monroe',NULL,NULL,NULL,NULL,NULL,NULL,'Wayne','Cage','Wayne Levell',205,76,'L','L','1978-04-22','1979-09-30'),
+('caglija01',2003,2,9,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Jac','Caglianone','Jeffrey Alan',250,77,'L','L','2025-06-03',NULL),
 ('cahiljo01',1865,4,30,'USA','CA','San Francisco',1901,10,31,'USA','CA','Pleasanton','John','Cahill','John Patrick Parnell',168,67,'R','R','1884-05-31','1887-08-09'),
 ('cahilto01',1868,10,NULL,'USA','MA','Fall River',1894,12,25,'USA','PA','Scranton','Tom','Cahill','Thomas H.',150,67,NULL,NULL,'1891-04-09','1891-10-04'),
 ('cahiltr01',1988,3,1,'USA','CA','Oceanside',NULL,NULL,NULL,NULL,NULL,NULL,'Trevor','Cahill','Trevor John',223,76,'R','R','2009-04-07','2021-06-11'),
@@ -523225,6 +523320,7 @@ INSERT INTO `people` VALUES
 ('cainsu01',1907,4,5,'USA','GA','Macon',1975,4,3,'USA','GA','Atlanta','Sugar','Cain','Merritt Patrick',190,71,'L','R','1932-04-15','1938-05-28'),
 ('cairnca01',1972,5,11,'Australia','Queensland','Cairns',NULL,NULL,NULL,NULL,NULL,NULL,'Cameron','Cairncross','Cameron',195,72,'L','L','2000-07-20','2000-10-01'),
 ('cairomi01',1974,5,4,'Venezuela','Anzoategui','Anaco',NULL,NULL,NULL,NULL,NULL,NULL,'Miguel','Cairo','Miguel Jesus',225,73,'R','R','1996-04-17','2012-10-03'),
+('caissow01',2002,7,8,'CAN','ON','Burlington',NULL,NULL,NULL,NULL,NULL,NULL,'Owen','Caissie','Owen Andrew',190,75,'L','R','2025-08-14',NULL),
 ('caithge01',1910,7,22,'USA','IL','Chicago',1954,6,1,'USA','IL','Chicago','George','Caithamer','George Theodore',160,67,'R','R','1934-09-17','1934-09-30'),
 ('caldeiv01',1962,3,19,'P.R.',NULL,'Fajardo',2003,12,27,'P.R.',NULL,'Loiza','Ivan','Calderon','Ivan',220,73,'R','R','1984-08-10','1993-10-03'),
 ('caldesa01',1926,2,6,'USA','NJ','Beverly',2006,11,28,'USA','NJ','Mount Holly','Sam','Calderone','Samuel Francis',185,70,'R','R','1950-04-19','1954-09-26'),
@@ -523262,6 +523358,7 @@ INSERT INTO `people` VALUES
 ('callara01',1891,8,29,'USA','WI','Ashland',1973,1,23,'USA','WA','Olympia','Ray','Callahan','Raymond James',170,70,'L','L','1915-09-12','1915-09-27'),
 ('callawe01',1888,7,3,'USA','IN','Lyons',1953,9,13,'USA','OH','Dayton','Wese','Callahan','Wese LeRoy',155,67,'R','R','1913-09-07','1913-09-21'),
 ('callijo01',1939,3,12,'USA','OK','Qualls',2006,10,12,'USA','PA','Abington','Johnny','Callison','John Wesley',175,70,'L','R','1958-09-09','1973-08-17'),
+('callity01',2000,6,22,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Callihan','Tyler',205,71,'L','R','2025-04-30',NULL),
 ('calloro01',1976,9,4,'USA','CA','San Jose',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Calloway','Ronald Isiah',210,73,'L','L','2003-03-31','2004-08-26'),
 ('calmudi01',1944,1,7,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Dick','Calmus','Richard Lee',187,76,'R','R','1963-04-22','1967-09-02'),
 ('calvema01',1956,9,29,'USA','OK','Tulsa',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Calvert','Mark',195,73,'R','R','1983-04-17','1984-09-30'),
@@ -523271,6 +523368,7 @@ INSERT INTO `people` VALUES
 ('calzana01',1977,2,9,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Napoleon','Calzado','Napoleon',201,75,'R','R','2005-05-29','2005-06-07'),
 ('camacer01',1955,2,1,'USA','CA','Salinas',NULL,NULL,NULL,NULL,NULL,NULL,'Ernie','Camacho','Ernest Carlos',180,73,'R','R','1980-05-22','1990-10-03'),
 ('camarda01',1992,11,9,'USA','CA','Bonita',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Camarena','Daniel Ricardo',210,72,'L','L','2021-06-19','2021-08-25'),
+('camarja01',1999,7,1,'Colombia','Atlántico','Barranquilla',NULL,NULL,NULL,NULL,NULL,NULL,'Jair','Camargo','Jair David',230,70,'R','R','2024-04-16',NULL),
 ('camarjo01',1993,12,13,'Panama','Panama','Panama',NULL,NULL,NULL,NULL,NULL,NULL,'Johan','Camargo','Johan Valentin',195,72,'B','R','2017-04-11','2022-07-29'),
 ('cambrfr01',1948,1,22,'USA','NY','Cambria Heights',NULL,NULL,NULL,NULL,NULL,NULL,'Fred','Cambria','Frederick Dennis',195,74,'R','R','1970-08-26','1970-10-01'),
 ('camelha01',1914,12,9,'USA','MA','Gloucester',1996,7,14,'USA','MA','Wellesley','Hank','Camelli','Henry Richard',190,71,'R','R','1943-10-03','1947-09-28'),
@@ -523278,6 +523376,7 @@ INSERT INTO `people` VALUES
 ('camerja01',1884,9,22,'CAN','NS','Sydney',1963,7,12,'USA','NC','Charlotte','Jack','Cameron','John Stanley',170,70,'R','R','1906-09-13','1906-10-05'),
 ('camerke01',1979,12,15,'USA','IL','Joliet',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Cameron','Kevin John',195,72,'R','R','2007-04-05','2009-06-01'),
 ('camermi01',1973,1,8,'USA','GA','La Grange',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Cameron','Michael Terrance',210,74,'R','R','1995-08-27','2011-09-12'),
+('camerno01',1999,7,17,'USA','MO','St. Joseph',NULL,NULL,NULL,NULL,NULL,NULL,'Noah','Cameron','Noah',220,75,'L','L','2025-04-30',NULL),
 ('camildo01',1907,4,23,'USA','CA','San Francisco',1997,10,21,'USA','CA','San Mateo','Dolph','Camilli','Adolph Louis',185,70,'L','L','1933-09-09','1945-09-23'),
 ('camildo02',1936,9,22,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Camilli','Douglas Joseph',195,71,'R','R','1960-09-25','1969-09-14'),
 ('camillo01',1946,9,24,'USA','TX','El Paso',NULL,NULL,NULL,NULL,NULL,NULL,'Lou','Camilli','Louis Steven',170,70,'B','R','1969-08-09','1972-09-24'),
@@ -523311,6 +523410,7 @@ INSERT INTO `people` VALUES
 ('campbjo01',1907,9,13,'USA','DC','Washington',1995,4,24,'USA','FL','Daytona Beach','John','Campbell','John Millard',184,73,'R','R','1933-07-23','1933-07-23'),
 ('campbjo02',1944,3,10,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Campbell','Joseph Earl',175,73,'R','R','1967-05-03','1967-05-03'),
 ('campbke01',1964,12,6,'USA','AR','Marianna',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Campbell','Kevin Wade',225,74,'R','R','1991-07-19','1995-05-13'),
+('campbkr01',2002,6,28,'USA','TN','Chattanooga',NULL,NULL,NULL,NULL,NULL,NULL,'Kristian','Campbell','Kristian Eron',210,75,'R','R','2025-03-27',NULL),
 ('campbmi01',1964,2,17,'USA','WA','Seattle',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Campbell','Michael Thomas',210,75,'R','R','1987-07-04','1996-09-27'),
 ('campbmi02',1850,8,1,'Ireland',NULL,NULL,1926,1,12,'USA','NJ','Scotch Plains','Michael','Campbell','Michael',NULL,NULL,NULL,NULL,'1873-04-28','1873-07-23'),
 ('campbpa01',1917,9,1,'USA','NC','Paw Creek',2006,6,22,'USA','NC','Charlotte','Paul','Campbell','Paul McLaughlin',185,70,'L','L','1941-04-15','1950-05-14'),
@@ -523320,6 +523420,7 @@ INSERT INTO `people` VALUES
 ('campbso01',1915,3,7,'USA','VA','Sparta',2000,2,16,'USA','VA','Sparta','Soup','Campbell','Clarence',188,73,'L','R','1940-04-21','1941-09-28'),
 ('campbvi01',1888,1,30,'USA','MO','St. Louis',1969,11,16,'USA','MD','Towson','Vin','Campbell','Arthur Vincent',185,72,'L','R','1908-06-06','1915-09-27'),
 ('campeca01',1952,7,6,'USA','OK','Boley',2010,12,7,'USA','CA','Beaumont','Cardell','Camper','Cardell',208,75,'R','R','1977-09-11','1977-10-02'),
+('campegu01',1997,9,20,'Colombia','Córdoba','Lorica',NULL,NULL,NULL,NULL,NULL,NULL,'Gustavo','Campero','Gustavo Angel',183,66,'B','R','2024-09-15',NULL),
 ('campfsa01',1868,2,19,'USA','PA','Meadville',1952,5,16,'USA','PA','Meadville','Sal','Campfield','William Holton',185,72,'R','R','1896-05-15','1896-07-01'),
 ('campho01',1893,7,1,'USA','AL','Hopeful',1960,5,8,'USA','AL','Eastaboga','Howie','Camp','Howard Lee',169,69,'L','R','1917-09-19','1917-09-22'),
 ('campijo01',1978,8,10,'Mexico','Baja California','Tijuana',NULL,NULL,NULL,NULL,NULL,NULL,'Jorge','Campillo','Jorge Hidalgo',230,72,'R','R','2005-05-20','2009-05-28'),
@@ -523354,11 +523455,13 @@ INSERT INTO `people` VALUES
 ('cannich01',1938,5,3,'USA','CA','Oakland',2016,12,29,'USA','CA','San Diego','Chris','Cannizzaro','Christopher John',190,72,'R','R','1960-04-17','1974-09-28'),
 ('cannigr01',1996,5,11,'USA','CA','Mission Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Griffin','Canning','Griffin Alexander',180,74,'R','R','2019-04-30','2021-07-02'),
 ('cannojo01',1953,7,13,'USA','NC','Camp LeJeune',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Cannon','Joseph Jerome',193,75,'L','R','1977-09-22','1980-10-05'),
+('cannojo02',2000,7,19,'USA','SC','Columbia',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Cannon','Jonathan Patrick',225,78,'R','R','2024-04-17',NULL),
 ('canojo01',1962,3,7,'D.R.','San Pedro de Macoris','Boca del Soco',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Cano','Joselito',175,75,'R','R','1989-08-28','1989-09-30'),
 ('canoro01',1982,10,22,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Robinson','Cano','Robinson Jose',228,72,'L','R','2005-05-03','2022-07-27'),
 ('canoye01',1994,3,9,'Cuba',NULL,'Ciego de Avila',NULL,NULL,NULL,NULL,NULL,NULL,'Yennier','Cano','Yennier',185,76,'R','R','2022-05-11','2022-10-05'),
 ('cansejo01',1964,7,2,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Canseco','Jose',240,76,'R','R','1985-09-02','2001-10-06'),
 ('canseoz01',1964,7,2,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Ozzie','Canseco','Osvaldo',220,74,'R','R','1990-07-18','1993-05-13'),
+('cantijo01',1999,12,18,'USA','HI','Honolulu',NULL,NULL,NULL,NULL,NULL,NULL,'Joey','Cantillo','Joseph Lopaka',225,76,'L','L','2024-07-28',NULL),
 ('cantijo99',1861,8,19,'USA','WI','Janesville',1930,1,31,'USA','KY','Hickman','Joe','Cantillon','Joseph D.',NULL,NULL,NULL,NULL,NULL,NULL),
 ('cantrgu01',1904,4,9,'USA','OK','Clarita',1961,1,31,'USA','OK','McAlester','Guy','Cantrell','Guy Dewey',190,72,'R','R','1925-08-18','1930-09-28'),
 ('cantujo01',1982,1,30,'USA','TX','McAllen',NULL,NULL,NULL,NULL,NULL,NULL,'Jorge','Cantu','Jorge Luis',205,75,'R','R','2004-07-17','2011-06-14'),
@@ -523469,6 +523572,7 @@ INSERT INTO `people` VALUES
 ('carreez01',1987,6,11,'Venezuela','Sucre','Guiria',NULL,NULL,NULL,NULL,NULL,NULL,'Ezequiel','Carrera','Ezequiel Manuel',185,71,'L','L','2011-05-20','2017-10-01'),
 ('carrejo01',1987,3,7,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Joel','Carreno','Joel Fernando',255,74,'R','R','2011-08-23','2012-09-28'),
 ('carrema01',1963,7,19,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Carreon','Mark Steven',170,72,'R','L','1987-09-08','1996-08-23'),
+('carrial01',1997,6,6,'USA','CA','Paramount',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Carrillo','Alejandro',245,74,'R','R','2025-07-08',NULL),
 ('carribi01',1873,9,5,'USA','PA','Erie',1932,3,7,'USA','PA','Philadelphia','Bill','Carrick','William Martin',150,70,'R','R','1898-07-30','1902-09-23'),
 ('carribi02',1883,10,22,'USA','ME','Lewiston',1969,7,8,'USA','ME','Lewiston','Bill','Carrigan','William Francis',175,69,'R','R','1906-07-07','1916-09-30'),
 ('carrice01',1984,4,29,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Cesar','Carrillo','Cesar',170,75,'R','R','2009-08-13','2009-08-23'),
@@ -523550,6 +523654,7 @@ INSERT INTO `people` VALUES
 ('casimca01',1976,11,8,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Casimiro','Carlos Rafael',179,71,'R','R','2000-07-31','2000-08-01'),
 ('caskecr01',1949,12,11,'USA','CA','Visalia',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Caskey','Craig Douglas',185,71,'B','L','1973-07-19','1973-09-30'),
 ('caskied01',1851,12,30,'USA','MA','Danvers',1924,10,9,'USA','MA','Danvers','Ed','Caskin','Edward James',165,69,'R','R','1879-05-01','1886-09-24'),
+('caspabe01',1999,2,11,'USA','CT','Westport',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Casparius','Benjamin Keith',215,74,'R','R','2024-08-31',NULL),
 ('cassaha01',1880,7,20,'USA','IL','Bellflower',1969,4,19,'USA','CA','Fresno','Harry','Cassady','Harry Delbert',145,68,'L','L','1904-08-08','1905-05-28'),
 ('cassebo01',1985,9,11,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Bobby','Cassevah','Robert Alan',220,75,'R','R','2010-04-09','2012-06-06'),
 ('casseja01',1980,8,8,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Cassel','Joseph Buren',190,74,'R','R','2007-08-10','2008-09-27'),
@@ -523559,6 +523664,7 @@ INSERT INTO `people` VALUES
 ('cassijo02',1883,2,8,'USA','PA','Chester',1906,3,25,'USA','PA','Chester','Joe','Cassidy','Joseph Philip',144,69,'R','R','1904-04-18','1905-10-07'),
 ('cassipe01',1873,4,8,'USA','DE','Wilmington',1929,7,9,'USA','DE','Wilmington','Pete','Cassidy','Peter Francis',165,70,'R','R','1896-04-18','1899-06-22'),
 ('cassisc01',1975,10,3,'USA','NY','Syracuse',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Cassidy','Scott Robert',175,74,'R','R','2002-04-01','2006-09-25'),
+('castabl01',1998,9,8,'D.R.','Espaillat','Espaillat',NULL,NULL,NULL,NULL,NULL,NULL,'Blas','Castano','Blas',162,70,'R','R','2025-05-28',NULL),
 ('castada01',1994,9,17,'USA','FL','Orlando',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Castano','Daniel Alexander',231,75,'L','L','2020-08-08','2022-07-28'),
 ('casteal01',1986,8,4,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Castellanos','Alejandro Luis',200,72,'R','R','2012-05-31','2013-09-29'),
 ('castege01',1907,8,4,'USA','CA','Colton',1955,12,18,'USA','CA','Lakewood','George','Caster','George Jasper',180,73,'R','R','1934-09-10','1946-09-16'),
@@ -523713,6 +523819,7 @@ INSERT INTO `people` VALUES
 ('chancbo01',1940,9,10,'USA','GA','Statesboro',2013,10,3,'USA','WV','Charleston','Bob','Chance','Robert',215,74,'L','R','1963-09-04','1969-04-29'),
 ('chancde01',1941,6,1,'USA','OH','Wooster',2015,10,11,'USA','OH','Wooster','Dean','Chance','Wilmer Dean',200,75,'R','R','1961-09-11','1971-08-09'),
 ('chancfr01',1876,9,9,'USA','CA','Fresno',1924,9,15,'USA','CA','Los Angeles','Frank','Chance','Frank Leroy',190,72,'R','R','1898-04-29','1914-04-21'),
+('chandbu01',2002,9,14,'USA','GA','Lawrenceville',NULL,NULL,NULL,NULL,NULL,NULL,'Bubba','Chandler','Roy Ruben',218,75,'B','R','2025-08-22',NULL),
 ('chanded01',1917,2,17,'USA','AL','Pinson',2003,7,6,'USA','NV','Las Vegas','Ed','Chandler','Edward Oliver',190,74,'R','R','1947-04-18','1947-06-14'),
 ('chandha99',1898,7,14,'USA','KY','Corydon',1991,6,15,'USA','KY','Versailles','Happy','Chandler','Albert Benjamin',NULL,NULL,NULL,NULL,NULL,NULL),
 ('chandsp01',1907,9,12,'USA','GA','Commerce',1990,1,9,'USA','FL','South Pasadena','Spud','Chandler','Spurgeon Ferdinand',181,72,'R','R','1937-05-06','1947-09-26'),
@@ -523721,6 +523828,7 @@ INSERT INTO `people` VALUES
 ('changyu01',1995,8,18,'Taiwan',NULL,'Taitung',NULL,NULL,NULL,NULL,NULL,NULL,'Yu','Chang','Yu-Cheng',180,73,'R','R','2019-06-28','2022-10-05'),
 ('channle01',1886,3,3,'USA','OH','Crestline',1954,5,7,'USA','CO','Denver','Les','Channell','Lester Clark',180,72,'L','L','1910-05-11','1914-04-18'),
 ('chantch01',1951,8,7,'USA','CA','Bell',NULL,NULL,NULL,NULL,NULL,NULL,'Charlie','Chant','Charles Joseph',190,72,'R','R','1975-09-12','1976-10-03'),
+('chapaan01',1999,5,4,'Venezuela','Mérida','El Vigia',NULL,NULL,NULL,NULL,NULL,NULL,'Andrés','Chaparro','Andrés Alfonso',200,72,'R','R','2024-08-13',NULL),
 ('chapida01',1966,2,1,'USA','OH','Warren',NULL,NULL,NULL,NULL,NULL,NULL,'Darrin','Chapin','Darrin John',170,72,'R','R','1991-09-21','1992-04-27'),
 ('chapled01',1893,9,25,'USA','SC','Pelzer',1978,8,15,'USA','FL','Sanford','Ed','Chaplin','Bert Edgar',158,67,'L','R','1920-09-04','1922-09-30'),
 ('chaplti01',1905,7,13,'USA','CA','Los Angeles',1939,3,25,'USA','CA','National City','Tiny','Chaplin','James Bailey',195,73,'R','R','1928-04-13','1936-09-27'),
@@ -523777,6 +523885,7 @@ INSERT INTO `people` VALUES
 ('chench01',1977,10,28,'Taiwan',NULL,'Tainan City',NULL,NULL,NULL,NULL,NULL,NULL,'Chin-Feng','Chen','Chin-Feng',189,73,'R','R','2002-09-14','2005-07-20'),
 ('chenela01',1886,5,2,'USA','KS','Belleville',1969,1,6,'USA','FL','Daytona Beach','Larry','Cheney','Laurence Russell',185,73,'R','R','1911-09-09','1919-09-26'),
 ('cheneto01',1934,10,14,'USA','GA','Morgan',2001,11,1,'USA','GA','Rome','Tom','Cheney','Thomas Edgar',170,71,'R','R','1957-04-21','1966-05-09'),
+('chengts01',2001,7,26,'Taiwan','Pingtung County','Jiuru',NULL,NULL,NULL,NULL,NULL,NULL,'Tsung-Che','Cheng','Tsung-Che',173,67,'L','R','2025-04-09',NULL),
 ('chenwe02',1985,7,21,'Taiwan',NULL,'Kaohsiung City',NULL,NULL,NULL,NULL,NULL,NULL,'Wei-Yin','Chen','Wei-Yin',200,72,'R','L','2012-04-10','2019-09-28'),
 ('cherrro01',1979,8,19,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Rocky','Cherry','Rocky Ty',225,77,'R','R','2007-04-23','2008-09-24'),
 ('chervpa01',1910,7,23,'USA','PA','Trauger',1976,6,3,'USA','IL','Danville','Paul','Chervinko','Paul',185,68,'R','R','1937-05-30','1938-07-09'),
@@ -523811,6 +523920,7 @@ INSERT INTO `people` VALUES
 ('chitiha01',1932,11,16,'USA','IL','Kincaid',2002,1,31,'USA','FL','Haines City','Harry','Chiti','Harry',221,74,'R','R','1950-09-27','1962-06-10'),
 ('chitrst01',1967,6,8,'Japan','Tokyo','Tokyo',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Chitren','Stephen Vincent',180,72,'R','R','1990-09-05','1991-10-02'),
 ('chittne01',1933,3,25,'USA','VA','Harrisonburg',NULL,NULL,NULL,NULL,NULL,NULL,'Nelson','Chittum','Nelson Boyd',180,73,'R','R','1958-08-17','1960-05-04'),
+('chivian01',2002,7,28,'D.R.','Santo Domingo','La Victoria',NULL,NULL,NULL,NULL,NULL,NULL,'Angel','Chivilli','Angel',162,74,'R','R','2024-06-03',NULL),
 ('chlupbo01',1945,9,16,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Chlupsa','Robert Joseph',215,79,'R','R','1970-07-16','1971-06-04'),
 ('choatdo01',1938,7,2,'USA','MO','Potosi',2018,2,4,'USA','IL','Fairview Heights','Don','Choate','Donald Leon',185,72,'R','R','1960-09-12','1960-09-28'),
 ('choatra01',1975,9,5,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Choate','Randol Doyle',205,73,'L','L','2000-07-01','2015-10-02'),
@@ -523822,6 +523932,7 @@ INSERT INTO `people` VALUES
 ('chouibo01',1972,5,1,'Philippines',NULL,'Manila',NULL,NULL,NULL,NULL,NULL,NULL,'Bobby','Chouinard','Robert William',195,73,'R','R','1996-05-26','2001-09-09'),
 ('chouife01',1887,10,5,'USA','IL','Chicago',1955,4,28,'USA','IL','Hines','Felix','Chouinard','Felix George',150,67,'R','R','1910-09-11','1915-05-08'),
 ('chounch01',1888,9,2,'USA','MN','Cloquet',1946,9,17,'USA','MN','Cloquet','Bill','Chouneau','William',150,69,'R','R','1910-10-09','1910-10-09'),
+('chourja01',2004,3,11,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Chourio','Jackson Bryan',204,72,'R','R','2024-03-29',NULL),
 ('chozeha01',1915,9,27,'USA','MN','Winnebago',1994,9,16,'USA','TX','Houston','Harry','Chozen','Harry',195,69,'R','R','1937-09-21','1937-09-21'),
 ('chrisbo01',1945,10,17,'USA','IL','Chicago',1974,2,20,'USA','CA','San Diego','Bob','Christian','Robert Charles',180,70,'R','R','1968-09-02','1970-05-24'),
 ('chrisbr01',1948,2,22,'USA','WI','Madison',NULL,NULL,NULL,NULL,NULL,NULL,'Bruce','Christensen','Bruce Ray',160,71,'L','R','1971-07-17','1971-09-30'),
@@ -523849,6 +523960,8 @@ INSERT INTO `people` VALUES
 ('churcbu01',1924,9,12,'USA','AL','Birmingham',2001,9,17,'USA','AL','Birmingham','Bubba','Church','Emory Nicholas',180,72,'R','R','1950-04-30','1955-05-01'),
 ('churchi01',1863,11,23,'USA','NY','Central Square',1926,2,23,'USA','FL','Jacksonville','Hi','Church','Hiram Lincoln',NULL,NULL,NULL,NULL,'1890-08-23','1890-08-25'),
 ('churcle01',1942,3,21,'USA','IL','Chicago',1988,4,22,'USA','TX','Richardson','Len','Church','Leonard',190,72,'B','R','1966-08-27','1966-09-04'),
+('churcma01',2001,3,30,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Marc','Church','Marc Easton',189,75,'R','R','2024-09-28',NULL),
+('churcna01',2000,7,12,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Nathan','Church','Nathan Michael',180,70,'L','L','2025-08-17',NULL),
 ('churcry01',1978,10,14,'USA','CA','Santa Barbara',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Church','Ryan Matthew',190,73,'L','L','2004-08-21','2010-10-02'),
 ('churnch01',1930,2,1,'USA','VA','Bridgetown',2017,10,21,'USA','FL','Lady Lake','Chuck','Churn','Clarence Nottingham',205,75,'R','R','1957-04-18','1959-09-29'),
 ('churrjo01',1900,11,26,'USA','PA','Johnstown',1970,2,8,'USA','OH','Zanesville','John','Churry','John',172,69,'R','R','1924-05-24','1927-06-21'),
@@ -523915,6 +524028,7 @@ INSERT INTO `people` VALUES
 ('clarkda04',1894,1,18,'USA','MS','Meridian',1937,5,23,'USA','MS','Meridian','Danny','Clark','Daniel Curren',167,69,'L','R','1922-04-12','1927-09-26'),
 ('clarkda05',1962,9,3,'USA','MS','Tupelo',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Clark','David Earl',200,74,'L','R','1986-09-03','1998-09-27'),
 ('clarkda06',1981,3,18,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Darren','Clarke','Darren Lawrence',235,80,'R','R','2007-05-18','2007-05-20'),
+('clarkde02',2000,5,1,'CAN','ON','Toronto',NULL,NULL,NULL,NULL,NULL,NULL,'Denzel','Clarke','Denzel Leslie',220,76,'R','R','2025-05-23',NULL),
 ('clarkdo01',1976,3,5,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Clark','Douglas Dwyer',205,74,'L','R','2005-09-14','2006-06-29'),
 ('clarkea01',1907,11,6,'USA','DC','Washington',1938,1,16,'USA','DC','Washington','Earl','Clark','Bailey Earl',160,70,'R','R','1927-08-17','1934-05-25'),
 ('clarked01',1863,NULL,NULL,'USA','OH','Cincinnati',1927,11,7,'USA','VA','Hampton','Ed','Clark','Edmund C.',NULL,70,NULL,NULL,'1886-07-04','1886-07-04'),
@@ -523968,6 +524082,7 @@ INSERT INTO `people` VALUES
 ('claryma01',1962,4,3,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Marty','Clary','Martin Keith',190,76,'R','R','1987-09-05','1990-09-29'),
 ('claseem01',1998,3,18,'D.R.','Maria Trinidad Sanchez','Rio San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Emmanuel','Clase','Emmanuel',206,74,'R','R','2019-08-04','2022-10-04'),
 ('clasego01',1907,11,26,'USA','MI','Battle Creek',1981,3,8,'USA','FL','St. Petersburg','Gowell','Claset','Gowell Sylvester',210,75,'B','L','1933-04-12','1933-06-07'),
+('clasejo01',2002,5,23,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Jonatan','Clase','Jonatan',150,70,'B','R','2024-04-15',NULL),
 ('claudal01',1992,1,31,'P.R.',NULL,'San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Claudio','Alexander',187,75,'L','L','2014-08-13','2022-09-14'),
 ('clausal01',1891,6,23,'USA','CT','New Haven',1952,9,13,'USA','CT','New Haven','Al','Clauss','Albert Stanley',178,70,'R','L','1913-04-22','1913-06-17'),
 ('clausbr01',1979,5,1,'USA','SD','Rapid City',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Claussen','Brandon Allen Falker',200,74,'R','L','2003-06-28','2006-06-16'),
@@ -524125,6 +524240,7 @@ INSERT INTO `people` VALUES
 ('coletch01',1944,8,2,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Coletta','Christopher Michael',190,71,'L','L','1972-08-15','1972-10-01'),
 ('colevi01',1968,1,23,'Russia',NULL,'St. Petersburg',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Cole','Victor Alexander',160,70,'B','R','1992-06-06','1992-07-09'),
 ('colewi01',1882,1,6,'USA','WI','Milton Junction',1965,10,11,'USA','WI','Madison','Willis','Cole','Willis Russell',170,68,'R','R','1909-08-22','1910-06-13'),
+('coleza01',2000,8,4,'USA','MO','Ozark',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Cole','Zachary Robert',190,74,'L','R','2025-09-12',NULL),
 ('colgaed01',1862,3,19,'USA','IL','East St. Louis',1895,8,8,'USA','MT','Great Falls','Billy','Colgan','William H.',180,NULL,NULL,NULL,'1884-05-03','1884-10-15'),
 ('colinal01',1981,12,26,'Venezuela','Carabobo','Puerto Cabello',NULL,NULL,NULL,NULL,NULL,NULL,'Alvin','Colina','Alvin Enrique',210,75,'R','R','2006-09-18','2006-09-24'),
 ('colined01',1997,5,3,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Edwar','Colina','Edwar Osnel de la Cruz',240,71,'R','R','2020-09-25','2020-09-25'),
@@ -524141,6 +524257,7 @@ INSERT INTO `people` VALUES
 ('collied02',1916,11,23,'USA','PA','Lansdowne',2000,11,2,'USA','PA','Jennersville','Eddie','Collins','Edward Trowbridge',175,70,'L','R','1939-07-04','1942-05-26'),
 ('colliha01',1869,3,11,'USA','MD','Petersville',1961,8,14,'USA','DC','Washington','Harry','Colliflower','James Harry',175,71,'L','L','1899-07-21','1899-10-12'),
 ('collihu01',1864,4,15,'USA','KY','Louisville',1892,5,21,'USA','NY','Brooklyn','Hub','Collins','Hubert B.',160,68,'R','R','1886-09-04','1892-05-14'),
+('colliis01',1997,7,22,'USA','MN','Maple Grove',NULL,NULL,NULL,NULL,NULL,NULL,'Isaac','Collins','Isaac Michael',188,68,'B','R','2024-09-08',NULL),
 ('colliji01',1870,1,16,'USA','NY','Niagara Falls',1943,3,6,'USA','NY','Buffalo','Jimmy','Collins','James Joseph',178,69,'R','R','1895-04-19','1908-08-29'),
 ('collijo01',1922,12,3,'USA','PA','Scranton',1989,8,30,'USA','NJ','Union','Joe','Collins','Joseph Edward',185,72,'L','L','1948-09-25','1957-09-29'),
 ('collike01',1946,8,4,'USA','MA','Springfield',2016,2,20,'USA','FL','Naples','Kevin','Collins','Kevin Michael',180,73,'L','R','1965-09-01','1971-09-29'),
@@ -524208,6 +524325,7 @@ INSERT INTO `people` VALUES
 ('congeha01',1988,1,29,'USA','WA','Federal Way',NULL,NULL,NULL,NULL,NULL,NULL,'Hank','Conger','Hyun Choi',220,74,'B','R','2010-09-11','2016-07-08'),
 ('conigbi01',1947,8,15,'USA','MA','Revere',2021,2,10,'USA','MA','Beverly','Billy','Conigliaro','William Michael',180,72,'R','R','1969-04-11','1973-09-30'),
 ('conigto01',1945,1,7,'USA','MA','Revere',1990,2,24,'USA','MA','Salem','Tony','Conigliaro','Anthony Richard',185,75,'R','R','1964-04-16','1975-06-12'),
+('coningr01',1997,7,11,'USA','FL','Plantation',NULL,NULL,NULL,NULL,NULL,NULL,'Griffin','Conine','Griffin Riley',210,73,'L','R','2024-08-26',NULL),
 ('coninje01',1966,6,27,'USA','WA','Tacoma',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Conine','Jeffrey Guy',205,73,'R','R','1990-09-16','2007-09-30'),
 ('conkwal01',1896,12,4,'USA','MO','Sedalia',1991,7,30,'USA','CA','La Mesa','Allen','Conkwright','Allen Howard',170,70,'R','R','1920-09-16','1920-10-03'),
 ('conlajo01',1899,12,6,'USA','IL','Chicago',1989,4,16,'USA','AZ','Scottsdale','Jocko','Conlan','John Bertrand',165,67,'L','L','1934-07-06','1935-09-29'),
@@ -524262,6 +524380,7 @@ INSERT INTO `people` VALUES
 ('contija01',1975,1,27,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Conti','Stanley Jason',180,71,'L','R','2000-06-29','2004-07-18'),
 ('contrca01',1991,1,8,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Contreras','Carlos Manuel',215,71,'R','R','2014-06-21','2015-10-04'),
 ('contrjo01',1971,12,6,'Cuba','Pinar del Rio','Las Martinas',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Contreras','Jose Ariel',255,76,'R','R','2003-03-31','2013-05-27'),
+('contrlu01',1996,4,29,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Contreras','Luis Eduardo',175,73,'R','R','2024-06-23',NULL),
 ('contrma01',1995,1,24,'USA','CA','Moreno Valley',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Contreras','Mark Anthony',195,72,'L','R','2022-05-11','2022-10-03'),
 ('contrna01',1951,9,19,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Nardi','Contreras','Arnaldo Juan',193,74,'B','R','1980-05-23','1980-10-01'),
 ('contrro01',1999,11,7,'D.R.','Monte Plata','Peralvillo',NULL,NULL,NULL,NULL,NULL,NULL,'Roansy','Contreras','Roansy',175,72,'R','R','2021-09-29','2022-10-02'),
@@ -524284,6 +524403,7 @@ INSERT INTO `people` VALUES
 ('coogada02',1930,8,14,'USA','CA','Los Angeles',1989,3,8,'USA','CA','Mission Viejo','Dale','Coogan','Dale Roger',190,73,'L','L','1950-04-22','1950-07-05'),
 ('cookaa01',1979,2,8,'USA','KY','Fort Campbell',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Cook','Aaron Lane',215,75,'R','R','2002-08-10','2012-09-28'),
 ('cookan01',1967,8,30,'USA','TN','Memphis',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Cook','Andrew Bernard',205,77,'R','R','1993-05-09','1993-05-24'),
+('cookbi01',1999,1,7,'USA','UT','Layton',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Cook','William Monroe',200,72,'R','R','2024-09-08',NULL),
 ('cookcl01',1936,8,20,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Cliff','Cook','Raymond Clifford',185,72,'R','R','1959-09-09','1963-07-10'),
 ('cookde01',1962,10,4,'USA','TX','La Marque',NULL,NULL,NULL,NULL,NULL,NULL,'Dennis','Cook','Dennis Bryan',185,75,'L','L','1988-09-12','2002-09-18'),
 ('cookdo01',1886,6,24,'USA','TX','Witt',1973,6,30,'USA','TN','Lawrenceburg','Doc','Cook','Luther Almus',170,72,'L','R','1913-08-07','1916-05-09'),
@@ -524385,7 +524505,9 @@ INSERT INTO `people` VALUES
 ('cornema01',1951,8,5,'USA','KS','Wellington',NULL,NULL,NULL,NULL,NULL,NULL,'Mardie','Cornejo','Nieves Mardie',200,75,'R','R','1978-04-08','1978-09-29'),
 ('cornena01',1979,9,24,'USA','KS','Wellington',NULL,NULL,NULL,NULL,NULL,NULL,'Nate','Cornejo','Nathan John',200,77,'R','R','2001-08-08','2004-05-02'),
 ('cornere01',1970,6,2,'USA','AL','Thomasville',NULL,NULL,NULL,NULL,NULL,NULL,'Reid','Cornelius','Jonathan Reid',200,72,'R','R','1995-04-29','2000-09-30'),
+('cornijo01',2003,6,22,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Corniell','Jose Armando',165,75,'R','R','2025-09-28',NULL),
 ('cornute01',1952,10,2,'USA','OR','Roseburg',NULL,NULL,NULL,NULL,NULL,NULL,'Terry','Cornutt','Terry Stanton',195,74,'R','R','1977-04-09','1978-09-15'),
+('coronke01',2000,3,21,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Kenedy','Corona','Kenedy Junior',189,70,'R','R','2025-07-07',NULL),
 ('corpama01',1982,12,3,'Panama','Panama','Panama',NULL,NULL,NULL,NULL,NULL,NULL,'Manny','Corpas','Manuel',170,75,'R','R','2006-07-18','2013-09-27'),
 ('corpoca01',1984,1,7,'P.R.',NULL,'Hato Rey',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Corporan','Carlos Fernando',240,74,'B','R','2009-05-06','2015-07-12'),
 ('corrapa01',1941,3,20,'USA','CA','Los Angeles',2023,8,27,'USA','GA','Big Canoe','Pat','Corrales','Patrick',180,72,'R','R','1964-08-02','1973-09-21'),
@@ -524402,6 +524524,7 @@ INSERT INTO `people` VALUES
 ('corsiji01',1961,9,9,'USA','MA','Newton',2022,1,4,'USA','MA','Bellingham','Jim','Corsi','James Bernard',210,73,'R','R','1988-06-28','1999-10-03'),
 ('cortaje01',1904,9,26,'USA','PA','Wilmerding',1963,3,4,'USA','PA','Pittsburgh','Jess','Cortazzo','John Francis',142,63,'R','R','1923-09-01','1923-09-01'),
 ('cortba01',1956,4,15,'CAN','ON','Toronto',NULL,NULL,NULL,NULL,NULL,NULL,'Barry','Cort','Barry Lee',210,77,'R','R','1977-04-22','1977-06-14'),
+('corteca01',1997,6,30,'USA','FL','Orlando',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Cortes','Carlos Andres',206,67,'L','B','2025-07-23',NULL),
 ('corteda01',1973,10,15,'Mexico','Baja California','Mexicali',NULL,NULL,NULL,NULL,NULL,NULL,'David','Cortes','David Cardenas',195,71,'R','R','1999-08-30','2006-07-13'),
 ('corteda02',1987,3,4,'USA','CA','Pomona',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Cortes','Daniel Adam',235,78,'R','R','2010-09-24','2011-09-12'),
 ('cortefe01',1981,8,10,'USA','CA','Stockton',NULL,NULL,NULL,NULL,NULL,NULL,'Fernando','Cortez','Fernando',175,73,'L','R','2005-07-05','2007-07-03'),
@@ -524562,11 +524685,13 @@ INSERT INTO `people` VALUES
 ('crespfe01',1973,3,5,'P.R.',NULL,'Rio Piedras',NULL,NULL,NULL,NULL,NULL,NULL,'Felipe','Crespo','Felipe Javier',195,71,'B','R','1996-04-28','2001-09-28'),
 ('cressja01',1975,5,13,'USA','LA','New Orleans',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Cressend','John Baptiste',185,73,'R','R','2000-08-26','2004-05-05'),
 ('cresswa01',1917,3,6,'USA','VA','Ben Hur',1996,4,21,'USA','LA','Baton Rouge','Walker','Cress','Walker James',205,77,'R','R','1948-04-27','1949-04-30'),
+('crewsdy01',2002,2,26,'USA','FL','Altamonte Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Dylan','Crews','Dylan Gray',203,72,'R','R','2024-08-26',NULL),
 ('crewsti01',1961,4,3,'USA','FL','Tampa',1993,3,23,'USA','FL','Orlando','Tim','Crews','Stanley Timothy',190,72,'R','R','1987-07-27','1992-10-03'),
 ('crichst01',1992,2,29,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Stefan','Crichton','Stefan Brook',208,75,'R','R','2017-04-16','2021-08-01'),
 ('crickky01',1992,11,30,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Crick','Kyle Daniel',225,76,'L','R','2017-06-22','2022-06-13'),
 ('crideje01',1941,9,2,'USA','SD','Sioux Falls',2008,4,4,'USA','AZ','Phoenix','Jerry','Crider','Jerry Stephen',200,74,'R','R','1969-05-21','1970-09-29'),
 ('crigelo01',1872,2,3,'USA','IN','Elkhart',1934,5,14,'USA','AZ','Tucson','Lou','Criger','Louis',165,70,'R','R','1896-09-21','1912-06-03'),
+('crimbl01',1997,6,17,'USA','AL','Mobile',NULL,NULL,NULL,NULL,NULL,NULL,'Blaine','Crim','Linton Blaine',200,70,'R','R','2025-05-02',NULL),
 ('crimch01',1961,7,23,'USA','CA','Van Nuys',NULL,NULL,NULL,NULL,NULL,NULL,'Chuck','Crim','Charles Robert',175,72,'R','R','1987-04-08','1994-08-08'),
 ('crimija01',1926,2,17,'USA','PA','Philadelphia',2019,2,11,'USA','DE','Middletown','Jack','Crimian','John Melvin',180,70,'R','R','1951-07-03','1957-05-06'),
 ('cripeda01',1951,4,7,'USA','CA','Ramona',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Cripe','David Gordon',180,72,'R','R','1978-09-10','1978-10-01'),
@@ -524581,6 +524706,7 @@ INSERT INTO `people` VALUES
 ('cristch01',1882,2,10,'USA','OH','Cozaddale',1957,1,7,'USA','OH','Cincinnati','Ches','Crist','Chester Arthur',165,71,'R','R','1906-05-18','1906-10-01'),
 ('cristle01',1926,12,10,'USA','MI','Detroit',1977,8,24,'USA','MI','Dearborn','Leo','Cristante','Dante Leo',195,73,'R','R','1951-04-21','1955-09-07'),
 ('criswco01',1996,7,24,'USA','GA','Carrollton',NULL,NULL,NULL,NULL,NULL,NULL,'Cooper','Criswell','Cooper',200,78,'R','R','2021-08-27','2022-09-12'),
+('criswje01',1999,3,10,'USA','MI','Portage',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Criswell','Jeffrey Kelley',203,76,'R','R','2024-08-21',NULL),
 ('critcmo01',1850,3,26,'USA','CT','New London',1910,3,6,'USA','PA','Pittsburgh','Morrie','Critchley','Morris Arthur',190,73,NULL,NULL,'1882-05-08','1882-07-21'),
 ('critzhu01',1900,9,17,'USA','MS','Starkville',1980,1,10,'USA','MS','Greenwood','Hughie','Critz','Hugh Melville',147,68,'R','R','1924-05-31','1935-09-27'),
 ('crochga01',1999,6,21,'USA','MS','Ocean Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Garrett','Crochet','Garrett Nolan',230,78,'L','L','2020-09-18','2021-10-01'),
@@ -524607,6 +524733,7 @@ INSERT INTO `people` VALUES
 ('cronijo01',1906,10,12,'USA','CA','San Francisco',1984,9,7,'USA','MA','Barnstable','Joe','Cronin','Joseph Edward',180,71,'R','R','1926-04-29','1945-04-19'),
 ('cronke01',1993,2,17,'USA','CA','Placentia',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Cron','Kevin Scott',255,77,'R','R','2019-05-24','2020-08-23'),
 ('crookja01',1865,11,9,'USA','MN','St. Paul',1918,2,2,'USA','MO','St. Louis','Jack','Crooks','Charles John',170,70,'R','R','1889-09-26','1898-08-03'),
+('crookji01',2001,7,19,'USA','TX','Euless',NULL,NULL,NULL,NULL,NULL,NULL,'Jimmy','Crooks','James Dale',230,72,'L','R','2025-08-29',NULL),
 ('crookna01',1995,7,12,'D.R.','Maria Trinidad Sanchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Narciso','Crook','Narciso',220,75,'R','R','2022-06-30','2022-07-03'),
 ('crookto01',1884,7,26,'USA','DC','Washington',1929,4,5,'USA','VA','Quantico','Tom','Crooke','Thomas Aloysius',180,72,'L','R','1909-09-29','1910-05-09'),
 ('croplty01',1995,12,10,'USA','IA','Sioux City',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Cropley','Tyler Dean',185,68,'R','R','2023-09-19','2023-09-23'),
@@ -524679,6 +524806,7 @@ INSERT INTO `people` VALUES
 ('cruzlu01',1984,2,10,'Mexico','Sonora','Navojoa',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Cruz','Luis Alfonso',210,73,'R','R','2008-09-02','2013-07-22'),
 ('cruzne01',1972,9,13,'D.R.','Puerto Plata','Puerto Plata',NULL,NULL,NULL,NULL,NULL,NULL,'Nelson','Cruz','Nelson',175,73,'R','R','1997-08-01','2003-07-09'),
 ('cruzne02',1980,7,1,'D.R.','Monte Cristi','Las Matas de Santa Cruz',NULL,NULL,NULL,NULL,NULL,NULL,'Nelson','Cruz','Nelson Ramon',230,74,'R','R','2005-09-17','2022-09-13'),
+('cruzom01',1999,1,26,'México','Sonora','Hermosillo',NULL,NULL,NULL,NULL,NULL,NULL,'Omar','Cruz','Omar Alejandro',210,72,'L','L','2025-04-01',NULL),
 ('cruzon01',1998,10,4,'D.R.','Peravia','Nizao',NULL,NULL,NULL,NULL,NULL,NULL,'Oneil','Cruz','Oneil',220,79,'L','R','2021-10-02','2022-10-05'),
 ('cruzrh01',1986,11,1,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Rhiner','Cruz','Rhiner Allen',210,74,'R','R','2012-04-07','2018-07-07'),
 ('cruzst01',1999,6,15,'D.R.','Hermanas Mirabal','Tenares',NULL,NULL,NULL,NULL,NULL,NULL,'Steven','Cruz','Steven Adalberto',225,79,'R','R','2023-08-29','2023-09-30'),
@@ -524767,6 +524895,7 @@ INSERT INTO `people` VALUES
 ('curtive01',1920,5,24,'USA','IL','Cairo',1992,6,24,'USA','IL','Cairo','Vern','Curtis','Vernon Eugene',170,72,'R','R','1943-09-06','1946-09-13'),
 ('curtiza01',1992,7,4,'USA','FL','Panama City Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Zac','Curtis','Zachary Aaron',190,69,'L','L','2016-04-30','2018-09-30'),
 ('curtrgu01',1912,10,18,'USA','MO','Holliday',1997,8,23,'USA','FL','Sun City Center','Guy','Curtright','Guy Paxton',200,71,'R','R','1943-04-21','1946-07-18'),
+('curvelu01',2000,10,21,'Venezuela','Miranda','Higuerote',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Curvelo','Luis Jefferso',170,73,'R','R','2025-07-31',NULL),
 ('cushmch99',1850,5,25,'USA','NY','New York',1909,6,29,'USA','WI','Milwaukee','Charlie','Cushman','Charles H.',NULL,NULL,NULL,NULL,NULL,NULL),
 ('cushmed01',1852,3,27,'USA','OH','Eagleville',1915,9,26,'USA','PA','Erie','Ed','Cushman','Edgar Leander',177,72,'R','L','1883-07-06','1890-10-11'),
 ('cushmha01',1877,7,5,'USA','ME','Rockland',1920,12,27,'USA','PA','Emsworth','Harvey','Cushman','Harvey Barnes',NULL,NULL,NULL,NULL,'1902-08-24','1902-09-05'),
@@ -524837,6 +524966,7 @@ INSERT INTO `people` VALUES
 ('dammabi01',1872,8,9,'USA','IL','Chicago',1948,12,6,'USA','VA','Lynnhaven','Bill','Dammann','William Henry',155,67,'L','L','1897-04-24','1899-06-22'),
 ('damonjo01',1973,11,5,'USA','KS','Fort Riley',NULL,NULL,NULL,NULL,NULL,NULL,'Johnny','Damon','Johnny David',205,74,'L','L','1995-08-12','2012-08-01'),
 ('damraha01',1890,9,11,'USA','NY','Newburgh',1957,8,21,'USA','NY','Staten Island','Harry','Damrau','Harry Robert',178,70,'R','R','1915-09-17','1915-10-06'),
+('danaca01',2003,12,17,'USA','NY','Warwick',NULL,NULL,NULL,NULL,NULL,NULL,'Caden','Dana','Caden Lawrence',215,76,'L','R','2024-09-01',NULL),
 ('dandrra99',1913,8,31,'USA','VA','Richmond',1994,2,12,'USA','FL','Palm Bay','Ray','Dandridge','Raymond Emmett',175,65,'R','R',NULL,NULL),
 ('danekpa01',1976,1,14,'USA','PA','Williamsport',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','Daneker','Patrick Rees',195,75,'R','R','1999-07-02','1999-07-19'),
 ('daneyar01',1904,7,9,'USA','OK','Talihina',1988,3,11,'USA','AZ','Phoenix','Art','Daney','Arthur Lee',165,71,'R','R','1928-05-25','1928-05-25'),
@@ -524874,9 +525004,11 @@ INSERT INTO `people` VALUES
 ('darnach01',1987,1,21,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','d\'Arnaud','Chase Jonathan',197,73,'R','R','2011-06-24','2018-09-30'),
 ('darnatr01',1989,2,10,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','d\'Arnaud','Travis E.',210,74,'R','R','2013-08-17','2022-10-04'),
 ('darnebo01',1930,11,6,'USA','OK','Wewoka',1995,1,3,'USA','TX','Fredericksburg','Bob','Darnell','Robert Jack',175,70,'R','R','1954-08-10','1956-04-29'),
+('darnedu01',1997,6,26,'USA','MI','Northville',NULL,NULL,NULL,NULL,NULL,NULL,'Dugan','Darnell','Dugan Tate',205,74,'L','R','2025-08-01',NULL),
 ('darneja01',1987,1,19,'USA','CA','Fresno',NULL,NULL,NULL,NULL,NULL,NULL,'James','Darnell','James Thomas',205,74,'R','R','2011-08-09','2012-05-17'),
 ('darnelo01',1989,2,2,'USA','TN','Nashville',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Darnell','Logan Reece',220,74,'L','L','2014-05-06','2014-09-21'),
 ('darraja01',1866,7,17,'USA','PA','Ebensburg',1939,8,12,'USA','PA','Rochester','Jack','Darragh','James S.',180,74,NULL,NULL,'1891-05-13','1891-05-13'),
+('darremi01',1997,11,13,'USA','WV','Parkersburg',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Darrell-Hicks','Michael Brian',215,77,'R','R','2025-04-11',NULL),
 ('darrmi01',1956,3,23,'USA','CA','Pomona',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Darr','Michael Edward',190,76,'R','R','1977-09-06','1977-09-06'),
 ('darrmi02',1976,3,21,'USA','CA','Corona',2002,2,15,'USA','AZ','Phoenix','Mike','Darr','Michael Curtis',205,75,'L','R','1999-05-23','2001-10-07'),
 ('darroge01',1903,7,12,'USA','KS','Beloit',1983,3,24,'USA','AZ','Sun City','George','Darrow','George Oliver',180,72,'L','L','1934-04-22','1934-07-02'),
@@ -524919,6 +525051,7 @@ INSERT INTO `people` VALUES
 ('davidda01',1984,4,23,'CAN','ON','Richmond Hill',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Davidson','David Lawrence',200,73,'L','L','2007-09-06','2009-05-22'),
 ('davidda02',1981,1,8,'USA','FL','Panama City',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Davidson','Daniel Gerome',225,76,'L','L','2009-04-19','2009-04-25'),
 ('davidho01',1884,10,14,'USA','OH','Cleveland',1948,7,26,'USA','MI','Detroit','Homer','Davidson','Homer Hurd',155,70,'R','R','1908-04-25','1908-08-11'),
+('davidlo01',1997,12,26,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Davidson','Logan Douglas',185,75,'B','R','2025-05-24',NULL),
 ('davidma01',1961,2,15,'USA','TN','Knoxville',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Davidson','John Mark',180,74,'R','R','1986-06-20','1991-09-20'),
 ('davidma02',1991,3,26,'USA','CA','Yucaipa',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Davidson','Matthew Glen',230,75,'R','R','2013-08-11','2022-06-17'),
 ('davidmo99',1845,11,30,'USA','OH','Port Washington',1940,9,6,'USA','KY','Louisville','Mordecai','Davidson','Mordecai Hamilton',NULL,NULL,NULL,NULL,NULL,NULL),
@@ -525040,6 +525173,7 @@ INSERT INTO `people` VALUES
 ('deando01',1852,11,6,'USA','OH','Cincinnati',1935,5,4,'USA','TN','Nashville','Dory','Dean','Charles Wilson',160,69,'R','R','1876-06-22','1876-10-09'),
 ('deaneha01',1846,5,6,'USA','NJ','Trenton',1925,5,31,'USA','IN','Indianapolis','Harry','Deane','John Henry',150,67,NULL,NULL,'1871-07-12','1874-10-14'),
 ('deanha01',1915,5,12,'USA','GA','Rockmart',1960,6,1,'USA','GA','Rockmart','Harry','Dean','James Harry',185,76,'R','R','1941-04-16','1941-04-20'),
+('deanju01',1996,12,6,'USA','SC','Mauldin',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Dean','Justin Emmanuel',185,68,'R','R','2025-08-08',NULL),
 ('deanpa01',1912,8,14,'USA','AR','Lucas',1981,3,17,'USA','AR','Springdale','Paul','Dean','Paul Dee',175,72,'R','R','1934-04-18','1943-05-31'),
 ('deanpa02',1989,5,25,'USA','CT','Waterbury',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','Dean','Patrick Michael',195,73,'L','L','2016-05-11','2016-09-30'),
 ('deanto01',1945,8,30,'USA','MS','Iuka',NULL,NULL,NULL,NULL,NULL,NULL,'Tommy','Dean','Tommy Douglas',165,72,'R','R','1967-09-17','1971-09-30'),
@@ -525132,7 +525266,9 @@ INSERT INTO `people` VALUES
 ('delarru01',1989,3,4,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Rubby','De La Rosa','Rubby Carlos',210,72,'R','R','2011-05-24','2017-08-01'),
 ('delarto01',1978,1,28,'D.R.','Santo Domingo','La Victoria',NULL,NULL,NULL,NULL,NULL,NULL,'Tomas','de la Rosa','Tomas Agramonte',165,70,'R','R','2000-07-17','2006-10-01'),
 ('delatjo01',1985,10,17,'P.R.',NULL,'San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','De La Torre','Jose Hairam',195,70,'R','R','2013-05-12','2013-07-29'),
+('delauch01',2001,10,8,'USA','MD','Frederick',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','DeLauter','Chase Daniel',235,75,'L','L','2025-10-01',NULL),
 ('delayja01',1995,3,7,'USA','TX','Plano',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Delay','Jason Thomas',200,71,'R','R','2022-06-14','2022-10-05'),
+('delcaad01',1999,9,27,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Adrian','Del Castillo','Adrian Jose',208,70,'L','R','2024-08-07',NULL),
 ('delcama01',1982,2,16,'USA','MA','Boston',NULL,NULL,NULL,NULL,NULL,NULL,'Manny','Delcarmen','Manuel',225,74,'R','R','2005-07-26','2010-09-30'),
 ('deleojo01',1960,12,20,'D.R.','La Vega','Rancho Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','DeLeon','Jose',210,75,'R','R','1983-07-23','1995-09-18'),
 ('deleojo02',1987,8,15,'D.R.','La Vega','La Vega',NULL,NULL,NULL,NULL,NULL,NULL,'Jorge','De Leon','Jorge Luis',185,72,'R','R','2013-08-09','2014-09-28'),
@@ -525153,12 +525289,14 @@ INSERT INTO `people` VALUES
 ('dellwh01',1886,6,11,'USA','NV','Tuscarora',1966,8,24,'USA','CA','Lone Pine','Wheezer','Dell','William George',210,76,'R','R','1912-04-22','1917-07-04'),
 ('delmabe01',1911,5,20,'USA','CA','San Francisco',1979,12,4,'USA','CA','Huntington Beach','Bert','Delmas','Albert Charles',165,71,'L','R','1933-09-10','1933-10-01'),
 ('delmoni01',1992,7,12,'USA','TN','Knoxville',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Delmonico','Nicholas John',230,75,'L','R','2017-08-01','2020-08-02'),
+('deloaza01',1998,8,18,'USA','TX','Irving',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','DeLoach','Zachary Dixon',215,73,'L','R','2024-05-22',NULL),
 ('delocik01',1929,11,11,'USA','MI','Highland Park',2022,2,28,'USA','NC','Raleigh','Ike','Delock','Ivan Martin',175,71,'R','R','1952-04-17','1963-07-13'),
 ('delosab01',1992,11,21,'D.R.','Puerto Plata','Puerto Plata',NULL,NULL,NULL,NULL,NULL,NULL,'Abel','De Los Santos','Abel',195,74,'R','R','2015-07-21','2016-09-30'),
 ('delosen01',1995,12,25,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Enyel','De Los Santos','Enyel',235,75,'R','R','2018-07-10','2022-10-05'),
 ('delosfa01',1986,2,15,'D.R.','Samana','Samana',NULL,NULL,NULL,NULL,NULL,NULL,'Fautino','De Los Santos','Fautino',225,74,'R','R','2011-06-04','2012-04-23'),
 ('deloslu01',1966,12,29,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','de los Santos','Luis Manuel',205,77,'R','R','1988-09-07','1991-05-28'),
 ('deloslu02',1977,11,1,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','de los Santos','Luis',216,74,'R','R','2002-07-20','2002-07-31'),
+('deloslu03',1998,6,9,'D.R.','San Cristóbal','Bajos de Haina',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','De Los Santos','Luis Alberto',160,74,'R','R','2024-07-31',NULL),
 ('delosra01',1949,1,19,'D.R.','Distrito Nacional','Santo Domingo',2015,11,29,'D.R.','Distrito Nacional','Santo Domingo','Ramon','de los Santos','Ramon',175,72,'L','L','1974-08-21','1974-10-02'),
 ('delosva01',1972,10,6,'D.R.','San Juan','Las Matas de Farfan',NULL,NULL,NULL,NULL,NULL,NULL,'Valerio','De Los Santos','Valerio Lorenzo',225,74,'L','L','1998-07-31','2008-08-02'),
 ('delosye01',1997,12,12,'D.R.','Samana','Samana',NULL,NULL,NULL,NULL,NULL,NULL,'Yerry','De Los Santos','Yerry Paulino',215,74,'R','R','2022-05-25','2022-08-11'),
@@ -525251,6 +525389,7 @@ INSERT INTO `people` VALUES
 ('detwedu01',1919,2,15,'USA','PA','Trumbauersville',2013,3,13,'USA','MD','Easton','Ducky','Detweiler','Robert Sterling',178,71,'R','R','1942-09-12','1946-06-01'),
 ('detwiro01',1986,3,6,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Ross','Detwiler','Ross Emery',210,77,'R','L','2007-09-07','2022-08-29'),
 ('deutsme01',1915,7,26,'USA','TX','Caldwell',2001,11,18,'USA','TX','Austin','Mel','Deutsch','Melvin Elliott',215,76,'R','R','1946-04-21','1946-05-07'),
+('devanca01',1997,4,13,'USA','NH','Nashua',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Devanney','Cameron Michael',195,73,'R','R','2025-08-31',NULL),
 ('devarce01',1969,9,22,'D.R.','Duarte','San Francisco de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Cesar','Devarez','Cesar Salvatore',175,70,'R','R','1995-06-03','1996-09-29'),
 ('devench01',1910,1,1,'USA','MA','Milton',2003,8,13,'USA','ME','Scarborough','Charlie','Devens','Charles',180,73,'R','R','1932-09-24','1934-09-26'),
 ('devench02',1990,11,13,'USA','CA','Cerritos',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Devenski','Christopher Michael',211,75,'R','R','2016-04-08','2022-10-04'),
@@ -525280,6 +525419,7 @@ INSERT INTO `people` VALUES
 ('dewitbl01',1985,8,20,'USA','MO','Sikeston',NULL,NULL,NULL,NULL,NULL,NULL,'Blake','DeWitt','Blake Robert',195,71,'L','R','2008-03-31','2013-04-19'),
 ('dewitma01',1977,9,4,'USA','CA','San Bernardino',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','DeWitt','Matthew Brian',220,76,'R','R','2000-06-20','2002-05-02'),
 ('dextech01',1876,6,15,'USA','IN','Evansville',1934,6,9,'USA','IA','Cedar Rapids','Charlie','Dexter','Charles Dana',155,67,'R','R','1896-04-17','1903-09-27'),
+('dezenza01',2000,5,11,'USA','OH','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Dezenzo','Zachary',220,77,'R','R','2024-08-06',NULL),
 ('diamosc01',1986,7,30,'CAN','ON','Guelph',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Diamond','Scott Michael',205,75,'L','L','2011-07-18','2016-06-13'),
 ('diamoth01',1983,4,6,'USA','LA','Metairie',NULL,NULL,NULL,NULL,NULL,NULL,'Thomas','Diamond','Thomas Nicklaus',250,75,'R','R','2010-08-03','2010-10-03'),
 ('diazal01',1968,10,5,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Diaz','Alexis',175,71,'B','R','1992-07-25','1999-06-20'),
@@ -525316,6 +525456,7 @@ INSERT INTO `people` VALUES
 ('diazya01',1991,8,8,'Cuba','Villa Clara','Sagua la Grande',NULL,NULL,NULL,NULL,NULL,NULL,'Yandy','Diaz','Yandy',215,74,'R','R','2017-04-03','2022-10-04'),
 ('diazya02',1998,9,21,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Yainer','Diaz','Yainer Radhames',195,72,'R','R','2022-09-02','2022-09-28'),
 ('diazye01',1996,11,15,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Yennsy','Diaz','Yennsy Manuel',216,72,'R','R','2019-08-04','2021-09-13'),
+('diazyi01',2000,8,19,'Venezuela','Miranda','Guatire',NULL,NULL,NULL,NULL,NULL,NULL,'Yilber','Díaz','Yilber Daniel',190,72,'R','R','2024-07-08',NULL),
 ('diazyu01',1996,10,7,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Yusniel','Diaz','Yusniel Efrain',215,73,'R','R','2022-08-02','2022-08-02'),
 ('dibblro01',1964,1,24,'USA','CT','Bridgeport',NULL,NULL,NULL,NULL,NULL,NULL,'Rob','Dibble','Robert Keith',230,76,'L','R','1988-06-29','1995-09-30'),
 ('dibutpe01',1892,11,18,'Cuba','Cienfuegos','Cienfuegos',1979,12,4,'USA','FL','Hialeah','Pedro','Dibut','Pedro',190,68,'R','R','1924-05-01','1925-04-22'),
@@ -525383,6 +525524,7 @@ INSERT INTO `people` VALUES
 ('dinarle01',1979,9,19,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Lenny','DiNardo','Leonard Edward',220,74,'L','L','2004-04-23','2009-10-02'),
 ('dineeke01',1952,7,1,'USA','NJ','Englewood',2015,11,21,'USA','NV','Henderson','Kerry','Dineen','Kerry Michael',165,71,'L','L','1975-06-14','1978-10-01'),
 ('dingeva01',1915,5,29,'USA','NJ','Elizabeth',1990,10,4,'USA','VA','Harrisonburg','Vance','Dinges','Vance George',175,74,'L','L','1945-04-17','1946-09-15'),
+('dingldi01',1998,9,17,'USA','OH','Massillon',NULL,NULL,NULL,NULL,NULL,NULL,'Dillon','Dingler','Francis Dillon',210,73,'R','R','2024-07-29',NULL),
 ('dingmcr01',1974,3,12,'USA','KS','Wichita',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Dingman','Craig Allen',215,76,'R','R','2000-06-30','2005-09-28'),
 ('dinini01',1993,7,27,'USA','NJ','Monroe',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Dini','Nicholas Carl',191,69,'R','R','2019-08-07','2019-09-29'),
 ('dinkebr01',1983,11,10,'USA','IL','Centralia',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Dinkelman','Brian Adam',195,71,'L','R','2011-06-04','2011-09-28'),
@@ -525413,6 +525555,7 @@ INSERT INTO `people` VALUES
 ('doakbi01',1891,1,28,'USA','PA','Pittsburgh',1954,11,26,'USA','FL','Bradenton','Bill','Doak','William Leopold',165,72,'R','R','1912-09-01','1929-05-13'),
 ('doanewa01',1887,3,12,'USA','ID','Bellevue',1935,10,19,'USA','PA','Coatesville','Walt','Doan','Walter Rudolph',165,72,'L','R','1909-09-20','1910-09-14'),
 ('dobbeda01',1934,12,6,'USA','MI','Ontonagon',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Dobbek','Daniel John',195,72,'L','R','1959-09-09','1961-10-01'),
+('dobbihu01',1999,8,30,'USA','TX','Bryan',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Dobbins','Hunter',185,74,'R','R','2025-04-06',NULL),
 ('dobbjo01',1901,11,15,'USA','MI','Muskegon',1991,7,31,'USA','MI','Muskegon','John','Dobb','John Kenneth',180,74,'R','L','1924-08-13','1924-08-30'),
 ('dobbsgr01',1978,7,2,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Dobbs','Gregory Stuart',205,73,'L','R','2004-09-08','2014-06-24'),
 ('dobbsjo01',1875,6,3,'USA','TN','Chattanooga',1934,9,9,'USA','NC','Charlotte','John','Dobbs','John Gordon',170,69,'L','R','1901-04-20','1905-09-20'),
@@ -525447,6 +525590,7 @@ INSERT INTO `people` VALUES
 ('dolele01',1855,7,8,'USA','CT','Meriden',1918,12,10,'USA','NH','Concord','Lester','Dole','Lester Carrington',NULL,71,NULL,NULL,'1875-05-27','1875-05-27'),
 ('dolisra01',1988,1,10,'D.R.','La Romana','La Romana',NULL,NULL,NULL,NULL,NULL,NULL,'Rafael','Dolis','Rafael Jose',235,76,'R','R','2011-09-26','2021-08-17'),
 ('doljafr01',1907,10,5,'USA','OH','Cleveland',1948,1,23,'USA','OH','Cleveland','Frank','Doljack','Frank Joseph',175,71,'R','R','1930-09-04','1943-07-03'),
+('dollach01',2001,10,26,'USA','GA','Evans',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Dollander','Tyler Chase',200,74,'R','R','2025-04-06',NULL),
 ('dollar01',1913,5,7,'USA','IL','Chicago',1978,4,28,'USA','IL','Calumet City','Art','Doll','Arthur James',190,73,'R','R','1935-09-21','1938-09-29'),
 ('dolsifr01',1983,1,9,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Freddy','Dolsi','Freddy',160,72,'R','R','2008-05-06','2009-08-12'),
 ('dominan01',1975,10,30,'USA','CA','Tarzana',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Dominique','Andrew John',220,72,'R','R','2004-05-25','2005-05-22'),
@@ -525469,6 +525613,7 @@ INSERT INTO `people` VALUES
 ('donalja01',1984,9,4,'USA','CA','Fresno',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Donald','Jason Thomas',195,73,'R','R','2010-05-18','2012-10-03'),
 ('donaljo01',1943,5,5,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'John','Donaldson','John David',160,71,'L','R','1966-08-26','1974-10-02'),
 ('donaljo02',1985,12,8,'USA','FL','Pensacola',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Donaldson','Joshua Adam',210,73,'R','R','2010-04-30','2022-10-05'),
+('donaljo03',1891,2,20,'USA','MO','Glasgow',1970,4,14,'USA','IL','Chicago','John','Donaldson','John Wesley',180,73,'L','L',NULL,NULL),
 ('dondele01',1903,9,12,'USA','CA','Newark',1999,1,1,'USA','CA','Fremont','Len','Dondero','Leonard Peter',178,71,'R','R','1929-04-21','1929-08-11'),
 ('donlimi01',1878,5,30,'USA','IL','Peoria',1933,9,24,'USA','CA','Hollywood','Mike','Donlin','Michael Joseph',170,69,'L','L','1899-07-19','1914-10-01'),
 ('donnebl01',1914,1,21,'USA','MN','Olivia',1976,6,20,'USA','MN','Olivia','Blix','Donnelly','Sylvester Urban',166,70,'R','R','1944-05-06','1951-05-03'),
@@ -525622,6 +525767,7 @@ INSERT INTO `people` VALUES
 ('drewska01',1920,2,22,'USA','NY','Staten Island',1963,8,15,'USA','FL','Dania Beach','Karl','Drews','Karl August',192,76,'R','R','1946-09-08','1954-09-20'),
 ('drewst01',1983,3,16,'USA','GA','Hahira',NULL,NULL,NULL,NULL,NULL,NULL,'Stephen','Drew','Stephen Oris',220,72,'L','R','2006-07-15','2017-07-25'),
 ('drewti01',1978,8,31,'USA','GA','Valdosta',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Drew','Timothy Andrew',195,73,'R','R','2000-05-24','2004-10-02'),
+('dreyeja01',1999,2,27,'USA','UT','Salt Lake City',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Dreyer','Jacob Andrew',205,74,'R','L','2025-03-19',NULL),
 ('dreyest01',1969,11,19,'USA','IA','Ames',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Dreyer','Steven William',185,75,'R','R','1993-08-08','1994-04-30'),
 ('dreyfba99',1865,2,23,'Germany','Baden-Wurttemberg','Freiburg',1932,2,5,'USA','NY','New York','Barney','Dreyfuss','Barney',NULL,NULL,NULL,NULL,NULL,NULL),
 ('driesda01',1951,7,29,'USA','SC','Hilton Head Island',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Driessen','Daniel',187,71,'L','R','1973-06-09','1987-10-03'),
@@ -525629,6 +525775,7 @@ INSERT INTO `people` VALUES
 ('driscde01',1855,11,19,'USA','MA','Lowell',1886,7,11,'USA','MA','Lowell','Denny','Driscoll','John F.',160,70,'L','L','1880-07-01','1884-06-28'),
 ('driscde02',1862,10,10,'USA','RI','Providence',1901,2,21,'USA','RI','Providence','Dennis','Driscoll','Dennis F.',NULL,NULL,NULL,NULL,'1885-07-25','1885-10-07'),
 ('driscji01',1944,5,14,'USA','MA','Medford',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Driscoll','James Bernard',175,71,'L','R','1970-06-17','1972-05-26'),
+('drisclo01',1997,11,3,'USA','CO','Colorado Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Driscoll','Logan Rylee',225,71,'L','R','2024-09-03',NULL),
 ('driscmi01',1892,10,19,'USA','MA','North Abington',1953,3,22,'USA','MA','Foxboro','Michael','Driscoll','Michael Columbus',160,71,'R','R','1916-07-06','1916-07-06'),
 ('driscpa01',1895,1,11,'USA','IL','Evanston',1968,6,28,'USA','IL','Chicago','Paddy','Driscoll','John Leo',155,68,'R','R','1917-06-12','1917-09-01'),
 ('drisktr01',1971,8,1,'USA','NE','Omaha',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Driskill','Travis Corey',185,72,'R','R','2002-04-26','2007-08-28'),
@@ -525722,6 +525869,7 @@ INSERT INTO `people` VALUES
 ('dunleja01',1879,9,14,'USA','NJ','Harrison',1944,4,11,'USA','CT','South Norwalk','Jack','Dunleavy','John Francis',167,66,'L','L','1903-05-30','1905-10-08'),
 ('dunloge01',1888,7,19,'USA','CT','Meriden',1971,12,12,'USA','CT','Meriden','George','Dunlop','George Henry',170,70,'R','R','1913-09-09','1914-06-10'),
 ('dunnad01',1979,11,9,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Dunn','Adam Troy',285,78,'L','R','2001-07-20','2014-09-28'),
+('dunnbl01',1998,9,5,'USA','MI','Holland',NULL,NULL,NULL,NULL,NULL,NULL,'Blake','Dunn','Blake William',210,70,'R','R','2024-06-04',NULL),
 ('dunnemi01',1962,10,27,'USA','IN','South Bend',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Dunne','Michael Dennis',190,76,'R','R','1987-06-05','1992-10-03'),
 ('dunnian01',1871,8,12,'USA','NY','New York',1952,6,21,'USA','NY','New York','Andy','Dunning','Andrew Jackson',175,72,'R','R','1889-05-23','1891-07-28'),
 ('dunnida01',1994,12,20,'USA','FL','Orange Park',NULL,NULL,NULL,NULL,NULL,NULL,'Dane','Dunning','Dane Anthony',225,76,'R','R','2020-08-19','2022-09-21'),
@@ -525732,16 +525880,19 @@ INSERT INTO `people` VALUES
 ('dunnjo01',1885,3,11,'USA','OH','Springfield',1944,3,19,'USA','OH','Springfield','Joe','Dunn','Joseph Edward',160,69,'R','R','1908-09-12','1909-10-06'),
 ('dunnju01',1995,9,22,'USA','NY','Freeport',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Dunn','Justin Warren',185,74,'R','R','2019-09-12','2022-09-11'),
 ('dunnmi01',1985,5,23,'USA','NM','Farmington',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Dunn','Michael Glen',212,72,'L','L','2009-09-04','2019-06-14'),
+('dunnol01',1997,9,2,'USA','UT','Salt Lake City',NULL,NULL,NULL,NULL,NULL,NULL,'Oliver','Dunn','Oliver Harris',207,71,'L','R','2024-03-30',NULL),
 ('dunnro01',1950,1,24,'USA','OK','Oklahoma City',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Dunn','Ronald Ray',180,71,'R','R','1974-09-03','1975-09-21'),
 ('dunnsc01',1978,5,23,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Dunn','Scott Allen',180,75,'R','R','2004-09-11','2006-04-25'),
 ('dunnst01',1858,12,21,'CAN','ON','London',1933,5,5,'CAN','ON','London','Steve','Dunn','Stephen B.',173,69,'L',NULL,'1884-09-27','1884-10-13'),
 ('dunnst02',1970,4,18,'USA','IL','Champaign',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Dunn','Steven Robert',225,76,'L','L','1994-05-03','1995-09-28'),
 ('dunnto01',1970,7,29,'USA','OK','Tulsa',NULL,NULL,NULL,NULL,NULL,NULL,'Todd','Dunn','Todd Kent',220,77,'R','R','1996-09-08','1997-09-25'),
+('dunshpa01',1995,2,12,'USA','IN','Zionsville',NULL,NULL,NULL,NULL,NULL,NULL,'Parker','Dunshee','Parker Edward',215,72,'R','R','2024-08-08',NULL),
 ('dunstsh01',1963,3,21,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Shawon','Dunston','Shawon Donnell',175,73,'R','R','1985-04-09','2002-09-29'),
 ('dunwoto01',1975,4,11,'USA','IN','Lafayette',NULL,NULL,NULL,NULL,NULL,NULL,'Todd','Dunwoody','Todd Franklin',190,73,'L','L','1997-05-10','2002-06-21'),
 ('dupeefr01',1877,4,29,'USA','VT','Monkton',1956,8,14,'USA','ME','West Falmouth','Frank','Dupee','Frank Oliver',200,73,NULL,'R','1901-08-24','1901-08-24'),
 ('duplajo01',1994,7,11,'USA','DE','Newark',NULL,NULL,NULL,NULL,NULL,NULL,'Jon','Duplantier','Jon Christopher',229,76,'L','R','2019-04-01','2021-06-13'),
 ('dupremi01',1953,5,29,'USA','KS','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Dupree','Michael Dennis',185,73,'R','R','1976-04-13','1976-05-19'),
+('duranca01',2001,7,30,'D.R.','María Trinidad Sánchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Duran','Carlos Daniel',230,79,'R','R','2025-05-22',NULL),
 ('duranda01',1954,3,16,'USA','CA','Palo Alto',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Duran','Daniel James',190,71,'L','L','1981-04-17','1981-06-10'),
 ('duranez01',1999,5,22,'D.R.','San Juan','San Juan de la Maguana',NULL,NULL,NULL,NULL,NULL,NULL,'Ezequiel','Duran','Ezequiel Alberto',185,71,'R','R','2022-06-04','2022-09-07'),
 ('durange01',1984,8,3,'Mexico','Zacatecas','Zacatecas',NULL,NULL,NULL,NULL,NULL,NULL,'German','Duran','German',185,70,'R','R','2008-04-17','2008-09-28'),
@@ -525752,6 +525903,7 @@ INSERT INTO `people` VALUES
 ('duranro01',1973,3,6,'D.R.','Espaillat','Moca',NULL,NULL,NULL,NULL,NULL,NULL,'Roberto','Duran','Roberto Alejandro',167,72,'L','L','1997-07-06','1998-05-28'),
 ('durapmo01',1992,3,27,'USA','FL','Deltona',NULL,NULL,NULL,NULL,NULL,NULL,'Montana','DuRapau','Montana Robert',190,70,'R','R','2019-05-09','2019-08-29'),
 ('durazer01',1974,1,23,'Mexico','Sonora','Hermosillo',NULL,NULL,NULL,NULL,NULL,NULL,'Erubiel','Durazo','Erubiel',240,75,'L','L','1999-07-26','2005-05-24'),
+('durbica01',2000,2,22,'USA','IL','Lake Forest',NULL,NULL,NULL,NULL,NULL,NULL,'Caleb','Durbin','Caleb',183,67,'R','R','2025-04-18',NULL),
 ('durbich01',1977,12,3,'USA','IL','Spring Valley',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Durbin','Chad Griffin',225,74,'R','R','1999-09-26','2013-05-30'),
 ('durbijd01',1982,2,24,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'J. D.','Durbin','Joseph Adam',210,72,'R','R','2004-09-08','2007-09-20'),
 ('durbiki01',1886,9,10,'USA','MO','Lamar',1943,9,11,'USA','MO','Kirkwood','Blaine','Durbin','Blaine Alphonsus',155,68,'L','L','1907-04-24','1909-06-30'),
@@ -525812,6 +525964,7 @@ INSERT INTO `people` VALUES
 ('earleto01',1917,2,19,'USA','MA','Boston',1988,4,5,'USA','MA','Nantucket','Tom','Earley','Thomas Francis Aloysius',180,72,'R','R','1938-09-27','1945-06-27'),
 ('earlho01',1867,2,25,'USA','NY','Palmyra',1916,12,23,'USA','NY','North Bay','Howard','Earl','Howard J.',180,74,NULL,NULL,'1890-04-19','1891-09-27'),
 ('earlsc01',1960,9,18,'USA','IN','Seymour',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Earl','William Scott',165,71,'R','R','1984-09-10','1984-09-30'),
+('earlyco01',2002,4,3,'USA','VA','Midlothian',NULL,NULL,NULL,NULL,NULL,NULL,'Connelly','Early','Todd Connelly McNeil',195,75,'L','L','2025-09-09',NULL),
 ('earlyja01',1915,5,19,'USA','NC','Kings Mountain',1985,5,31,'USA','FL','Melbourne','Jake','Early','Jacob Willard',168,71,'L','R','1939-05-04','1949-09-30'),
 ('earnsge01',1900,2,15,'USA','NY','New York',1976,12,1,'USA','AR','Little Rock','George','Earnshaw','George Livingston',210,76,'R','R','1928-06-03','1936-09-26'),
 ('easleda01',1969,11,11,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Damion','Easley','Jacinto Damion',155,71,'R','R','1992-08-13','2008-09-28'),
@@ -525863,6 +526016,7 @@ INSERT INTO `people` VALUES
 ('edenfke01',1967,3,18,'USA','GA','Jesup',NULL,NULL,NULL,NULL,NULL,NULL,'Ken','Edenfield','Kenneth Edward',165,73,'R','R','1995-05-11','1996-04-06'),
 ('edenmi01',1949,5,22,'Panama','Canal Zone','Fort Clayton',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Eden','Edward Michael',170,70,'B','R','1976-08-02','1978-09-11'),
 ('edensto01',1961,6,9,'USA','OR','Ontario',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Edens','Thomas Patrick',185,75,'R','R','1987-06-02','1995-05-10'),
+('ederja01',1998,10,9,'USA','FL','Boynton Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Eder','Jacob Andrew',225,76,'L','L','2024-09-17',NULL),
 ('edgebu01',1956,7,18,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Butch','Edge','Claude Lee',203,75,'R','R','1979-08-13','1979-09-28'),
 ('edgerbi01',1941,8,16,'USA','IN','South Bend',NULL,NULL,NULL,NULL,NULL,NULL,'Bill','Edgerton','William Albert',185,74,'L','L','1966-09-03','1969-04-25'),
 ('edginjo01',1986,12,17,'USA','PA','Lewistown',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Edgin','Joshua Wayne',245,73,'R','L','2012-07-13','2017-07-28'),
@@ -525926,6 +526080,7 @@ INSERT INTO `people` VALUES
 ('eisenha01',1915,10,10,'USA','NY','Brooklyn',2003,3,21,'USA','OH','Beachwood','Harry','Eisenstat','Harry',185,71,'L','L','1935-05-19','1942-09-25'),
 ('eisenja01',1922,10,3,'USA','PA','Perkasie',1987,12,20,'USA','PA','Huntingdon','Jake','Eisenhart','Jacob Henry',195,75,'L','L','1944-06-10','1944-06-10'),
 ('eisenji01',1959,4,18,'USA','MN','St. Cloud',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Eisenreich','James Michael',180,71,'L','L','1982-04-06','1998-09-26'),
+('eiserbr01',1998,1,19,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Eisert','Brandon Michael',210,74,'L','L','2024-06-17',NULL),
 ('eiteled01',1871,10,14,'Germany','Berlin','Berlin',1942,12,5,'USA','IN','Greencastle','Ed','Eiteljorge','Edward Henry',190,74,'R','R','1890-05-02','1891-08-27'),
 ('ekstrmi01',1983,8,30,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Ekstrom','Michael Robert',190,72,'R','R','2008-09-10','2012-08-12'),
 ('eland01',1851,9,12,'USA','MD','Baltimore',1934,11,15,'USA','MD','Baltimore','Frederick','Ehlen','Frederick',NULL,NULL,NULL,NULL,'1873-04-14','1873-04-14'),
@@ -525938,10 +526093,13 @@ INSERT INTO `people` VALUES
 ('elderhe01',1890,8,23,'USA','WA','Seattle',1958,11,13,'USA','CA','Long Beach','Henry','Elder','Henry Knox',200,74,'L','L','1913-07-07','1913-07-07'),
 ('eldrebr01',1980,7,12,'USA','FL','Fort Lauderdale',NULL,NULL,NULL,NULL,NULL,NULL,'Brad','Eldred','Bradley Ross',270,78,'R','R','2005-07-22','2012-05-02'),
 ('eldreca01',1967,11,24,'USA','IA','Cedar Rapids',NULL,NULL,NULL,NULL,NULL,NULL,'Cal','Eldred','Calvin John',215,76,'R','R','1991-09-24','2005-10-01'),
+('eldribr01',2004,10,20,'USA','VA','Fairfax',NULL,NULL,NULL,NULL,NULL,NULL,'Bryce','Eldridge','Bryson Edward',240,79,'L','R','2025-09-15',NULL),
 ('eliale01',1937,7,16,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Lee','Elia','Lee Constantine',175,71,'R','R','1966-04-23','1968-09-13'),
 ('eliasro01',1988,8,1,'Cuba',NULL,'Guantanamo',NULL,NULL,NULL,NULL,NULL,NULL,'Roenis','Elias','Roenis',205,73,'L','L','2014-04-03','2022-06-19'),
 ('elkope01',1918,6,17,'USA','PA','Wilkes-Barre',1993,9,17,'USA','NC','Wilkes-Barre','Pete','Elko','Peter',185,71,'R','R','1943-09-17','1944-10-01'),
+('elkoti01',1998,12,27,'USA','KS','Wichita',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Elko','Timothy John',250,75,'R','R','2025-05-10',NULL),
 ('ellamro01',1886,2,8,'USA','PA','Conshohocken',1948,10,28,'USA','PA','Conshohocken','Roy','Ellam','Roy',203,70,'R','R','1909-09-18','1918-08-29'),
+('ellarfr01',1997,11,6,'USA','GA','Roswell',NULL,NULL,NULL,NULL,NULL,NULL,'Fraser','Ellard','Fraser',220,75,'L','L','2024-07-30',NULL),
 ('elledse01',1996,5,20,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Elledge','Seth Wayne',240,75,'R','R','2020-08-16','2021-06-27'),
 ('ellerfr01',1895,12,25,'USA','SC','Marion County',1988,7,8,'USA','SC','Latta','Frank','Ellerbe','Francis Rogers',165,70,'R','R','1919-08-28','1924-09-27'),
 ('ellerho01',1894,7,5,'USA','IN','Muncie',1961,7,18,'USA','IN','Indianapolis','Hod','Eller','Horace Owen',185,71,'R','R','1917-04-16','1921-09-15'),
@@ -525967,6 +526125,7 @@ INSERT INTO `people` VALUES
 ('ellisch01',1992,9,22,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Ellis','Christopher John',205,77,'L','R','2019-03-31','2022-04-24'),
 ('ellisdo01',1945,3,11,'USA','CA','Los Angeles',2008,12,19,'USA','CA','Los Angeles','Dock','Ellis','Dock Phillip',205,75,'B','R','1968-06-18','1979-09-29'),
 ('ellisdr01',1995,12,1,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Ellis','Drew Mitchell',205,75,'R','R','2021-07-30','2022-06-26'),
+('ellisdu01',1998,1,16,'USA','LA','Shreveport',NULL,NULL,NULL,NULL,NULL,NULL,'Duke','Ellis','Robert Duke',180,74,'L','L','2024-06-04',NULL),
 ('ellisge01',1897,1,24,'USA','CA','San Francisco',1978,1,20,'USA','CA','San Francisco','George','Ellison','George Russell',185,75,'R','R','1920-08-21','1920-08-21'),
 ('ellisja01',1978,4,4,'USA','CA','Quincy',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Ellison','Jason Jerome',180,70,'R','R','2003-05-09','2008-08-24'),
 ('ellisji01',1945,3,25,'USA','CA','Tulare',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Ellis','James Russell',185,74,'R','L','1967-08-11','1969-07-12'),
@@ -526021,6 +526180,7 @@ INSERT INTO `people` VALUES
 ('englich01',1910,4,8,'USA','SC','Darlington',1999,6,25,'USA','CA','Pasadena','Charlie','English','Charles Dewie',160,69,'R','R','1932-07-23','1937-10-03'),
 ('engligi01',1909,7,2,'USA','NC','Glenola',1996,8,31,'USA','NC','Trinity','Gil','English','Gilbert Raymond',180,71,'R','R','1931-09-20','1944-06-11'),
 ('englije01',1984,9,13,'USA','CA','Oceanside',NULL,NULL,NULL,NULL,NULL,NULL,'Jesse','English','Jesse Logan',220,75,'L','L','2010-04-05','2010-04-20'),
+('englitr01',1997,5,14,'USA','GA','Stockbridge',NULL,NULL,NULL,NULL,NULL,NULL,'Tristin','English','Tristin Hall',208,74,'R','R','2025-07-09',NULL),
 ('engliwo01',1906,3,2,'USA','OH','Fredonia',1997,9,26,'USA','OH','Newark','Woody','English','Elwood George',155,70,'R','R','1927-04-26','1938-07-01'),
 ('ennisde01',1925,6,8,'USA','PA','Philadelphia',1996,2,8,'USA','PA','Huntingdon Valley','Del','Ennis','Delmer',195,72,'R','R','1946-04-28','1959-06-14'),
 ('ennisjo01',1979,10,17,'USA','CO','Montrose',NULL,NULL,NULL,NULL,NULL,NULL,'John','Ennis','John Wayne',220,77,'R','R','2002-04-10','2007-09-12'),
@@ -526029,6 +526189,7 @@ INSERT INTO `people` VALUES
 ('enrigba01',1986,3,30,'USA','CA','Stockton',NULL,NULL,NULL,NULL,NULL,NULL,'Barry','Enright','Barry Ryan',220,75,'R','R','2010-06-30','2013-05-15'),
 ('enrigge01',1954,5,9,'USA','CT','New Britain',NULL,NULL,NULL,NULL,NULL,NULL,'George','Enright','George Albert',175,71,'R','R','1976-08-08','1976-09-07'),
 ('enrigja01',1895,11,29,'USA','TX','Fort Worth',1975,8,17,'USA','FL','Pompano Beach','Jack','Enright','Jackson Percy',177,71,'R','R','1917-09-26','1917-09-26'),
+('enrigni01',1997,1,8,'USA','VA','Richmond',NULL,NULL,NULL,NULL,NULL,NULL,'Nic','Enright','Nicholas Crispen',219,75,'R','R','2025-05-25',NULL),
 ('ensbemo01',1975,8,26,'USA','CA','Redondo Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Morgan','Ensberg','Morgan Paul',210,74,'R','R','2000-09-20','2008-05-25'),
 ('ensje01',1889,8,24,'USA','MO','St. Louis',1950,1,17,'USA','NY','Syracuse','Jewel','Ens','Jewel Winklemeyer',165,70,'R','R','1922-04-28','1925-06-15'),
 ('ensmu01',1887,2,2,'USA','MO','St. Louis',1950,6,28,'USA','MO','St. Louis','Mutz','Ens','Anton',180,73,'L','L','1912-09-02','1912-09-07'),
@@ -526072,6 +526233,7 @@ INSERT INTO `people` VALUES
 ('escalni01',1929,11,29,'P.R.',NULL,'Santurce',2021,7,3,'P.R.',NULL,'Las Piedras','Nino','Escalera','Saturnino',165,70,'L','L','1954-04-17','1954-09-25'),
 ('escalse01',1984,8,3,'Venezuela','Lara','El Tocuyo',NULL,NULL,NULL,NULL,NULL,NULL,'Sergio','Escalona','Sergio Luis',215,72,'L','L','2009-05-17','2011-09-07'),
 ('escarch01',1949,12,27,'Mexico','Sinaloa','Los Mochis',NULL,NULL,NULL,NULL,NULL,NULL,'Chico','Escarrega','Ernesto',185,71,'R','R','1982-04-26','1982-09-27'),
+('escarjc01',1995,4,24,'USA','FL','Hialeah',NULL,NULL,NULL,NULL,NULL,NULL,'J. C.','Escarra','Juan Carlos',220,74,'L','R','2025-03-29',NULL),
 ('escheji01',1891,8,21,'USA','NY','Brooklyn',1960,9,27,'USA','NY','Sloatsburg','Jim','Eschen','James Godrich',160,70,'R','R','1915-07-10','1915-07-29'),
 ('eschela01',1920,9,22,'USA','NY','Suffern',2015,6,9,'USA','GA','Gainesville','Larry','Eschen','Lawrence Edward',180,72,'R','R','1942-06-16','1942-07-17'),
 ('eschja01',1990,3,27,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Esch','Jacob Otto',205,75,'R','R','2016-08-31','2017-04-12'),
@@ -526088,6 +526250,7 @@ INSERT INTO `people` VALUES
 ('eshelva01',1969,5,22,'USA','PA','Philadelphia',2018,7,24,'USA','TX','Magnolia','Vaughn','Eshelman','Vaughn Michael',205,75,'L','L','1995-05-02','1997-07-11'),
 ('esmonji01',1889,8,8,'USA','NY','Albany',1948,6,26,'USA','NY','Troy','Jimmy','Esmond','James Joseph',167,71,'R','R','1911-04-20','1915-10-03'),
 ('espadjo01',1997,2,22,'P.R.',NULL,'Ponce',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Espada','Jose Manuel',170,72,'R','R','2023-09-24','2023-09-24'),
+('espadjo99',1975,8,20,'P.R.',NULL,'Santurce',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Espada','Josue',175,70,'R','R',NULL,NULL),
 ('esperdu01',1867,7,28,'USA','NJ','Salem',1910,8,31,'USA','PA','Philadelphia','Duke','Esper','Charles H.',185,71,NULL,'L','1890-04-18','1898-07-12'),
 ('espinal01',1962,2,19,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Alvaro','Espinoza','Alvaro Alberto',170,72,'R','R','1984-09-14','1997-07-12'),
 ('espinan01',1998,3,9,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Anderson','Espinoza','Anderson Jose',208,72,'R','R','2022-05-30','2022-08-23'),
@@ -526119,6 +526282,7 @@ INSERT INTO `people` VALUES
 ('estraho01',1975,10,19,'Venezuela','Carabobo','San Joaquin',NULL,NULL,NULL,NULL,NULL,NULL,'Horacio','Estrada','Horacio',185,73,'L','L','1999-05-04','2001-07-21'),
 ('estraje01',1998,11,1,'USA','CA','Rancho Mirage',NULL,NULL,NULL,NULL,NULL,NULL,'Jeremiah','Estrada','Jeremiah Ramiro',180,73,'B','R','2022-08-30','2022-09-19'),
 ('estrajo01',1976,6,27,'USA','CA','Hayward',NULL,NULL,NULL,NULL,NULL,NULL,'Johnny','Estrada','Johnny Pulado',209,71,'B','R','2001-05-15','2008-07-24'),
+('estrala01',1999,4,24,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Lazaro','Estrada','Lazaro Alejandro',180,70,'R','R','2025-07-05',NULL),
 ('estrama01',1983,7,5,'Mexico','Sonora','Sonora',NULL,NULL,NULL,NULL,NULL,NULL,'Marco','Estrada','Marco Rene',180,72,'R','R','2008-08-20','2019-04-16'),
 ('estraos01',1902,2,15,'Cuba','La Habana','La Habana',1978,1,2,'Cuba','La Habana','La Habana','Oscar','Estrada','Oscar',160,68,'L','L','1929-04-21','1929-04-21'),
 ('estrath01',1996,2,22,'Venezuela','Carabobo','Bejuma',NULL,NULL,NULL,NULL,NULL,NULL,'Thairo','Estrada','Thairo Jose',185,70,'R','R','2019-04-21','2022-10-04'),
@@ -526150,6 +526314,7 @@ INSERT INTO `people` VALUES
 ('evansdw01',1951,11,3,'USA','CA','Santa Monica',NULL,NULL,NULL,NULL,NULL,NULL,'Dwight','Evans','Dwight Michael',180,74,'R','R','1972-09-16','1991-10-06'),
 ('evansja01',1856,9,22,'USA','MD','Baltimore',1907,1,16,'USA','MD','Baltimore','Jake','Evans','Uriah L. P.',154,68,NULL,'R','1879-05-01','1885-05-19'),
 ('evansjo01',1895,5,15,'USA','MS','Meridian',1953,8,9,'USA','MS','Gulfport','Joe','Evans','Joseph Patton',160,69,'R','R','1915-07-03','1925-10-01'),
+('evanslo01',2001,6,5,'USA','MI','Ann Arbor',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Evans','Logan Michael',215,77,'R','R','2025-04-27',NULL),
 ('evansni01',1986,1,30,'USA','AZ','Glendale',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Evans','Nicholas Reginald',220,74,'R','R','2008-05-24','2014-07-27'),
 ('evansph01',1992,9,10,'USA','CA','Whittier',NULL,NULL,NULL,NULL,NULL,NULL,'Phillip','Evans','Phillip Mathew',210,70,'R','R','2017-09-08','2021-09-05'),
 ('evansre01',1906,11,12,'USA','IL','Chicago',1982,6,14,'USA','AR','Lakeview','Red','Evans','Russell Edison',168,71,'R','R','1936-04-24','1939-08-27'),
@@ -526183,6 +526348,7 @@ INSERT INTO `people` VALUES
 ('ezzelho01',1896,2,28,'USA','TX','Victoria',1976,8,3,'USA','TX','San Antonio','Homer','Ezzell','Homer Estell',158,70,'R','R','1923-04-22','1925-10-02'),
 ('faatzja01',1859,10,24,'USA','NY','Weedsport',1923,4,10,'USA','NY','Syracuse','Jay','Faatz','Jacob S.',196,76,'R','R','1884-08-22','1890-09-10'),
 ('faberre01',1888,9,6,'USA','IA','Cascade',1976,9,25,'USA','IL','Chicago','Red','Faber','Urban Clarence',180,74,'B','R','1914-04-17','1933-09-20'),
+('fabiasa01',1998,3,6,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Sandro','Fabian','Sandro',180,71,'R','R','2024-09-06',NULL),
 ('fabrejo01',1970,3,13,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Jorge','Fabregas','Jorge',205,75,'L','R','1994-04-24','2002-09-27'),
 ('fabribu01',1887,12,23,'USA','MI','Clinton',1960,1,10,'USA','MI','Ann Arbor','Bunny','Fabrique','Albert LaVerne',150,68,'B','R','1916-10-04','1917-06-20'),
 ('facero01',1928,2,20,'USA','NY','Stephentown',NULL,NULL,NULL,NULL,NULL,NULL,'Roy','Face','Elroy Leon',155,68,'R','R','1953-04-16','1969-08-15'),
@@ -526262,6 +526428,7 @@ INSERT INTO `people` VALUES
 ('farrelu01',1991,6,7,'USA','OH','Westlake',NULL,NULL,NULL,NULL,NULL,NULL,'Luke','Farrell','Luke Thomas',200,78,'L','R','2017-07-01','2022-09-14'),
 ('farretu01',1934,4,8,'USA','MA','Boston',1977,6,10,'United Kingdom','Norfolk','Great Yarmouth','Turk','Farrell','Richard Joseph',215,76,'R','R','1956-09-21','1969-09-19'),
 ('farrier01',1986,3,3,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Farris','Eric Michael-Jay',180,69,'R','R','2011-07-28','2012-10-02'),
+('farrimi01',2001,2,14,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Mitch','Farris','Mitchell Thomas',195,74,'L','L','2025-09-02',NULL),
 ('farrji01',1956,5,18,'USA','NY','Waverly',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Farr','James Alfred',195,73,'R','R','1982-09-07','1982-10-03'),
 ('farrojo01',1853,11,8,'USA','NY','Verplanck',1914,12,31,'USA','NJ','Perth Amboy','John','Farrow','John Jacob',NULL,NULL,'L','R','1873-04-28','1884-06-14'),
 ('farrst01',1956,12,12,'USA','MD','Cheverly',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Farr','Steven Michael',198,70,'R','R','1984-05-16','1994-08-08'),
@@ -526285,10 +526452,12 @@ INSERT INTO `people` VALUES
 ('feddeer01',1993,2,25,'USA','NV','Las Vegas',NULL,NULL,NULL,NULL,NULL,NULL,'Erick','Fedde','Erick James',203,76,'R','R','2017-07-30','2022-10-05'),
 ('federal01',1924,7,11,'USA','PA','Bairdford',2011,8,2,'USA','AZ','Gilbert','Al','Federoff','Alfred',165,70,'R','R','1951-09-27','1952-09-28'),
 ('federti01',1987,8,5,'USA','PA','Erie',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Federowicz','Timothy Joseph',215,70,'R','R','2011-09-11','2019-09-25'),
+('feduchu01',1997,6,5,'USA','LA','Lake Charles',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Feduccia','Hunter',215,73,'L','R','2024-07-31',NULL),
 ('feeja01',1867,12,23,'USA','PA','Carbondale',1913,3,3,'USA','PA','Carbondale','Jack','Fee','John',195,NULL,NULL,'R','1889-09-14','1889-10-04'),
 ('feenech99',1921,8,31,'USA','NJ','Orange',1994,1,10,'San Francisco','USA','CA','Chub','Feeney','Charles Stoneham',NULL,NULL,NULL,NULL,NULL,NULL),
 ('fehridu01',1912,5,31,'USA','IN','Columbus',2006,4,13,'USA','CA','Palo Alto','Dutch','Fehring','William Paul',195,72,'B','R','1934-06-25','1934-06-25'),
 ('feierry01',1985,8,22,'USA','OH','Cleveland',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Feierabend','Ryan Robert',225,75,'L','L','2006-09-13','2019-05-23'),
+('feiglbr01',1990,12,27,'USA','MD','Severn',NULL,NULL,NULL,NULL,NULL,NULL,'Brady','Feigl','Brady Matthew',195,76,'R','L','2024-08-26',NULL),
 ('feinbed01',1917,9,29,'USA','PA','Philadelphia',1986,4,20,'USA','FL','Hollywood','Eddie','Feinberg','Edward Isidore',165,69,'B','R','1938-09-11','1939-05-23'),
 ('feldema01',1915,12,20,'USA','IA','Bellevue',2000,8,6,'USA','CA','Riverside','Marv','Felderman','Marvin Wilfred',187,73,'R','R','1942-04-19','1942-09-22'),
 ('feldemi01',1961,11,18,'USA','CA','Vallejo',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Felder','Michael Otis',160,68,'B','R','1985-09-11','1994-08-11'),
@@ -526322,9 +526491,11 @@ INSERT INTO `people` VALUES
 ('ferguch02',1875,5,10,'USA','MI','Meridian',1931,5,17,'USA','MI','Sault Ste. Marie','Charlie','Ferguson','Charles Augustus',NULL,71,NULL,'R','1901-09-20','1901-09-20'),
 ('ferguge01',1883,8,27,'USA','IN','Ellsworth',1943,9,5,'USA','FL','Montverde','Cecil','Ferguson','Cecil Benoni',165,70,'R','R','1906-04-19','1911-07-21'),
 ('fergujo01',1946,9,19,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Ferguson','Joseph Vance',200,74,'R','R','1970-09-12','1983-06-17'),
+('ferguty01',1993,10,5,'USA','CA','Fresno',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Ferguson','Tyler Clark',225,76,'R','R','2024-05-07',NULL),
 ('fermife01',1963,10,9,'D.R.','Valverde','Mao',NULL,NULL,NULL,NULL,NULL,NULL,'Felix','Fermin','Felix Jose',160,71,'R','R','1987-07-08','1996-08-07'),
 ('fermifr01',1995,5,16,'Venezuela','Bolivar','Puerto Ordaz',NULL,NULL,NULL,NULL,NULL,NULL,'Freddy','Fermin','Freddy Antonio',200,70,'R','R','2022-07-15','2022-07-17'),
 ('fermijo01',1999,3,29,'D.R.','Puerto Plata','Puerto Plata',NULL,NULL,NULL,NULL,NULL,NULL,'José','Fermín','José Miguel',200,69,'R','R','2023-07-07','2023-10-01'),
+('fermijo02',2001,11,28,'D.R.','María Trinidad Sánchez','Payita',NULL,NULL,NULL,NULL,NULL,NULL,'José','Fermin','José Miguel',242,75,'R','R','2025-04-26',NULL),
 ('fermira01',1972,11,25,'D.R.','Duarte','San Francisco de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Ramon','Fermin','Ramon Antonio',180,75,'R','R','1995-08-06','1995-08-06'),
 ('fernaal01',1969,8,13,'USA','FL','Miami Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Fernandez','Alexander',200,74,'R','R','1990-08-02','2000-05-18'),
 ('fernach01',1932,3,2,'Cuba','La Habana','La Habana',2016,6,11,'USA','FL','Sunrise','Chico','Fernandez','Humberto',165,72,'R','R','1956-07-14','1963-09-29'),
@@ -526340,8 +526511,10 @@ INSERT INTO `people` VALUES
 ('fernaju02',1995,12,5,'D.R.','Santo Domingo','Boca Chica',NULL,NULL,NULL,NULL,NULL,NULL,'Julian','Fernandez','Julian Antonio',233,78,'R','R','2021-09-05','2021-10-02'),
 ('fernana01',1918,10,25,'USA','CA','Wilmington',1996,9,19,'USA','CA','Harbor City','Nanny','Fernandez','Froilan',170,69,'R','R','1942-04-14','1950-07-09'),
 ('fernaos01',1966,11,4,'Cuba','Holguin','Holguin',NULL,NULL,NULL,NULL,NULL,NULL,'Osvaldo','Fernandez','Osvaldo',190,74,'R','R','1996-04-05','2001-08-08'),
+('fernary01',1998,6,11,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Fernandez','Ryan Austin',200,72,'R','R','2024-04-03',NULL),
 ('fernasi01',1962,10,12,'USA','HI','Honolulu',NULL,NULL,NULL,NULL,NULL,NULL,'Sid','Fernandez','Charles Sidney',220,73,'L','L','1983-09-20','1997-04-05'),
 ('fernato01',1962,6,30,'D.R.','San Pedro de Macoris','San Pedro de Macoris',2020,2,16,'USA','FL','Weston','Tony','Fernandez','Octavio Antonio',165,74,'B','R','1983-09-02','2001-10-07'),
+('fernaya01',2003,1,1,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Yanquiel','Fernández','Yanquiel',198,74,'L','L','2025-07-02',NULL),
 ('ferraal01',1939,12,22,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Al','Ferrara','Alfred John',200,73,'R','R','1963-07-30','1971-09-01'),
 ('ferraan01',1978,6,22,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Ferrari','Anthony Michael',160,69,'L','L','2003-06-07','2003-06-18'),
 ('ferrabi01',1907,4,19,'USA','MA','West Quincy',1993,8,10,'USA','FL','Gainesville','Bill','Ferrazzi','William Joseph',200,74,'R','R','1935-09-07','1935-09-15'),
@@ -526361,6 +526534,7 @@ INSERT INTO `people` VALUES
 ('ferryja01',1887,4,7,'USA','MA','Pittsfield',1954,8,29,'USA','MA','Pittsfield','Jack','Ferry','John Francis',175,71,'R','R','1910-09-04','1913-06-07'),
 ('fersoal01',1866,7,14,'USA','PA','Philadelphia',1957,12,5,'USA','MA','Boston','Alex','Ferson','Alexander',165,69,'R','R','1889-05-04','1892-07-25'),
 ('fessewa99',1860,10,5,'USA','NH','Windham',1935,5,16,'USA','NY','Brooklyn','Wally','Fessenden','Wallace Clifton',NULL,NULL,NULL,NULL,NULL,NULL),
+('festada01',2000,3,8,'USA','NJ','Verona',NULL,NULL,NULL,NULL,NULL,NULL,'David','Festa','David',185,78,'R','R','2024-06-27',NULL),
 ('festama01',1993,3,11,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Festa','Matthew Joseph',195,73,'R','R','2018-07-14','2022-10-04'),
 ('fettelo01',1907,3,15,'USA','MO','Alma',1981,1,3,'USA','MO','Warrensburg','Lou','Fette','Louis Henry William',200,73,'R','R','1937-04-26','1945-06-22'),
 ('fettemi01',1964,12,19,'USA','CA','Van Nuys',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Fetters','Michael Lee',200,76,'R','R','1989-09-01','2004-09-16'),
@@ -526452,6 +526626,7 @@ INSERT INTO `people` VALUES
 ('fishe01',1856,8,15,'USA','PA','Philadelphia',1942,2,9,'USA','PA','Philadelphia','John','Fischer','John',NULL,NULL,NULL,NULL,'1884-07-17','1885-08-06'),
 ('fishebo01',1886,11,3,'USA','TN','Nashville',1963,8,4,'USA','FL','Jacksonville','Bob','Fisher','Robert Taylor',170,69,'R','R','1912-06-03','1919-04-25'),
 ('fishebr01',1962,3,18,'USA','HI','Honolulu',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Fisher','Brian Kevin',210,76,'R','R','1985-05-07','1992-10-04'),
+('fishebr02',2000,7,26,'USA','TX','League City',NULL,NULL,NULL,NULL,NULL,NULL,'Braydon','Fisher','Braydon',180,76,'R','R','2025-05-11',NULL),
 ('fisheca01',1983,2,22,'USA','CA','West Covina',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Fisher','Charles Edward',220,76,'R','R','2009-05-24','2011-09-24'),
 ('fishech01',1844,11,NULL,'USA','PA','Philadelphia',1912,9,26,'USA','NY','New York','Cherokee','Fisher','William Charles',164,69,'R','R','1871-05-06','1878-07-09'),
 ('fishech02',1852,3,10,'USA','MA','Boxford',1917,2,18,'USA','AK','Eagle','Charlie','Fisher','Charles G.',143,68,'L','R','1884-06-07','1884-07-07'),
@@ -526484,6 +526659,7 @@ INSERT INTO `people` VALUES
 ('fislewe01',1843,7,6,'USA','NJ','Camden',1922,12,25,'USA','PA','Philadelphia','Wes','Fisler','Weston Dickson',137,66,'R','R','1871-05-20','1876-09-16'),
 ('fistedo01',1984,2,4,'USA','CA','Merced',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Fister','Douglas Wildes',210,80,'L','R','2009-08-08','2018-06-08'),
 ('fittepa01',1887,10,10,'USA','PA','Lebanon',1974,1,28,'USA','GA','Cartersville','Paul','Fittery','Paul Clarence',156,68,'B','L','1914-09-05','1917-10-03'),
+('fittsri01',1999,12,17,'USA','AL','Helena',NULL,NULL,NULL,NULL,NULL,NULL,'Richard','Fitts','Richard Logan',230,75,'R','R','2024-09-08',NULL),
 ('fitzbch01',1904,2,13,'USA','MD','Baltimore',1965,1,25,'USA','MD','Baltimore','Charlie','Fitzberger','Charles Caspar',170,73,'L','L','1928-09-11','1928-09-25'),
 ('fitzgbr01',1974,12,26,'USA','VA','Woodbridge',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Fitzgerald','Brian Michael',175,71,'L','L','2002-04-17','2002-05-01'),
 ('fitzgde01',1865,3,NULL,'United Kingdom',NULL,NULL,1936,10,16,'USA','CT','New Haven','Dennis','Fitzgerald','Dennis S.',160,70,NULL,NULL,'1890-04-17','1890-04-18'),
@@ -526497,6 +526673,7 @@ INSERT INTO `people` VALUES
 ('fitzgmi02',1960,7,13,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Fitzgerald','Michael Roy',185,72,'R','R','1983-09-13','1992-10-04'),
 ('fitzgmi03',1964,3,28,'USA','GA','Savannah',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Fitzgerald','Michael Patrick',196,73,'R','R','1988-06-23','1988-07-10'),
 ('fitzgra01',1904,12,5,'USA','MA','Chicopee',1977,9,6,'USA','MA','Westfield','Ray','Fitzgerald','Raymond Francis',168,69,'R','R','1931-04-18','1931-04-18'),
+('fitzgry01',1994,6,17,'USA','IL','Hinsdale',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Fitzgerald','Ryan',186,70,'L','R','2025-05-16',NULL),
 ('fitzgty01',1997,9,15,'USA','IL','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Fitzgerald','Tyler Joseph',205,75,'R','R','2023-09-21','2023-10-01'),
 ('fitzgwa01',1868,4,NULL,'USA','PA',NULL,1930,11,7,'USA','AZ','Phoenix','Warren','Fitzgerald','Warren Bartholomew',162,69,NULL,'L','1891-06-04','1892-06-08'),
 ('fitzkpa01',1900,7,30,'USA','WI','La Crosse',1950,6,30,'USA','CA','Sacramento','Paul','Fitzke','Robert Paul',185,71,'R','R','1924-09-01','1924-09-01'),
@@ -526570,6 +526747,7 @@ INSERT INTO `people` VALUES
 ('florepa01',1900,4,22,'USA','IL','Chicago',1986,5,28,'USA','FL','Gainesville','Paul','Florence','Paul Robert',185,73,'B','R','1926-05-21','1926-09-24'),
 ('florera01',1975,7,31,'USA','CA','Bellflower',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Flores','Randy Alan',190,72,'L','L','2002-04-23','2010-09-27'),
 ('florera02',1992,3,26,'Venezuela','Barinas','Barinas',NULL,NULL,NULL,NULL,NULL,NULL,'Ramon','Flores','Ramon',190,70,'L','L','2015-05-30','2017-08-03'),
+('florera03',2000,11,7,'USA','CA','Anaheim',NULL,NULL,NULL,NULL,NULL,NULL,'Rafael','Flores','Rafael',232,76,'R','R','2025-09-17',NULL),
 ('florero01',1979,8,9,'USA','CA','Whittier',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Flores','Ronald Joel',190,71,'L','L','2005-06-17','2007-07-02'),
 ('florewi01',1991,8,6,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Wilmer','Flores','Wilmer Alejandro',213,74,'R','R','2013-08-06','2022-10-05'),
 ('floribr01',1970,5,21,'USA','SC','Charleston',NULL,NULL,NULL,NULL,NULL,NULL,'Bryce','Florie','Bryce Bettencourt',185,72,'R','R','1994-07-17','2001-07-21'),
@@ -526585,6 +526763,7 @@ INSERT INTO `people` VALUES
 ('floydbu01',1917,6,23,'USA','TX','Dallas',2000,12,15,'USA','TX','Dallas','Bubba','Floyd','Leslie Roe',160,71,'R','R','1944-06-16','1944-06-18'),
 ('floydcl01',1972,12,5,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Cliff','Floyd','Cornelius Clifford',220,77,'L','R','1993-09-18','2009-06-17'),
 ('floydga01',1983,1,27,'USA','MD','Annapolis',NULL,NULL,NULL,NULL,NULL,NULL,'Gavin','Floyd','Gavin Christopher',245,76,'R','R','2004-09-03','2016-06-25'),
+('fluhama01',2001,8,13,'USA','DE','Lewes',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Fluharty','Mason Lynn',215,74,'R','L','2025-04-01',NULL),
 ('fluhrjo01',1894,1,3,'USA','MI','Adrian',1946,7,17,'USA','OH','Columbus','John','Fluhrer','John Lester',165,69,'R','R','1915-09-05','1915-09-24'),
 ('flynnbr01',1990,4,19,'USA','OK','Tulsa',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Flynn','Brian Anthony',245,80,'L','L','2013-09-04','2019-07-25'),
 ('flynnca01',1875,1,23,'USA','OH','Cincinnati',1947,2,10,'USA','OH','Cincinnati','Carney','Flynn','Cornelius Francis Xavier',165,71,'L','L','1894-07-17','1896-08-19'),
@@ -526638,6 +526817,7 @@ INSERT INTO `people` VALUES
 ('forded01',1862,4,10,'USA','VA','Richmond',1931,6,8,'USA','VA','Richmond','Ed','Ford','Edgar Lee',160,69,NULL,NULL,'1884-10-09','1884-10-10'),
 ('fordge01',1881,4,16,'CAN','NS','Milton',1973,8,23,'USA','FL','Dunedin','Gene','Ford','Eugene Wyman',170,72,'R','R','1905-05-05','1905-07-01'),
 ('fordge02',1912,6,23,'USA','IA','Fort Dodge',1970,9,7,'USA','IA','Emmetsburg','Gene','Ford','Eugene Matthew',195,74,'R','R','1936-06-17','1938-08-27'),
+('fordha01',2003,2,21,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Harry','Ford','Harrison Michael',200,70,'R','R','2025-09-05',NULL),
 ('fordho01',1897,7,23,'USA','CT','New Haven',1977,1,29,'USA','MA','Winchester','Horace','Ford','Horace Hills',165,70,'R','R','1919-09-08','1933-05-08'),
 ('fordhto01',1974,2,20,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Fordham','Thomas James',210,74,'L','L','1997-08-19','1998-08-30'),
 ('fordle01',1976,8,12,'USA','TX','Beaumont',NULL,NULL,NULL,NULL,NULL,NULL,'Lew','Ford','Jon Lewis',190,71,'R','R','2003-05-29','2012-09-29'),
@@ -526666,6 +526846,7 @@ INSERT INTO `people` VALUES
 ('fortuba01',1974,8,24,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Bartolome','Fortunato','Bartolome',210,73,'R','R','2004-06-29','2006-05-07'),
 ('fortuga01',1894,10,11,'USA','NC','High Point',1955,9,23,'USA','DC','Washington','Gary','Fortune','Garrett Reese',176,71,'B','R','1916-10-05','1920-08-02'),
 ('fortuti01',1962,4,11,'USA','MA','Clinton',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Fortugno','Timothy Shawn',195,73,'L','L','1992-07-20','1995-07-26'),
+('foscuju01',1999,3,2,'USA','AL','Huntsville',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Foscue','Justin Connor',205,71,'R','R','2024-04-05',NULL),
 ('fosnoje01',1940,9,21,'USA','OH','Deshler',NULL,NULL,NULL,NULL,NULL,NULL,'Jerry','Fosnow','Gerald Eugene',195,76,'R','L','1964-06-29','1965-07-16'),
 ('fossato01',1957,9,23,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Fossas','Emilio Antonio',195,72,'L','L','1988-05-15','1999-05-14'),
 ('fossera01',1947,4,4,'USA','IL','Marion',2021,10,13,'USA','CA','Diablo','Ray','Fosse','Raymond Earl',215,74,'R','R','1967-09-08','1979-09-30'),
@@ -526784,11 +526965,14 @@ INSERT INTO `people` VALUES
 ('freeded01',1919,8,22,'USA','PA','Centre Valley',2002,11,15,'USA','SC','Rock Hill','Ed','Freed','Edwin Charles',165,66,'R','R','1942-09-11','1942-09-27'),
 ('freedro01',1946,6,2,'USA','CA','Los Angeles',1996,1,9,'USA','CA','Chino','Roger','Freed','Roger Vernon',190,72,'R','R','1970-09-18','1979-09-28'),
 ('freehbi01',1941,11,29,'USA','MI','Detroit',2021,8,19,'USA','MI','Petoskey','Bill','Freehan','William Ashley',203,75,'R','R','1961-09-26','1976-10-03'),
+('freelal01',2001,8,24,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Freeland','Alexander Chance',200,72,'B','R','2025-07-30',NULL),
 ('freelky01',1993,5,14,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Freeland','Kyle Richard',204,76,'L','L','2017-04-07','2022-10-01'),
 ('freelry01',1976,3,8,'USA','FL','Jacksonville',2012,12,22,'USA','FL','Jacksonville','Ryan','Freel','Ryan Paul',185,70,'R','R','2001-04-04','2009-08-04'),
 ('freembu01',1871,10,30,'USA','PA','Catasauqua',1949,6,25,'USA','PA','Wilkes-Barre','Buck','Freeman','John Frank',169,69,'L','L','1891-06-27','1907-04-20'),
 ('freembu02',1896,7,5,'USA','TX','Mart',1953,2,21,'USA','TX','Fort Sam Houston','Buck','Freeman','Alexander Vernon',167,70,'B','R','1921-04-13','1922-06-10'),
+('freemca01',1998,2,23,'USA','TX','Abilene',NULL,NULL,NULL,NULL,NULL,NULL,'Caleb','Freeman','Caleb Aron',195,73,'R','R','2025-05-05',NULL),
 ('freemch01',1979,10,20,'USA','AR','Pine Bluff',NULL,NULL,NULL,NULL,NULL,NULL,'Choo','Freeman','Raphael',200,74,'R','R','2004-06-04','2006-09-30'),
+('freemco01',2001,1,5,'USA','CA','Pomona',NULL,NULL,NULL,NULL,NULL,NULL,'Cody','Freeman','Cody Nicholas',180,68,'R','R','2025-07-18',NULL),
 ('freemfr01',1989,9,12,'USA','CA','Villa Park',NULL,NULL,NULL,NULL,NULL,NULL,'Freddie','Freeman','Frederick Charles',220,77,'L','R','2010-09-01','2022-10-05'),
 ('freemha01',1897,12,22,'USA','MI','Mottville',1970,1,10,'USA','MI','Kalamazoo','Harvey','Freeman','Harvey Bayard',160,70,'R','R','1921-07-10','1921-09-28'),
 ('freemhe01',1928,7,1,'USA','AL','Gadsden',2004,1,17,'USA','FL','Orlando','Hersh','Freeman','Hershell Baskin',220,75,'R','R','1952-09-10','1958-06-07'),
@@ -526881,6 +527065,7 @@ INSERT INTO `people` VALUES
 ('fuchsch01',1913,11,18,'USA','NJ','Union City',1969,6,10,'USA','NJ','Weehawken','Charlie','Fuchs','Charles Thomas',168,68,'B','R','1942-04-17','1944-08-05'),
 ('fuchsju99',1878,4,17,'Germany','Hamburg','Hamburg',1961,12,5,'USA','MA','Boston','Judge','Fuchs','Emil Edwin',NULL,NULL,NULL,NULL,NULL,NULL),
 ('fuentbr01',1975,8,9,'USA','CA','Merced',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Fuentes','Brian Christopher',230,76,'L','L','2001-06-02','2012-08-08'),
+('fuentdi01',2005,6,17,'Colombia','Sucre','Tolu',NULL,NULL,NULL,NULL,NULL,NULL,'Didier','Fuentes','Didier Nicolas',170,72,'R','R','2025-06-20',NULL),
 ('fuentjo01',1993,2,19,'USA','CA','Rancho Santa Margarita',NULL,NULL,NULL,NULL,NULL,NULL,'Joshua','Fuentes','Joshua',209,74,'R','R','2019-04-06','2021-09-07'),
 ('fuentmi01',1946,5,10,'P.R.',NULL,'Loiza Aldea',1970,1,29,'P.R.',NULL,'Loiza Aldea','Miguel','Fuentes','Miguel',160,72,'R','R','1969-09-01','1969-10-02'),
 ('fuentmi02',1958,6,11,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Fuentes','Michael Jay',190,75,'R','R','1983-09-02','1984-09-21'),
@@ -526894,6 +527079,7 @@ INSERT INTO `people` VALUES
 ('fukumka01',1976,8,4,'Japan','Miyazaki','Miyakonojo',NULL,NULL,NULL,NULL,NULL,NULL,'Kazuo','Fukumori','Kazuo',175,72,'R','R','2008-03-31','2008-04-24'),
 ('fulchje01',1979,11,26,'USA','FL','Titusville',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Fulchino','Jeffrey Joseph',270,76,'R','R','2006-06-22','2011-09-12'),
 ('fuldsa01',1981,11,20,'USA','NH','Durham',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Fuld','Samuel Babson',180,69,'L','L','2007-09-05','2015-10-04'),
+('fulfobr01',1998,12,9,'USA','TX','Lubbock',NULL,NULL,NULL,NULL,NULL,NULL,'Braxton','Fulford','Braxton Albert',190,70,'R','R','2025-04-16',NULL),
 ('fulghdo01',1900,7,4,'USA','GA','Valdosta',1947,11,2,'USA','FL','Miami','Dot','Fulghum','James Lavoisier',165,68,'R','R','1921-09-15','1921-09-24'),
 ('fulghjo01',1956,6,9,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'John','Fulgham','John Thomas',205,74,'R','R','1979-06-19','1980-08-27'),
 ('fullecu01',1898,9,13,'USA','ME','Ellsworth',1975,1,9,'USA','MA','Winthrop','Curt','Fullerton','Curtis Hooper',162,72,'L','R','1921-04-14','1933-09-23'),
@@ -527031,6 +527217,7 @@ INSERT INTO `people` VALUES
 ('ganzech01',1862,6,18,'USA','WI','Waterford',1914,4,7,'USA','MA','Quincy','Charlie','Ganzel','Charles William',161,72,'R','R','1884-09-27','1897-09-21'),
 ('ganzejo01',1874,4,7,'USA','MI','Kalamazoo',1959,1,14,'USA','FL','Orlando','John','Ganzel','John Henry',195,72,'R','R','1898-04-21','1908-09-30'),
 ('garabed01',1976,12,2,'D.R.','San Cristobal','Bajos de Haina',NULL,NULL,NULL,NULL,NULL,NULL,'Eddy','Garabito','Eddy Jorge',186,68,'B','R','2005-05-27','2005-08-08'),
+('garabge01',1995,8,19,'D.R.','San Cristóbal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Gerson','Garabito','Gerson Yeris',160,72,'R','R','2024-05-26',NULL),
 ('garagjo01',1926,2,12,'USA','MO','St. Louis',2016,3,23,'USA','AZ','Scottsdale','Joe','Garagiola','Joseph Henry',190,72,'L','R','1946-05-26','1954-09-26'),
 ('garagke01',1969,10,25,'USA','NJ','Camden',NULL,NULL,NULL,NULL,NULL,NULL,'Keith','Garagozzo','Keith John',170,72,'L','L','1994-04-05','1994-04-28'),
 ('garatvi01',1984,9,25,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Garate','Victor Jose',210,73,'L','L','2009-09-05','2009-09-22'),
@@ -527049,6 +527236,7 @@ INSERT INTO `people` VALUES
 ('garciar01',1993,1,12,'USA','FL','Hialeah',NULL,NULL,NULL,NULL,NULL,NULL,'Aramis','Garcia','Aramis Michael',228,73,'R','R','2018-08-31','2022-10-05'),
 ('garciav01',1991,6,12,'Venezuela','Anzoategui','Anaco',NULL,NULL,NULL,NULL,NULL,NULL,'Avisail','Garcia','Avisail Antonio',250,76,'R','R','2012-08-31','2022-10-04'),
 ('garcibr01',1995,4,19,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Bryan','Garcia','Bryan',205,73,'R','R','2019-09-02','2022-10-03'),
+('garcibr02',2000,5,27,'USA','RI','Newport',NULL,NULL,NULL,NULL,NULL,NULL,'Brandyn','Garcia','Brandyn Michael',235,76,'L','L','2025-07-21',NULL),
 ('garcica01',1967,10,15,'Venezuela','Tachira','Tachira',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Garcia','Carlos Jesus',185,73,'R','R','1990-09-20','1999-04-15'),
 ('garcich01',1924,12,24,'Mexico','Veracruz','Veracruz',2007,8,16,'Mexico','Nuevo Leon','Monterrey','Chico','Garcia','Vinicio Otilio',170,68,'R','R','1954-04-24','1954-09-20'),
 ('garcich02',1985,8,24,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Garcia','Christian J.',230,77,'R','R','2012-09-04','2012-10-03'),
@@ -527069,6 +527257,7 @@ INSERT INTO `people` VALUES
 ('garcija03',1992,11,21,'USA','NY','Bronx',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Garcia','Jason Emilio',185,72,'R','R','2015-04-08','2015-09-30'),
 ('garcija04',1993,1,18,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Jarlin','Garcia','Jarlin Emmanuel',210,75,'L','L','2017-04-14','2022-10-03'),
 ('garcije01',1973,9,24,'USA','TX','Corpus Christi',NULL,NULL,NULL,NULL,NULL,NULL,'Jesse','Garcia','Jesus Jesse',155,70,'R','R','1999-04-05','2005-05-08'),
+('garcijh01',2002,12,11,'Venezuela','Apure','San Fernando de Apure',NULL,NULL,NULL,NULL,NULL,NULL,'Jhostynxon','Garcia','Jhostynxon Alirio',163,72,'R','R','2025-08-22',NULL),
 ('garcijo01',1985,1,7,'D.R.','Dajabon','Dajabon',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Garcia','Jose Luis',165,71,'R','R','2006-09-11','2006-10-01'),
 ('garcijo02',1998,4,5,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Barrero','Jose Israel',175,74,'R','R','2020-08-27','2022-10-05'),
 ('garcika01',1975,10,29,'Mexico','Sonora','Ciudad Obregon',NULL,NULL,NULL,NULL,NULL,NULL,'Karim','Garcia','Gustavo Karim',210,72,'L','L','1995-09-02','2004-08-24'),
@@ -527168,7 +527357,9 @@ INSERT INTO `people` VALUES
 ('garzara01',1994,4,6,'USA','TX','Edinburg',NULL,NULL,NULL,NULL,NULL,NULL,'Ralph','Garza','Ralph Albert',220,74,'R','R','2021-05-29','2022-08-04'),
 ('gaspaha01',1883,4,28,'USA','IA','Quorn',1940,5,14,'USA','CA','Santa Ana','Harry','Gaspar','Harry Lambert',180,72,'R','R','1909-04-17','1912-06-20'),
 ('gasparo01',1946,4,3,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Rod','Gaspar','Rodney Earl',165,71,'B','L','1969-04-08','1974-07-19'),
+('gaspemi01',1995,10,11,'USA','NH','Merrimack',NULL,NULL,NULL,NULL,NULL,NULL,'Mickey','Gasper','Michael',205,70,'B','R','2024-08-12',NULL),
 ('gassach01',1918,8,12,'USA','TN','Gassaway',1992,1,15,'USA','FL','Miami','Charlie','Gassaway','Charles Cason',210,74,'L','L','1944-09-25','1946-09-20'),
+('gassero01',1999,5,31,'USA','CA','El Dorado Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Robert','Gasser','Robert Riordan',192,72,'L','L','2024-05-10',NULL),
 ('gassnda01',1978,12,14,'USA','WI','Hortonville',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Gassner','David Kenneth',190,74,'R','L','2005-04-16','2005-04-21'),
 ('gastato01',1932,6,13,'USA','MA','Fall River',1956,9,20,'USA','MD','Riviera Beach','Tom','Gastall','Thomas Everett',187,74,'R','R','1955-06-21','1956-09-19'),
 ('gastfed01',1865,8,1,'USA','IL','Chicago',1899,12,1,'USA','IL','Chicago','Ed','Gastfield','Edward',155,69,'R',NULL,'1884-08-13','1885-07-11'),
@@ -527193,7 +527384,8 @@ INSERT INTO `people` VALUES
 ('gautrdo01',1901,7,26,'USA','MA','Cambridge',1970,8,23,'USA','UT','Salt Lake City','Doc','Gautreau','Walter Paul',129,64,'R','R','1925-06-22','1928-09-29'),
 ('gautrsi01',1912,5,4,'USA','LA','Schriever',1980,4,19,'USA','LA','Morgan City','Sid','Gautreaux','Sidney Allen',190,68,'B','R','1936-04-15','1937-05-20'),
 ('gaver01',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'McGovern',NULL,NULL,NULL,NULL,NULL,'1874-06-15','1874-06-15'),
-('gavigsa01',1990,5,22,'USA','OR','Ashland',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Gaviglio','Samuel Joseph',215,73,'R','R','2017-05-11','2020-08-25'),
+('gavigsa01',1990,5,22,'USA','OR','Ashland',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Gaviglio','Samuel Joseph',215,73,'R','R','2017-05-11','2020-08-25');
+INSERT INTO `people` VALUES
 ('gawch01',1892,3,13,'USA','MA','West Newton',1968,5,26,'USA','MA','Boston','George','Gaw','George Joseph',180,71,'R','R','1920-04-20','1920-07-04'),
 ('gazelmi01',1895,10,13,'USA','PA','Olyphant',1978,9,11,'USA','TX','Odessa','Mike','Gazella','Michael',165,67,'R','R','1923-07-02','1928-09-30'),
 ('gearda01',1872,2,2,'USA','KS','Lone Elm',1951,9,23,'USA','KS','Topeka','Dale','Gear','Dale Dudley',165,71,'R','R','1896-08-15','1901-09-26'),
@@ -527238,6 +527430,7 @@ INSERT INTO `people` VALUES
 ('gentrga01',1946,10,6,'USA','AZ','Phoenix',NULL,NULL,NULL,NULL,NULL,NULL,'Gary','Gentry','Gary Edward',170,72,'R','R','1969-04-10','1975-05-06'),
 ('gentrha01',1926,5,27,'USA','NC','Winston-Salem',2018,7,1,'USA','OH','Pickerington','Harvey','Gentry','Harvey William',170,72,'L','R','1954-04-14','1954-04-27'),
 ('gentrru01',1918,5,18,'USA','NC','Daisy Station',1997,7,3,'USA','NC','Winston-Salem','Rufe','Gentry','James Ruffus',180,73,'R','R','1943-09-10','1948-05-09'),
+('gentrty01',1999,2,1,'USA','TN','Memphis',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Gentry','Tyler Jackson',210,73,'R','R','2024-08-25',NULL),
 ('georgal01',1938,9,27,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','George','Alex Thomas Michael',170,71,'L','R','1955-09-16','1955-09-25'),
 ('georgbi01',1865,1,27,'USA','OH','Bellaire',1916,8,23,'USA','WV','Wheeling','Bill','George','William',165,68,'R','L','1887-05-11','1889-07-09'),
 ('georgch01',1966,9,24,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','George','Christopher Sean',200,74,'R','R','1991-10-01','1991-10-05'),
@@ -527273,6 +527466,7 @@ INSERT INTO `people` VALUES
 ('gertelo01',1875,5,4,'USA','IL','Chicago',1933,10,20,'USA','IL','Chicago','Lou','Gertenrich','Louis Wilhelm',175,68,'R','R','1901-09-15','1903-07-21'),
 ('gerutjo01',1977,9,18,'USA','IL','Elmhurst',NULL,NULL,NULL,NULL,NULL,NULL,'Jody','Gerut','Joseph Diego',190,72,'L','L','2003-04-26','2010-05-22'),
 ('gervale01',1890,7,6,'USA','WI','Grover',1950,10,19,'USA','CA','Los Angeles','Lefty','Gervais','Lucien Edward',165,70,'L','L','1913-04-17','1913-05-15'),
+('gervapa01',2000,5,23,'USA','NC','Cary',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Gervase','Paul Thomas',230,82,'R','R','2025-06-21',NULL),
 ('gervasa01',1985,1,10,'D.R.','Hato Mayor','Sabana de la Mar',NULL,NULL,NULL,NULL,NULL,NULL,'Sammy','Gervacio','Samuel',175,72,'R','R','2009-08-14','2010-05-03'),
 ('gessldo01',1880,12,23,'USA','PA','Greensburg',1924,12,26,'USA','PA','Allegheny County','Doc','Gessler','Henry Homer',180,70,'L','L','1903-04-22','1911-10-07'),
 ('gessnch01',1863,12,NULL,'USA','PA','Philadelphia',1922,5,25,'USA','DC','Washington','Charlie','Gessner','Charles R.',NULL,68,NULL,NULL,'1886-07-19','1886-07-19'),
@@ -527305,6 +527499,7 @@ INSERT INTO `people` VALUES
 ('gibrast01',1972,10,9,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Gibralter','Stephan Benson',185,72,'R','R','1995-06-01','1996-04-04'),
 ('gibsobo01',1935,11,9,'USA','NE','Omaha',2020,10,2,'USA','NE','Omaha','Bob','Gibson','Robert',189,73,'R','R','1959-04-15','1975-09-03'),
 ('gibsobo02',1957,6,19,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Gibson','Robert Louis',195,72,'R','R','1983-04-13','1987-07-25'),
+('gibsoca01',1998,2,18,'USA','LA','Ruston',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Gibson','Cade Michael',195,74,'L','L','2025-04-20',NULL),
 ('gibsoch01',1879,11,17,'USA','PA','Sharon',1954,11,22,'USA','PA','Sharon','Charlie','Gibson','Charles Ellsworth',160,72,'R','R','1905-09-23','1905-09-23'),
 ('gibsoch02',1899,11,21,'USA','GA','La Grange',1990,12,18,'USA','GA','LaGrange','Charlie','Gibson','Charles Griffin',160,68,'R','R','1924-05-30','1924-08-29'),
 ('gibsode01',1975,2,5,'USA','FL','Winter Haven',NULL,NULL,NULL,NULL,NULL,NULL,'Derrick','Gibson','Derrick Lamont',244,74,'R','R','1998-09-08','1999-09-26'),
@@ -527335,6 +527530,7 @@ INSERT INTO `people` VALUES
 ('gilbebi02',1876,6,21,'USA','PA','Tullytown',1927,8,8,'USA','NY','New York','Billy','Gilbert','William Oliver',153,64,'R','R','1901-04-25','1909-06-27'),
 ('gilbebu01',1935,7,26,'USA','TN','Knoxville',NULL,NULL,NULL,NULL,NULL,NULL,'Buddy','Gilbert','Drew Edward',195,75,'L','R','1959-09-09','1959-09-27'),
 ('gilbech01',1919,7,8,'USA','LA','New Orleans',1983,8,13,'USA','LA','New Orleans','Charlie','Gilbert','Charles Mader',165,69,'L','L','1940-04-16','1947-09-28'),
+('gilbedr01',2000,9,27,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Gilbert','Andrew Christopher',195,69,'L','L','2025-08-08',NULL),
 ('gilbeha01',1868,7,8,'USA','PA','Pottstown',1909,12,23,'USA','PA','Pottstown','Harry','Gilbert','Harry H.',165,66,NULL,NULL,'1890-06-23','1890-06-23'),
 ('gilbeja01',1875,9,4,'USA','NY','Rhinecliff',1941,7,7,'USA','NY','Albany','Jack','Gilbert','John Robert',NULL,NULL,'L','R','1898-09-11','1904-10-09'),
 ('gilbejo01',1864,1,8,'USA','PA','Pottstown',1903,11,12,'USA','PA','Pottstown','John','Gilbert','John G.',165,66,NULL,NULL,'1890-06-23','1890-06-23'),
@@ -527348,8 +527544,7 @@ INSERT INTO `people` VALUES
 ('gilbety01',1993,12,22,'USA','CA','Santa Cruz',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Gilbert','Tyler Gregory',223,75,'L','L','2021-08-03','2022-07-26'),
 ('gilbewa01',1900,12,19,'USA','MI','Oscoda',1958,9,7,'USA','MN','Duluth','Wally','Gilbert','Walter John',180,72,'R','R','1928-08-18','1932-09-24'),
 ('gilbrbi01',1947,9,3,'USA','TX','Abilene',2020,7,12,'USA','TX','Abilene','Bill','Gilbreth','William Freeman',180,72,'L','L','1971-06-25','1974-05-12'),
-('gilbrlu01',1996,3,5,'USA','CO','Westminster',NULL,NULL,NULL,NULL,NULL,NULL,'Lucas','Gilbreath','Lucas Grant',185,73,'L','L','2021-05-01','2022-08-26');
-INSERT INTO `people` VALUES
+('gilbrlu01',1996,3,5,'USA','CO','Westminster',NULL,NULL,NULL,NULL,NULL,NULL,'Lucas','Gilbreath','Lucas Grant',185,73,'L','L','2021-05-01','2022-08-26'),
 ('gilbrro01',1952,9,24,'USA','MS','Laurel',NULL,NULL,NULL,NULL,NULL,NULL,'Rod','Gilbreath','Rodney Joe',180,74,'R','R','1972-06-17','1978-10-01'),
 ('giledo01',1935,4,19,'USA','CA','Modesto',2021,3,5,'USA','OK','Stillwater','Don','Gile','Donald Loren',220,78,'R','R','1959-09-25','1962-09-30'),
 ('gilesbr01',1960,4,27,'USA','KS','Manhattan',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Giles','Brian Jeffrey',165,73,'R','R','1981-09-12','1990-07-07'),
@@ -527383,6 +527578,7 @@ INSERT INTO `people` VALUES
 ('gillge01',1909,2,13,'USA','MS','Catchings',1999,2,21,'USA','MS','Jackson','George','Gill','George Lloyd',185,73,'R','R','1937-05-04','1939-09-27'),
 ('gillha01',1899,1,23,'USA','MA','Brockton',1932,8,1,'USA','MA','Brockton','Haddie','Gill','Harold Edward',165,71,'L','L','1923-08-16','1923-08-16'),
 ('gilliba01',1856,1,3,'USA','MA','Cambridge',1934,4,1,'USA','MA','Lynn','Barney','Gilligan','Andrew Bernard',130,66,'R','R','1875-09-25','1888-04-27'),
+('gillico01',1997,11,10,'USA','VA','Earlysville',NULL,NULL,NULL,NULL,NULL,NULL,'Connor','Gillispie','Connor Brammer',185,71,'R','R','2024-08-04',NULL),
 ('gilligr01',1901,1,24,'USA','AL','Grove Hill',1981,2,4,'USA','AL','Thomasville','Grant','Gillis','Grant',165,70,'R','R','1927-09-19','1929-06-25'),
 ('gillija01',1885,10,18,'USA','IL','Chicago',1980,11,19,'USA','CA','Modesto','Jack','Gilligan','John Patrick',190,72,'B','R','1909-09-16','1910-07-04'),
 ('gilliji01',1928,10,17,'USA','TN','Nashville',1978,10,8,'USA','CA','Inglewood','Jim','Gilliam','James William',175,70,'B','R','1953-04-14','1966-09-30'),
@@ -527410,6 +527606,7 @@ INSERT INTO `people` VALUES
 ('gingbi01',1872,11,7,'USA','NY','Elmira',1950,9,14,'USA','NY','Elmira','Billy','Ging','William Joseph',170,70,'R','R','1899-09-25','1899-09-25'),
 ('gingrjo01',1893,1,10,'USA','NY','New York',1947,9,6,'USA','NJ','Jersey City','Joe','Gingras','Joseph John',188,74,'R','R','1915-06-18','1915-06-26'),
 ('ginkeke01',1994,3,24,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Ginkel','Kevin Andrew',235,76,'L','R','2019-08-05','2022-10-05'),
+('ginnjt01',1999,5,20,'USA','MS','Flowood',NULL,NULL,NULL,NULL,NULL,NULL,'J. T.','Ginn','John Thomas',200,74,'R','R','2024-08-21',NULL),
 ('ginnti01',1891,9,26,'USA','GA','Royston',1931,8,30,'USA','GA','Atlanta','Tinsley','Ginn','Tinsley Rucker',180,69,'L','R','1914-06-27','1914-06-30'),
 ('ginsbjo01',1926,10,11,'USA','NY','New York',2012,11,2,'USA','MI','West Bloomfield','Joe','Ginsberg','Myron Nathan',180,71,'L','R','1948-09-15','1962-04-15'),
 ('ginteke01',1976,5,5,'USA','CA','Norwalk',NULL,NULL,NULL,NULL,NULL,NULL,'Keith','Ginter','Keith Michael',190,70,'R','R','2000-09-20','2005-09-18'),
@@ -527602,6 +527799,7 @@ INSERT INTO `people` VALUES
 ('gonzavi01',1925,9,28,'Cuba',NULL,'Quivican',1981,3,11,'Mexico','Campeche','Ciudad del Carmen','Vince','Gonzales','Wenceslao',165,73,'L','L','1955-04-13','1955-04-13'),
 ('gonzavi02',1995,11,16,'Mexico','Nayarit','Tuxpan',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Gonzalez','Victor Aaron',180,72,'L','L','2020-07-31','2021-08-22'),
 ('gonzawi01',1974,5,17,'Venezuela','Aragua','Aragua',NULL,NULL,NULL,NULL,NULL,NULL,'Wiki','Gonzalez','Wiklenman Vicente',175,71,'R','R','1999-08-14','2006-05-24'),
+('gonzawi02',2002,3,25,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Wikelman','González','Wikelman David',220,72,'R','R','2025-06-20',NULL),
 ('goochch01',1902,6,5,'USA','TN','Smyrna',1982,5,30,'USA','MD','Lanham','Charlie','Gooch','Charles Furman',170,69,'R','R','1929-04-18','1929-10-06'),
 ('goochjo01',1897,11,9,'USA','TN','Smyrna',1975,5,15,'USA','TN','Nashville','Johnny','Gooch','John Beverley',175,71,'B','R','1921-09-09','1933-09-12'),
 ('goochle01',1890,2,23,'USA','NC','Oxford',1966,5,18,'USA','NC','Raleigh','Lee','Gooch','Lee Currin',190,72,'R','R','1915-08-17','1917-06-29'),
@@ -527636,6 +527834,7 @@ INSERT INTO `people` VALUES
 ('gordira01',1892,4,11,'USA','NY','Rochester',1960,11,15,'USA','NY','Rochester','Ray','Gordinier','Raymond Cornelius',170,68,'B','R','1921-09-17','1922-05-17'),
 ('gordoal01',1984,2,10,'USA','NE','Lincoln',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Gordon','Alex Jonathan',220,73,'L','R','2007-04-02','2020-09-27'),
 ('gordobr01',1978,8,16,'USA','NY','West Point',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Gordon','Brian Ernest',190,72,'L','R','2008-09-17','2011-06-22'),
+('gordoco01',1998,12,20,'USA','FL','St. Petersburg',NULL,NULL,NULL,NULL,NULL,NULL,'Colton','Gordon','Colton Zimring',225,76,'L','L','2025-05-14',NULL),
 ('gordode01',1988,4,22,'USA','FL','Windermere',NULL,NULL,NULL,NULL,NULL,NULL,'Dee','Strange-Gordon','Devaris',166,71,'L','R','2011-06-06','2022-06-07'),
 ('gordodo01',1959,10,10,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Don','Gordon','Donald Thomas',175,73,'R','R','1986-04-10','1988-09-29'),
 ('gordojo01',1915,2,18,'USA','CA','Los Angeles',1978,4,14,'USA','CA','Sacramento','Joe','Gordon','Joseph Lowell',180,70,'R','R','1938-04-18','1950-09-30'),
@@ -527643,6 +527842,7 @@ INSERT INTO `people` VALUES
 ('gordomi01',1953,9,11,'USA','MA','Leominster',2014,5,26,'USA','MA','Boston','Mike','Gordon','Michael William',215,75,'B','R','1977-04-07','1978-07-09'),
 ('gordoni01',1995,10,24,'USA','FL','Avon Park',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Gordon','Nicholas Chad',160,72,'L','R','2021-05-06','2022-10-05'),
 ('gordosi01',1917,8,13,'USA','NY','Brooklyn',1975,6,17,'USA','NY','New York','Sid','Gordon','Sidney',185,70,'R','R','1941-09-11','1955-09-20'),
+('gordota01',1997,10,26,'USA','IL','Champaign',NULL,NULL,NULL,NULL,NULL,NULL,'Tanner','Gordon','Tanner Robert',215,77,'L','R','2024-07-07',NULL),
 ('gordoto01',1967,11,18,'USA','FL','Sebring',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Gordon','Thomas',160,69,'R','R','1988-09-08','2009-05-03'),
 ('gorecre01',1980,12,22,'USA','NY','Queens',NULL,NULL,NULL,NULL,NULL,NULL,'Reid','Gorecki','Reid Evan',200,73,'R','R','2009-08-17','2009-10-04'),
 ('gorecri01',1973,8,27,'USA','IL','Evergreen Park',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Gorecki','Richard John',167,75,'R','R','1997-09-10','1998-04-17'),
@@ -527663,6 +527863,7 @@ INSERT INTO `people` VALUES
 ('gorneni01',1979,4,19,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Gorneault','Nicholas Anthony',220,75,'R','R','2007-06-30','2007-07-01'),
 ('gorniha01',1911,1,14,'USA','NY','Niagara Falls',1996,2,16,'USA','FL','Riviera Beach','Hank','Gornicki','Henry Frank',145,73,'R','R','1941-04-17','1946-09-24'),
 ('gorsijo01',1915,3,29,'USA','NJ','Bayonne',1998,12,16,'USA','VA','Charlottesville','Johnny','Gorsica','John Joseph Perry',180,74,'R','R','1940-04-22','1947-09-17'),
+('gorskma01',1997,12,22,'USA','IN','Fishers',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Gorski','Matthew',220,74,'R','R','2025-04-24',NULL),
 ('goryljo01',1933,10,21,'USA','RI','Cumberland',NULL,NULL,NULL,NULL,NULL,NULL,'Johnny','Goryl','John Albert',175,70,'R','R','1957-09-20','1964-10-02'),
 ('gorzeto01',1982,7,12,'USA','IL','Evergreen Park',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Gorzelanny','Thomas Stephen',218,75,'R','L','2005-09-20','2016-07-03'),
 ('gosean01',1990,8,10,'USA','CA','Bellflower',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Gose','Anthony Robert',200,72,'L','L','2012-07-17','2022-07-02'),
@@ -527698,6 +527899,7 @@ INSERT INTO `people` VALUES
 ('grabore01',1907,7,16,'USA','NY','Syracuse',1955,4,2,'USA','NY','Syracuse','Reggie','Grabowski','Reginald John',185,72,'R','R','1932-04-15','1934-09-24'),
 ('graceea01',1907,2,24,'USA','KY','Barlow',1980,12,22,'USA','AZ','Phoenix','Earl','Grace','Robert Earl',175,72,'L','R','1929-04-23','1937-10-03'),
 ('gracefr01',1979,8,20,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Frank','Gracesqui','Franklyn Benjamin',245,77,'B','L','2004-04-29','2004-05-11'),
+('gracego01',2000,3,17,'USA','NJ','Wayne',NULL,NULL,NULL,NULL,NULL,NULL,'Gordon','Graceffo','Gordon Joseph',220,76,'R','R','2024-06-29',NULL),
 ('gracejo01',1914,1,5,'USA','IL','Gorham',1969,9,18,'USA','IL','Murphysboro','Joe','Grace','Joseph LaVerne',180,73,'L','R','1938-09-24','1947-09-03'),
 ('gracema01',1964,6,28,'USA','NC','Winston-Salem',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Grace','Mark Eugene',190,74,'L','L','1988-05-02','2003-09-28'),
 ('gracema02',1988,12,14,'USA','CA','Palos Verdes Estates',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Grace','Matthew Aaron',215,76,'L','L','2015-04-22','2020-08-26'),
@@ -527740,6 +527942,7 @@ INSERT INTO `people` VALUES
 ('graneja01',1886,6,10,'CAN','ON','St. Thomas',1978,4,20,'USA','MO','Louisiana','Jack','Graney','John Gladstone',180,69,'L','L','1908-04-30','1922-06-28'),
 ('grangje01',1971,12,16,'USA','CA','San Pedro',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Granger','Jeffrey Adam',200,76,'R','L','1993-09-16','1997-04-25'),
 ('grangwa01',1944,3,15,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Wayne','Granger','Wayne Allan',165,74,'R','R','1968-06-05','1976-06-25'),
+('granian01',2000,5,12,'USA','CA','Hemet',NULL,NULL,NULL,NULL,NULL,NULL,'Andre','Granillo','Andre Anthony',250,76,'R','R','2025-06-12',NULL),
 ('graniza01',1992,9,17,'USA','NY','Staten Island',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Granite','Zachary Thomas',185,73,'L','L','2017-07-08','2017-10-01'),
 ('granted01',1883,5,21,'USA','MA','Franklin',1918,10,5,'France',NULL,'Argonne','Eddie','Grant','Edward Leslie',168,71,'L','R','1905-08-04','1915-10-06'),
 ('grantfr99',1865,8,1,'USA','MA','Pittsfield',1937,5,27,'USA','NY','New York','Frank','Grant','Ulysses Franklin',155,67,'R','R',NULL,NULL),
@@ -527986,6 +528189,7 @@ INSERT INTO `people` VALUES
 ('guerrja02',1995,9,25,'Panama','Chiriqui','David',NULL,NULL,NULL,NULL,NULL,NULL,'Javy','Guerra','Javier Alexis',185,72,'L','R','2018-05-04','2022-10-05'),
 ('guerrju01',1967,2,1,'D.R.','San Pedro de Macoris','Los Llanos',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Guerrero','Juan Antonio',160,71,'R','R','1992-04-09','1992-10-03'),
 ('guerrju02',1985,1,16,'Venezuela','Bolivar','San Felix',NULL,NULL,NULL,NULL,NULL,NULL,'Junior','Guerra','Junior J.',235,72,'R','R','2015-06-12','2021-09-16'),
+('guerrlu01',2000,8,5,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Guerrero','Luis Sadiel',215,72,'R','R','2024-09-08',NULL),
 ('guerrma01',1949,9,28,'D.R.','Distrito Nacional','Santo Domingo',2023,7,2,'D.R.','Distrito Nacional','Santo Domingo','Mario','Guerrero','Mario Miguel',155,70,'R','R','1973-04-08','1980-10-01'),
 ('guerrma02',1978,8,2,'USA','OH','Cleveland',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Guerrier','Matthew Olson',195,75,'R','R','2004-06-17','2014-07-22'),
 ('guerrmi01',1912,10,11,'Cuba','La Habana','La Habana',1992,10,9,'USA','FL','Miami Beach','Mike','Guerra','Fermin',155,70,'R','R','1937-09-19','1951-09-23'),
@@ -528038,6 +528242,7 @@ INSERT INTO `people` VALUES
 ('gustaja01',1992,10,12,'D.R.','Duarte','Pimentel',NULL,NULL,NULL,NULL,NULL,NULL,'Jandel','Gustave','Jandel Francisco',220,75,'R','R','2016-08-11','2022-07-31'),
 ('guster01',1888,1,24,'USA','MI','Bay City',1945,10,26,'USA','OR','Maupin','Ernie','Gust','Ernest Herman Frank',170,72,'R','R','1911-08-17','1911-08-19'),
 ('gustifr01',1920,2,20,'USA','IL','Hoopeston',1991,4,1,'USA','IA','Davenport','Frankie','Gustine','Frank William',175,72,'R','R','1939-09-13','1950-05-17'),
+('gustory01',1999,3,11,'USA','CA','Santa Rosa',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Gusto','Ryan Cole',232,76,'R','R','2025-03-31',NULL),
 ('guthbu01',1947,8,18,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Bucky','Guth','Charles Henry',180,73,'R','R','1972-09-12','1972-10-03'),
 ('guthch01',1856,NULL,NULL,'USA','IL','Chicago',1883,7,5,'USA','MA','Cambridge','Charlie','Guth','Charles J.',NULL,NULL,NULL,NULL,'1880-09-30','1880-09-30'),
 ('guthrda01',1995,12,23,'USA','FL','Sarasota',NULL,NULL,NULL,NULL,NULL,NULL,'Dalton','Guthrie','Dalton James',160,71,'R','R','2022-09-06','2022-10-05'),
@@ -528054,6 +528259,7 @@ INSERT INTO `people` VALUES
 ('guyerbr01',1986,1,28,'USA','PA','West Chester',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Guyer','Brandon Eric',210,74,'R','R','2011-05-06','2018-09-27'),
 ('guzmaan01',1981,12,14,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Angel','Guzman','Angel Moises',190,75,'R','R','2006-04-26','2009-09-08'),
 ('guzmacr01',1978,3,21,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Cristian','Guzman','Cristian',180,72,'B','R','1999-04-06','2010-09-08'),
+('guzmade01',2004,2,8,'D.R.','San Pedro de Macorís','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Denzer','Guzman','Denzer',190,73,'R','R','2025-09-13',NULL),
 ('guzmado01',1975,4,5,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Domingo','Guzman','Domingo Serrano',210,72,'R','R','1999-09-09','2000-06-07'),
 ('guzmaed01',1976,9,11,'P.R.',NULL,'Bayamon',NULL,NULL,NULL,NULL,NULL,NULL,'Edwards','Guzman','Edwards',205,71,'L','R','1999-04-06','2003-09-28'),
 ('guzmafr01',1981,1,20,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Freddy','Guzman','Freddy Antonio',165,70,'B','R','2004-08-17','2013-09-18'),
@@ -528112,6 +528318,7 @@ INSERT INTO `people` VALUES
 ('haganar01',1863,3,17,'USA','RI','Providence',1936,3,25,'USA','RI','Providence','Art','Hagan','Arthur Charles',NULL,NULL,NULL,'R','1883-06-30','1884-05-13'),
 ('hagemca01',1887,5,12,'USA','PA','Mount Olive',1964,4,1,'USA','PA','New Bedford','Casey','Hageman','Kurt Moritz',186,70,'L','R','1911-09-18','1914-10-03'),
 ('hagenbr01',1989,5,12,'USA','CA','Modesto',NULL,NULL,NULL,NULL,NULL,NULL,'Bradin','Hagens','Bradin Carl',210,75,'R','R','2014-08-14','2014-08-17'),
+('hagenju01',1996,10,7,'USA','NJ','Voorhees',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Hagenman','Justin Michael',205,75,'R','R','2025-04-16',NULL),
 ('hagenke01',1960,3,8,'USA','WA','Renton',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Hagen','Kevin Eugene',185,74,'R','R','1983-06-04','1984-09-29'),
 ('hagerja01',1993,3,4,'USA','NV','Henderson',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Hager','Jake William',170,73,'R','R','2021-05-15','2022-07-06'),
 ('hagerri01',1886,6,20,'USA','KS','Lyndon',1930,1,30,'USA','NM','Albuquerque','Rip','Hagerman','Zerah Zequiel',200,74,'R','R','1909-04-16','1916-05-11'),
@@ -528198,10 +528405,12 @@ INSERT INTO `people` VALUES
 ('hallto02',1975,10,21,'USA','WA','Tacoma',NULL,NULL,NULL,NULL,NULL,NULL,'Toby','Hall','Toby Jason',255,74,'R','R','2000-09-15','2008-09-21'),
 ('halmagr01',1987,8,26,'Netherlands','North Holland','Haarlem',2011,11,21,'Netherlands',NULL,'Rotterdam','Greg','Halman','Gregory Anthony',210,76,'R','R','2010-09-23','2011-08-03'),
 ('halpiji01',1863,10,4,'United Kingdom',NULL,NULL,1893,1,4,'USA','MA','Boston','Jim','Halpin','James Nathaniel',NULL,NULL,NULL,NULL,'1882-06-15','1885-08-26'),
+('halpipe01',2002,5,26,'USA','CA','San Mateo',NULL,NULL,NULL,NULL,NULL,NULL,'Petey','Halpin','Peter Lyndon',200,71,'L','R','2025-09-20',NULL),
 ('halsebr01',1981,2,14,'USA','TX','Houston',2014,10,31,'USA','TX','New Braunfels','Brad','Halsey','Bradford Alexander',185,73,'L','L','2004-06-19','2006-10-01'),
 ('haltal01',1890,11,23,'USA','OH','Sandusky',1973,1,22,'USA','OH','Sandusky','Al','Halt','Alva William',180,72,'R','R','1914-05-29','1918-08-30'),
 ('haltesh01',1969,11,8,'USA','MD','La Plata',NULL,NULL,NULL,NULL,NULL,NULL,'Shane','Halter','Shane David',160,70,'R','R','1997-04-06','2004-10-03'),
 ('haltose01',1987,6,7,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Halton','Sean Michael',260,76,'R','R','2013-06-27','2013-09-29'),
+('halvose01',2000,2,18,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Halvorsen','Seth Michael',225,74,'R','R','2024-08-30',NULL),
 ('hamando01',1900,12,21,'USA','MN','New Ulm',1973,1,11,'USA','WI','Bayside','Doc','Hamann','Elmer Joseph',180,73,'R','R','1922-09-21','1922-09-21'),
 ('hambrro01',1949,3,26,'USA','WA','Sunnyside',2023,4,15,'USA','WA','Vancouver','Roger','Hambright','Roger Dee',180,70,'R','R','1971-07-19','1971-09-25'),
 ('hambuch01',1866,11,22,'USA','KY','Louisville',1931,5,18,'USA','NJ','Union','Charlie','Hamburg','Charles H.',175,72,'R',NULL,'1890-04-18','1890-10-14'),
@@ -528209,6 +528418,7 @@ INSERT INTO `people` VALUES
 ('hambyji01',1897,7,29,'USA','NC','Wilkesboro',1991,10,21,'USA','IL','Springfield','Jim','Hamby','James Sanford',170,72,'R','R','1926-09-20','1927-05-27'),
 ('hamelbo01',1967,11,29,'USA','NJ','Elizabeth',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Hamelin','Robert James',240,73,'L','L','1993-09-12','1998-09-27'),
 ('hamelco01',1983,12,27,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Hamels','Colbert Michael',205,76,'L','L','2006-05-12','2020-09-16'),
+('hameldo01',1999,3,2,'USA','AZ','Chandler',NULL,NULL,NULL,NULL,NULL,NULL,'Dom','Hamel','Dominic Avery',237,74,'R','R','2025-09-17',NULL),
 ('hamilbi01',1866,2,15,'USA','NJ','Newark',1940,12,15,'USA','MA','Worcester','Billy','Hamilton','William Robert',165,66,'L','L','1888-07-31','1901-09-16'),
 ('hamilbi02',1990,9,9,'USA','MS','Taylorsville',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Hamilton','Billy R.',160,72,'B','R','2013-09-03','2022-10-04'),
 ('hamilca01',1995,2,5,'USA','WA','Woodinville',NULL,NULL,NULL,NULL,NULL,NULL,'Caleb','Hamilton','Caleb Broderick',185,72,'R','R','2022-07-17','2022-10-05'),
@@ -528262,6 +528472,7 @@ INSERT INTO `people` VALUES
 ('handimi01',1887,7,21,'USA','DC','Washington',1953,1,31,'USA','GA','Savannah','Mike','Handiboe','Aloysius James',155,70,'L','L','1911-09-08','1911-09-19'),
 ('handlge01',1914,11,25,'USA','MO','Kennett',2009,4,12,'USA','AZ','Tucson','Gene','Handley','Eugene Louis',165,70,'R','R','1946-04-16','1947-09-28'),
 ('handlle01',1913,7,13,'USA','IA','Clarion',1970,4,8,'USA','PA','Pittsburgh','Lee','Handley','Lee Elmer',160,67,'R','R','1936-04-15','1947-09-28'),
+('handlma01',1998,3,10,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Maverick','Handley','Maverick Dayne',210,69,'R','R','2025-04-29',NULL),
 ('handri01',1948,7,10,'USA','WA','Bellevue',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Hand','Richard Allen',195,73,'R','R','1970-04-09','1973-09-26'),
 ('handrve01',1936,11,27,'CAN','PE','Charlottetown',2016,11,2,'CAN','PE','Charlottetown','Vern','Handrahan','James Vernon',185,74,'L','R','1964-04-14','1966-09-21'),
 ('handsbi01',1940,5,6,'USA','NJ','Hackensack',2017,3,9,'USA','FL','Orlando','Bill','Hands','William Alfred',185,74,'R','R','1965-06-03','1975-08-10'),
@@ -528391,6 +528602,7 @@ INSERT INTO `people` VALUES
 ('harribo01',1915,5,1,'USA','WY','Gillette',1989,8,9,'USA','NE','North Platte','Bob','Harris','Robert Arthur',185,72,'R','R','1938-09-19','1942-09-16'),
 ('harribo02',1930,9,22,'USA','MO','St. Louis',2023,1,11,'USA','IN','Fishers','Bob','Harrison','Robert Lee',178,71,'L','R','1955-09-23','1956-09-25'),
 ('harribr01',1980,8,26,'USA','NY','Queensbury',NULL,NULL,NULL,NULL,NULL,NULL,'Brendan','Harris','Brendan Michael',200,73,'R','R','2004-07-06','2013-07-10'),
+('harribr02',1998,6,24,'USA','IL','Arlington Heights',NULL,NULL,NULL,NULL,NULL,NULL,'Brett','Harris','Brett Steven',208,74,'R','R','2024-05-03',NULL),
 ('harribu01',1896,11,8,'USA','NY','Port Jervis',1977,11,8,'USA','MD','Bethesda','Bucky','Harris','Stanley Raymond',156,69,'R','R','1919-08-28','1931-06-12'),
 ('harribu02',1926,2,15,'USA','AL','Sulligent',2013,1,12,'USA','FL','Nobleton','Bubba','Harris','Charles',204,76,'R','R','1948-04-29','1951-05-07'),
 ('harribu03',1948,12,5,'USA','PA','Philadelphia',2022,11,5,'USA','PA','Philadelphia','Buddy','Harris','Walter Francis',245,79,'R','R','1970-09-10','1971-09-03'),
@@ -528400,12 +528612,14 @@ INSERT INTO `people` VALUES
 ('harrida01',1900,7,14,'USA','NC','Summerfield',1973,9,18,'USA','GA','Atlanta','Dave','Harris','David Stanley',170,71,'R','R','1925-04-14','1934-09-15'),
 ('harride01',1969,7,21,'USA','PA','Kittanning',NULL,NULL,NULL,NULL,NULL,NULL,'Denny','Harriger','Dennis Scott',185,71,'R','R','1998-06-16','1998-06-28'),
 ('harrido01',1967,11,12,'USA','TX','Waco',NULL,NULL,NULL,NULL,NULL,NULL,'Donald','Harris','Donald',185,73,'R','R','1991-09-04','1993-10-02'),
+('harridu01',1999,7,8,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Dustin','Harris','Dustin Alexander',185,74,'L','R','2024-09-28',NULL),
 ('harriea01',1919,4,20,'USA','LA','Dubach',1998,9,7,'USA','LA','Simsboro','Earl','Harrist','Earl',175,72,'R','R','1945-08-18','1953-06-18'),
 ('harrifr01',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'James','Harris','James',NULL,NULL,'R','R','1884-04-17','1884-05-31'),
 ('harriga01',1931,10,15,'USA','VA','Abingdon',2012,11,14,'USA','VA','Gainesville','Gail','Harris','Boyd Gail',195,72,'L','L','1955-06-03','1960-05-03'),
 ('harrige01',1964,12,5,'USA','FL','Sebring',NULL,NULL,NULL,NULL,NULL,NULL,'Gene','Harris','Tyrone Eugene',190,71,'R','R','1989-04-05','1995-06-24'),
 ('harrigr01',1955,11,2,'USA','CA','Lynwood',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Harris','Greg Allen',165,72,'B','R','1981-05-20','1995-09-29'),
 ('harrigr02',1963,12,1,'USA','NC','Greensboro',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Harris','Gregory Wade',190,75,'R','R','1988-09-19','1995-08-02'),
+('harriha01',1999,3,2,'USA','GA','Augusta',NULL,NULL,NULL,NULL,NULL,NULL,'Hayden','Harris','Hayden Lee',186,72,'L','L','2025-09-02',NULL),
 ('harrihe01',1913,4,24,'USA','IL','Chicago',1991,1,18,'USA','IL','Crystal Lake','Herb','Harris','Herbert Benjamin',175,73,'L','L','1936-07-21','1936-08-02'),
 ('harriho01',1993,6,23,'USA','TX','McKinney',NULL,NULL,NULL,NULL,NULL,NULL,'Hobie','Harris','Robert William',212,75,'R','R','2023-04-01','2023-08-01'),
 ('harriho02',1996,12,26,'USA','LA','Lafayette',NULL,NULL,NULL,NULL,NULL,NULL,'Hogan','Harris','Hogan Anthony',230,75,'R','L','2023-04-14','2023-08-22'),
@@ -528433,6 +528647,7 @@ INSERT INTO `people` VALUES
 ('harrisl01',1897,12,11,'USA','TX','Brownwood',1963,9,19,'USA','TX','Temple','Slim','Harriss','William Jennings Bryan',180,78,'R','R','1920-04-19','1928-09-29'),
 ('harrisp01',1900,8,12,'USA','MN','Duluth',1982,7,3,'USA','MN','Minneapolis','Spence','Harris','Anthony Spencer',145,69,'L','L','1925-04-14','1930-06-14'),
 ('harrito01',1945,1,18,'CAN','BC','Trail',2023,7,26,'USA','CA','Cypress','Tom','Harrison','Thomas James',200,75,'R','R','1965-05-07','1965-05-17'),
+('harrito03',2001,7,12,'USA','NC','Sanford',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Harrington','Thomas Hinson',185,74,'R','R','2025-04-01',NULL),
 ('harrivi01',1950,3,27,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Vic','Harris','Victor Lanier',165,71,'B','R','1972-07-21','1980-10-05'),
 ('harriwi01',1978,6,22,'USA','GA','Cairo',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','Harris','William Charles',195,69,'L','R','2001-09-02','2012-06-24'),
 ('harriwi02',1984,8,28,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Harris','William Taylor',234,76,'R','R','2012-08-13','2021-05-22'),
@@ -528503,6 +528718,7 @@ INSERT INTO `people` VALUES
 ('hassabi01',1864,7,26,'USA','MO','St. Louis',1910,5,25,'USA','MO','St. Louis','Bill','Hassamaer','William Louis',180,72,NULL,NULL,'1894-04-19','1896-07-06'),
 ('hassebu01',1911,9,5,'USA','NY','New York',1997,8,23,'USA','NJ','Westwood','Buddy','Hassett','John Aloysius',180,71,'L','L','1936-04-14','1942-09-27'),
 ('hassero01',1953,2,27,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Hassey','Ronald William',200,74,'L','R','1978-04-23','1991-09-03'),
+('hassero02',2001,8,15,'USA','TN','Franklin',NULL,NULL,NULL,NULL,NULL,NULL,'Robert','Hassell','Robert Harris',186,73,'L','L','2025-05-22',NULL),
 ('hasslan01',1951,10,18,'USA','TX','Texas City',2019,12,25,'USA','AZ','Wickenburg','Andy','Hassler','Andrew Earl',220,77,'L','L','1971-05-30','1985-05-07'),
 ('hassljo01',1905,4,7,'USA','AR','Fort Smith',1971,9,4,'USA','OK','Duncan','Joe','Hassler','Joseph Frederick',165,72,'R','R','1928-05-26','1930-09-16'),
 ('hassoge01',1915,7,20,'USA','PA','Connellsville',2003,7,30,'USA','CA','Pomona','Gene','Hasson','Charles Eugene',197,72,'L','L','1937-09-09','1938-05-11'),
@@ -528682,6 +528898,7 @@ INSERT INTO `people` VALUES
 ('helliri01',1970,12,15,'USA','ND','Devils Lake',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Helling','Ricky Allen',215,75,'R','R','1994-04-10','2006-09-09'),
 ('hellmto01',1861,5,29,'USA','OH','Cincinnati',1898,3,29,'USA','OH','Cincinnati','Tony','Hellman','Anthony Joseph',175,69,'R',NULL,'1886-10-10','1886-10-10'),
 ('hellwjo01',1988,10,29,'USA','MI','Ann Arbor',NULL,NULL,NULL,NULL,NULL,NULL,'Johnny','Hellweg','Johnny David',220,80,'R','R','2013-06-28','2013-09-26'),
+('helmami01',1996,5,23,'USA','NE','Lincoln',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Helman','Michael James',195,72,'R','R','2024-09-03',NULL),
 ('helmbho01',1867,8,27,'USA','PA','Philadelphia',1939,11,18,'USA','NC','Lake Lure','Horace','Helmbold','Horace Willing',NULL,69,NULL,NULL,'1890-10-11','1890-10-11'),
 ('helmsto01',1941,5,5,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Tommy','Helms','Tommy Vann',165,70,'R','R','1964-09-23','1977-10-01'),
 ('helmswe01',1976,5,12,'USA','NC','Gastonia',NULL,NULL,NULL,NULL,NULL,NULL,'Wes','Helms','Wesley Ray',230,76,'R','R','1998-09-05','2011-08-13'),
@@ -528710,6 +528927,7 @@ INSERT INTO `people` VALUES
 ('hendeji01',1982,10,21,'CAN','AB','Calgary',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Henderson','James Duffy',220,77,'L','R','2012-07-26','2016-10-02'),
 ('hendejo01',1946,7,4,'USA','MS','Lake Cormorant',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Henderson','Joseph Lee',195,74,'L','R','1974-06-07','1977-07-16'),
 ('hendeke01',1946,6,15,'USA','IA','Carroll',NULL,NULL,NULL,NULL,NULL,NULL,'Ken','Henderson','Kenneth Joseph',180,74,'B','R','1965-04-23','1980-07-19'),
+('hendelo01',2002,3,2,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Henderson','Logan Blake',209,72,'R','R','2025-04-20',NULL),
 ('henderi01',1958,12,25,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Rickey','Henderson','Rickey Nelson Henley',180,70,'R','L','1979-06-24','2003-09-19'),
 ('hendero01',1971,3,11,'USA','KY','Greensburg',NULL,NULL,NULL,NULL,NULL,NULL,'Rod','Henderson','Rodney Wood',195,76,'R','R','1994-04-19','1998-09-23'),
 ('hendest01',1952,11,18,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Henderson','Steven Curtis',190,74,'R','R','1977-06-16','1988-09-28'),
@@ -528732,6 +528950,7 @@ INSERT INTO `people` VALUES
 ('henglmo01',1857,10,7,'USA','IL','Chicago',1924,12,11,'USA','IL','River Forest','Moxie','Hengel','Emery J.',144,68,'R',NULL,'1884-04-20','1885-05-27'),
 ('heniola01',1899,6,7,'USA','CA','Eureka',1955,7,22,'USA','CA','San Luis Obispo','Lafayette','Henion','Lafayette Marion',154,71,'R','R','1919-09-10','1919-09-10'),
 ('henketo01',1957,12,21,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Henke','Thomas Anthony',215,77,'R','R','1982-09-10','1995-09-30'),
+('henlebl01',1997,5,14,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Blair','Henley','Michael Blair',218,75,'R','R','2024-04-08',NULL),
 ('henlebo01',1973,1,30,'USA','AL','Mobile',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Henley','Robert Clifton',190,74,'R','R','1998-07-19','1998-09-26'),
 ('henlega01',1928,10,15,'USA','KS','Wichita',NULL,NULL,NULL,NULL,NULL,NULL,'Gail','Henley','Gail Curtice',180,69,'L','R','1954-04-13','1954-05-06'),
 ('henlewe01',1880,10,25,'USA','GA','Jasper',1960,11,16,'USA','FL','Palatka','Weldon','Henley','Weldon',175,72,'R','R','1903-04-23','1907-06-28'),
@@ -528746,6 +528965,7 @@ INSERT INTO `people` VALUES
 ('henniri01',1948,1,11,'USA','NE','Hastings',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Henninger','Richard Lee',225,78,'R','R','1973-09-03','1973-09-24'),
 ('hennse01',1981,4,23,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Henn','Sean Michael',235,75,'R','L','2005-05-04','2013-09-23'),
 ('henribo01',1938,12,24,'USA','KS','Lawrence',NULL,NULL,NULL,NULL,NULL,NULL,'Bobby','Henrich','Robert Edward',185,73,'R','R','1957-05-03','1959-09-19'),
+('henried01',2002,6,24,'Venezuela','Sucre','Cumana',NULL,NULL,NULL,NULL,NULL,NULL,'Edgardo','Henriquez','Edgardo Luis',200,76,'R','R','2024-09-24',NULL),
 ('henrifr01',1899,5,8,'USA','OH','Cincinnati',1959,5,1,'USA','PA','Philadelphia','Fritz','Henrich','Frank Wilde',160,70,'L','L','1924-04-19','1924-09-13'),
 ('henriol01',1888,4,26,'Denmark',NULL,'Kirkerup',1962,10,17,'USA','MA','Norwood','Olaf','Henriksen','Olaf',158,67,'L','L','1911-08-11','1917-06-27'),
 ('henrios01',1974,1,28,'Venezuela','La Guaira','La Guaira',NULL,NULL,NULL,NULL,NULL,NULL,'Oscar','Henriquez','Oscar Eduardo',220,78,'R','R','1997-09-07','2002-09-08'),
@@ -528754,6 +528974,7 @@ INSERT INTO `people` VALUES
 ('henrybi01',1927,10,15,'USA','TX','Alice',2014,4,11,'USA','TX','Round Rock','Bill','Henry','William Rodman',180,74,'L','L','1952-04-17','1969-06-16'),
 ('henrybi02',1942,2,15,'USA','CA','Long Beach',2022,1,29,'USA','FL','Windermere','Bill','Henry','William Francis',195,75,'L','L','1966-09-13','1966-09-15'),
 ('henrybu01',1968,10,7,'USA','TX','El Paso',NULL,NULL,NULL,NULL,NULL,NULL,'Butch','Henry','Floyd Bluford',195,73,'L','L','1992-04-09','1999-09-10'),
+('henryco01',1999,7,15,'USA','AL','Florence',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Henry','Jeffrey Cole',200,76,'R','R','2025-04-13',NULL),
 ('henrydo01',1963,12,10,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Henry','Richard Douglas',185,76,'R','R','1991-07-15','2001-10-03'),
 ('henrydu01',1902,5,12,'USA','OH','Cleveland',1968,8,23,'USA','OH','Cleveland','Dutch','Henry','Frank John',175,73,'L','L','1921-09-15','1930-09-18'),
 ('henrydw01',1962,2,16,'USA','MD','Elkton',NULL,NULL,NULL,NULL,NULL,NULL,'Dwayne','Henry','Dwayne Allen',205,75,'R','R','1984-09-07','1995-09-30'),
@@ -528812,6 +529033,7 @@ INSERT INTO `people` VALUES
 ('hernada01',1985,5,13,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'David','Hernandez','David Jose',245,75,'R','R','2009-05-28','2019-08-08'),
 ('hernada02',1996,12,17,'Venezuela','Bolivar','Ciudad Bolivar',NULL,NULL,NULL,NULL,NULL,NULL,'Darwinzon','Hernandez','Darwinzon David',255,74,'L','L','2019-04-23','2022-08-10'),
 ('hernada03',1996,9,15,'Cuba','Pinar del Rio','Sandino',NULL,NULL,NULL,NULL,NULL,NULL,'Daysbel','Hernández','Daysbel',220,70,'R','R','2023-07-23','2023-10-11'),
+('hernada04',2001,8,3,'P.R.',NULL,'San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Darell','Hernaiz','Darell Giovan',190,72,'R','R','2024-03-28',NULL),
 ('hernadi01',1984,4,8,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Diory','Hernandez','Diory',185,72,'R','R','2009-05-21','2011-06-20'),
 ('hernael01',1995,5,3,'Venezuela','Miranda','Ocumare del Tuy',NULL,NULL,NULL,NULL,NULL,NULL,'Elieser','Hernandez','Elieser Alexis',214,72,'R','R','2018-05-10','2022-10-05'),
 ('hernael02',1994,11,21,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Elier','Hernandez','Elier',197,75,'R','R','2022-07-14','2022-08-15'),
@@ -528822,6 +529044,7 @@ INSERT INTO `people` VALUES
 ('hernafe02',1986,4,8,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Felix','Hernandez','Felix Abraham Graham',220,75,'R','R','2005-08-04','2019-09-26'),
 ('hernafe03',1984,7,31,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Fernando','Hernandez','Fernando',216,71,'R','R','2008-04-09','2008-04-13'),
 ('hernago01',1987,9,7,'Venezuela','Sucre','Guiria',NULL,NULL,NULL,NULL,NULL,NULL,'Gorkys','Hernandez','Gorkys Gustavo',196,73,'R','R','2012-05-21','2019-09-29'),
+('hernahe01',1999,12,16,'D.R.','Monseñor Nouel','Bonao',NULL,NULL,NULL,NULL,NULL,NULL,'Heriberto','Hernandez','Heriberto Jose',195,72,'R','R','2025-05-30',NULL),
 ('hernaja01',1940,9,11,'Cuba','Matanzas','Central Tinguaro',2019,10,12,'USA','FL','Miami','Jackie','Hernandez','Jacinto',165,71,'R','R','1965-09-14','1973-10-01'),
 ('hernaje01',1945,1,8,'P.R.',NULL,'Santurce',NULL,NULL,NULL,NULL,NULL,NULL,'Jesus','Hernaiz','Jesus Rafael',175,74,'R','R','1974-06-14','1974-09-13'),
 ('hernaje02',1966,7,6,'USA','CA','Burbank',NULL,NULL,NULL,NULL,NULL,NULL,'Jeremy','Hernandez','Jeremy Stuart',195,77,'R','R','1991-09-02','1995-09-27'),
@@ -528899,6 +529122,7 @@ INSERT INTO `people` VALUES
 ('hershwi01',1910,5,28,'USA','CA','Lemoncove',1940,8,3,'USA','MA','Boston','Willard','Hershberger','Willard McKee',167,70,'R','R','1938-04-19','1940-08-02'),
 ('hertwne01',1931,11,22,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Neal','Hertweck','Neal Charles',175,73,'L','L','1952-09-27','1952-09-28'),
 ('hertzst01',1945,2,26,'USA','OH','Wright Patterson AFB',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Hertz','Stephen Allan',195,73,'R','R','1964-04-21','1964-06-07'),
+('herzdj01',2001,1,4,'USA','NC','Fayetteville',NULL,NULL,NULL,NULL,NULL,NULL,'DJ','Herz','Davidjohn Patrick',197,74,'R','L','2024-06-04',NULL),
 ('herzobu01',1885,7,9,'USA','MD','Baltimore',1953,9,4,'USA','MD','Baltimore','Buck','Herzog','Charles Lincoln',160,71,'R','R','1908-04-17','1920-09-09'),
 ('herzowh01',1931,11,9,'USA','IL','New Athens',NULL,NULL,NULL,NULL,NULL,NULL,'Whitey','Herzog','Dorrel Norman Elvert',182,71,'L','L','1956-04-17','1963-09-28'),
 ('heskejo01',1959,2,15,'USA','NY','Lackawanna',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Hesketh','Joseph Thomas',170,74,'L','L','1984-08-07','1994-08-07'),
@@ -528949,6 +529173,7 @@ INSERT INTO `people` VALUES
 ('hicksjo01',1933,4,7,'USA','VA','Ivy',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Hicks','William Joseph',180,72,'L','R','1959-09-18','1963-09-29'),
 ('hicksjo02',1989,8,31,'USA','VA','Richmond',NULL,NULL,NULL,NULL,NULL,NULL,'John','Hicks','John Austin',230,74,'R','R','2015-08-29','2021-07-21'),
 ('hicksjo03',1996,9,6,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Hicks','Jordan McKinley',220,74,'R','R','2018-03-29','2022-10-05'),
+('hicksli01',1999,6,2,'CAN','ON','Toronto',NULL,NULL,NULL,NULL,NULL,NULL,'Liam','Hicks','Liam John Sherwood',185,69,'L','R','2025-03-28',NULL),
 ('hicksna01',1845,4,19,'USA','NY','Hempstead',1907,4,21,'USA','NJ','Hoboken','Nat','Hicks','Nathan Woodhull',186,73,'R','R','1872-04-22','1877-06-05'),
 ('hidalri01',1975,6,28,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Richard','Hidalgo','Richard Jose',220,75,'R','R','1997-09-01','2005-08-04'),
 ('hietpjo01',1979,5,1,'USA','WI','Appleton',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Hietpas','Joseph Carl',220,75,'R','R','2004-10-03','2004-10-03'),
@@ -529008,6 +529233,7 @@ INSERT INTO `people` VALUES
 ('hillhu02',1879,7,21,'USA','GA','Ringgold',1958,9,6,'USA','OH','Cincinnati','Hugh','Hill','Hugh Ellis',168,71,'L','R','1903-05-01','1904-10-09'),
 ('hillima01',1901,7,23,'USA','MA','Cambridge',1961,6,16,'USA','MA','Cambridge','Mack','Hillis','Malcolm David',165,70,'R','R','1924-09-13','1928-09-27'),
 ('hillisa01',1994,2,21,'USA','TX','Mansfield',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Hilliard','Samuel Beauman',236,77,'L','L','2019-08-27','2022-08-28'),
+('hillja01',1999,12,22,'USA','AR','Ashdown',NULL,NULL,NULL,NULL,NULL,NULL,'Jaden','Hill','Kenneth Jaden',234,76,'R','R','2024-09-07',NULL),
 ('hillje01',1907,1,20,'USA','MO','Yates',1993,8,31,'USA','CA','Pasadena','Jesse','Hill','Jesse Terrill',165,69,'R','R','1935-04-17','1937-10-03'),
 ('hillje02',1977,8,8,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Jeremy','Hill','Jeremy Dee',200,71,'R','R','2002-09-07','2003-04-29'),
 ('hillke01',1965,12,14,'USA','MA','Lynn',NULL,NULL,NULL,NULL,NULL,NULL,'Ken','Hill','Kenneth Wade',200,76,'R','R','1988-09-03','2001-04-18'),
@@ -529036,6 +529262,7 @@ INSERT INTO `people` VALUES
 ('hinchbr01',1974,7,21,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Brett','Hinchliffe','Brett',190,77,'R','R','1999-04-05','2001-04-26'),
 ('hinchha01',1878,8,4,'USA','PA','Philadelphia',1933,1,19,'USA','OH','Toledo','Harry','Hinchman','Harry Sibley',165,71,'B','R','1907-07-29','1907-08-14'),
 ('hinckmi01',1982,10,5,'USA','OK','Oklahoma City',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Hinckley','Michael David',195,75,'R','L','2008-09-02','2009-05-06'),
+('hindsre01',2000,9,5,'USA','FL','Niceville',NULL,NULL,NULL,NULL,NULL,NULL,'Rece','Hinds','Rece Xola',215,75,'R','R','2024-07-08',NULL),
 ('hindssa01',1953,7,11,'USA','MD','Frederick',2019,9,19,'USA','CA','Hanford','Sam','Hinds','Samuel Russell',215,78,'R','R','1977-05-21','1977-09-04'),
 ('hineshu01',1867,9,29,'USA','IL','Elgin',1928,1,2,'USA','IL','Rockford','Hunkey','Hines','Henry Fred',165,67,'R','R','1895-05-16','1895-05-18'),
 ('hinesmi01',1862,9,NULL,'Ireland',NULL,NULL,1910,3,14,'USA','MA','Taunton','Mike','Hines','Michael P.',176,70,'R','L','1883-05-01','1888-08-18'),
@@ -529054,6 +529281,7 @@ INSERT INTO `people` VALUES
 ('hintori01',1947,5,22,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Hinton','Richard Michael',185,74,'L','L','1971-07-17','1979-09-27'),
 ('hinzoto01',1964,6,18,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Tommy','Hinzo','Thomas Lee',170,70,'B','R','1987-07-16','1989-10-01'),
 ('hippahe01',1939,5,9,'USA','NY','New York',1995,7,17,'USA','CA','Santa Clara','Herb','Hippauf','Herbert August',180,72,'R','L','1966-04-27','1966-05-03'),
+('hiralya01',1995,12,31,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Yaramil','Hiraldo','Yaramil Junior',180,73,'R','R','2025-05-27',NULL),
 ('hiranyo01',1984,3,8,'Japan','Kyoto','Uji',NULL,NULL,NULL,NULL,NULL,NULL,'Yoshihisa','Hirano','Yoshihisa',185,73,'R','R','2018-03-29','2020-09-27'),
 ('hirshja01',1982,2,20,'USA','CA','Santa Monica',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Hirsh','Jason Michael',250,80,'R','R','2006-08-12','2008-09-26'),
 ('hiserge01',1948,12,11,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Gene','Hiser','Gene Taylor',175,71,'L','L','1971-08-20','1975-09-23'),
@@ -529090,6 +529318,7 @@ INSERT INTO `people` VALUES
 ('hodgegi01',1924,4,4,'USA','IN','Princeton',1972,4,2,'USA','FL','West Palm Beach','Gil','Hodges','Gilbert Ray',200,73,'R','R','1943-10-03','1963-05-05'),
 ('hodgego01',1944,4,3,'USA','NC','Rutherfordton',2007,5,13,'USA','NC','Saluda','Gomer','Hodge','Harold Morris',185,74,'B','R','1971-04-06','1971-09-26'),
 ('hodgeke01',1973,6,24,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Hodges','Kevin Jon',200,76,'R','R','2000-04-24','2000-09-30'),
+('hodgepo01',2001,2,21,'USA','UT','Salt Lake City',NULL,NULL,NULL,NULL,NULL,NULL,'Porter','Hodge','Porter Dene',230,76,'R','R','2024-05-22',NULL),
 ('hodgero01',1949,6,22,'USA','VA','Rocky Mount',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Hodges','Ronald Wray',185,73,'L','R','1973-06-13','1984-09-30'),
 ('hodgesh01',1893,7,6,'USA','AL','Clayton',1967,12,31,'USA','FL','Fort Walton Beach','Shovel','Hodge','Clarence Clemet',190,76,'L','R','1920-09-06','1922-09-05'),
 ('hodgetr01',1978,6,29,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Trey','Hodges','Trey Alan',187,75,'R','R','2002-09-10','2003-09-27'),
@@ -529111,6 +529340,7 @@ INSERT INTO `people` VALUES
 ('hoffch01',1891,5,8,'USA','NY','Ossining',1998,9,17,'USA','FL','Daytona Beach','Red','Hoff','Chester Cornelius',162,69,'L','L','1911-09-06','1915-10-02'),
 ('hoffebi01',1870,11,8,'USA','IA','Cedar Rapids',1959,7,21,'USA','IA','Cedar Rapids','Bill','Hoffer','William Leopold',155,69,'R','R','1895-04-26','1901-07-04'),
 ('hoffest01',1913,1,27,'USA','IN','Logansport',1994,3,7,'USA','IN','Valparaiso','Stew','Hofferth','Stewart Edward',195,74,'R','R','1944-04-19','1946-06-15'),
+('hoffman01',2000,2,2,'USA','IL','Joliet',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Hoffmann','Andrew Michael',210,77,'R','R','2025-05-30',NULL),
 ('hoffmbi01',1918,3,3,'USA','PA','Philadelphia',2004,5,14,'USA','PA','Roxborough','Bill','Hoffman','William Joseph',170,69,'L','L','1939-08-13','1939-08-26'),
 ('hoffmda01',1880,3,2,'USA','CT','Canton',1922,3,14,'USA','CT','Manchester','Danny','Hoffman','Daniel John',175,69,'L','L','1903-04-20','1911-05-25'),
 ('hoffmdu01',1904,1,28,'USA','IL','Freeburg',1962,12,6,'USA','IL','Belleville','Clarence','Hoffman','Clarence Casper',175,72,'R','R','1929-04-23','1929-10-06'),
@@ -529124,6 +529354,7 @@ INSERT INTO `people` VALUES
 ('hoffmje02',1993,1,8,'USA','NY','Latham',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Hoffman','Jeffrey Robert',235,77,'R','R','2016-08-20','2022-07-23'),
 ('hoffmjo01',1943,10,31,'USA','SD','Aberdeen',2001,12,27,'USA','WA','Seattle','John','Hoffman','John Edward',190,72,'L','R','1964-07-30','1965-10-03'),
 ('hoffmla01',1878,7,18,'USA','IL','Chicago',1948,12,29,'USA','IL','Chicago','Larry','Hoffman','Lawrence Charles',175,68,'R','R','1901-07-04','1901-07-09'),
+('hoffmno01',1997,8,9,'USA','NE','Lincoln',NULL,NULL,NULL,NULL,NULL,NULL,'Nolan','Hoffman','Nolan',190,76,'R','R','2025-08-18',NULL),
 ('hoffmra01',1917,6,14,'USA','MI','Detroit',2008,5,30,'USA','GA','Milton','Ray','Hoffman','Raymond Lamont',175,72,'L','R','1942-08-30','1942-09-06'),
 ('hoffmte01',1893,11,30,'USA','TX','San Antonio',1947,5,19,'USA','LA','New Orleans','Tex','Hoffman','Edward Adolph',195,69,'L','R','1915-07-11','1915-07-20'),
 ('hoffmtr01',1967,10,13,'USA','CA','Bellflower',NULL,NULL,NULL,NULL,NULL,NULL,'Trevor','Hoffman','Trevor William',200,73,'R','R','1993-04-06','2010-09-29'),
@@ -529144,6 +529375,7 @@ INSERT INTO `people` VALUES
 ('hoggbe01',1913,4,21,'USA','MI','Detroit',1973,11,5,'USA','MI','Detroit','Bert','Hogg','Wilbert George',162,71,'R','R','1934-06-01','1934-06-02'),
 ('hoggbi01',1881,9,11,'USA','MI','Port Huron',1909,12,8,'USA','LA','New Orleans','Bill','Hogg','William Johnston',200,72,'R','R','1905-04-25','1908-10-02'),
 ('hoggbr01',1889,3,26,'USA','GA','Buena Vista',1935,4,2,'USA','GA','Buena Vista','Brad','Hogg','Carter Bradley',185,72,'R','R','1911-09-01','1919-09-27'),
+('hoglugu01',1999,12,17,'USA','FL','Dunedin',NULL,NULL,NULL,NULL,NULL,NULL,'Gunnar','Hoglund','Gunnar Thomas',220,76,'L','R','2025-05-02',NULL),
 ('hogrige01',1869,3,17,'USA','OH','Cincinnati',1961,1,26,'USA','WI','Appleton','George','Hogreiver','George C.',160,68,'R','R','1895-04-24','1901-09-13'),
 ('hogsech01',1903,11,2,'USA','KS','Brownell',2001,7,17,'USA','KS','Hays','Elon','Hogsett','Elon Chester',190,72,'L','L','1929-09-18','1944-06-03'),
 ('hoguebo01',1921,4,5,'USA','FL','Miami',1987,12,22,'USA','FL','Miami','Bobby','Hogue','Robert Clinton',195,70,'R','R','1948-04-24','1952-09-27'),
@@ -529186,6 +529418,7 @@ INSERT INTO `people` VALUES
 ('hollida01',1966,5,25,'USA','NY','Buffalo',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Hollins','David Michael',195,73,'B','R','1990-04-12','2002-09-25'),
 ('hollida02',1974,6,12,'USA','CA','Fairfield',NULL,NULL,NULL,NULL,NULL,NULL,'Damon','Hollins','Damon Jamall',180,71,'R','L','1998-04-24','2006-10-01'),
 ('holliho01',1853,1,17,'USA','DC','Washington',1926,10,6,'USA','DC','Washington','Holly','Hollingshead','John Samuel',NULL,NULL,NULL,NULL,'1872-04-20','1875-06-09'),
+('hollija01',2003,12,4,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Holliday','Jackson Matthew',185,72,'L','R','2024-04-10',NULL),
 ('hollije01',1970,1,27,'USA','TX','Conroe',2009,7,9,'USA','TX','Polk County','Jessie','Hollins','Jessie Edward',190,75,'R','R','1992-09-19','1992-09-28'),
 ('hollijo01',1870,5,3,'USA','IL','Chicago',1969,8,19,'USA','IL','Chicago','John','Hollison','John Henry',162,68,'R','L','1892-08-13','1892-08-13'),
 ('hollima01',1980,1,15,'USA','OK','Stillwater',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Holliday','Matthew Thomas',240,76,'R','R','2004-04-16','2018-10-01'),
@@ -529202,6 +529435,7 @@ INSERT INTO `people` VALUES
 ('holmabr01',1965,1,25,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Holman','Brian Scott',185,76,'R','R','1988-06-25','1991-09-22'),
 ('holmabr02',1968,2,9,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Brad','Holman','Bradley Thomas',205,77,'R','R','1993-07-04','1993-10-02'),
 ('holmaga01',1944,1,25,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Gary','Holman','Gary Richard',200,73,'L','L','1968-06-26','1969-06-18'),
+('holmagr01',2000,5,31,'USA','WA','Kirkland',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Holman','Grant James',250,78,'R','R','2024-08-17',NULL),
 ('holmasc01',1958,9,18,'USA','CA','Santa Paula',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Holman','Randy Scott',190,73,'R','R','1980-09-20','1983-09-29'),
 ('holmash01',1964,11,10,'USA','PA','Sewickley',NULL,NULL,NULL,NULL,NULL,NULL,'Shawn','Holman','Shawn Leroy',185,74,'R','R','1989-09-05','1989-09-23'),
 ('holmbda01',1991,7,19,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'David','Holmberg','David Andrew',245,75,'R','L','2013-08-27','2017-09-29'),
@@ -529212,6 +529446,7 @@ INSERT INTO `people` VALUES
 ('holmedu01',1869,1,28,'USA','IA','Des Moines',1932,8,5,'USA','IA','Truro','Ducky','Holmes','James William',170,66,'L','R','1895-08-08','1905-09-29'),
 ('holmedu02',1883,7,8,'USA','OH','Dayton',1945,9,18,'USA','OH','Dayton','Ducky','Holmes','Howard Elbert',160,70,'R','R','1906-04-18','1906-05-02'),
 ('holmefr01',1878,7,1,'USA','IL','Chicago',1956,2,13,'USA','IL','Norwood Park','Fred','Holmes','Frederick Clarence',145,67,'R','R','1903-08-23','1904-04-24'),
+('holmegr01',1996,3,22,'USA','SC','Conway',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Holmes','Harrison Grant',226,72,'L','R','2024-06-16',NULL),
 ('holmeji01',1881,8,2,'USA','KY','Lawrenceburg',1960,3,10,'USA','FL','Jacksonville','Jim','Holmes','James Scott',NULL,NULL,NULL,NULL,'1906-09-08','1908-10-07'),
 ('holmeto01',1917,3,29,'USA','NY','Brooklyn',2008,4,14,'USA','FL','Boca Raton','Tommy','Holmes','Thomas Francis',180,70,'L','L','1942-04-14','1952-09-28'),
 ('holmst01',1979,10,21,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Holm','Stephen Robert',205,72,'R','R','2008-04-04','2011-04-30'),
@@ -529272,6 +529507,7 @@ INSERT INTO `people` VALUES
 ('horansh01',1895,9,6,'USA','MO','St. Louis',1969,2,13,'USA','CA','Torrance','Shags','Horan','Joseph Patrick',170,70,'R','R','1924-07-14','1924-09-18'),
 ('horgajo01',1977,6,7,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Horgan','Joseph Paul',200,73,'L','L','2004-06-12','2005-04-23'),
 ('horlejo01',1937,8,14,'USA','TX','San Antonio',2022,4,10,'USA','TX','San Antonio','Joe','Horlen','Joel Edward',170,72,'R','R','1961-09-04','1972-10-04'),
+('hornba01',1998,1,15,'USA','TX','Waco',NULL,NULL,NULL,NULL,NULL,NULL,'Bailey','Horn','Bailey Christian Tant',210,74,'L','L','2024-06-29',NULL),
 ('hornebo01',1957,8,6,'USA','KS','Junction City',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Horner','James Robert',195,73,'R','R','1978-06-16','1988-06-18'),
 ('horneja01',1863,9,21,'USA','MD','Baltimore',1910,7,14,'USA','LA','New Orleans','Jack','Horner','William Frank',NULL,NULL,'R','R','1894-05-07','1894-05-11'),
 ('hornetr01',1898,4,12,'USA','OH','Bachman',1983,2,3,'USA','OH','Franklin','Trader','Horne','Berlyn Dale',155,69,'B','R','1929-04-24','1929-07-11'),
@@ -529282,6 +529518,7 @@ INSERT INTO `people` VALUES
 ('horsmvi01',1967,3,9,'CAN','NS','Halifax',NULL,NULL,NULL,NULL,NULL,NULL,'Vince','Horsman','Vincent Stanley Joseph',175,74,'R','L','1991-09-05','1995-05-13'),
 ('horstje01',1985,10,1,'USA','WY','Cheyenne',NULL,NULL,NULL,NULL,NULL,NULL,'Jeremy','Horst','Jeremy Michael',235,75,'L','L','2011-05-28','2013-06-15'),
 ('horstos01',1891,6,2,'USA','MO','Alma',1977,5,11,'USA','KS','Salina','Oscar','Horstmann','Oscar Theodore',165,71,'R','R','1917-04-18','1919-06-01'),
+('hortoca01',2001,8,20,'USA','OK','Oklahoma City',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Horton','Cade Michael',190,74,'R','R','2025-05-10',NULL),
 ('hortoel01',1866,9,4,'USA','OH','Hamilton',1920,8,12,'USA','NY','North Bay','Elmer','Horton','Ellis Elmer',157,69,'R','R','1896-09-24','1898-04-18'),
 ('hortori01',1959,7,30,'USA','NY','Poughkeepsie',NULL,NULL,NULL,NULL,NULL,NULL,'Ricky','Horton','Ricky Neal',195,74,'L','L','1984-04-07','1990-07-23'),
 ('hortoto01',1944,12,6,'USA','CA','Santa Monica',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Horton','Anthony Darrin',210,75,'R','R','1964-07-31','1970-08-28'),
@@ -529308,6 +529545,7 @@ INSERT INTO `people` VALUES
 ('houltdj01',1979,8,12,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'D. J.','Houlton','Dennis Sean',235,76,'R','R','2005-04-09','2007-09-30'),
 ('housead01',1993,2,2,'USA','OK','Tahlequah',NULL,NULL,NULL,NULL,NULL,NULL,'Adrian','Houser','Adrian David',222,75,'R','R','2015-09-26','2022-09-27'),
 ('housebe01',1883,11,30,'USA','PA','Frackville',1952,1,15,'USA','ME','Augusta','Ben','Houser','Benjamin Franklin',185,73,'L','L','1910-05-02','1912-10-05'),
+('housebr01',2003,6,4,'USA','GA','Winder',NULL,NULL,NULL,NULL,NULL,NULL,'Brady','House','Brady Hunter',208,76,'R','R','2025-06-16',NULL),
 ('housech01',1855,8,21,'USA','PA','Harrisburg',1908,12,26,'USA','PA','Harrisburg','Charlie','Householder','Charles F.',150,67,'R','R','1884-04-20','1884-09-18'),
 ('housech02',1854,2,8,'USA','PA','Philadelphia',1913,9,3,'USA','PA','Philadelphia','Charlie','Householder','Charles W.',158,71,'L','L','1882-05-02','1884-10-15'),
 ('housecr01',1977,7,8,'Japan','Okinawa','Naha AFB',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','House','Craig Michael',210,74,'R','R','2000-08-06','2000-09-28'),
@@ -529543,7 +529781,9 @@ INSERT INTO `people` VALUES
 ('hurstsc01',1996,3,25,'USA','CA','Glendora',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Hurst','Scott Andrew',175,70,'L','R','2021-04-16','2021-04-27'),
 ('hurstti99',1865,6,30,'USA','PA','Ashland',1915,6,4,'USA','PA','Minersville','Tim','Hurst','Timothy Carroll',NULL,NULL,NULL,NULL,NULL,NULL),
 ('hurtaed01',1970,2,1,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Edwin','Hurtado','Edwin Amilgar',215,75,'R','R','1995-05-22','1997-07-30'),
+('hurtebr01',1998,9,6,'USA','GA','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'Brant','Hurter','Brant Harris',250,78,'L','L','2024-08-04',NULL),
 ('hurtky01',1998,5,30,'USA','CA','Rancho Santa Fe',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Hurt','Kyle Dillon',240,75,'R','R','2023-09-12','2023-09-12'),
+('hurtuja01',1997,12,11,'USA','IN','Indianapolis',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Hurtubise','Jacob Gilles',180,71,'L','R','2024-05-13',NULL),
 ('huskebu01',1971,11,10,'USA','OK','Anadarko',NULL,NULL,NULL,NULL,NULL,NULL,'Butch','Huskey','Robert Leon',244,75,'R','R','1993-09-08','2000-10-01'),
 ('husonje01',1964,8,15,'USA','AZ','Scottsdale',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Huson','Jeffrey Kent',180,75,'L','R','1988-09-02','2000-10-01'),
 ('hustaca01',1902,4,8,'USA','NJ','Egg Harbor City',1951,11,6,'USA','NY','Kingston','Carl','Husta','Carl Lawrence',176,71,'R','R','1925-09-24','1925-10-03'),
@@ -529586,6 +529826,7 @@ INSERT INTO `people` VALUES
 ('ignasmi01',1966,3,12,'USA','MI','Anchorville',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Ignasiak','Michael James',175,71,'B','R','1991-08-22','1995-08-21'),
 ('iguchta01',1974,12,4,'Japan','Tokyo','Tanashi',NULL,NULL,NULL,NULL,NULL,NULL,'Tadahito','Iguchi','Tadahito',185,70,'R','R','2005-04-04','2008-09-28'),
 ('ilslebl01',1964,4,9,'USA','MI','Alpena',NULL,NULL,NULL,NULL,NULL,NULL,'Blaise','Ilsley','Blaise Francis',195,73,'L','L','1994-04-04','1994-07-07'),
+('imanash01',1993,9,1,'Japan','Fukuoka','Kitakyushu',NULL,NULL,NULL,NULL,NULL,NULL,'Shota','Imanaga','Shota',175,70,'L','L','2024-04-01',NULL),
 ('imlaydo01',1889,1,12,'USA','NJ','Allentown',1948,10,7,'USA','NJ','Bordentown','Harry','Imlay','Harry Miller',168,71,'R','R','1913-07-07','1913-09-27'),
 ('incavpe01',1964,4,2,'USA','CA','Pebble Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Pete','Incaviglia','Peter Joseph',225,73,'R','R','1986-04-08','1998-09-27'),
 ('inciaen01',1990,10,29,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Ender','Inciarte','Ender David',190,71,'L','L','2014-05-02','2022-07-13'),
@@ -529611,6 +529852,7 @@ INSERT INTO `people` VALUES
 ('irabuhi01',1969,5,5,'Japan','Hyogo','Hirara',2011,7,27,'USA','CA','Rancho Palos Verdes','Hideki','Irabu','Hideki',240,76,'R','R','1997-07-10','2002-07-12'),
 ('irelaha01',1890,8,5,'USA','IN','Burnettsville',1944,7,16,'USA','IN','Carmel','Hal','Irelan','Harold',165,67,'B','R','1914-04-23','1914-10-06'),
 ('irelati01',1953,3,14,'USA','CA','Oakland',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Ireland','Timothy Neal Christopher',180,72,'B','R','1981-09-20','1982-05-25'),
+('iriarja01',2001,12,15,'Venezuela','La Guaira','La Guaira',NULL,NULL,NULL,NULL,NULL,NULL,'Jairo','Iriarte','Jairo Alejandro',240,76,'R','R','2024-09-03',NULL),
 ('iribahe01',1984,6,29,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Hernan','Iribarren','Hernan Alcides',202,73,'L','R','2008-04-12','2016-10-02'),
 ('irvinco01',1994,1,31,'USA','CA','Anaheim',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Irvin','Cole R.',217,76,'L','L','2019-05-12','2022-10-04'),
 ('irvinda01',1964,11,15,'USA','VA','Harrisonburg',NULL,NULL,NULL,NULL,NULL,NULL,'Daryl','Irvine','Daryl Keith',195,75,'R','R','1990-04-28','1992-09-28'),
@@ -529661,6 +529903,7 @@ INSERT INTO `people` VALUES
 ('jacksgr01',1942,9,28,'USA','OH','Fostoria',2021,2,2,'USA','PA','Canonsburg','Grant','Jackson','Grant Dwight',180,72,'B','L','1965-09-03','1982-09-08'),
 ('jackshe01',1861,6,23,'USA','IN','Union City',1932,9,14,'USA','IL','Chicago','Henry','Jackson','Henry Everett',185,74,'R','R','1887-09-13','1887-09-28'),
 ('jacksja01',1987,10,27,'USA','SC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Jay','Jackson','Randy',195,73,'R','R','2015-09-14','2022-08-30'),
+('jacksje02',2000,3,26,'USA','TN','Antioch',NULL,NULL,NULL,NULL,NULL,NULL,'Jeremiah','Jackson','Jeremiah',165,71,'R','R','2025-08-01',NULL),
 ('jacksji01',1877,11,28,'USA','PA','Philadelphia',1955,10,9,'USA','PA','Philadelphia','Jim','Jackson','James Benner',165,66,'R','R','1901-04-26','1906-09-28'),
 ('jacksjo01',1887,7,16,'USA','SC','Pickens County',1951,12,5,'USA','SC','Greenville','Shoeless Joe','Jackson','Joseph Walker',200,73,'L','R','1908-08-25','1920-09-27'),
 ('jacksjo02',1909,7,15,'USA','PA','Philadelphia',1956,10,22,'USA','NJ','Somers Point','John','Jackson','John Lewis',180,74,'R','R','1933-06-20','1933-08-02'),
@@ -529770,6 +530013,7 @@ INSERT INTO `people` VALUES
 ('jayemy01',1991,12,28,'USA','GA','Fayetteville',NULL,NULL,NULL,NULL,NULL,NULL,'Myles','Jaye','Myles Joseph',170,75,'B','R','2017-09-02','2017-09-21'),
 ('jayjo01',1935,8,15,'USA','CT','Middletown',NULL,NULL,NULL,NULL,NULL,NULL,'Joey','Jay','Joseph Richard',228,76,'B','R','1953-07-21','1966-10-02'),
 ('jayjo02',1985,3,15,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Jon','Jay','Jonathan Henry',200,71,'L','L','2010-04-26','2021-05-12'),
+('jayty01',1994,4,19,'USA','IL','Lemont',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Jay','Tyler Ryan',191,72,'L','L','2024-04-11',NULL),
 ('jeando01',1969,1,9,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Domingo','Jean','Domingo',175,74,'R','R','1993-08-08','1993-10-03'),
 ('jeanete01',1900,12,19,'USA','TX','Maypearl',1973,4,5,'USA','TX','Longview','Tex','Jeanes','Ernest Lee',176,72,'R','R','1921-04-20','1927-06-26'),
 ('jeffcge01',1913,12,24,'USA','SC','New Brookfield',1978,10,13,'USA','SC','Leesville','George','Jeffcoat','George Edward',175,71,'R','R','1936-04-20','1943-06-20'),
@@ -529806,6 +530050,7 @@ INSERT INTO `people` VALUES
 ('jennihu01',1869,4,2,'USA','PA','Pittston',1928,2,1,'USA','PA','Scranton','Hughie','Jennings','Hugh Ambrose',165,68,'R','R','1891-06-01','1918-09-02'),
 ('jennija01',1978,7,17,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Jennings','Jason Ryan',235,74,'L','R','2001-08-23','2009-08-26'),
 ('jenniro01',1972,4,11,'Singapore',NULL,'Singapore',NULL,NULL,NULL,NULL,NULL,NULL,'Robin','Jennings','Robin Christopher',205,74,'L','L','1996-04-18','2001-10-07'),
+('jenseca01',2003,7,3,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Carter','Jensen','Carter James',210,72,'L','R','2025-09-02',NULL),
 ('jenseja01',1927,3,9,'USA','CA','San Francisco',1982,7,14,'USA','VA','Charlottesville','Jackie','Jensen','Jack Eugene',190,71,'R','R','1950-04-18','1961-10-01'),
 ('jenseky01',1988,5,20,'USA','CA','Walnut Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Jensen','Kyle Gregory',255,75,'R','L','2016-09-03','2016-10-02'),
 ('jensema01',1972,12,14,'USA','CA','Oakland',NULL,NULL,NULL,NULL,NULL,NULL,'Marcus','Jensen','Marcus Christian',195,76,'B','R','1996-04-14','2002-06-23'),
@@ -529839,6 +530084,7 @@ INSERT INTO `people` VALUES
 ('jimenjo02',1995,1,17,'P.R.',NULL,'San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Jimenez','Joe Alexander',277,75,'R','R','2017-04-13','2022-09-20'),
 ('jimenju01',1949,3,8,'D.R.','La Vega','La Torre',2008,10,12,'USA','OH','Cleveland','Juan','Jimenez','Juan Antonio',165,73,'R','R','1974-09-09','1974-09-29'),
 ('jimenke01',1980,10,27,'D.R.','Samana','Sanchez',NULL,NULL,NULL,NULL,NULL,NULL,'Kelvin','Jimenez','Kelvin Rogelio',195,74,'R','R','2007-04-27','2008-09-28'),
+('jimenle01',2001,5,17,'Panama','Herrera','Chitre',NULL,NULL,NULL,NULL,NULL,NULL,'Leo','Jimenez','Leonardo Joel',215,70,'R','R','2024-07-04',NULL),
 ('jimenlu01',1982,5,7,'Venezuela','Lara','Bobare',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Jimenez','Luis Antonio',280,75,'L','L','2012-09-04','2012-09-23'),
 ('jimenlu02',1988,1,18,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Jimenez','Luis Domingo',205,73,'R','R','2013-04-12','2015-05-06'),
 ('jimenma01',1936,11,19,'D.R.','San Pedro de Macoris','San Pedro de Macoris',2017,12,11,'USA','NY','New York','Manny','Jimenez','Manuel Emilio',185,73,'L','R','1962-04-11','1969-05-27'),
@@ -529846,6 +530092,7 @@ INSERT INTO `people` VALUES
 ('jimenub01',1984,1,22,'D.R.','Maria Trinidad Sanchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Ubaldo','Jimenez','Ubaldo',221,77,'R','R','2006-09-26','2017-09-22'),
 ('jimerch01',1979,9,22,'USA','CA','San Leandro',NULL,NULL,NULL,NULL,NULL,NULL,'Charlton','Jimerson','Charlton Maxwell',210,75,'R','R','2005-09-14','2008-04-10'),
 ('joaquwa01',1986,12,25,'D.R.','La Vega','La Vega',NULL,NULL,NULL,NULL,NULL,NULL,'Waldis','Joaquin','Waldis',230,75,'R','R','2009-08-04','2011-09-24'),
+('jobeja01',2002,7,30,'USA','TX','Irving',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Jobe','Jackson William',190,74,'R','R','2024-09-25',NULL),
 ('jodiebr01',1977,3,25,'USA','SC','Columbia',NULL,NULL,NULL,NULL,NULL,NULL,'Brett','Jodie','Brett Paul',208,76,'R','R','2001-07-20','2001-10-07'),
 ('joeco01',1992,8,16,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Connor','Joe','Connor Kok-Wy',205,72,'R','R','2019-03-28','2022-09-25'),
 ('johjike01',1976,6,8,'Japan','Nagasaki','Sasebo',NULL,NULL,NULL,NULL,NULL,NULL,'Kenji','Johjima','Kenji',205,72,'R','R','2006-04-03','2009-10-03'),
@@ -529968,6 +530215,8 @@ INSERT INTO `people` VALUES
 ('johnsro06',1976,12,8,'USA','TX','Marshall',NULL,NULL,NULL,NULL,NULL,NULL,'Rontrez','Johnson','Rontrez DeMon',160,70,'R','R','2003-03-31','2003-04-15'),
 ('johnsro07',1982,7,22,'USA','MT','Anaconda',NULL,NULL,NULL,NULL,NULL,NULL,'Rob','Johnson','Robert James',220,73,'R','R','2007-09-04','2013-09-14'),
 ('johnsru01',1973,2,22,'USA','LA','Baton Rouge',NULL,NULL,NULL,NULL,NULL,NULL,'Russ','Johnson','William Russell',185,70,'R','R','1997-04-08','2005-07-15'),
+('johnsry01',2002,8,5,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Johnson','Ryan Christopher',215,78,'B','R','2025-03-27',NULL),
+('johnsse01',1998,9,19,'USA','NC','Concord',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Johnson','Seth William',205,73,'R','R','2024-09-08',NULL),
 ('johnssh01',1990,7,15,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Sherman','Johnson','Sherman Lee',190,70,'L','R','2018-09-19','2018-09-30'),
 ('johnssi01',1906,10,5,'USA','IL','Danway',1994,5,12,'USA','IL','Sheridan','Si','Johnson','Silas Kenneth',185,71,'R','R','1928-09-11','1947-09-25'),
 ('johnssp01',1856,12,NULL,'CAN',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Spud','Johnson','James Ralph',175,69,'L','L','1889-04-18','1891-08-08'),
@@ -529978,6 +530227,7 @@ INSERT INTO `people` VALUES
 ('johnsto01',1851,9,7,'USA','MD','Baltimore',1927,4,13,'USA','MD','Baltimore','Tommy','Johns','Thomas Pearce',170,71,NULL,NULL,'1873-05-14','1873-05-14'),
 ('johnsto02',1951,4,2,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Johnson','Thomas Raymond',185,73,'R','R','1974-09-10','1978-09-27'),
 ('johnsto03',1956,6,23,'USA','TN','Memphis',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Johnson','Anthony Clair',195,75,'R','R','1981-09-27','1982-10-03'),
+('johnstr02',1997,6,22,'USA','WA','Tacoma',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Johnston','Troy Michael',205,71,'L','L','2025-07-29',NULL),
 ('johnsty01',1981,6,7,'USA','MO','Columbia',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Johnson','Tyler James',180,74,'B','L','2005-09-06','2007-09-30'),
 ('johnsvi01',1920,8,3,'USA','WI','Eau Claire',2005,5,10,'USA','WI','Eau Claire','Vic','Johnson','Victor Oscar',160,72,'R','L','1944-05-03','1946-06-11'),
 ('johnswa01',1887,11,6,'USA','KS','Humboldt',1946,12,10,'USA','DC','Washington','Walter','Johnson','Walter Perry',200,73,'R','R','1907-08-02','1927-09-30'),
@@ -530039,6 +530289,7 @@ INSERT INTO `people` VALUES
 ('jonesga02',1981,6,21,'USA','IL','Harvey',NULL,NULL,NULL,NULL,NULL,NULL,'Garrett','Jones','Garrett Thomas',235,77,'L','L','2007-05-15','2015-07-29'),
 ('jonesgo01',1930,4,2,'USA','OR','Portland',1994,4,25,'USA','CA','Lodi','Gordon','Jones','Gordon Bassett',185,72,'R','R','1954-08-06','1965-09-11'),
 ('jonesgr01',1976,11,15,'USA','FL','Clearwater',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Jones','Greg Alan',190,74,'R','R','2003-07-30','2007-08-18'),
+('jonesgr02',1998,3,7,'USA','NC','Cary',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Jones','Gregory',175,72,'B','R','2024-06-06',NULL),
 ('jonesha01',1936,4,9,'USA','MO','Louisiana',NULL,NULL,NULL,NULL,NULL,NULL,'Hal','Jones','Harold Marion',194,74,'R','R','1961-04-25','1962-09-30'),
 ('joneshe01',1857,5,10,'USA','NY',NULL,1955,5,31,'USA','MI','Manistee','Henry','Jones','Henry Monroe',149,66,'B',NULL,'1884-08-20','1884-10-14'),
 ('joneshe02',1860,7,27,'USA','PA','McKeesport',1922,9,23,'USA','PA','Pittsburgh','Henry','Jones','Henry',150,66,NULL,'R','1890-04-22','1890-05-31'),
@@ -530052,6 +530303,7 @@ INSERT INTO `people` VALUES
 ('jonesja06',1988,9,24,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'James','Jones','James Steven',205,75,'L','L','2014-04-18','2015-10-04'),
 ('jonesja07',1992,5,10,'USA','OK','Chickasha',NULL,NULL,NULL,NULL,NULL,NULL,'JaCoby','Jones','JaCoby Mylon',211,74,'R','R','2016-08-30','2021-05-23'),
 ('jonesja08',1997,8,4,'USA','GA','Roswell',NULL,NULL,NULL,NULL,NULL,NULL,'Jahmai','Jones','Jahmai Fitzgerald',210,72,'R','R','2020-08-31','2021-10-02'),
+('jonesja09',2001,8,6,'USA','CA','Whittier',NULL,NULL,NULL,NULL,NULL,NULL,'Jared','Jones','Jared Keith',190,72,'L','R','2024-03-30',NULL),
 ('jonesje01',1956,7,29,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Jones','Jeffrey Allen',210,75,'R','R','1980-04-10','1984-09-14'),
 ('jonesje02',1957,10,22,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Jones','Jeffrey Raymond',200,74,'R','R','1983-04-04','1983-04-24'),
 ('jonesji01',1876,12,25,'USA','KY','London',1953,5,6,'USA','KY','London','Jim','Jones','James Tilford',162,70,'R','R','1897-06-29','1902-08-06'),
@@ -530104,6 +530356,7 @@ INSERT INTO `people` VALUES
 ('jordaha01',1873,2,14,'USA','PA','Titusville',1920,3,1,'USA','PA','Pittsburgh','Harry','Jordan','Harry James',NULL,NULL,NULL,NULL,'1894-09-25','1895-07-05'),
 ('jordaji01',1908,1,13,'USA','SC','Tucapau',1957,12,4,'USA','NC','Gastonia','Jimmy','Jordan','James William',157,69,'R','R','1933-04-20','1936-09-27'),
 ('jordake01',1969,10,9,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Jordan','Kevin Wayne',185,73,'R','R','1995-08-08','2001-10-07'),
+('jordale01',1995,9,24,'USA','WA','Puyallup',NULL,NULL,NULL,NULL,NULL,NULL,'Levi','Jordan','Levi David',185,75,'R','R','2024-06-24',NULL),
 ('jordami01',1863,2,7,'USA','MA','Lawrence',1940,9,25,'USA','MA','Lawrence','Mike','Jordan','Michael Henry',155,67,NULL,NULL,'1890-08-21','1890-10-03'),
 ('jordami02',1927,5,24,'USA','PA','Mineral Springs',1993,5,13,'USA','NY','Ithaca','Milt','Jordan','Milton Mignot',207,74,'R','R','1953-04-16','1953-05-10'),
 ('jordani01',1925,12,1,'USA','WA','Lyman',2008,3,15,'USA','WA','Sedro-Woolley','Niles','Jordan','Niles Chapman',180,71,'L','L','1951-08-26','1952-09-16'),
@@ -530162,6 +530415,7 @@ INSERT INTO `people` VALUES
 ('jumonge01',1917,5,16,'USA','AL','Mobile',1996,12,12,'USA','AL','Mobile','George','Jumonville','George Benedict',175,72,'R','R','1940-09-13','1941-05-20'),
 ('jungeer01',1977,1,5,'USA','NY','Manhasset',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Junge','Eric DeBari',220,77,'R','R','2002-09-11','2003-05-11'),
 ('jungeke01',1916,6,23,'USA','IL','Aurora',1975,9,9,'USA','WI','West Bend','Ken','Jungels','Kenneth Peter',180,73,'R','R','1937-09-15','1942-06-07'),
+('jungja01',2000,10,4,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Jace','Jung','Jace Andrew',205,72,'L','R','2024-08-16',NULL),
 ('jungjo01',1998,2,12,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Jung','Joshua Ryne',214,74,'R','R','2022-09-09','2022-10-05'),
 ('jungmta01',1989,12,18,'USA','TX','Temple',NULL,NULL,NULL,NULL,NULL,NULL,'Taylor','Jungmann','Taylor Heath',210,78,'R','R','2015-06-09','2017-04-05'),
 ('junisja01',1992,9,16,'USA','AR','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Jakob','Junis','Jakob Benjamin Lee',220,75,'R','R','2017-04-12','2022-10-01'),
@@ -530242,6 +530496,7 @@ INSERT INTO `people` VALUES
 ('karpry01',1970,4,5,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Karp','Ryan Jason',217,76,'L','L','1995-06-23','1997-09-27'),
 ('karrbe01',1893,11,28,'USA','MS','Mount Pleasant',1968,12,8,'USA','TN','Memphis','Benn','Karr','Benjamin Joyce',175,72,'L','R','1920-04-20','1927-07-03'),
 ('karroer01',1967,11,4,'USA','NJ','Hackensack',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Karros','Eric Peter',205,76,'R','R','1991-09-01','2004-07-21'),
+('karroky01',2002,7,26,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Karros','Kyle Garret',220,77,'R','R','2025-08-08',NULL),
 ('karsast01',1972,3,24,'USA','NY','Flushing',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Karsay','Stefan Andrew',210,75,'R','R','1993-08-17','2006-06-17'),
 ('karstje01',1982,9,24,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Karstens','Jeffrey Wayne',185,75,'R','R','2006-08-22','2012-10-01'),
 ('karstjo01',1893,10,15,'USA','PA','Philadelphia',1976,5,21,'USA','NJ','Cape May','John','Karst','John Gottlieb',175,71,'L','R','1915-10-06','1915-10-06'),
@@ -530258,6 +530513,7 @@ INSERT INTO `people` VALUES
 ('kauffka01',1997,8,15,'USA','MI','Bloomfield Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Karl','Kauffmann','Karl John',200,74,'R','R','2023-05-19','2023-09-30'),
 ('kaufmcu01',1957,7,19,'USA','NE','Omaha',NULL,NULL,NULL,NULL,NULL,NULL,'Curt','Kaufman','Curt Gerrard',175,74,'R','R','1982-09-10','1984-09-25'),
 ('kaufmto01',1900,12,16,'USA','IL','Chicago',1982,6,4,'USA','IL','Elgin','Tony','Kaufmann','Anthony Charles',165,71,'R','R','1921-09-23','1935-09-23'),
+('kavadni01',1998,10,27,'USA','IN','South Bend',NULL,NULL,NULL,NULL,NULL,NULL,'Niko','Kavadas','Nikolos Siade',235,72,'L','R','2024-08-16',NULL),
 ('kavan01',1850,NULL,NULL,'United Kingdom',NULL,NULL,1890,10,14,'USA','NY','Brooklyn','James','Cavanagh','James J.',NULL,NULL,NULL,NULL,'1872-09-11','1872-09-19'),
 ('kavanch01',1891,6,9,'USA','IL','Chicago',1973,9,6,'USA','WI','Reedsburg','Charlie','Kavanagh','Charles Hugh',165,69,'R','R','1914-06-11','1914-06-28'),
 ('kavanle01',1894,8,9,'USA','IL','Chicago',1950,8,10,'USA','IL','Chicago','Leo','Kavanagh','Leo Daniel',180,69,'R','R','1914-04-22','1914-05-02'),
@@ -530267,6 +530523,7 @@ INSERT INTO `people` VALUES
 ('kayan01',1995,3,21,'USA','NY','Stony Brook',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Kay','Anthony Benjamin',225,72,'L','L','2019-09-07','2022-04-12'),
 ('kaybi01',1878,2,14,'USA','VA','New Castle',1945,12,3,'USA','VA','Roanoke','Bill','Kay','Walter Brocton',180,74,'L','R','1907-08-12','1907-10-05'),
 ('kayeju01',1976,6,9,'USA','FL','Fort Lauderdale',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Kaye','Justin Malcolm',195,76,'R','R','2002-05-09','2002-05-16'),
+('kayfucj01',2001,10,28,'USA','FL','Boca Raton',NULL,NULL,NULL,NULL,NULL,NULL,'C. J.','Kayfus','Collin Joseph',192,71,'L','L','2025-08-02',NULL),
 ('kazaked01',1920,7,18,'USA','OH','Steubenville',1999,12,15,'USA','TX','Austin','Eddie','Kazak','Edward Terrance',175,72,'R','R','1948-09-29','1952-07-01'),
 ('kazante01',1934,1,25,'USA','MI','Hamtramck',NULL,NULL,NULL,NULL,NULL,NULL,'Ted','Kazanski','Theodore Stanley',175,73,'R','R','1953-06-25','1958-09-28'),
 ('kazmase01',1984,8,5,'USA','GA','Valdosta',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Kazmar','Sean Frank',185,70,'R','R','2008-08-13','2021-05-05'),
@@ -530279,6 +530536,7 @@ INSERT INTO `people` VALUES
 ('kearnte01',1900,1,1,'USA','NJ','Trenton',1949,12,21,'USA','NJ','Trenton','Teddy','Kearns','Edward Joseph',180,71,'R','R','1920-10-01','1925-04-28'),
 ('kearnto01',1860,11,9,'USA','NY','Rochester',1938,12,7,'USA','NY','Buffalo','Tom','Kearns','Thomas J.',160,67,'R','R','1880-08-26','1884-10-14'),
 ('kearsed01',1916,2,23,'USA','CA','San Francisco',1968,7,15,'USA','CA','Eureka','Eddie','Kearse','Edward Paul',195,73,'R','R','1942-06-13','1942-07-05'),
+('keasclu01',2002,8,15,'USA','CA','Watsonville',NULL,NULL,NULL,NULL,NULL,NULL,'Luke','Keaschall','Luke T.',190,72,'R','R','2025-04-18',NULL),
 ('keased01',1863,1,2,'USA','IA','Dubuque',1940,1,12,'USA','IA','Dubuque','Ed','Keas','Edward James',NULL,NULL,NULL,NULL,'1888-08-25','1888-10-16'),
 ('keatibo01',1862,9,22,'USA','MA','Springfield',1922,1,19,'USA','MA','Springfield','Bob','Keating','Robert M.',190,76,'L','L','1887-08-27','1887-08-27'),
 ('keatich01',1891,8,8,'USA','PA','Philadelphia',1959,7,13,'USA','PA','Philadelphia','Walter','Keating','Walter Francis',155,69,'R','R','1913-09-26','1926-09-16'),
@@ -530310,8 +530568,10 @@ INSERT INTO `people` VALUES
 ('keffefr01',1861,7,1,'USA','PA','Lancaster',1923,4,17,'USA','PA','Harrisburg','Frank','Keffer','Charles Franklin',NULL,NULL,NULL,NULL,'1890-04-19','1890-05-03'),
 ('kehnch01',1921,10,30,'USA','CA','San Diego',1984,4,5,'USA','CA','San Diego','Chet','Kehn','Chester Lawrence',168,71,'R','R','1942-04-30','1942-05-12'),
 ('keifeka01',1891,9,3,'USA','PA','California',1927,2,19,'USA','KY','Outwood','Katsy','Keifer','Sherman Carl',NULL,NULL,'B','L','1914-10-08','1914-10-08'),
+('keirsda01',1997,5,13,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'DaShawn','Keirsey','DaShawn Robert',195,72,'L','L','2024-09-05',NULL),
 ('keislra01',1976,2,24,'USA','TX','Richardson',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Keisler','Randy Dean',200,75,'L','L','2000-09-10','2007-07-27'),
 ('keistbi01',1871,8,17,'USA','MD','Baltimore',1924,8,19,'USA','MD','Baltimore','Bill','Keister','William Hoffman',168,65,'L','R','1896-05-20','1903-08-25'),
+('keithco01',2001,8,14,'USA','OH','Zanesville',NULL,NULL,NULL,NULL,NULL,NULL,'Colt','Keith','Colten Thomas',211,74,'L','R','2024-03-28',NULL),
 ('kekicmi01',1945,4,2,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Kekich','Michael Dennis',196,73,'R','L','1965-06-09','1977-10-01'),
 ('kelake01',1993,4,16,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Keone','Kela','Keone Cole',220,73,'R','R','2015-04-07','2021-05-07'),
 ('kelbge01',1870,7,17,'USA','OH','Toledo',1936,10,20,'USA','OH','Toledo','George','Kelb','George Francis',NULL,NULL,'L','L','1898-04-17','1898-06-24'),
@@ -530397,6 +530657,7 @@ INSERT INTO `people` VALUES
 ('kemmlru01',1860,1,NULL,'USA','IL','Chicago',1909,6,20,'USA','IL','Chicago','Rudy','Kemmler','Rudolph',206,71,'R','R','1879-07-26','1889-08-11'),
 ('kemnedu01',1899,3,4,'USA','IL','Quincy',1988,1,16,'USA','IL','Quincy','Dutch','Kemner','Herman John',175,70,'R','R','1929-04-19','1929-06-08'),
 ('kempma01',1984,9,23,'USA','OK','Midwest City',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Kemp','Matthew Ryan',225,76,'R','R','2006-05-28','2020-09-25'),
+('kempot01',1999,9,9,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'Otto','Kemp','Otto Severson',185,71,'R','R','2025-06-07',NULL),
 ('kempst01',1954,8,7,'USA','TX','San Angelo',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Kemp','Steven F.',195,72,'L','L','1977-04-07','1988-05-24'),
 ('kempto01',1991,10,31,'USA','TN','Franklin',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Kemp','Anthony Allen',160,66,'L','R','2016-05-17','2022-10-05'),
 ('kendafr01',1949,1,31,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Fred','Kendall','Fred Lyn',185,73,'R','R','1969-09-08','1980-08-10'),
@@ -530438,6 +530699,7 @@ INSERT INTO `people` VALUES
 ('kentje01',1968,3,7,'USA','CA','Bellflower',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Kent','Jeffrey Franklin',185,73,'R','R','1992-04-12','2008-09-27'),
 ('kentma01',1885,9,17,'USA','IA','Marshalltown',1966,4,19,'USA','IA','Iowa City','Maury','Kent','Maurice Allen',168,72,'R','R','1912-04-15','1913-07-18'),
 ('kentst01',1978,10,3,'Germany','Hesse','Frankfurt',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Kent','Steven Patrick',170,71,'B','L','2002-04-04','2002-09-22'),
+('kentza01',1998,2,24,'USA','VA','Henrico',NULL,NULL,NULL,NULL,NULL,NULL,'Zak','Kent','Zachary Allen',208,75,'R','R','2025-04-23',NULL),
 ('kenwobi01',1886,7,4,'USA','OH','Cambridge',1950,9,21,'USA','CA','Eureka','Duke','Kenworthy','William Jennings',165,67,'B','R','1912-08-28','1917-05-08'),
 ('kenwodi01',1941,4,1,'USA','IA','Red Oak',2010,4,22,'USA','MO','Kansas City','Dick','Kenworthy','Richard Lee',170,69,'R','R','1962-09-08','1968-09-29'),
 ('keougjo01',1946,1,7,'USA','CA','Pomona',2019,9,9,'USA','TX','San Antonio','Joe','Keough','Joseph William',185,72,'L','L','1968-08-07','1973-07-26'),
@@ -530531,6 +530793,7 @@ INSERT INTO `people` VALUES
 ('kimeha01',1898,3,15,'USA','OH','West Salem',1939,5,16,'USA','OH','Columbus','Hal','Kime','Harold Lee',160,69,'L','L','1920-06-19','1920-07-27'),
 ('kimha01',1995,10,17,'South Korea','Gyeonggi','Bucheon',NULL,NULL,NULL,NULL,NULL,NULL,'Ha-Seong','Kim','Ha-Seong',168,69,'R','R','2021-04-01','2022-10-04'),
 ('kimhy01',1988,1,12,'South Korea','Seoul','Seoul',NULL,NULL,NULL,NULL,NULL,NULL,'Hyun Soo','Kim','Hyun Soo',210,74,'L','R','2016-04-10','2017-09-30'),
+('kimhy02',1999,1,27,'South Korea','Gyeonggi Province','Goyang',NULL,NULL,NULL,NULL,NULL,NULL,'Hyeseong','Kim','Hyeseong',176,70,'L','R','2025-05-03',NULL),
 ('kimkw01',1988,7,22,'South Korea','Seoul','Seoul',NULL,NULL,NULL,NULL,NULL,NULL,'Kwang Hyun','Kim','Kwang Hyun',195,74,'L','L','2020-07-24','2021-10-02'),
 ('kimmbr01',1951,6,29,'USA','IA','Cedar Rapids',NULL,NULL,NULL,NULL,NULL,NULL,'Bruce','Kimm','Bruce Edward',175,71,'R','R','1976-05-04','1980-09-19'),
 ('kimmiwa01',1897,5,30,'USA','PA','Turtle Creek',1989,7,24,'USA','PA','Boswell','Wally','Kimmick','Walter Lyons',174,71,'R','R','1919-09-13','1926-06-12'),
@@ -530540,6 +530803,7 @@ INSERT INTO `people` VALUES
 ('kindeel01',1914,7,26,'USA','AR','Atkins',1968,10,16,'USA','TN','Jackson','Ellis','Kinder','Ellis Raymond',195,72,'R','R','1946-04-30','1957-05-08'),
 ('kineris01',1995,3,23,'USA','HI','Honolulu',NULL,NULL,NULL,NULL,NULL,NULL,'Isiah','Kiner-Falefa','Isiah',190,71,'R','R','2018-04-10','2022-10-04'),
 ('kinerra01',1922,10,27,'USA','NM','Santa Rita',2014,2,6,'USA','CA','Rancho Mirage','Ralph','Kiner','Ralph McPherran',195,74,'R','R','1946-04-16','1955-09-25'),
+('kingbr01',1996,11,5,'USA','CO','Littleton',NULL,NULL,NULL,NULL,NULL,NULL,'Bryan','King','Bryan Dalton',205,73,'R','L','2024-06-23',NULL),
 ('kingch01',1930,11,10,'USA','TN','Paris',2012,7,9,'USA','TN','Paris','Chick','King','Charles Gilbert',190,74,'R','R','1954-08-27','1959-05-30'),
 ('kingcl01',1924,5,23,'USA','NC','Goldsboro',2010,11,2,'USA','NC','Goldsboro','Clyde','King','Clyde Edward',175,73,'B','R','1944-06-21','1953-09-27'),
 ('kingcu01',1970,10,25,'USA','PA','Norristown',NULL,NULL,NULL,NULL,NULL,NULL,'Curtis','King','Curtis Albert',200,77,'R','R','1997-08-01','1999-06-20'),
@@ -530613,6 +530877,7 @@ INSERT INTO `people` VALUES
 ('kisinru01',1876,12,13,'USA','MI','Adrian',1941,7,17,'USA','OH','Huron','Rube','Kisinger','Charles Samuel',190,72,'R','R','1902-09-10','1903-09-24'),
 ('kisonbr01',1950,2,18,'USA','WA','Pasco',2018,6,2,'USA','FL','Bradenton','Bruce','Kison','Bruce Eugene',178,76,'R','R','1971-07-04','1985-10-05'),
 ('kissibi01',1871,8,15,'USA','KY','Dayton',1929,4,20,'USA','OH','Cincinnati','Bill','Kissinger','William Francis',185,71,'R','R','1895-05-30','1897-06-10'),
+('kitchau01',1997,2,11,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Kitchen','Austin Christopher',200,72,'L','L','2024-07-30',NULL),
 ('kitsoch01',1928,2,11,'USA','NY','New York',2004,6,7,'USA','AL','Mobile','Chris','Kitsos','Christopher Anestos',165,69,'B','R','1954-04-21','1954-04-21'),
 ('kitsofr01',1869,9,11,'USA','MI','Watson',1930,4,13,'USA','MI','Allegan','Frank','Kitson','Frank R.',165,71,'L','R','1898-05-19','1907-07-22'),
 ('kittlro01',1958,1,5,'USA','IN','Gary',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Kittle','Ronald Dale',200,76,'R','R','1982-09-02','1991-08-13'),
@@ -530635,6 +530900,7 @@ INSERT INTO `people` VALUES
 ('kleinph01',1989,4,30,'USA','OH','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'Phil','Klein','Phil William',255,79,'R','R','2014-08-01','2016-10-01'),
 ('kleinre01',1877,7,20,'USA','WI','Milwaukee',1929,10,9,'USA','NY','New York','Red','Kleinow','John Peter',165,70,'R','R','1904-05-03','1911-09-06'),
 ('kleinte01',1899,4,8,'USA','WI','Deer Park',1985,7,24,'USA','FL','Redington Beach','Ted','Kleinhans','Theodore Otto',170,72,'R','L','1934-04-20','1938-04-20'),
+('kleinwi01',1999,11,28,'USA','IN','Bloomington',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Klein','William Boone',230,77,'R','R','2024-04-28',NULL),
 ('klembi99',1874,2,22,'USA','NY','Rochester',1951,9,16,'USA','FL','Miami','Bill','Klem','William Joseph',157,65,NULL,NULL,NULL,NULL),
 ('klepfed01',1888,3,17,'USA','PA','Summerville',1950,8,9,'USA','OK','Tulsa','Ed','Klepfer','Edward Lloyd',185,72,'R','R','1911-07-04','1919-09-05'),
 ('kleskry01',1971,6,12,'USA','CA','Westminster',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Klesko','Ryan Anthony',220,75,'L','L','1992-09-12','2007-09-25'),
@@ -530658,6 +530924,7 @@ INSERT INTO `people` VALUES
 ('klippjo01',1927,10,17,'USA','DC','Washington',2003,10,10,'USA','IL','Elgin','Johnny','Klippstein','John Calvin',173,73,'R','R','1950-05-03','1967-05-27'),
 ('klobefr01',1871,6,13,'USA','CT','Waterbury',1940,4,12,'USA','CT','Waterbury','Fred','Klobedanz','Frederick Augustus',190,71,'L','L','1896-08-20','1902-09-05'),
 ('kloboga01',1995,5,16,'USA','TX','Katy',NULL,NULL,NULL,NULL,NULL,NULL,'Gabe','Klobosits','Gabe Michael',254,80,'L','R','2021-07-30','2021-08-22'),
+('kloffad01',2000,8,25,'USA','TX','Magnolia',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Kloffenstein','Adam',245,77,'R','R','2024-06-20',NULL),
 ('kloppst01',1910,12,22,'USA','PA','Womelsdorf',1980,3,11,'USA','PA','Robesonia','Stan','Klopp','Stanley Harold',180,73,'R','R','1944-04-29','1944-08-05'),
 ('klozana01',1903,9,7,'Poland',NULL,NULL,1962,6,11,'USA','WI','Milwaukee','John','Kloza','John Clarence',180,71,'R','R','1931-08-16','1932-06-26'),
 ('klubeco01',1986,4,10,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Corey','Kluber','Corey Scott',215,76,'R','R','2011-09-01','2022-10-02'),
@@ -530670,6 +530937,7 @@ INSERT INTO `people` VALUES
 ('kmakjo01',1963,5,3,'USA','CA','Napa',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Kmak','Joseph Robert',200,72,'R','R','1993-04-06','1995-08-27'),
 ('knabeot01',1884,6,12,'USA','PA','Carrick',1961,5,17,'USA','PA','Philadelphia','Otto','Knabe','Franz Otto',175,68,'R','R','1905-10-03','1916-09-25'),
 ('knackbr01',1969,8,1,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Brent','Knackert','Brent Bradley',185,75,'R','R','1990-04-10','1996-06-04'),
+('knackla01',1997,7,15,'USA','TN','Johnson City',NULL,NULL,NULL,NULL,NULL,NULL,'Landon','Knack','Landon Dakota',220,74,'L','R','2024-04-17',NULL),
 ('knappan01',1991,11,9,'USA','CA','Roseville',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Knapp','Andrew Michael',189,73,'B','R','2017-04-06','2022-09-04'),
 ('knappch01',1953,9,16,'USA','NC','Cherry Point',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Knapp','Robert Christian',195,77,'R','R','1975-09-04','1980-10-05'),
 ('knaupco01',1889,8,13,'USA','TX','San Antonio',1967,7,6,'USA','LA','New Orleans','Cotton','Knaupp','Henry Antone',165,69,'R','R','1910-08-30','1911-04-28'),
@@ -530726,10 +530994,12 @@ INSERT INTO `people` VALUES
 ('kobayma01',1974,5,24,'Japan','Yamanashi','Otsuki',NULL,NULL,NULL,NULL,NULL,NULL,'Masahide','Kobayashi','Masahide',195,72,'R','R','2008-04-02','2009-05-07'),
 ('kobelke01',1953,10,2,'USA','NY','Buffalo',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Kobel','Kevin Richard',180,72,'R','L','1973-09-08','1980-06-07'),
 ('koberje01',1988,6,30,'USA','CA','San Leandro',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Kobernus','Jeffrey Gilbert',190,74,'R','R','2013-05-25','2014-09-28'),
+('kochaja01',2000,12,22,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Kochanowicz','Jack Von',228,79,'L','R','2024-07-11',NULL),
 ('kochal01',1938,3,25,'USA','AL','Decatur',2015,5,22,'USA','AL','Prattville','Alan','Koch','Alan Goodman',195,76,'R','R','1963-07-26','1964-09-26'),
 ('kochba01',1923,3,23,'USA','NE','Campbell',1987,6,6,'USA','WA','Tacoma','Barney','Koch','Barnett',140,68,'R','R','1944-07-23','1944-10-01'),
 ('kochbi01',1974,12,14,'USA','NY','Rockville Centre',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Koch','William Christopher',218,75,'R','R','1999-05-05','2004-08-26'),
 ('kochebr01',1888,1,16,'USA','PA','White Haven',1965,1,13,'USA','PA','White Haven','Brad','Kocher','Bradley Wilson',188,71,'R','R','1912-04-24','1916-10-05'),
+('kochgr01',1997,2,5,'USA','AR','Fayetteville',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Koch','Grant',195,70,'R','R','2024-05-29',NULL),
 ('kochma01',1990,11,2,'USA','IA','Cherokee',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Koch','Matthew David',215,75,'L','R','2016-09-09','2022-04-26'),
 ('koechdi01',1926,3,30,'USA','PA','Philadelphia',2020,2,4,'USA','FL','Naples','Dick','Koecher','Richard Finlay',196,77,'L','L','1946-09-29','1948-10-02'),
 ('koegepe01',1947,7,31,'USA','NY','Mineola',2023,2,4,'USA','NY','Kingston','Pete','Koegel','Peter John',230,78,'R','R','1970-09-01','1972-10-02'),
@@ -530754,6 +531024,7 @@ INSERT INTO `people` VALUES
 ('kolbda01',1975,3,29,'USA','IL','Sterling',NULL,NULL,NULL,NULL,NULL,NULL,'Danny','Kolb','Daniel Lee',185,76,'R','R','1999-06-04','2007-06-20'),
 ('kolbed01',1880,7,20,'USA','OH','Cincinnati',1949,10,1,'CAN','AB','Calgary','Eddie','Kolb','Edward William',NULL,71,'R','R','1899-10-15','1899-10-15'),
 ('kolbga01',1940,3,13,'USA','IL','Rock Falls',2019,7,3,'USA','WV','Charleston','Gary','Kolb','Gary Alan',194,72,'L','R','1960-09-07','1969-09-01'),
+('kolekst01',1997,4,18,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Stephen','Kolek','Stephen James',210,75,'R','R','2024-03-21',NULL),
 ('kollodo01',1918,8,4,'USA','IL','Posen',1994,6,30,'USA','IL','Blue Island','Don','Kolloway','Donald Martin',200,75,'R','R','1940-09-16','1953-04-21'),
 ('kolozma01',1995,9,4,'USA','FL','Eustis',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Kolozsvary','Mark Daniel',180,68,'R','R','2022-04-20','2022-08-02'),
 ('kolpra01',1894,10,1,'USA','OH','New Berlin',1967,7,29,'USA','OH','Cincinnati','Ray','Kolp','Raymond Carl',187,70,'R','R','1921-04-16','1934-09-21'),
@@ -530802,6 +531073,7 @@ INSERT INTO `people` VALUES
 ('kosloda01',1920,3,31,'USA','WI','Menasha',1975,12,1,'USA','WI','Menasha','Dave','Koslo','George Bernard',180,71,'L','L','1941-09-12','1955-04-14'),
 ('kosloke01',1966,9,24,'USA','IL','Decatur',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Koslofski','Kevin Craig',165,68,'L','R','1992-06-28','1996-07-07'),
 ('kosmami01',1917,11,26,'USA','MI','Hamtramck',2002,12,10,'USA','IN','Lafayette','Mike','Kosman','Michael Thomas',160,69,'R','R','1944-04-20','1944-04-20'),
+('kossch01',1998,1,27,'USA','CA','Riverside',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Koss','Christian',186,73,'R','R','2025-04-01',NULL),
 ('kostajo01',1876,6,1,'USA','IL','Chicago',1933,10,10,'CAN','ON','Guelph','Joe','Kostal','Joseph William',130,66,'R','R','1896-07-14','1896-07-17'),
 ('kostefr01',1905,12,21,'USA','KY','Louisville',1979,4,24,'USA','KY','St. Matthews','Fred','Koster','Frederick Charles',165,70,'L','L','1931-04-27','1931-09-27'),
 ('kostrfr01',1937,8,4,'USA','PA','Windber',NULL,NULL,NULL,NULL,NULL,NULL,'Frank','Kostro','Frank Jerry',190,74,'R','R','1962-09-02','1969-09-21'),
@@ -530839,6 +531111,7 @@ INSERT INTO `people` VALUES
 ('krausle01',1912,6,8,'USA','PA','Media',1988,9,6,'USA','FL','Sarasota','Lew','Krausse','Lewis Bernard',167,72,'R','R','1931-06-11','1932-09-02'),
 ('krausle02',1943,4,25,'USA','PA','Media',2021,2,16,'USA','MO','Holt','Lew','Krausse','Lewis Bernard',175,72,'R','R','1961-06-16','1974-09-23'),
 ('krausma01',1987,10,5,'USA','OH','Deshler',NULL,NULL,NULL,NULL,NULL,NULL,'Marc','Krauss','Mark Stuart',245,74,'L','R','2013-06-21','2015-07-24'),
+('kraveev01',1996,12,19,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Evan','Kravetz','Evan Jacob',240,80,'L','L','2024-08-28',NULL),
 ('kraveke01',1951,7,29,'USA','OH','Cleveland',NULL,NULL,NULL,NULL,NULL,NULL,'Ken','Kravec','Kenneth Peter',185,74,'L','L','1975-09-04','1982-10-03'),
 ('kravida01',1930,12,21,'USA','PA','Lopez',2013,6,19,'USA','PA','Danville','Danny','Kravitz','Daniel',195,71,'L','R','1956-04-17','1960-09-18'),
 ('krawcra01',1959,10,9,'USA','PA','Sewickley',NULL,NULL,NULL,NULL,NULL,NULL,'Ray','Krawczyk','Raymond Allen',184,73,'R','R','1984-06-29','1989-04-28'),
@@ -530865,6 +531138,7 @@ INSERT INTO `people` VALUES
 ('kriegku01',1926,9,16,'Austria',NULL,'Traisen',1970,8,16,'USA','MO','St. Louis','Kurt','Krieger','Kurt Ferdinand',212,75,'R','R','1949-04-21','1951-09-11'),
 ('kriskbr01',1994,2,3,'USA','AZ','Scottsdale',NULL,NULL,NULL,NULL,NULL,NULL,'Brooks','Kriske','Brooks Joseph',190,75,'R','R','2020-07-29','2021-10-01'),
 ('kristho01',1916,2,28,'USA','NY','West Henrietta',1989,4,23,'USA','NY','Buffalo','Howie','Krist','Howard Wilbur',175,73,'L','R','1937-09-12','1946-09-07'),
+('kristza01',1997,12,8,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Zac','Kristofak','Zachary',189,69,'R','R','2024-04-28',NULL),
 ('krivdri01',1970,1,19,'USA','PA','McKeesport',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Krivda','Rick Michael',180,73,'R','L','1995-07-07','1998-09-08'),
 ('krizaja01',1989,6,28,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Krizan','Jason William',185,72,'L','R','2022-04-29','2022-05-01'),
 ('krockgu01',1866,5,9,'USA','WI','Milwaukee',1905,3,22,'USA','CA','Pasadena','Gus','Krock','August H.',196,72,'R','R','1888-04-24','1890-07-26'),
@@ -530932,6 +531206,7 @@ INSERT INTO `people` VALUES
 ('kurosry01',1952,7,3,'USA','HI','Honolulu',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Kurosaki','Ryan Yoshitomo',160,70,'R','R','1975-05-20','1975-06-16'),
 ('kurowwh01',1918,4,19,'USA','PA','Reading',1999,12,9,'USA','PA','Sinking Spring','Whitey','Kurowski','George John',193,71,'R','R','1941-09-23','1949-10-01'),
 ('kurtzha01',1943,8,20,'USA','DC','Washington',NULL,NULL,NULL,NULL,NULL,NULL,'Hal','Kurtz','Harold James',205,75,'R','R','1968-04-18','1968-08-12'),
+('kurtzni01',2003,3,12,'USA','PA','Lancaster',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Kurtz','Nicholas Jeffrey',240,77,'L','L','2025-04-23',NULL),
 ('kuseled01',1886,2,15,'USA','OH','Cleveland',1948,10,20,'USA','OH','Cleveland','Ed','Kusel','Edward Daniel',165,72,NULL,'R','1909-09-18','1909-10-01'),
 ('kushem01',1916,11,4,'USA','IL','Chicago',1969,11,26,'USA','IL','River Grove','Emil','Kush','Emil Benedict',185,71,'R','R','1941-09-21','1949-08-14'),
 ('kusiccr01',1948,9,30,'USA','WI','Milwaukee',2006,9,27,'USA','MN','St. Paul','Craig','Kusick','Craig Robert',210,75,'R','R','1973-09-08','1979-09-30'),
@@ -531072,6 +531347,7 @@ INSERT INTO `people` VALUES
 ('langesh01',1997,11,18,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Shea','Langeliers','Shea Ryan',205,72,'R','R','2022-08-16','2022-10-05'),
 ('langfri01',1952,3,20,'USA','VA','Farmville',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Langford','James Rick',180,72,'R','R','1976-06-13','1986-07-13'),
 ('langfsa01',1900,5,21,'USA','TX','Briggs',1993,7,31,'USA','TX','Plainview','Sam','Langford','Elton',180,72,'L','R','1926-04-13','1928-09-21'),
+('langfwy01',2001,11,15,'USA','FL','Trenton',NULL,NULL,NULL,NULL,NULL,NULL,'Wyatt','Langford','Wyatt Michael',225,72,'R','R','2024-03-28',NULL),
 ('langma01',1905,9,27,'USA','NE','Hooper',1968,1,13,'USA','CO','Lakewood','Marty','Lang','Martin John',160,71,'R','L','1930-07-04','1930-07-14'),
 ('langsbo01',1865,8,5,'USA','KY','Louisville',1907,1,10,'USA','KY','Louisville','Bob','Langsford','Robert William',168,67,'L','L','1899-06-18','1899-06-18'),
 ('langsma01',1960,8,20,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Langston','Mark Edward',177,74,'R','L','1984-04-07','1999-09-24'),
@@ -531089,6 +531365,7 @@ INSERT INTO `people` VALUES
 ('lansfjo01',1961,1,15,'USA','CA','Santa Clara',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Lansford','Joseph Dale',225,77,'R','R','1982-07-31','1983-10-02'),
 ('lansige01',1898,1,11,'USA','NY','Albany',1945,1,18,'USA','NY','Rensselaer','Gene','Lansing','Eugene Hewitt',185,73,'R','R','1922-04-27','1922-07-17'),
 ('lansimi01',1968,4,3,'USA','WY','Rawlins',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Lansing','Michael Thomas',175,72,'R','R','1993-04-07','2001-09-08'),
+('laosa01',1999,8,14,'D.R.','Barahona','Barahona',NULL,NULL,NULL,NULL,NULL,NULL,'Sauryn','Lao','Sauryn',182,74,'R','R','2025-04-22',NULL),
 ('lapalpa01',1923,12,14,'USA','MA','Springfield',2010,2,7,'USA','MA','Leominster','Paul','LaPalme','Paul Edmore',175,70,'L','L','1951-05-28','1957-08-28'),
 ('lapanpe01',1891,6,25,'USA','MA','Easthampton',1953,1,5,'USA','CA','Norwalk','Pete','Lapan','Peter Nelson',165,67,'R','R','1922-09-16','1923-05-03'),
 ('lapihan01',1922,11,1,'USA','NJ','Delmont',1996,2,17,'USA','NJ','Millville','Andy','Lapihuska','Andrew',175,70,'L','R','1942-09-12','1943-05-05'),
@@ -531097,6 +531374,7 @@ INSERT INTO `people` VALUES
 ('laporfr01',1880,2,6,'USA','OH','Uhrichsville',1939,9,25,'USA','OH','Newcomerstown','Frank','LaPorte','Frank Breyfogle',175,68,'R','R','1905-09-29','1915-10-03'),
 ('laporma01',1985,1,8,'USA','FL','Port Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','LaPorta','Matthew Vincent',215,74,'R','R','2009-05-03','2012-10-02'),
 ('lappja01',1884,9,10,'USA','PA','Frazer',1920,2,6,'USA','PA','Philadelphia','Jack','Lapp','John Walker',160,68,'L','R','1908-09-11','1916-10-01'),
+('laraan01',2003,1,6,'Venezuela','Falcón','Coro',NULL,NULL,NULL,NULL,NULL,NULL,'Andry','Lara','Andry Jose',180,76,'R','R','2025-07-02',NULL),
 ('laraju01',1981,1,26,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Lara','Juan Manuel',190,74,'R','L','2006-09-08','2007-09-06'),
 ('larayo01',1975,9,20,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Yovanny','Lara','Yovanny B.',180,76,'R','R','2000-06-28','2000-07-14'),
 ('larisje01',1982,10,11,'USA','IA','Iowa City',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Larish','Jeffrey David',200,74,'L','R','2008-05-30','2010-10-03'),
@@ -531168,6 +531446,7 @@ INSERT INTO `people` VALUES
 ('lavigar01',1885,1,26,'USA','MA','Worcester',1950,7,18,'USA','MA','Worcester','Art','LaVigne','Arthur David',162,70,'R','R','1914-04-24','1914-10-05'),
 ('lavinjo01',1856,NULL,NULL,'USA','NY','Troy',1893,12,7,'USA','NY','Troy','Johnny','Lavin','John',175,71,NULL,NULL,'1884-09-10','1884-10-15'),
 ('lawde01',1990,9,14,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Derek','Law','Derek Robert',225,75,'R','R','2016-04-15','2022-10-05'),
+('lawerco01',1998,5,10,'USA','ME','Bingham',NULL,NULL,NULL,NULL,NULL,NULL,'Cody','Laweryson','Cody Orion',205,76,'L','R','2025-09-13',NULL),
 ('lawinga01',1918,8,29,'USA','NC','Gastonia',1996,9,27,'USA','SC','Murrells Inlet','Garland','Lawing','Garland Frederick',180,73,'R','R','1946-05-29','1946-07-20'),
 ('lawlajo01',2002,7,17,'USA','TX','Carrollton',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Lawlar','Jordan Jeffrey-Joseph',190,73,'R','R','2023-09-07','2023-10-31'),
 ('lawleto01',1956,12,19,'USA','PA','Erie',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Lawless','Thomas James',170,71,'R','R','1982-07-15','1990-07-04'),
@@ -531203,6 +531482,7 @@ INSERT INTO `people` VALUES
 ('layneto01',1984,11,2,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Tommy','Layne','Thomas Kevin',195,74,'L','L','2012-08-14','2017-06-10'),
 ('laytole01',1921,11,18,'USA','OK','Nardin',2014,3,1,'USA','AZ','Scottsdale','Les','Layton','Lester Lee',165,72,'R','R','1948-04-24','1948-10-03'),
 ('lazarda01',1943,11,14,'USA','IN','East Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Danny','Lazar','John Daniel',190,73,'L','L','1968-06-21','1969-10-02'),
+('lazarma01',1999,6,3,'USA','FL','Coral Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Lazar','Max',200,73,'R','R','2024-08-10',NULL),
 ('lazora01',1989,4,12,'Cuba',NULL,'Pinar del Rio',NULL,NULL,NULL,NULL,NULL,NULL,'Raudel','Lazo','Raudel',180,69,'L','L','2015-09-05','2015-10-03'),
 ('lazorja01',1956,3,30,'USA','NJ','Hoboken',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Lazorko','Jack Thomas',200,71,'R','R','1984-06-04','1988-09-27'),
 ('lazorjo01',1912,9,9,'USA','WA','Taylor',2002,12,9,'USA','WA','Renton','Johnny','Lazor','John Paul',180,69,'L','R','1943-04-22','1946-09-29'),
@@ -531228,6 +531508,7 @@ INSERT INTO `people` VALUES
 ('learyja01',1857,7,NULL,'USA','CT','New Haven',1905,12,6,'USA','CT','New Haven','Jack','Leary','John J.',186,71,NULL,'L','1880-08-21','1884-07-05'),
 ('learyjo01',1891,5,2,'USA','MA','Waltham',1961,8,18,'USA','MA','Waltham','John','Leary','John Louis',180,71,'R','R','1914-04-14','1915-09-27'),
 ('learyti01',1958,12,23,'USA','CA','Santa Monica',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Leary','Timothy James',205,75,'R','R','1981-04-12','1994-08-09'),
+('leasujo01',1998,8,15,'USA','FL','Riverview',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Leasure','Jordan Davis',220,75,'R','R','2024-03-30',NULL),
 ('leathha01',1898,12,2,'USA','CA','Selma',1977,4,12,'USA','CA','Modesto','Hal','Leathers','Harold Langford',152,68,'L','R','1920-09-13','1920-10-02'),
 ('leathja01',1990,7,14,'USA','MA','Beverly',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Leathersich','John Victor',205,71,'R','L','2015-04-29','2017-10-01'),
 ('leberem01',1881,5,15,'USA','OH','Cleveland',1924,11,6,'USA','OH','Cleveland','Emil','Leber','Emil Bohmiel',170,71,'R','R','1905-09-02','1905-09-03'),
@@ -531248,8 +531529,10 @@ INSERT INTO `people` VALUES
 ('leebi03',1946,12,28,'USA','CA','Burbank',NULL,NULL,NULL,NULL,NULL,NULL,'Bill','Lee','William Francis',205,75,'L','L','1969-06-25','1982-05-07'),
 ('leebo01',1937,11,26,'USA','IA','Ottumwa',2020,3,25,'USA','AZ','Lake Havasu City','Bob','Lee','Robert Dean',225,75,'R','R','1964-04-15','1968-08-25'),
 ('leebr01',1993,8,23,'USA','MS','Picayune',NULL,NULL,NULL,NULL,NULL,NULL,'Braxton','Lee','Braxton Russell',185,70,'L','R','2018-03-30','2018-04-11'),
+('leebr02',2001,2,14,'USA','CA','San Luis Obispo',NULL,NULL,NULL,NULL,NULL,NULL,'Brooks','Lee','Brooks Thomas',205,73,'B','R','2024-07-03',NULL),
 ('leeca01',1976,6,20,'Panama','Cocle','Aguadulce',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Lee','Carlos',270,74,'R','R','1999-05-07','2012-10-03'),
 ('leech01',1986,10,21,'Taiwan',NULL,'Peng-Hu County',NULL,NULL,NULL,NULL,NULL,NULL,'C. C.','Lee','Chen-Chang',190,71,'R','R','2013-07-14','2015-09-30'),
+('leech02',1998,8,13,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Lee','Chase Alexander',170,72,'R','R','2025-04-22',NULL),
 ('leecl01',1896,8,4,'USA','NE','Lexington',1980,4,25,'USA','CO','Denver','Cliff','Lee','Clifford Walker',175,73,'R','R','1919-05-15','1926-09-08'),
 ('leecl02',1978,8,30,'USA','AR','Benton',NULL,NULL,NULL,NULL,NULL,NULL,'Cliff','Lee','Clifton Phifer',205,75,'L','L','2002-09-15','2014-07-31'),
 ('leeco01',1974,12,26,'USA','NC','Raleigh',NULL,NULL,NULL,NULL,NULL,NULL,'Corey','Lee','Corey Wayne',180,74,'B','L','1999-08-24','1999-08-24'),
@@ -531262,6 +531545,7 @@ INSERT INTO `people` VALUES
 ('leedy01',1994,8,1,'USA','CA','Dinuba',NULL,NULL,NULL,NULL,NULL,NULL,'Dylan','Lee','Dylan Ryan',214,75,'L','L','2021-10-01','2022-10-05'),
 ('leeev01',1997,6,18,'USA','AR','Bryant',NULL,NULL,NULL,NULL,NULL,NULL,'Evan','Lee','Evan Hankins',210,73,'L','L','2022-06-01','2022-06-17'),
 ('leeha01',1905,2,15,'USA','MS','Ludlow',1989,9,4,'USA','MS','Pascagoula','Hal','Lee','Harold Burnham',180,71,'R','R','1930-04-19','1936-09-27'),
+('leeju01',1998,8,20,'Japan','Aichi','Nagoya',NULL,NULL,NULL,NULL,NULL,NULL,'Jung Hoo','Lee','Jung Hoo',197,72,'L','R','2024-03-28',NULL),
 ('leekge01',1936,7,15,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Gene','Leek','Eugene Harold',185,72,'R','R','1959-04-22','1962-09-30'),
 ('leekh01',1998,6,26,'USA','DE','Newark',NULL,NULL,NULL,NULL,NULL,NULL,'Khalil','Lee','Khalil Rashad',220,71,'L','L','2021-05-17','2022-06-11'),
 ('leeko01',1998,7,25,'USA','CA','Escondido',NULL,NULL,NULL,NULL,NULL,NULL,'Korey','Lee','Korey Bryan',210,74,'R','R','2022-07-01','2022-07-31'),
@@ -531317,6 +531601,7 @@ INSERT INTO `people` VALUES
 ('leipeja01',1867,12,23,'USA','PA','Chester',1960,8,23,'USA','PA','West Goshen','Jack','Leiper','John Henry Thomas',NULL,71,'L','L','1891-09-04','1891-10-04'),
 ('leistjo01',1961,1,3,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'John','Leister','John William',200,74,'R','R','1987-05-28','1990-04-16'),
 ('leiteal01',1965,10,23,'USA','NJ','Toms River',NULL,NULL,NULL,NULL,NULL,NULL,'Al','Leiter','Alois Terry',200,74,'L','L','1987-09-15','2005-10-02'),
+('leiteja01',2000,4,21,'USA','FL','Plantation',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Leiter','Jack Thomas',205,73,'R','R','2024-04-18',NULL),
 ('leitema01',1963,4,13,'USA','IL','Joliet',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Leiter','Mark Edward',200,75,'R','R','1990-07-24','2001-10-07'),
 ('leitema02',1991,3,13,'USA','FL','Fort Lauderdale',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Leiter','Mark Edward',210,72,'R','R','2017-04-28','2022-10-05'),
 ('leithbi01',1873,5,31,'USA','NY','Matteawan',1940,7,16,'USA','NY','Beacon','Bill','Leith','William',208,73,NULL,'R','1899-09-25','1899-09-25'),
@@ -531368,6 +531653,7 @@ INSERT INTO `people` VALUES
 ('leoniz01',1911,1,4,'Cuba','Las Villas','Cruces',2002,7,25,'USA','FL','Miami','Izzy','Leon','Isidoro',160,70,'R','R','1945-06-21','1945-09-16'),
 ('leonjo01',1976,12,8,'P.R.',NULL,'Cayey',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Leon','Jose Geraldo',175,72,'R','R','2002-06-16','2004-09-26'),
 ('leonma01',1950,2,4,'Mexico','Veracruz','Acula',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Leon','Maximino',145,70,'R','R','1973-07-18','1978-09-10'),
+('leonpe01',1998,5,28,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','León','Pedro Manuel',170,69,'R','R','2024-08-03',NULL),
 ('leonsa01',1989,3,13,'Venezuela','Zuila','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Sandy','Leon','Sandy David',235,70,'B','R','2012-05-14','2022-09-21'),
 ('leoporu01',1905,7,27,'USA','LA','Grand Cane',1965,9,3,'USA','LA','Baton Rouge','Rudy','Leopold','Rudolph Matas',160,72,'L','L','1928-07-04','1928-07-25'),
 ('leovijo01',1918,5,5,'USA','OR','Portland',2000,2,3,'USA','OR','Lincoln City','John','Leovich','John Joseph',200,72,'R','R','1941-05-01','1941-05-01'),
@@ -531463,6 +531749,7 @@ INSERT INTO `people` VALUES
 ('liesefr01',1885,10,7,'USA','WI','Berlin',1967,6,30,'USA','CA','Los Angeles','Fred','Liese','Frederick Richard',150,68,'L','L','1910-04-14','1910-04-26'),
 ('lightpa01',1991,3,29,'USA','NJ','Colts Neck',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','Light','Patrick James',220,77,'R','R','2016-04-26','2016-09-30'),
 ('ligteke01',1971,5,11,'USA','SD','Rapid City',NULL,NULL,NULL,NULL,NULL,NULL,'Kerry','Ligtenberg','Kerry Dale',185,74,'R','R','1997-08-12','2005-05-29'),
+('lileda01',2002,11,30,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Daylen','Lile','Daylen Anthony',195,71,'L','R','2025-05-23',NULL),
 ('lillabi01',1918,1,10,'USA','CA','Goleta',2009,6,9,'USA','CA','San Luis Obispo','Bill','Lillard','William Beverly',170,70,'R','R','1939-09-11','1940-09-24'),
 ('lillage01',1913,11,12,'USA','CA','Santa Barbara',1991,4,12,'USA','CA','Goleta','Gene','Lillard','Robert Eugene',178,70,'R','R','1936-05-08','1940-05-20'),
 ('lillibo01',1930,6,2,'USA','CA','Altadena',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Lillis','Robert Perry',160,71,'R','R','1958-08-17','1967-09-17'),
@@ -531473,6 +531760,7 @@ INSERT INTO `people` VALUES
 ('limajo01',1972,9,30,'D.R.','Santiago','Santiago',2010,5,23,'USA','CA','Pasadena','Jose','Lima','Jose Desiderio Rodriguez',170,74,'R','R','1994-04-20','2006-07-07'),
 ('limch01',1976,6,4,'South Korea','Gwangju','Gwangju',NULL,NULL,NULL,NULL,NULL,NULL,'Chang-Yong','Lim','Chang-Yong',175,71,'R','R','2013-09-07','2013-09-27'),
 ('limmelo01',1925,3,10,'USA','NY','New York',2007,4,1,'USA','FL','Boca Raton','Lou','Limmer','Abraham Louis',190,74,'L','L','1951-04-22','1954-09-26'),
+('linarro99',1977,8,7,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Rodney','Linares','Rodney',180,71,'R','R',NULL,NULL),
 ('linarru01',1951,2,28,'D.R.','San Pedro de Macoris','San Pedro de Macoris',1998,5,16,'D.R.','San Pedro de Macoris','San Pedro de Macoris','Rufino','Linares','Rufino de la Cruz',170,72,'R','R','1981-04-10','1985-10-06'),
 ('linceti01',1984,6,15,'USA','WA','Bellevue',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Lincecum','Timothy LeRoy',170,71,'L','R','2007-05-06','2016-08-05'),
 ('linch01',1988,9,21,'Taiwan',NULL,'Hwa-Lian',NULL,NULL,NULL,NULL,NULL,NULL,'Che-Hsuan','Lin','Che-Hsuan',180,72,'R','R','2012-04-14','2012-10-01'),
@@ -531529,6 +531817,7 @@ INSERT INTO `people` VALUES
 ('liponjo01',1922,11,10,'USA','OH','Martins Ferry',1998,8,17,'USA','TX','Houston','Johnny','Lipon','John Joseph',175,72,'R','R','1942-08-16','1954-04-25'),
 ('lippto01',1870,6,4,'USA','MD','Baltimore',1932,5,30,'USA','MD','Baltimore','Tom','Lipp','Thomas Charles',170,71,NULL,'R','1897-09-18','1897-09-18'),
 ('lipscni01',1911,2,24,'USA','NC','Rutherfordton',1978,2,27,'USA','NC','Huntersville','Gerard','Lipscomb','Gerard',175,72,'R','R','1937-04-23','1937-09-20'),
+('lipsctr01',2000,6,14,'USA','MD','Frederick',NULL,NULL,NULL,NULL,NULL,NULL,'Trey','Lipscomb','LaVictor Antwain',202,74,'R','R','2024-03-30',NULL),
 ('lipskbo01',1938,7,7,'USA','PA','Scranton',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Lipski','Robert Peter',180,73,'L','R','1963-04-28','1963-05-01'),
 ('lirafe01',1972,4,26,'Venezuela','Miranda','Santa Teresa del Tuy',NULL,NULL,NULL,NULL,NULL,NULL,'Felipe','Lira','Antonio Felipe',170,72,'R','R','1995-04-27','2001-05-21'),
 ('liriafr01',1983,10,26,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Francisco','Liriano','Francisco Casillas',220,75,'L','L','2005-09-05','2019-09-27'),
@@ -531552,6 +531841,7 @@ INSERT INTO `people` VALUES
 ('littlgr99',1950,3,3,'USA','TX','Abilene',NULL,NULL,NULL,NULL,NULL,NULL,'Grady','Little','William Grady',175,71,'R','R',NULL,NULL),
 ('littlha01',1850,11,9,'USA','MO','Pocahontas',1927,2,17,'USA','IL','Cook County','Harry','Little','Henry Alexander',NULL,NULL,NULL,'R','1877-07-16','1877-10-06'),
 ('littlja01',1891,3,12,'USA','TX','Mart',1961,7,27,'USA','TX','Dallas','Jack','Little','William Arthur',175,71,'R','R','1912-07-02','1912-07-03'),
+('littlja02',1998,1,10,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Little','Jack Alan',190,76,'L','R','2025-06-19',NULL),
 ('littlje01',1954,12,25,'USA','OH','Fremont',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Little','Donald Jeffrey',220,78,'R','L','1980-09-06','1982-10-03'),
 ('littljo01',1954,1,5,'USA','CA','Covina',NULL,NULL,NULL,NULL,NULL,NULL,'John','Littlefield','John Andrew',200,74,'R','R','1980-06-08','1981-10-04'),
 ('littlla01',1954,4,3,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Larry','Littleton','Larry Marvin',185,73,'R','R','1981-04-12','1981-05-26'),
@@ -531601,7 +531891,9 @@ INSERT INTO `people` VALUES
 ('lockhke01',1964,11,10,'USA','CA','Whittier',NULL,NULL,NULL,NULL,NULL,NULL,'Keith','Lockhart','Keith Virgil',170,70,'L','R','1994-04-05','2003-09-27'),
 ('locklge01',1949,7,19,'USA','NC','Lumberton',NULL,NULL,NULL,NULL,NULL,NULL,'Gene','Locklear','Gene',165,70,'L','R','1973-04-05','1977-10-02'),
 ('locklst01',1928,7,22,'USA','WI','Appleton',2016,12,4,'USA','NM','Albuquerque','Stu','Locklin','Stuart Carlton',190,73,'L','L','1955-06-23','1956-05-30'),
+('locklty01',2000,11,24,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Locklear','Tyler Evan',210,74,'R','R','2024-06-09',NULL),
 ('lockmwh01',1926,7,25,'USA','NC','Lowell',2009,3,17,'USA','AZ','Scottsdale','Whitey','Lockman','Carroll Walter',175,73,'L','R','1945-07-05','1960-06-24'),
+('lockrbr01',1997,3,14,'USA','FL','Pensacola',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Lockridge','Brandon Marcus',185,71,'R','R','2024-09-13',NULL),
 ('lockwmi01',1858,4,7,'USA','OH','Solon',1897,10,9,'USA','PA','Economy','Milo','Lockwood','Milo Hathaway',160,70,NULL,NULL,'1884-04-17','1884-05-26'),
 ('lockwsk01',1946,8,17,'USA','MA','Roslindale',NULL,NULL,NULL,NULL,NULL,NULL,'Skip','Lockwood','Claude Edward',175,73,'R','R','1965-04-23','1980-09-10'),
 ('lodigda01',1916,6,6,'USA','CA','San Francisco',2008,2,10,'USA','CA','Napa','Dario','Lodigiani','Dario Antonio',150,68,'R','R','1938-04-18','1946-08-18'),
@@ -531678,6 +531970,7 @@ INSERT INTO `people` VALUES
 ('lopatar01',1919,5,28,'USA','IL','Chicago',2007,3,10,'USA','IL','Elk Grove Village','Art','Lopatka','Arthur Joseph',170,70,'B','L','1945-09-12','1946-07-01'),
 ('lopated01',1918,6,21,'USA','NY','New York',1992,6,15,'USA','CT','Darien','Eddie','Lopat','Edmund Walter',185,70,'L','L','1944-04-30','1955-09-23'),
 ('lopatst01',1925,9,12,'USA','MI','Delray',2013,6,15,'USA','PA','Philadelphia','Stan','Lopata','Stanley Edward',210,74,'R','R','1948-09-19','1960-06-12'),
+('loperjo01',1999,5,11,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Joey','Loperfido','Mario Joseph',220,74,'L','R','2024-04-30',NULL),
 ('lopesch01',1992,10,1,'USA','CA','Huntington Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Lopes','Christian Michael',211,72,'R','R','2022-04-20','2022-04-26'),
 ('lopesda01',1945,5,3,'USA','RI','East Providence',NULL,NULL,NULL,NULL,NULL,NULL,'Davey','Lopes','David Earl',170,69,'R','R','1972-09-22','1987-10-04'),
 ('lopesti01',1994,6,24,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Lopes','Timothy Aaron',180,71,'R','R','2019-07-24','2021-09-19'),
@@ -531706,6 +531999,7 @@ INSERT INTO `people` VALUES
 ('lopezme01',1973,10,15,'D.R.','Duarte','Pimentel',NULL,NULL,NULL,NULL,NULL,NULL,'Mendy','Lopez','Mendy',200,74,'R','R','1998-06-03','2004-05-27'),
 ('lopezmi01',1973,11,17,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Mickey','Lopez','Raymond Michael',170,69,'B','R','2004-09-06','2004-10-03'),
 ('lopezni01',1995,3,13,'USA','IL','Naperville',NULL,NULL,NULL,NULL,NULL,NULL,'Nicky','Lopez','Nicholas',180,71,'L','R','2019-05-14','2022-10-04'),
+('lopezom99',1977,1,3,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Omar','López','Omar E.',180,72,'R','R',NULL,NULL),
 ('lopezot01',1998,10,1,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Otto','Lopez','Otto Ariel',185,70,'R','R','2021-08-17','2022-10-05'),
 ('lopezpa01',1996,3,7,'Venezuela','Zulia','Cabimas',NULL,NULL,NULL,NULL,NULL,NULL,'Pablo','Lopez','Pablo Jose',225,76,'L','R','2018-06-30','2022-10-02'),
 ('lopezpe01',1984,4,28,'D.R.','Espaillat','Moca',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','Lopez','Pedro Michel',190,73,'R','R','2005-05-01','2007-09-30'),
@@ -531716,6 +532010,7 @@ INSERT INTO `people` VALUES
 ('lopezwi01',1983,7,19,'Nicaragua','Leon','Leon',NULL,NULL,NULL,NULL,NULL,NULL,'Wilton','Lopez','Wilton',200,72,'R','R','2009-08-28','2014-04-08'),
 ('lopezyo01',1993,1,2,'Cuba','Isla de la Juventud','Nueva Gerona',NULL,NULL,NULL,NULL,NULL,NULL,'Yoan','Lopez','Yoan',208,75,'R','R','2018-09-09','2022-08-06'),
 ('lordbr01',1883,9,21,'USA','PA','Upland',1964,11,13,'USA','MD','Prince Frederick','Bris','Lord','Bristol Robotham',185,69,'R','R','1905-04-21','1913-10-03'),
+('lordbr02',2000,2,14,'USA','FL','Tallahassee',NULL,NULL,NULL,NULL,NULL,NULL,'Brad','Lord','Bradley Ryan',210,75,'R','R','2025-03-30',NULL),
 ('lordca01',1900,1,7,'USA','PA','Philadelphia',1947,8,15,'USA','PA','Chester','Carlton','Lord','William Carlton',170,71,'R','R','1923-07-12','1923-09-27'),
 ('lordha01',1882,3,8,'USA','ME','Porter',1948,8,9,'USA','ME','Westbrook','Harry','Lord','Harry Donald',165,70,'L','R','1907-09-25','1915-09-27'),
 ('lorenle01',1893,1,12,'USA','IA','Davenport',1963,3,5,'USA','IA','Davenport','Lefty','Lorenzen','Adolph Andreas',164,70,'L','L','1913-09-12','1913-09-12'),
@@ -531733,6 +532028,7 @@ INSERT INTO `people` VALUES
 ('loughla01',1941,8,16,'USA','WA','Tacoma',1999,1,26,'USA','CO','Denver','Larry','Loughlin','Larry John',190,73,'L','L','1967-05-27','1967-06-14'),
 ('loundo01',1940,11,9,'USA','MD','Frederick',NULL,NULL,NULL,NULL,NULL,NULL,'Don','Loun','Donald Nelson',185,74,'R','L','1964-09-23','1964-10-03'),
 ('loupaa01',1987,12,19,'USA','LA','Raceland',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Loup','Aaron Christopher',210,71,'L','L','2012-07-14','2022-10-03'),
+('loutory01',1999,1,29,'USA','IL','Elk Grove',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Loutos','Ryan William',240,77,'R','R','2024-06-01',NULL),
 ('louxsh01',1979,8,31,'USA','SD','Rapid City',NULL,NULL,NULL,NULL,NULL,NULL,'Shane','Loux','Shane Alan',225,74,'R','R','2002-09-10','2012-09-30'),
 ('lovelri01',1995,7,7,'USA','GA','Hinesville',NULL,NULL,NULL,NULL,NULL,NULL,'Richard','Lovelady','Richard Tyler',185,72,'L','L','2019-04-09','2021-08-27'),
 ('lovelto01',1897,10,19,'USA','TX','Wolfe City',1979,7,12,'USA','TX','Dallas','Tom','Lovelace','Thomas Rivers',170,71,'R','R','1922-09-23','1922-09-23'),
@@ -531749,6 +532045,7 @@ INSERT INTO `people` VALUES
 ('lovulto01',1965,7,25,'USA','CA','Santa Monica',NULL,NULL,NULL,NULL,NULL,NULL,'Torey','Lovullo','Salvatore Anthony',185,73,'B','R','1988-09-10','1999-10-03'),
 ('lowdegr01',1885,1,15,'USA','IN','Sandborn',1968,3,31,'USA','IL','Odin','Grover','Lowdermilk','Grover Cleveland',190,76,'R','R','1909-07-03','1920-05-12'),
 ('lowdelo01',1887,2,23,'USA','IN','Sandborn',1975,12,27,'USA','IL','Centralia','Lou','Lowdermilk','Louis Bailey',180,73,'R','L','1911-04-23','1912-05-16'),
+('lowderh01',2002,3,8,'USA','NC','Albemarle',NULL,NULL,NULL,NULL,NULL,NULL,'Rhett','Lowder','Rhett Hamilton',200,74,'R','R','2024-08-30',NULL),
 ('lowebo01',1865,7,10,'USA','PA','Pittsburgh',1951,12,8,'USA','MI','Detroit','Bobby','Lowe','Robert Lincoln',150,70,'R','R','1890-04-19','1907-10-06'),
 ('lowebr01',1994,7,6,'USA','VA','Suffolk',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Lowe','Brandon Norman',185,70,'L','R','2018-08-05','2022-09-11'),
 ('lowech01',NULL,NULL,NULL,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Charlie','Lowe','Charles',NULL,NULL,NULL,NULL,'1872-09-24','1872-10-31'),
@@ -531812,6 +532109,7 @@ INSERT INTO `people` VALUES
 ('luffhe01',1852,9,14,'USA','PA','Philadelphia',1916,10,11,'USA','PA','Philadelphia','Harry','Luff','Henry Thomas',175,71,NULL,NULL,'1875-04-19','1884-07-05'),
 ('lugoda01',1994,12,31,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Dawel','Lugo','Dawel Leoner',190,72,'R','R','2018-08-30','2020-08-16'),
 ('lugoju01',1975,11,16,'D.R.','Barahona','Barahona',2021,11,15,'D.R.','Distrito Nacional','Santo Domingo','Julio','Lugo','Julio Cesar',175,73,'R','R','2000-04-15','2011-08-23'),
+('lugoma01',2001,5,9,'P.R.',NULL,'Manati',NULL,NULL,NULL,NULL,NULL,NULL,'Matthew','Lugo','Matthew Jabel',190,72,'R','R','2025-05-09',NULL),
 ('lugoru01',1980,5,22,'D.R.','Barahona','Barahona',NULL,NULL,NULL,NULL,NULL,NULL,'Ruddy','Lugo','Ruddy Joraider',210,72,'R','R','2006-04-03','2007-09-29'),
 ('lugose01',1989,11,17,'USA','LA','Shreveport',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Lugo','Jacob Seth',233,76,'R','R','2016-07-01','2022-10-02'),
 ('lugour01',1962,8,12,'Venezuela','Falcon','Punto Fijo',NULL,NULL,NULL,NULL,NULL,NULL,'Urbano','Lugo','Rafael Urbano',185,72,'R','R','1985-04-28','1990-05-11'),
@@ -531933,6 +532231,8 @@ INSERT INTO `people` VALUES
 ('machivi01',1993,9,25,'P.R.',NULL,'Humacao',NULL,NULL,NULL,NULL,NULL,NULL,'Vimael','Machin','Vimael',185,71,'L','R','2020-07-26','2022-10-01'),
 ('maciadr01',1983,3,7,'USA','CA','Fontana',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Macias','Andres Apolonio',175,75,'L','L','2007-09-29','2009-10-04'),
 ('maciajo01',1972,1,25,'Panama','Panama','Panama',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Macias','Jose Prado',173,70,'B','R','1999-05-12','2005-10-02'),
+('maciejo01',1995,8,14,'USA','NC','Morrisville',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Maciejewski','Josh Graham',210,75,'R','L','2024-04-08',NULL),
+('macivwi01',1996,10,28,'USA','CA','Pleasant Hill',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','MacIver','William',205,74,'R','R','2025-05-25',NULL),
 ('mackape01',1951,8,1,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Pete','Mackanin','Peter',190,74,'R','R','1973-07-03','1981-10-03'),
 ('mackbi01',1885,2,12,'USA','NY','Elmira',1971,9,30,'USA','NY','Elmira','Bill','Mack','William Francis',155,73,'L','L','1908-07-14','1908-07-21'),
 ('mackco01',1862,12,22,'USA','MA','East Brookfield',1956,2,8,'USA','PA','Philadelphia','Connie','Mack','Cornelius Alexander',150,73,'R','R','1886-09-11','1896-08-29'),
@@ -531975,6 +532275,7 @@ INSERT INTO `people` VALUES
 ('maddemi01',1957,1,13,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Madden','Michael Anthony',190,73,'L','L','1983-04-05','1986-06-11'),
 ('maddemo01',1960,8,31,'USA','SC','Laurens',NULL,NULL,NULL,NULL,NULL,NULL,'Morris','Madden','Morris DeWayne',155,72,'L','L','1987-06-11','1989-06-23'),
 ('maddeto01',1883,7,31,'USA','PA','Philadelphia',1930,7,26,'USA','PA','Philadelphia','Tommy','Madden','Thomas Joseph',160,71,'L','L','1906-09-10','1910-04-15'),
+('maddety01',2000,2,21,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Ty','Madden','Tyler Dylan',215,75,'R','R','2024-08-26',NULL),
 ('maddoau01',1991,5,13,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Maddox','Austin Dean',220,74,'R','R','2017-06-17','2017-09-28'),
 ('maddoel01',1947,12,21,'USA','NJ','East Orange',NULL,NULL,NULL,NULL,NULL,NULL,'Elliott','Maddox','Elliott',180,71,'R','R','1970-04-07','1980-10-01'),
 ('maddoga01',1949,9,1,'USA','OH','Cincinnati',NULL,NULL,NULL,NULL,NULL,NULL,'Garry','Maddox','Garry Lee',175,75,'R','R','1972-04-25','1986-04-20'),
@@ -532080,6 +532381,7 @@ INSERT INTO `people` VALUES
 ('malavjo01',1971,5,31,'Venezuela','Sucre','Cumana',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Malave','Jose Francisco',212,74,'R','R','1996-05-23','1997-08-30'),
 ('malaych01',1879,6,13,'USA','NY','Brooklyn',1949,9,18,'USA','NY','Brooklyn','Charlie','Malay','Charles Francis',175,71,'B','R','1905-04-24','1905-10-07'),
 ('malayjo01',1905,10,25,'USA','NY','Brooklyn',1989,3,19,'USA','CT','Bridgeport','Joe','Malay','Joseph Charles',175,72,'L','L','1933-09-07','1935-04-19'),
+('maldoan01',1998,2,6,'USA','FL','Wellington',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Maldonado','Anthony Omar',220,76,'R','R','2024-04-26',NULL),
 ('maldoca01',1960,9,5,'P.R.',NULL,'Humacao',NULL,NULL,NULL,NULL,NULL,NULL,'Candy','Maldonado','Candido',185,72,'R','R','1981-09-07','1995-09-29'),
 ('maldoca02',1966,10,18,'Panama','Panama','Chepo',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Maldonado','Carlos Cesar',175,74,'R','R','1990-09-16','1993-10-03'),
 ('maldoca03',1979,1,3,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Maldonado','Carlos Luis',260,74,'R','R','2006-09-08','2012-05-29'),
@@ -532099,6 +532401,7 @@ INSERT INTO `people` VALUES
 ('mallohe01',1885,6,1,'USA','OH','Massillon',1942,5,9,'USA','OH','Louisville','Herm','Malloy','John Herman',NULL,72,'R','R','1907-10-06','1908-06-01'),
 ('malloji01',1918,9,1,'USA','VA','Lawrenceville',2001,8,6,'USA','NC','Greenville','Jim','Mallory','James Baugh',170,73,'R','R','1940-09-08','1945-08-25'),
 ('malloju01',1900,4,4,'USA','NC','Charlotte',1934,12,26,'USA','NC','Charlotte','Jule','Mallonee','Julius Norris',180,74,'L','R','1925-08-04','1925-08-23'),
+('malloju02',2000,2,19,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Justyn-Henry','Malloy','Justyn-Henry Conrad',212,73,'R','R','2024-06-03',NULL),
 ('mallole01',1905,11,21,'USA','TX','Sweetwater',1991,4,17,'USA','TX','Granbury','Les','Mallon','Leslie Clyde',160,68,'R','R','1931-04-14','1935-09-29'),
 ('malloma01',1972,4,6,'USA','FL','Gainesville',NULL,NULL,NULL,NULL,NULL,NULL,'Marty','Malloy','Marty Thomas',160,70,'L','R','1998-09-06','2002-06-07'),
 ('mallosh01',1953,7,16,'USA','IL','Argo',NULL,NULL,NULL,NULL,NULL,NULL,'Sheldon','Mallory','Sheldon',175,74,'L','L','1977-04-10','1977-09-27'),
@@ -532131,6 +532434,7 @@ INSERT INTO `people` VALUES
 ('mangima01',1985,12,21,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Mangini','Matthew Steven',230,76,'L','R','2010-09-23','2010-10-03'),
 ('manguan01',1947,3,19,'P.R.',NULL,'Juana Diaz',2021,2,16,'P.R.',NULL,'Ponce','Angel','Mangual','Angel Luis',178,70,'R','R','1969-09-15','1976-06-20'),
 ('manguge01',1890,5,22,'USA','NY','Red Creek',1933,8,10,'USA','MA','Rutland','George','Mangus','George Graham',165,71,'L','R','1912-08-20','1912-09-20'),
+('manguja01',1996,3,8,'USA','MS','Flowood',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Mangum','Jake Thomas',190,72,'B','L','2025-03-30',NULL),
 ('mangule01',1896,5,24,'USA','NC','Durham',1974,7,9,'USA','OH','Lima','Leo','Mangum','Leo Allan',187,73,'R','R','1924-07-11','1935-05-11'),
 ('mangupe01',1952,5,23,'P.R.',NULL,'Ponce',NULL,NULL,NULL,NULL,NULL,NULL,'Pepe','Mangual','Jose Manuel',157,70,'R','R','1972-09-06','1977-10-02'),
 ('maniocl01',1896,10,30,'USA','MO','Big River',1967,9,4,'USA','MI','Detroit','Clyde','Manion','Clyde Jennings',175,71,'R','R','1920-05-05','1934-09-30'),
@@ -532164,6 +532468,7 @@ INSERT INTO `people` VALUES
 ('manseto01',1855,1,1,'USA','NY','Auburn',1934,10,6,'USA','NY','Auburn','Tom','Mansell','Thomas Edward',160,68,'L','R','1879-05-01','1884-10-15'),
 ('manshje01',1985,1,16,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Manship','Jeffrey Michael',205,74,'R','R','2009-08-15','2016-10-01'),
 ('mansklo01',1884,7,4,'USA','WI','Milwaukee',1963,4,27,'USA','WI','Milwaukee','Lou','Manske','Louis Hugo',NULL,72,'L','L','1906-08-31','1906-09-07'),
+('mansoto99',1982,9,28,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Mansolino','Anthony Joseph',170,69,'R','R',NULL,NULL),
 ('mantema01',1973,7,7,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Mantei','Matthew Bruce',181,73,'R','R','1995-06-18','2005-07-01'),
 ('mantife01',1934,7,29,'P.R.',NULL,'Isabella',NULL,NULL,NULL,NULL,NULL,NULL,'Felix','Mantilla','Felix',160,72,'R','R','1956-06-21','1966-10-02'),
 ('mantijo01',1991,3,1,'USA','VA','Danville',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Mantiply','Joseph Newman',219,76,'R','L','2016-09-03','2022-10-03'),
@@ -532179,6 +532484,7 @@ INSERT INTO `people` VALUES
 ('manvidi01',1926,12,25,'USA','IA','Des Moines',2019,2,13,'USA','FL','Winter Springs','Dick','Manville','Richard Wesley',192,76,'R','R','1950-04-30','1952-09-10'),
 ('manwaki01',1965,7,15,'USA','NY','Elmira',NULL,NULL,NULL,NULL,NULL,NULL,'Kirt','Manwaring','Kirt Dean',185,71,'R','R','1987-09-15','1999-10-03'),
 ('manzajo01',1967,10,16,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Josias','Manzanillo','Josias',190,72,'R','R','1991-10-05','2004-09-22'),
+('manzaky01',2000,7,18,'USA','ID','Coeur d\'Alene',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Manzardo','Kyle Thomas',205,72,'L','R','2024-05-06',NULL),
 ('manzara01',1963,10,17,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Ravelo','Manzanillo','Ravelo',210,72,'L','L','1988-09-25','1995-05-09'),
 ('manzeto01',1983,4,16,'USA','LA','Chalmette',NULL,NULL,NULL,NULL,NULL,NULL,'Tommy','Manzella','Thomas Samuel',200,74,'R','R','2009-09-08','2010-10-03'),
 ('mapelro01',1890,3,9,'USA','MO','Lee\'s Summit',1966,4,6,'USA','CA','San Diego','Rolla','Mapel','Rolla Hamilton',165,71,'L','L','1919-08-31','1919-09-11'),
@@ -532251,6 +532557,7 @@ INSERT INTO `people` VALUES
 ('marrobu01',1909,8,29,'USA','NC','Tarboro',1982,11,21,'USA','VA','Newport News','Buck','Marrow','Charles Kennon',200,76,'R','R','1932-07-03','1938-07-04'),
 ('marsaar01',1887,10,3,'Cuba','Matanzas','Matanzas',1960,9,3,'Cuba','La Habana','La Habana','Armando','Marsans','Armando',157,70,'R','R','1911-07-04','1918-07-13'),
 ('marsed01',1867,12,4,'USA','IL','Chicago',1941,12,9,'USA','IL','Chicago','Ed','Mars','Edward M.',166,69,NULL,NULL,'1890-08-12','1890-10-12'),
+('marseja01',2001,6,28,'USA','MI','Dearborn',NULL,NULL,NULL,NULL,NULL,NULL,'Jakob','Marsee','Jakob Joseph',180,72,'L','L','2025-08-01',NULL),
 ('marshal01',1998,5,14,'USA','WI','Milwaukee',NULL,NULL,NULL,NULL,NULL,NULL,'Alec','Marsh','Alec Tylar Michael',220,74,'R','R','2023-06-30','2023-09-30'),
 ('marshbi01',1911,2,14,'USA','MA','Dorchester',1977,5,5,'USA','CA','Sacramento','Bill','Marshall','William Henry',156,68,'R','R','1931-06-20','1934-09-21'),
 ('marshbr01',1990,3,22,'USA','TX','Highlands',NULL,NULL,NULL,NULL,NULL,NULL,'Brett','Marshall','Brett Edward',195,73,'R','R','2013-05-15','2013-09-29'),
@@ -532295,6 +532602,8 @@ INSERT INTO `people` VALUES
 ('martial02',1957,3,15,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Freddie','Martinez','Alfredo',185,75,'R','R','1980-04-20','1981-06-07'),
 ('martial03',1967,11,24,'USA','CA','West Covina',NULL,NULL,NULL,NULL,NULL,NULL,'Al','Martin','Albert Lee',220,74,'L','L','1992-07-28','2003-09-21'),
 ('martian01',1978,11,3,'D.R.','Santo Domingo','Villa Mella',NULL,NULL,NULL,NULL,NULL,NULL,'Anastacio','Martinez','Anastacio Euclides',180,74,'R','R','2004-05-22','2004-07-02'),
+('martian02',2002,1,27,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Angel','Martínez','Angel',200,71,'B','R','2024-06-22',NULL),
+('martiau01',1999,3,23,'USA','FL','DeLand',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Martin','Christopher Austin',185,71,'R','R','2024-03-30',NULL),
 ('martiba01',1920,3,28,'USA','WA','Seattle',2013,8,1,'USA','AZ','Tucson','Babe','Martin','Boris Michael',194,71,'R','R','1944-09-25','1953-07-01'),
 ('martiba02',1923,3,3,'USA','SC','Columbia',1997,10,30,'USA','SC','Columbia','Barney','Martin','Barnes Robertson',170,71,'R','R','1953-04-22','1953-04-22'),
 ('martibi01',1894,2,13,'USA','DC','Washington',1949,9,14,'USA','VA','Arlington','Billy','Martin','William Gloyd',170,68,'R','R','1914-10-06','1914-10-06'),
@@ -532355,6 +532664,7 @@ INSERT INTO `people` VALUES
 ('martini01',1990,8,5,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Martinez','Nicholas Andres',200,73,'L','R','2014-04-05','2022-10-04'),
 ('martini02',1990,6,27,'USA','IL','Crystal Lake',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Martini','Nicholas Scott',205,71,'L','L','2018-06-06','2021-09-30'),
 ('martino01',1966,12,10,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Norberto','Martin','Norberto Enrique',175,70,'R','R','1993-09-20','1999-05-04'),
+('martior01',2001,11,19,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Orelvis','Martinez','Orelvis Miguel',200,71,'R','R','2024-06-21',NULL),
 ('martios01',1988,5,7,'P.R.',NULL,'Carolina',NULL,NULL,NULL,NULL,NULL,NULL,'Osvaldo','Martinez','Osvaldo',200,70,'R','R','2010-09-19','2011-08-17'),
 ('martipa01',1894,4,13,'USA','NY','Brooklyn',1949,2,4,'USA','NY','Brooklyn','Pat','Martin','Patrick Francis',170,71,'L','L','1919-09-20','1920-06-06'),
 ('martipa02',1932,3,9,'USA','PA','Brownstown',2011,10,11,'USA','CA','San Diego','Paul','Martin','Paul Charles',235,78,'R','R','1955-07-02','1955-08-16'),
@@ -532463,11 +532773,13 @@ INSERT INTO `people` VALUES
 ('matsuda01',1980,9,13,'Japan','Tokyo','Tokyo',NULL,NULL,NULL,NULL,NULL,NULL,'Daisuke','Matsuzaka','Daisuke',205,72,'R','R','2007-04-05','2014-09-25'),
 ('matsuhi01',1974,6,12,'Japan','Ishikawa','Nomi',NULL,NULL,NULL,NULL,NULL,NULL,'Hideki','Matsui','Hideki',210,74,'L','R','2003-03-31','2012-07-22'),
 ('matsuka01',1975,10,23,'Japan','Osaka','Higashi-Osaka',NULL,NULL,NULL,NULL,NULL,NULL,'Kazuo','Matsui','Kazuo',187,70,'B','R','2004-04-06','2010-05-18'),
+('matsuyu01',1995,10,30,'Japan','Kanagawa','Yokohama',NULL,NULL,NULL,NULL,NULL,NULL,'Yuki','Matsui','Yuki',165,68,'L','L','2024-03-20',NULL),
 ('matteal01',1883,6,16,'USA','NY','West Rush',1958,11,6,'USA','NY','West Rush','Al','Mattern','Alonzo Albert',165,70,'L','L','1908-09-16','1912-04-19'),
 ('mattecv01',1861,11,24,'USA','OH','Seville',1931,12,18,'USA','OH','Seville','C. V.','Matteson','Clifford Virgil',NULL,NULL,NULL,NULL,'1884-06-13','1884-06-13'),
 ('matteed01',1884,9,7,'USA','PA','Guy\'s Mills',1943,9,1,'USA','NY','Westfield','Eddie','Matteson','Henry Edson',160,70,'R','R','1914-05-30','1918-09-01'),
 ('mattetr01',1975,8,26,'USA','IL','Champaign',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Mattes','Troy Walter',230,79,'R','R','2001-06-19','2001-07-27'),
 ('matthbo01',1863,3,11,'USA','NJ','Camden',1926,12,26,'USA','NJ','Camden','Charles','Matthews','Charles Frederick',NULL,NULL,NULL,NULL,'1891-09-25','1891-09-25'),
+('matthbr01',2002,3,16,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Brice','Matthews','Brice Andre',190,71,'R','R','2025-07-11',NULL),
 ('matthda01',1923,5,15,'USA','PA','Catasauqua',1984,2,20,'USA','GA','Blairsville','Dale','Matthewson','Dale Wesley',145,71,'R','R','1943-07-03','1944-07-30'),
 ('matthga01',1950,7,5,'USA','CA','San Fernando',NULL,NULL,NULL,NULL,NULL,NULL,'Gary','Matthews','Gary Nathaniel',185,74,'R','R','1972-09-06','1987-10-02'),
 ('matthga02',1974,8,25,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Gary','Matthews','Gary Nathaniel',200,75,'B','R','1999-06-04','2010-06-02'),
@@ -532477,6 +532789,7 @@ INSERT INTO `people` VALUES
 ('matthst01',1860,NULL,NULL,'USA','MD','Mitchellville',1891,7,29,'USA','MD','Baltimore','Steve','Matthias','Stephen J.',160,68,NULL,NULL,'1884-04-20','1884-06-27'),
 ('matthwi01',1877,1,5,'USA','PA','Pottsville',1946,1,23,'USA','PA','North Manheim','William','Matthews','William Calvin',NULL,73,NULL,'R','1909-08-28','1909-09-23'),
 ('matthwi02',1896,10,20,'USA','IL','Raleigh',1965,10,5,'USA','CA','Hollywood','Wid','Matthews','Wid Curry',155,68,'L','L','1923-04-18','1925-06-07'),
+('matthze01',2000,5,22,'USA','NC','Cullowhee',NULL,NULL,NULL,NULL,NULL,NULL,'Zebby','Matthews','Daniel Zebulon',225,77,'R','R','2024-08-13',NULL),
 ('mattibo01',1915,12,5,'USA','IA','Sioux City',2004,12,16,'USA','AZ','Scottsdale','Bobby','Mattick','Robert James',178,71,'R','R','1938-05-05','1942-08-18'),
 ('mattido01',1961,4,20,'USA','IN','Evansville',NULL,NULL,NULL,NULL,NULL,NULL,'Don','Mattingly','Donald Arthur',175,72,'L','L','1982-09-08','1995-10-01'),
 ('mattiea01',1904,11,4,'USA','MD','New Port',1993,9,8,'USA','MD','Brookeville','Earl','Mattingly','Laurence Earl',164,70,'R','R','1931-04-15','1931-06-09'),
@@ -532517,6 +532830,7 @@ INSERT INTO `people` VALUES
 ('maxwech01',1927,4,8,'USA','MI','Lawton',NULL,NULL,NULL,NULL,NULL,NULL,'Charlie','Maxwell','Charles Richard',185,71,'L','L','1950-09-20','1964-04-26'),
 ('maxweja01',1972,3,26,'USA','TN','Lewisburg',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Maxwell','Jason Ramond',185,72,'R','R','1998-09-01','2001-10-07'),
 ('maxweju01',1983,11,6,'USA','MD','Olney',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Maxwell','Justin Adam',225,76,'R','R','2007-09-05','2015-08-31'),
+('maxweza01',2001,1,26,'USA','TN','Nashville',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Maxwell','Zachary Thomas',275,79,'R','R','2025-08-23',NULL),
 ('mayayu01',1981,8,28,'Cuba','Pinar del Rio','Pinar del Rio',NULL,NULL,NULL,NULL,NULL,NULL,'Yunesky','Maya','Yunesky',215,72,'R','R','2010-09-07','2013-05-21'),
 ('maybejo01',1949,2,18,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'John','Mayberry','John Claiborn',215,75,'L','L','1968-09-10','1982-09-28'),
 ('maybejo02',1983,12,21,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'John','Mayberry','John Claiborn',235,78,'R','R','2009-05-23','2015-07-24'),
@@ -532531,6 +532845,7 @@ INSERT INTO `people` VALUES
 ('mayered01',1865,8,16,'USA','IL','Marshall',1946,5,15,'USA','IL','Chicago','Ed','Mayer','Edward H.',155,68,NULL,NULL,'1890-04-19','1891-09-30'),
 ('mayered02',1931,11,30,'USA','CA','San Francisco',2015,12,29,'USA','CA','Corte Madera','Ed','Mayer','Edwin David',185,74,'L','L','1957-09-15','1958-06-05'),
 ('mayerer01',1890,1,16,'USA','GA','Atlanta',1957,3,10,'USA','CA','Los Angeles','Erskine','Mayer','Jacob Erskine',168,72,'R','R','1912-09-04','1919-09-27'),
+('mayerma01',2002,12,12,'USA','CA','Chula Vista',NULL,NULL,NULL,NULL,NULL,NULL,'Marcelo','Mayer','Marcelo',188,75,'L','R','2025-05-24',NULL),
 ('mayermi01',1991,12,6,'USA','OH','Grove City',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Mayers','Michael Christopher',220,74,'R','R','2016-07-24','2022-09-24'),
 ('mayersa01',1893,2,28,'USA','GA','Atlanta',1962,7,1,'USA','GA','Atlanta','Sam','Mayer','Samuel Frankel',164,70,'R','L','1915-09-04','1915-09-29'),
 ('mayerwa01',1890,7,8,'USA','OH','Cincinnati',1951,11,18,'USA','MN','Minnetonka','Wally','Mayer','Walter A.',168,71,'R','R','1911-09-28','1919-09-02'),
@@ -532545,6 +532860,7 @@ INSERT INTO `people` VALUES
 ('maynabu01',1913,3,25,'USA','NC','Henderson',1977,9,7,'USA','NC','Durham','Buster','Maynard','James Walter',170,71,'R','R','1940-09-17','1946-04-26'),
 ('maynach01',1896,11,2,'USA','MA','Turners Falls',1957,1,31,'USA','ME','Bangor','Chick','Maynard','Leroy Evans',150,69,'L','R','1922-06-27','1922-07-08'),
 ('maynebr01',1968,4,19,'USA','CA','Loma Linda',NULL,NULL,NULL,NULL,NULL,NULL,'Brent','Mayne','Brent Danem',195,73,'L','R','1990-09-18','2004-10-02'),
+('mayoco01',2001,12,10,'USA','FL','Coral Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Coby','Mayo','Coby Gerald',230,76,'R','R','2024-08-02',NULL),
 ('mayoed01',1910,4,15,'USA','MA','Holyoke',2006,11,27,'USA','CA','Banning','Eddie','Mayo','Edward Joseph',178,71,'L','R','1936-05-22','1948-10-03'),
 ('mayoja01',1925,7,26,'USA','IL','Litchfield',2014,8,19,'USA','OH','North Lima','Jackie','Mayo','John Lewis',190,73,'L','R','1948-09-19','1953-09-27'),
 ('maypi01',1911,1,18,'USA','IN','Laconia',2000,9,4,'USA','IN','Corydon','Merrill','May','Merrill Glend',165,71,'R','R','1939-04-21','1943-10-03'),
@@ -532562,6 +532878,7 @@ INSERT INTO `people` VALUES
 ('mazarno01',1995,4,26,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Nomar','Mazara','Nomar Shamir',224,76,'L','L','2016-04-10','2022-08-19'),
 ('mazeipa01',1993,10,14,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Patrick','Mazeika','Patrick Alan',216,74,'L','R','2021-04-11','2022-08-03'),
 ('mazerbi01',1936,9,5,'USA','WV','Wheeling',NULL,NULL,NULL,NULL,NULL,NULL,'Bill','Mazeroski','William Stanley',183,71,'R','R','1956-07-07','1972-10-04'),
+('mazurad01',2001,4,20,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Mazur','Adam McKinnlee',180,74,'R','R','2024-06-04',NULL),
 ('mazzach01',1989,10,17,'USA','CA','Walnut Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Mazza','Christopher James',190,76,'R','R','2019-06-29','2022-04-17'),
 ('mazzavi01',1986,9,27,'USA','NJ','Hackensack',NULL,NULL,NULL,NULL,NULL,NULL,'Vin','Mazzaro','Vincent Michael',220,74,'R','R','2009-06-02','2016-05-05'),
 ('mazzeme01',1914,1,31,'USA','CA','Stockton',1997,12,17,'USA','CA','Stockton','Mel','Mazzera','Melvin Leonard',180,71,'L','L','1935-09-09','1940-09-29'),
@@ -532623,6 +532940,7 @@ INSERT INTO `people` VALUES
 ('mccange01',1875,6,13,'USA','MD','Baltimore',1943,4,26,'USA','NY','New York','Gene','McCann','Henry Eugene',185,70,NULL,'R','1901-04-19','1902-04-28'),
 ('mccanja01',1891,5,5,'USA','PA','Pittsburgh',1961,8,17,'USA','PA','Pittsburgh','Jack','McCandless','Scott Cook',170,72,'L','R','1914-09-10','1915-10-03'),
 ('mccanja02',1990,6,13,'USA','CA','Santa Barbara',NULL,NULL,NULL,NULL,NULL,NULL,'James','McCann','James Thomas',232,74,'R','R','2014-09-01','2022-10-05'),
+('mccanky01',1997,12,2,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','McCann','Kyle Joseph',217,74,'L','R','2024-03-30',NULL),
 ('mccaral01',1889,5,12,'USA','IL','Chicago',1978,3,12,'USA','MD','Salisbury','Alex','McCarthy','Alexander George',150,69,'R','R','1910-10-07','1917-07-24'),
 ('mccarar01',1881,1,21,'USA','MI','Ypsilanti',NULL,NULL,NULL,NULL,NULL,NULL,'Arch','McCarthy','Archibald Joseph',160,72,NULL,'R','1902-08-14','1902-09-18'),
 ('mccarbi01',1886,2,14,'USA','MA','Boston',1928,2,4,'USA','DC','Washington','Bill','McCarthy','William John',NULL,NULL,NULL,'R','1905-06-05','1907-09-14'),
@@ -532705,6 +533023,7 @@ INSERT INTO `people` VALUES
 ('mccoyma01',1995,3,31,'USA','IL','Peoria',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','McCoy','Mason Steven',185,71,'R','R','2023-08-30','2023-09-05'),
 ('mccoymi01',1981,4,2,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','McCoy','Michael Howard',180,69,'R','R','2009-09-09','2012-10-03'),
 ('mccoypa01',1988,8,3,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','McCoy','Patrick James',225,76,'L','L','2014-06-22','2014-09-05'),
+('mccragr01',2000,12,7,'USA','MT','Billings',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','McCray','Grant Snow',190,73,'L','R','2024-08-14',NULL),
 ('mccrale01',1914,11,4,'USA','PA','Wakefield',2008,10,8,'USA','PA','Lancaster','Les','McCrabb','Lester William',175,71,'R','R','1939-09-07','1950-05-04'),
 ('mccraqu01',1970,8,16,'USA','NC','Wilmington',NULL,NULL,NULL,NULL,NULL,NULL,'Quinton','McCracken','Quinton Antoine',170,67,'B','R','1995-09-17','2006-07-05'),
 ('mccraro01',1963,9,13,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Rodney','McCray','Rodney Duncan',175,70,'R','R','1990-04-30','1992-05-11'),
@@ -532718,18 +533037,22 @@ INSERT INTO `people` VALUES
 ('mccuefr01',1898,10,4,'USA','IL','Chicago',1953,7,5,'USA','IL','Evergreen Park','Frank','McCue','Frank Aloysius',150,69,'B','R','1922-09-15','1922-09-22'),
 ('mcculch01',1866,NULL,NULL,'Ireland','Dublin','Dublin',1898,4,13,'USA','NY','Brooklyn','Charlie','McCullough','Charles F.',185,73,NULL,'R','1890-04-23','1890-08-29'),
 ('mcculcl01',1917,3,4,'USA','TN','Nashville',1982,9,18,'USA','CA','San Francisco','Clyde','McCullough','Clyde Edward',180,71,'R','R','1940-04-28','1956-07-22'),
+('mcculcl99',1979,12,27,'USA','NC','Oxford',NULL,NULL,NULL,NULL,NULL,NULL,'Clayton','McCullough','Clayton Anthony',180,70,'L','R',NULL,NULL),
 ('mcculla01',1964,3,8,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Lance','McCullers','Lance Graye',185,73,'B','R','1985-08-12','1992-06-04'),
 ('mcculla02',1993,10,2,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Lance','McCullers','Lance Graye',202,73,'L','R','2015-05-18','2022-10-03'),
 ('mcculpa01',1898,7,28,'USA','PA','New Castle',1970,11,7,'USA','PA','New Castle','Paul','McCullough','Paul Willard',190,69,'R','R','1929-07-02','1929-07-08'),
 ('mcculph01',1917,7,22,'USA','GA','Stockbridge',2003,1,16,'USA','GA','Decatur','Phil','McCullough','Pinson Lamar',204,76,'R','R','1942-04-22','1942-04-22'),
 ('mccurha01',1899,9,15,'USA','WI','Stevens Point',1972,7,21,'USA','TX','Houston','Harry','McCurdy','Harry Henry',187,71,'L','R','1922-07-01','1934-07-01'),
 ('mccurje01',1970,1,21,'Japan','Tokyo','Tokyo',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','McCurry','Jeffrey Dee',210,79,'R','R','1995-05-06','1999-06-22'),
+('mccusca01',1998,5,22,'USA','NV','Sparks',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','McCusker','Carson Michael',250,80,'R','R','2025-05-18',NULL),
 ('mccutan01',1986,10,10,'USA','FL','Fort Meade',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','McCutchen','Andrew Stefan',195,71,'R','R','2009-06-04','2022-10-03'),
 ('mccutda01',1982,9,26,'USA','TX','McKinney',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','McCutchen','Daniel Thomas',215,74,'R','R','2009-08-31','2014-04-04'),
+('mcdanga01',1999,12,15,'USA','SC','Marion',NULL,NULL,NULL,NULL,NULL,NULL,'Garrett','McDaniels','Garrett Nicholas',180,74,'L','L','2025-03-31',NULL),
 ('mcdanli01',1935,12,13,'USA','OK','Hollis',2020,11,14,'USA','TX','Carrollton','Lindy','McDaniel','Lyndall Dale',195,75,'R','R','1955-09-02','1975-09-27'),
 ('mcdante01',1966,12,6,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Terry','McDaniel','Terrence Keith',195,69,'B','R','1991-08-30','1991-10-04'),
 ('mcdanvo01',1939,4,18,'USA','OK','Hollis',1995,8,20,'USA','OK','Lawton','Von','McDaniel','Max Von',180,74,'R','R','1957-06-13','1958-05-11'),
 ('mcdavra01',1971,7,20,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Ray','McDavid','Ray Darnell',190,75,'L','R','1994-07-15','1995-10-01'),
+('mcderch01',1998,8,22,'USA','IN','Anderson',NULL,NULL,NULL,NULL,NULL,NULL,'Chayce','McDermott','Chayce Michael',197,75,'L','R','2024-07-24',NULL),
 ('mcderjo01',1846,NULL,NULL,'USA','NY','Brooklyn',1882,9,4,'USA','NY','Brooklyn','James','McDermott','James',NULL,NULL,NULL,NULL,'1871-05-04','1872-07-06'),
 ('mcdermi01',1864,5,6,'USA','MA','Fall River',1947,5,7,'USA','MA','Fall River','Michael','McDermott','Michael H.',152,70,NULL,'R','1889-09-02','1889-10-13'),
 ('mcdermi02',1874,9,7,'USA','MO','St. Louis',1943,6,30,'USA','MO','St. Louis','Mike','McDermott','Michael Joseph',145,68,NULL,'R','1895-04-20','1897-07-31'),
@@ -532759,6 +533082,7 @@ INSERT INTO `people` VALUES
 ('mcdonke01',1973,2,8,'Japan','Kanagawa','Yokosuka',NULL,NULL,NULL,NULL,NULL,NULL,'Keith','McDonald','William Keith',215,74,'R','R','2000-07-04','2001-09-28'),
 ('mcdonmi01',1995,6,2,'USA','CA','San Mateo',NULL,NULL,NULL,NULL,NULL,NULL,'Mickey','McDonald','Raymond Mickey',175,74,'B','R','2022-04-20','2022-04-27'),
 ('mcdonte01',1891,1,31,'USA','TX','Farmersville',1943,3,30,'USA','TX','Houston','Tex','McDonald','Charles C.',160,70,'L','R','1912-04-11','1915-08-14'),
+('mcdontr01',2001,2,26,'USA','AL','Mobile',NULL,NULL,NULL,NULL,NULL,NULL,'Trevor','McDonald','Trevor Dale',201,74,'R','R','2024-09-29',NULL),
 ('mcdonwe01',1900,1,1,'USA','DE','Glasgow',1982,6,12,'Philadelphia','USA','PA','Webster','McDonald','Webster',190,71,'L','R',NULL,NULL),
 ('mcdoo01',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'McDoolan',NULL,NULL,NULL,NULL,NULL,'1873-04-14','1873-04-14'),
 ('mcdoude01',1871,9,19,'USA','IL','Aledo',1935,4,28,'USA','IL','Galesburg','Dewey','McDougal','James H.',188,70,NULL,'R','1895-04-24','1896-05-12'),
@@ -532850,6 +533174,7 @@ INSERT INTO `people` VALUES
 ('mcgraky01',1992,7,31,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','McGrath','Kyle Daniel',185,74,'L','L','2017-07-30','2018-04-16'),
 ('mcgrato01',1967,12,8,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','McGraw','Thomas Virgil',195,74,'L','L','1997-05-07','1997-05-09'),
 ('mcgratu01',1944,8,30,'USA','CA','Martinez',2004,1,5,'USA','TN','Brentwood','Tug','McGraw','Frank Edwin',170,72,'R','L','1965-04-18','1984-09-25'),
+('mcgremi01',2000,7,8,'USA','CA','San Clemente',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','McGreevy','Michael Stephen',220,76,'L','R','2024-07-31',NULL),
 ('mcgresc01',1954,1,18,'USA','CA','Inglewood',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','McGregor','Scott Houston',190,73,'B','L','1976-09-19','1988-04-27'),
 ('mcgresl01',1899,8,5,'USA','TX','Yoakum',1967,8,21,'USA','TX','Houston','Slim','McGrew','Walter Howard',235,79,'R','R','1922-04-18','1924-06-08'),
 ('mcgrifr01',1963,10,31,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Fred','McGriff','Frederick Stanley',200,75,'L','L','1986-05-17','2004-07-15'),
@@ -532950,6 +533275,7 @@ INSERT INTO `people` VALUES
 ('mcleaal01',1912,9,20,'USA','IL','Chicago',1990,9,29,'USA','NC','Asheboro','Al','McLean','Albert Eldon',175,72,'R','R','1935-07-16','1935-07-30'),
 ('mcleala01',1881,7,18,'CAN','NB','Fredericton',1921,3,24,'USA','MA','Boston','Larry','McLean','John Bannerman',228,77,'R','R','1901-04-26','1915-06-06'),
 ('mcleama01',1974,10,26,'USA','OH','Kettering',NULL,NULL,NULL,NULL,NULL,NULL,'Marty','McLeary','Marty Lee',220,77,'R','R','2004-08-22','2007-05-19'),
+('mcleano01',2001,7,24,'USA','NC','Willow Spring',NULL,NULL,NULL,NULL,NULL,NULL,'Nolan','McLean','Nolan James',214,74,'R','R','2025-08-16',NULL),
 ('mclelwa01',1924,8,29,'USA','IA','Stockport',2004,5,9,'USA','TX','Houston','Wayne','McLeland','Wayne Gaffney',180,72,'R','R','1951-04-20','1952-05-10'),
 ('mclemma01',1964,10,4,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','McLemore','Mark Tremell',175,71,'B','R','1986-09-13','2004-10-02'),
 ('mclemma02',1980,10,9,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','McLemore','Mark Steven',220,74,'L','L','2007-05-24','2007-09-30'),
@@ -533080,6 +533406,7 @@ INSERT INTO `people` VALUES
 ('meegape01',1862,11,13,'USA','CA','San Francisco',1905,3,14,'USA','CA','San Francisco','Pete','Meegan','Peter James',160,68,NULL,NULL,'1884-08-12','1885-10-01'),
 ('meehabi01',1889,9,4,'USA','PA','Osceola Mills',1982,10,8,'USA','WY','Douglas','Bill','Meehan','William Thomas',155,69,'R','R','1915-09-17','1915-09-17'),
 ('meekda01',1867,3,14,'Bohemia',NULL,'Dolni Lukavice',1922,12,22,'USA','MO','St. Louis','Dad','Meek','Frank J.',170,72,NULL,NULL,'1889-05-10','1890-04-24'),
+('meekeja01',1995,3,22,'USA','NJ','Livingston',NULL,NULL,NULL,NULL,NULL,NULL,'James','Meeker','James Henry',222,76,'R','R','2024-06-07',NULL),
 ('meekero01',1900,9,15,'USA','MO','Lead Mine',1929,3,25,'USA','FL','Orlando','Roy','Meeker','Charles Roy',175,69,'L','L','1923-09-22','1926-09-25'),
 ('meekev01',1983,5,12,'USA','WA','Bellevue',NULL,NULL,NULL,NULL,NULL,NULL,'Evan','Meek','Evan David',215,72,'R','R','2008-04-02','2014-09-25'),
 ('meekijo01',1867,2,21,'USA','IN','New Albany',1944,12,14,'USA','IN','New Albany','Jouett','Meekin','George Jouett',180,73,'R','R','1891-06-13','1900-07-08'),
@@ -533089,6 +533416,7 @@ INSERT INTO `people` VALUES
 ('meeto01',1890,3,18,'USA','IL','Chicago',1981,5,16,'USA','IL','Chicago','Tommy','Mee','Thomas William',165,68,'R','R','1910-06-14','1910-08-12'),
 ('megiltr01',1993,12,5,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Trevor','Megill','Trevor J.',250,80,'L','R','2021-04-26','2022-10-02'),
 ('megilty01',1995,7,28,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Tylor','Megill','Tylor J',241,79,'R','R','2021-06-23','2022-10-04'),
+('meidrch01',2001,7,23,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Meidroth','Chase Gregory',190,70,'R','R','2025-04-11',NULL),
 ('meierda01',1959,8,8,'USA','MT','Helena',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Meier','David Keith',195,72,'R','R','1984-04-03','1988-09-29'),
 ('meierdu01',1879,3,30,'USA','MO','St. Louis',1948,3,23,'USA','IL','Chicago','Dutch','Meier','Arthur Ernst',175,70,'R','R','1906-04-19','1906-10-07'),
 ('meinehe01',1896,5,1,'USA','MO','St. Louis',1968,3,18,'USA','MO','St. Louis','Heinie','Meine','Henry William',180,71,'R','R','1922-08-16','1934-09-18'),
@@ -533107,6 +533435,7 @@ INSERT INTO `people` VALUES
 ('mejiahu01',1997,3,3,'Panama','Panama','Panama',NULL,NULL,NULL,NULL,NULL,NULL,'Humberto','Mejia','Humberto Albert',244,76,'R','R','2020-08-07','2021-10-03'),
 ('mejiaje01',1989,10,11,'D.R.','Azua','Tabara Arriba',NULL,NULL,NULL,NULL,NULL,NULL,'Jenrry','Mejia','Jenrry Manuel',205,72,'R','R','2010-04-07','2015-07-26'),
 ('mejiaje02',1996,8,26,'D.R.','Espaillat','Gaspar Hernandez',NULL,NULL,NULL,NULL,NULL,NULL,'J. C.','Mejia','Jean Carlos',240,77,'R','R','2021-05-21','2022-05-14'),
+('mejiaju01',2000,7,4,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Mejia','Juan Manuel',200,75,'R','R','2025-04-24',NULL),
 ('mejiami01',1975,3,25,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Miguel','Mejia','Miguel',155,73,'R','R','1996-04-04','1996-09-29'),
 ('mejiaro01',1930,8,9,'Cuba',NULL,'Abreus',2023,2,22,'USA','CA','Sun City','Roman','Mejias','Roman',175,72,'R','R','1955-04-13','1964-10-04'),
 ('mejiaro02',1972,4,14,'D.R.','Hato Mayor','Hato Mayor del Rey',NULL,NULL,NULL,NULL,NULL,NULL,'Roberto','Mejia','Roberto Antonio',160,71,'R','R','1993-07-15','1997-04-11'),
@@ -533132,10 +533461,13 @@ INSERT INTO `people` VALUES
 ('meltobi01',1945,7,7,'USA','MS','Gulfport',NULL,NULL,NULL,NULL,NULL,NULL,'Bill','Melton','William Edwin',200,74,'R','R','1968-05-04','1977-08-30'),
 ('meltocl01',1912,1,3,'USA','NC','Brevard',1986,7,28,'USA','MD','Baltimore','Cliff','Melton','Clifford George',203,77,'L','L','1937-04-25','1944-09-29'),
 ('meltoda01',1928,10,3,'USA','TX','Pampa',2008,10,23,'USA','CA','Cupertino','Dave','Melton','David Olin',185,72,'R','R','1956-04-17','1958-06-11'),
+('meltoja01',2000,9,7,'USA','OR','Medford',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Melton','Jacob William',208,75,'L','L','2025-06-01',NULL),
 ('meltoru01',1917,2,27,'USA','NC','Cramerton',1971,9,11,'USA','SC','Greer','Rube','Melton','Reuben Franklin',205,77,'R','R','1941-04-17','1947-06-03'),
+('meltotr01',2000,12,3,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Melton','Troy Edward',210,76,'R','R','2025-07-23',NULL),
 ('melusmi01',1973,9,18,'USA','WA','Yakima',NULL,NULL,NULL,NULL,NULL,NULL,'Mitch','Meluskey','Mitchell Wade',185,72,'B','R','1998-08-30','2003-09-26'),
 ('melvibo01',1961,10,28,'USA','CA','Palo Alto',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Melvin','Robert Paul',205,76,'R','R','1985-05-25','1994-08-06'),
 ('melviti01',1989,10,9,'USA','VA','Alexandria',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Melville','Timothy Macgill',250,76,'R','R','2016-04-10','2019-09-25'),
+('menacr01',2002,12,21,'D.R.','Duarte','San Francisco de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Cristian','Mena','Cristian Jose',200,74,'R','R','2024-07-03',NULL),
 ('menchke01',1978,1,7,'USA','DE','Wilmington',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Mench','Kevin Ford',215,72,'R','R','2002-04-09','2010-10-03'),
 ('mendead01',1982,2,22,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Adalberto','Mendez','Adalberto',160,74,'R','R','2010-09-06','2010-10-01'),
 ('mendeca01',1974,6,18,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Mendez','Carlos Alberto',210,72,'R','R','2003-05-22','2003-09-28'),
@@ -533145,6 +533477,7 @@ INSERT INTO `people` VALUES
 ('mendeyo01',1995,1,17,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Yohander','Mendez','Yohander Manuel',230,76,'L','L','2016-09-05','2019-09-20'),
 ('mendida01',1993,9,28,'USA','NY','Rochester',NULL,NULL,NULL,NULL,NULL,NULL,'Danny','Mendick','Daniel',195,70,'R','R','2019-09-03','2022-06-22'),
 ('mendoca01',1974,11,4,'Venezuela','Bolivar','Ciudad Bolivar',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Mendoza','Carlos Ramon',160,71,'L','L','1997-09-03','2000-09-30'),
+('mendoca99',1979,11,27,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Mendoza','Carlos Enrique',190,72,'B','R',NULL,NULL),
 ('mendolu01',1983,10,31,'Mexico','Veracruz','Veracruz',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Mendoza','Luis Alonso',245,75,'R','R','2007-09-08','2013-09-06'),
 ('mendoma01',1950,12,26,'Mexico','Chihuahua','Chihuahua',NULL,NULL,NULL,NULL,NULL,NULL,'Mario','Mendoza','Mario',170,71,'R','R','1974-04-26','1982-05-22'),
 ('mendomi01',1934,12,3,'Cuba',NULL,'Ceiba del Agua',NULL,NULL,NULL,NULL,NULL,NULL,'Minnie','Mendoza','Cristobal Rigoberto',180,72,'R','R','1970-04-09','1970-06-07'),
@@ -533164,6 +533497,7 @@ INSERT INTO `people` VALUES
 ('meolami01',1905,10,19,'USA','NY','New York',1976,9,1,'USA','NJ','Fairlawn','Mike','Meola','Emile Michael',175,71,'R','R','1933-04-24','1936-09-16'),
 ('meoliru01',1951,5,1,'USA','NY','Troy',NULL,NULL,NULL,NULL,NULL,NULL,'Rudy','Meoli','Rudolph Bartholomew',165,69,'L','R','1971-09-09','1979-06-08'),
 ('mercahe01',1974,4,29,'P.R.',NULL,'Catano',NULL,NULL,NULL,NULL,NULL,NULL,'Hector','Mercado','Hector Luis',205,75,'L','L','2000-04-04','2003-07-11'),
+('mercami01',1999,4,15,'USA','SC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Mercado','David Michael',205,76,'R','R','2024-06-24',NULL),
 ('mercaor01',1961,11,7,'P.R.',NULL,'Arecibo',NULL,NULL,NULL,NULL,NULL,NULL,'Orlando','Mercado','Orlando',180,72,'R','R','1982-09-13','1990-09-30'),
 ('mercaos01',1994,12,16,'Colombia','Bolivar','Cartagena',NULL,NULL,NULL,NULL,NULL,NULL,'Oscar','Mercado','Oscar Mauricio',197,74,'R','R','2019-05-14','2022-07-09'),
 ('mercehe01',1969,7,23,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Henry','Mercedes','Henry Felipe',185,71,'R','R','1992-04-22','1997-09-21'),
@@ -533190,6 +533524,7 @@ INSERT INTO `people` VALUES
 ('merried01',1860,5,22,'USA','KY','Maysville',1946,1,29,'USA','IL','Elmwood Park','Ed','Merrill','Edward Mason',176,71,NULL,NULL,'1882-05-05','1884-07-31'),
 ('merrige01',1880,4,14,'USA','NJ','Paterson',1938,2,21,'USA','TN','Memphis','George','Merritt','George Washington',160,72,NULL,'R','1901-09-06','1903-05-26'),
 ('merrihe01',1900,11,12,'USA','KS','Independence',1927,5,26,'USA','MO','Kansas City','Herm','Merritt','Herman G.',NULL,NULL,'R','R','1921-08-24','1921-10-02'),
+('merrija01',2003,4,19,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Merrill','Jackson Peter',195,75,'L','R','2024-03-20',NULL),
 ('merriji01',1943,12,9,'USA','CA','Altadena',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Merritt','James Joseph',175,75,'L','L','1965-08-02','1975-05-23'),
 ('merrijo01',1894,10,12,'USA','MS','Tupelo',1955,11,3,'USA','MS','Tupelo','John','Merritt','John Howard',170,71,'R','L','1913-09-27','1913-09-27'),
 ('merrill01',1924,8,2,'USA','CA','Clovis',2004,1,20,'USA','CA','Fresno','Lloyd','Merriman','Lloyd Archer',190,72,'L','L','1949-04-24','1955-09-17'),
@@ -533206,12 +533541,14 @@ INSERT INTO `people` VALUES
 ('mervima01',1998,4,16,'USA','D.C.','Washington',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Mervis','Matthew Jared',225,74,'L','R','2023-05-05','2023-06-14'),
 ('mesajo01',1966,5,22,'D.R.','Azua','Pueblo Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Mesa','Jose Ramon Nova',170,75,'R','R','1987-09-10','2007-09-29'),
 ('mesame01',1987,1,31,'D.R.','San Cristobal','Bajos de Haina',NULL,NULL,NULL,NULL,NULL,NULL,'Melky','Mesa','Melquisedec',200,73,'R','R','2012-09-22','2013-07-31'),
+('mesavi01',2001,9,8,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Mesa','Victor',195,71,'L','L','2025-05-26',NULL),
 ('mesnest01',1918,1,13,'USA','CA','Los Angeles',1981,4,6,'USA','CA','San Diego','Steve','Mesner','Stephen Mathias',178,69,'R','R','1938-09-23','1945-09-30'),
 ('mesorde01',1988,6,19,'USA','PA','Punxsutawney',NULL,NULL,NULL,NULL,NULL,NULL,'Devin','Mesoraco','Devin Douglas',229,73,'R','R','2011-09-03','2018-09-29'),
 ('messean01',1945,8,6,'USA','NJ','Toms River',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Messersmith','John Alexander',200,73,'R','R','1968-07-04','1979-06-01'),
 ('messebo01',1884,3,19,'USA','ME','Bangor',1951,7,10,'USA','ME','Bath','Bobby','Messenger','Charles Walter',165,70,'B','R','1909-08-30','1914-05-05'),
 ('messebu01',1898,2,1,'USA','MI','Grand Blanc',1971,11,4,'USA','MI','Lansing','Andrew','Messenger','Andrew Warren',175,72,'R','R','1924-07-31','1924-08-28'),
 ('messera01',1981,8,13,'USA','NV','Reno',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Messenger','Randall Jerome',260,78,'R','R','2005-06-22','2009-10-04'),
+('messipa01',2000,10,26,'USA','FL','Plant City',NULL,NULL,NULL,NULL,NULL,NULL,'Parker','Messick','Parker Chase',225,72,'L','L','2025-08-20',NULL),
 ('messito01',1874,7,27,'USA','PA','Philadelphia',1934,9,22,'USA','IL','Chicago','Tom','Messitt','Thomas John',177,69,NULL,'R','1899-09-14','1899-09-20'),
 ('metcaal01',1852,12,31,'USA','NY','Brooklyn',1914,9,2,'USA','NY','Brooklyn','Alfred','Metcalfe','Alfred Tristram',NULL,NULL,NULL,NULL,'1875-05-27','1875-06-17'),
 ('metcami01',1973,1,2,'USA','VA','Quantico',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Metcalfe','Michael Henry',175,70,'R','R','1998-09-18','2000-07-09'),
@@ -533253,6 +533590,7 @@ INSERT INTO `people` VALUES
 ('meyerma01',1999,3,12,'USA','MN','Woodbury',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Meyer','Max Thomas',196,72,'L','R','2022-07-16','2022-07-23'),
 ('meyerru01',1923,10,25,'USA','IL','Peru',1997,11,16,'USA','IL','Oglesby','Russ','Meyer','Russell Charles',175,73,'B','R','1946-09-13','1959-06-28'),
 ('meyersc01',1957,8,19,'USA','IL','Evergreen Park',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Meyer','Scott William',195,73,'R','R','1978-09-10','1978-10-01'),
+('meylu01',2001,6,24,'D.R.','San Pedro de Macorís','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Mey','Luis Ellison',235,77,'R','R','2025-05-01',NULL),
 ('miadiba01',1976,2,3,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Bart','Miadich','John Barton',205,76,'R','R','2001-09-02','2003-08-12'),
 ('micelda01',1970,9,9,'USA','NJ','Newark',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Miceli','Daniel',185,73,'R','R','1993-09-09','2006-09-29'),
 ('micelmi01',1928,10,20,'USA','NY','Corona',2022,10,9,'USA','NV','Henderson','Mickey','Micelotta','Robert Peter',185,71,'R','R','1954-04-20','1955-08-02'),
@@ -533337,6 +533675,7 @@ INSERT INTO `people` VALUES
 ('milleed04',1957,6,29,'USA','CA','San Pablo',NULL,NULL,NULL,NULL,NULL,NULL,'Eddie','Miller','Edward Lee',175,69,'B','R','1977-09-05','1984-09-30'),
 ('milleel01',1890,7,28,'USA','OH','Sandusky',1944,11,28,'USA','WI','Beloit','Elmer','Miller','Elmer',175,72,'R','R','1912-04-26','1922-09-30'),
 ('milleel02',1903,4,17,'USA','MI','Detroit',1987,1,8,'USA','CA','Corona','Elmer','Miller','Elmer Joseph',189,71,'L','L','1929-06-21','1929-08-22'),
+('milleer01',1998,2,13,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Erik','Miller','Erik Christopher',268,77,'L','L','2024-03-28',NULL),
 ('millefr01',1886,6,28,'USA','IN','Fairfield',1953,5,2,'USA','IN','Brookville','Fred','Miller','Frederick Holman',190,74,'L','L','1910-07-08','1910-08-15'),
 ('millefr02',1886,5,13,'USA','MI','Salem',1974,2,19,'USA','MI','Allegan','Frank','Miller','Frank Lee',188,72,'R','R','1913-07-12','1923-07-30'),
 ('millege01',1853,2,19,'USA','KY','Newport',1929,7,24,'USA','OH','Norwood','George','Miller','George C.',160,65,'R','R','1877-09-06','1884-07-22'),
@@ -533390,6 +533729,7 @@ INSERT INTO `people` VALUES
 ('millero04',1954,8,1,'USA','PA','Connellsville',1993,4,26,'USA','PA','Mill Run','Roger','Miller','Roger Wesley',200,75,'R','R','1974-09-08','1974-09-13'),
 ('milleru01',1900,3,25,'USA','OH','Etna',1962,4,30,'USA','OH','Bucyrus','Russ','Miller','Russell Lewis',165,71,'R','R','1927-09-24','1928-09-27'),
 ('milleru02',1900,7,12,'USA','MI','Kalamazoo',1994,1,22,'USA','MI','Kalamazoo','Rudy','Miller','Rudel Charles',180,73,'R','R','1929-09-19','1929-09-20'),
+('millery01',1996,3,28,'USA','FL','Sarasota',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Miller','Ryan Robert',180,72,'R','R','2024-08-27',NULL),
 ('millesh01',1990,10,10,'USA','TX','Round Rock',NULL,NULL,NULL,NULL,NULL,NULL,'Shelby','Miller','Shelby Charles',225,75,'R','R','2012-09-05','2022-10-03'),
 ('millest01',1927,12,26,'USA','MA','Northampton',2015,1,4,'USA','CA','Cameron Park','Stu','Miller','Stuart Leonard',165,71,'R','R','1952-08-12','1968-04-23'),
 ('milleto01',1850,3,NULL,'USA','PA','Philadelphia',1876,5,29,'USA','PA','Philadelphia','Tom','Miller','Thomas P.',136,66,NULL,NULL,'1874-10-24','1875-10-29'),
@@ -533470,6 +533810,8 @@ INSERT INTO `people` VALUES
 ('miranwi01',1926,5,24,'Cuba',NULL,'Velasco',1996,9,7,'USA','MD','Baltimore','Willy','Miranda','Guillermo',150,69,'B','R','1951-05-06','1959-09-07'),
 ('mischpa01',1981,8,18,'USA','IL','Northbrook',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','Misch','Patrick Theodore Joseph',195,74,'R','L','2006-09-21','2011-05-26'),
 ('misiean01',1994,11,1,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Misiewicz','Anthony',196,73,'R','L','2020-07-24','2022-10-04'),
+('misioja01',2002,4,3,'USA','MO','Blue Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Misiorowski','Jacob Walter',197,79,'R','R','2025-06-12',NULL),
+('misneka01',1998,1,8,'USA','MO','Poplar Bluff',NULL,NULL,NULL,NULL,NULL,NULL,'Kameron','Misner','Kameron Lee',220,76,'L','L','2024-08-02',NULL),
 ('missejo01',1885,5,30,'USA','KS','Highland',1970,3,18,'USA','MO','St. Joseph','John','Misse','John Beverly',150,68,'R','R','1914-05-26','1914-10-08'),
 ('misurmi01',1968,8,21,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Misuraca','Michael William',190,72,'R','R','1997-07-27','1997-08-11'),
 ('mitchbo01',1856,2,6,'USA','OH','Cincinnati',1933,5,1,'USA','OH','Springfield','Bobby','Mitchell','Robert McKasha',135,65,'L','L','1877-09-06','1882-08-19'),
@@ -533530,6 +533872,7 @@ INSERT INTO `people` VALUES
 ('mokanjo01',1895,9,23,'USA','NY','Buffalo',1985,2,10,'USA','NY','Buffalo','Johnny','Mokan','John Leo',165,67,'R','R','1921-04-15','1927-10-02'),
 ('molefe01',1925,6,14,'USA','CA','San Leandro',2017,2,20,'USA','CA','Danville','Fenton','Mole','Fenton Leroy',200,73,'L','L','1949-09-01','1949-09-30'),
 ('molesca01',1876,2,15,'USA','MD','Frederick',1961,7,25,'USA','MD','Frederick','Carlton','Molesworth','Carlton',162,67,'L','L','1895-09-14','1895-09-30'),
+('molinan01',2002,1,12,'Venezuela','Carabobo','San Joaquin',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Molina','Anthony Jose',170,73,'R','R','2024-03-28',NULL),
 ('molinbe01',1974,7,20,'P.R.',NULL,'Rio Piedras',NULL,NULL,NULL,NULL,NULL,NULL,'Bengie','Molina','Benjamin Jose',190,71,'R','R','1998-09-21','2010-10-03'),
 ('molinbo01',1950,5,21,'USA','NJ','Newark',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Molinaro','Robert Joseph',190,72,'L','R','1975-09-18','1983-10-02'),
 ('molinga01',1975,5,3,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Gabe','Molina','Cruz Gabriel',190,71,'R','R','1999-05-01','2003-05-26'),
@@ -533577,20 +533920,25 @@ INSERT INTO `people` VALUES
 ('monteag01',1977,8,26,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Agustin','Montero','Agustin Alcantara',210,75,'R','R','2006-05-12','2006-06-28'),
 ('monteau01',1943,11,19,'Cuba',NULL,'Caibarien',1990,11,10,'Mexico','Coahuila','Ramos Arizpe','Aurelio','Monteagudo','Aurelio Faustino',180,71,'R','R','1963-09-01','1973-09-28'),
 ('montebr01',1996,4,23,'USA','KS','Lawrence',NULL,NULL,NULL,NULL,NULL,NULL,'Bryce','Montes de Oca','Bryce',266,79,'R','R','2022-09-03','2022-09-10'),
+('montech01',1999,8,30,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Montes De Oca','Christian',230,76,'R','R','2025-06-07',NULL),
 ('monteco01',1996,10,7,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Coco','Montes','Robert Patrick',200,73,'R','R','2023-06-11','2023-07-02'),
 ('monteel01',1998,8,17,'D.R.','Distrito Nacional','Santo Domingo Centro',NULL,NULL,NULL,NULL,NULL,NULL,'Elehuris','Montero','Elehuris',235,75,'R','R','2022-05-01','2022-10-05'),
 ('montefe01',1928,2,7,'Mexico','Nuevo Leon','Monterrey',NULL,NULL,NULL,NULL,NULL,NULL,'Felipe','Montemayor','Felipe Angel',185,74,'L','L','1953-04-14','1955-06-12'),
 ('monteje01',1989,11,28,'Venezuela','Carabobo','Guacara',NULL,NULL,NULL,NULL,NULL,NULL,'Jesus','Montero','Jesus Alejandro',235,75,'R','R','2011-09-01','2015-10-03'),
 ('montejo01',1950,5,25,'USA','NJ','Long Branch',NULL,NULL,NULL,NULL,NULL,NULL,'John','Montefusco','John Joseph',180,73,'R','R','1974-09-03','1986-05-01'),
+('monteke01',2000,7,6,'Venezuela','Miranda','Santa Teresa del Tuy',NULL,NULL,NULL,NULL,NULL,NULL,'Keider','Montero','Keider Eduardo',145,73,'R','R','2024-05-29',NULL),
 ('montema01',1935,10,16,'Cuba',NULL,'Caibarien',2000,1,19,'Cuba','La Habana','La Habana','Manny','Montejo','Manuel',150,71,'R','R','1961-07-25','1961-09-15'),
 ('montemi01',1983,7,9,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Miguel','Montero','Miguel Angel',221,71,'L','R','2006-09-06','2018-04-05'),
+('montepa01',1997,9,24,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Patrick','Monteverde','Patrick Dillon',190,74,'R','L','2025-04-19',NULL),
 ('montera01',1990,10,17,'D.R.','San Cristobal','Higuerito',NULL,NULL,NULL,NULL,NULL,NULL,'Rafael','Montero','Rafael',190,72,'R','R','2014-05-14','2022-10-05'),
 ('montere01',1916,3,12,'Cuba','La Habana','La Habana',1973,9,14,'USA','FL','Hialeah','Rene','Monteagudo','Rene',165,67,'L','L','1938-09-06','1945-09-30'),
 ('monteri01',1963,3,22,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Monteleone','Richard',205,74,'R','R','1987-04-15','1996-07-11'),
 ('montgal01',1920,7,3,'USA','NM','Loving',1942,4,26,'USA','VA','Waverly','Al','Montgomery','Alvin Atlas',185,70,'R','R','1941-06-20','1941-09-17'),
 ('montgbo01',1944,4,16,'USA','TN','Nashville',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Montgomery','Robert Edward',195,73,'R','R','1970-09-06','1979-09-09'),
+('montgco01',2002,2,27,'USA','IN','Holland',NULL,NULL,NULL,NULL,NULL,NULL,'Colson','Montgomery','Colson Kade',230,75,'L','R','2025-07-04',NULL),
 ('montgje01',1962,1,7,'USA','OH','Wellston',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Montgomery','Jeffrey Thomas',170,71,'R','R','1987-08-01','1999-10-02'),
 ('montgjo01',1992,12,27,'USA','SC','Sumter',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Montgomery','Jordan Blackmon',228,78,'L','L','2017-04-12','2022-10-01'),
+('montgma01',2000,6,17,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Montgomery','Mason Jack',205,74,'L','L','2024-09-05',NULL),
 ('montgmi01',1989,7,1,'USA','CA','Mission Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Montgomery','Michael Paul',219,76,'L','L','2015-06-02','2020-09-26'),
 ('montgmo01',1946,9,1,'USA','NC','Albemarle',NULL,NULL,NULL,NULL,NULL,NULL,'Monty','Montgomery','Monty Bryson',200,75,'R','R','1971-09-14','1972-09-30'),
 ('montgra01',1969,8,8,'USA','NY','Bronxville',NULL,NULL,NULL,NULL,NULL,NULL,'Ray','Montgomery','Raymond James',195,75,'R','R','1996-07-03','1998-06-16'),
@@ -533623,6 +533971,7 @@ INSERT INTO `people` VALUES
 ('mooreca01',1906,8,13,'USA','TN','Clinton',1958,7,2,'USA','LA','New Orleans','Carlos','Moore','Carlos Whitman',180,73,'R','R','1930-05-04','1930-05-30'),
 ('moorech01',1884,12,1,'USA','IN','Jackson County',1970,7,29,'USA','OR','Portland','Charley','Moore','Charles Wesley',160,70,'R','R','1912-04-16','1912-05-13'),
 ('moorech02',1953,6,21,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Charlie','Moore','Charles William',180,71,'R','R','1973-09-08','1987-10-04'),
+('moorech03',2002,10,21,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Moore','Christian',210,72,'R','R','2025-06-13',NULL),
 ('moorecy01',1905,2,7,'USA','GA','Elberton',1972,3,28,'USA','GA','Augusta','Cy','Moore','William Austin',178,73,'R','R','1929-06-07','1934-09-24'),
 ('moorede01',1914,4,6,'USA','TX','Hedley',1997,7,2,'USA','ND','Williston','Dee','Moore','D C',190,71,'R','R','1936-09-12','1946-09-29'),
 ('mooredo01',1954,2,13,'USA','TX','Lubbock',1989,7,18,'USA','CA','Anaheim','Donnie','Moore','Donnie Ray',185,72,'L','R','1975-09-14','1988-08-07'),
@@ -533674,6 +534023,7 @@ INSERT INTO `people` VALUES
 ('moraljo01',1944,12,30,'V.I.','St. Croix','Frederiksted',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Morales','Jose Manuel',187,71,'R','R','1973-08-13','1984-06-04'),
 ('moraljo02',1983,2,20,'P.R.',NULL,'Rio Piedras',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Morales','Jose Guillermo',200,71,'B','R','2007-09-08','2011-06-15'),
 ('moralke01',1983,6,20,'Cuba','Sancti Spiritus','Fomento',NULL,NULL,NULL,NULL,NULL,NULL,'Kendrys','Morales','Kendrys',242,73,'B','R','2006-05-23','2019-06-11'),
+('morallu01',2002,9,24,'Cuba','Holguín','Antilla',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Morales','Luis Danys',200,75,'R','R','2025-08-01',NULL),
 ('moralos01',1992,10,30,'Venezuela','Aragua','Villa de Cura',NULL,NULL,NULL,NULL,NULL,NULL,'Osmer','Morales','Osmer Eduardo',196,75,'R','R','2018-08-16','2018-08-16'),
 ('moralri01',1943,9,20,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Morales','Richard Angelo',170,71,'R','R','1967-08-08','1974-10-02'),
 ('moralwi01',1972,9,7,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','Morales','William Anthony',182,70,'R','R','2000-04-09','2000-09-06'),
@@ -533728,6 +534078,7 @@ INSERT INTO `people` VALUES
 ('morgach01',1910,6,6,'USA','MS','Skene',1991,9,20,'USA','TX','Pasadena','Chet','Morgan','Chester Collins',160,69,'L','R','1935-04-19','1938-09-29'),
 ('morgacy01',1878,11,10,'USA','OH','Pomeroy',1962,6,28,'USA','WV','Wheeling','Cy','Morgan','Harry Richard',175,72,'R','R','1903-09-18','1913-09-01'),
 ('morgacy02',1895,11,11,'USA','MA','Lakeville',1946,9,11,'USA','MA','Lakeville','Cy','Morgan','Cyril Arlon',170,72,'R','R','1921-06-08','1922-05-01'),
+('morgada01',1999,10,26,'USA','CA','Mission Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'David','Morgan','David Scott',185,72,'R','R','2025-05-26',NULL),
 ('morgaed01',1904,5,22,'USA','IL','Cairo',1980,4,9,'USA','LA','New Orleans','Ed','Morgan','Edward Carre',180,72,'R','R','1928-04-11','1934-09-30'),
 ('morgaed02',1914,11,19,'USA','OH','Brady Lake',1982,6,27,'USA','OH','Lakewood','Eddie','Morgan','Edwin Willis',160,70,'L','L','1936-04-14','1937-07-23'),
 ('morgael01',1996,5,13,'USA','CA','Rancho Palos Verdes',NULL,NULL,NULL,NULL,NULL,NULL,'Eli','Morgan','Elijah Allan',190,70,'R','R','2021-05-28','2022-10-05'),
@@ -533748,6 +534099,7 @@ INSERT INTO `people` VALUES
 ('moriage02',1885,7,7,'USA','IL','Chicago',1964,4,8,'USA','FL','Miami','George','Moriarty','George Joseph',185,72,'R','R','1903-09-27','1916-05-04'),
 ('moriami01',1974,3,8,'USA','NJ','Camden',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Moriarty','Michael Thomas',195,72,'R','R','2002-04-11','2002-05-04'),
 ('morilju01',1983,11,5,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Morillo','Juan Bautista',190,73,'R','R','2006-09-24','2009-04-27'),
+('morilju02',1999,3,19,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Morillo','Juan Diego',150,73,'R','R','2025-04-19',NULL),
 ('morimsh01',1992,11,20,'USA','NY','Canandaigua',NULL,NULL,NULL,NULL,NULL,NULL,'Shawn','Morimando','Shawn Peter',206,72,'L','L','2016-07-02','2021-08-13'),
 ('morinmi01',1991,5,3,'USA','MN','Andover',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Morin','Michael William',220,76,'R','R','2014-04-30','2020-08-12'),
 ('morlajo01',1947,11,22,'USA','OH','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'John','Morlan','John Glen',178,72,'R','R','1973-07-20','1974-09-29'),
@@ -533870,7 +534222,8 @@ INSERT INTO `people` VALUES
 ('moylape01',1978,12,2,'Australia','Western Australia','Attadale',NULL,NULL,NULL,NULL,NULL,NULL,'Peter','Moylan','Peter Michael',220,75,'R','R','2006-04-12','2018-07-28'),
 ('moynami01',1856,NULL,NULL,'USA','IL','Chicago',1899,4,9,'USA','IL','Chicago','Mike','Moynahan','Michael',165,69,'L','R','1880-08-20','1884-06-21'),
 ('mroziro01',1930,9,16,'USA','PA','White Haven',2005,10,19,'USA','NJ','Washington','Ron','Mrozinski','Ronald Frank',160,71,'R','L','1954-06-20','1955-09-09'),
-('muckeza01',1995,2,27,'USA','MN','Delano',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Muckenhirn','Zachary Edward',205,72,'L','L','2023-05-03','2023-06-09'),
+('muckeza01',1995,2,27,'USA','MN','Delano',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Muckenhirn','Zachary Edward',205,72,'L','L','2023-05-03','2023-06-09');
+INSERT INTO `people` VALUES
 ('mudroph01',1937,1,12,'USA','CO','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Phil','Mudrock','Philip Ray',190,73,'R','R','1963-04-19','1963-04-19'),
 ('muellbi01',1920,11,9,'USA','MI','Bay City',2001,10,24,'USA','IL','Glenview','Bill','Mueller','William Lawrence',180,73,'R','R','1942-08-29','1945-09-25'),
 ('muellbi02',1971,3,17,'USA','MO','Maryland Heights',NULL,NULL,NULL,NULL,NULL,NULL,'Bill','Mueller','William Richard',175,71,'B','R','1996-04-18','2006-05-11'),
@@ -533924,6 +534277,7 @@ INSERT INTO `people` VALUES
 ('munchja01',1890,11,16,'USA','PA','Morton',1966,6,8,'USA','PA','Lansdowne','Jake','Munch','Jacob Ferdinand',170,74,'L','L','1918-05-27','1918-08-27'),
 ('muncrbo01',1916,1,28,'USA','OK','Madill',1996,2,6,'USA','TX','Duncanville','Bob','Muncrief','Robert Cleveland',190,74,'R','R','1937-09-30','1951-04-20'),
 ('muncyma01',1990,8,25,'USA','TX','Midland',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Muncy','Maxwell Steven',215,72,'L','R','2015-04-25','2022-10-05'),
+('muncyma02',2002,8,25,'USA','CA','Camarillo',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Muncy','Maxwell Price',180,73,'R','R','2025-03-27',NULL),
 ('mundige01',1854,11,20,'USA','LA','New Orleans',1910,10,12,'USA','LA','Covington','George','Mundinger','George',200,74,'R','R','1884-05-09','1884-05-20'),
 ('mundybi01',1889,6,28,'USA','OH','Salineville',1958,9,23,'USA','MI','Kalamazoo','Bill','Mundy','William Edward',154,70,'L','L','1913-08-17','1913-10-04'),
 ('mungere01',1918,10,4,'USA','TX','Houston',1996,7,23,'USA','TX','Houston','Red','Munger','George David',200,74,'R','R','1943-05-01','1956-09-23'),
@@ -533942,6 +534296,8 @@ INSERT INTO `people` VALUES
 ('munozno01',1967,11,11,'Mexico','Estado de Mexico','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Noe','Munoz','Noe',210,74,'R','R','1995-04-30','1995-05-14'),
 ('munozos01',1969,9,25,'USA','FL','Hialeah',NULL,NULL,NULL,NULL,NULL,NULL,'Oscar','Munoz','Juan Oscar',210,75,'R','R','1995-08-06','1995-09-30'),
 ('munozpe01',1968,9,19,'P.R.',NULL,'Ponce',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','Munoz','Pedro Javier',170,71,'R','R','1990-09-01','1996-06-01'),
+('munozro01',2000,4,14,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Roddery','Muñoz','Roddery',210,74,'R','R','2024-04-20',NULL),
+('munozro02',2000,4,14,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Rolddy','Muñoz','Rolddy',183,74,'R','R','2025-09-02',NULL),
 ('munozya01',1995,1,23,'D.R.','Maria Trinidad Sanchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Yairo','Munoz','Yairo',200,71,'R','R','2018-03-29','2022-09-25'),
 ('munrope01',1975,6,14,'USA','NY','Flushing',NULL,NULL,NULL,NULL,NULL,NULL,'Peter','Munro','Peter Daniel',200,74,'R','R','1999-04-06','2004-10-01'),
 ('munsoer01',1977,10,3,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Munson','Eric Walter',220,75,'L','R','2000-07-18','2009-09-21'),
@@ -533956,6 +534312,7 @@ INSERT INTO `people` VALUES
 ('murcebo01',1946,5,20,'USA','OK','Oklahoma City',2008,7,12,'USA','OK','Oklahoma City','Bobby','Murcer','Bobby Ray',160,71,'L','R','1965-09-08','1983-06-11'),
 ('murchsi01',1880,11,21,'USA','ME','Castine',1939,6,6,'USA','NH','Exeter','Simmy','Murch','Simeon Augustus',220,74,'R','R','1904-09-20','1908-05-23'),
 ('murchti01',1896,10,8,'USA','NC','Liberty',1962,10,20,'USA','NC','Liberty','Tim','Murchison','Thomas Malcolm',185,72,'R','L','1917-06-21','1920-05-03'),
+('murdono01',1998,8,20,'USA','VA','Richmond',NULL,NULL,NULL,NULL,NULL,NULL,'Noah','Murdock','Noah James',205,80,'R','R','2025-03-29',NULL),
 ('murdowi01',1875,3,14,'USA','NY','Avon',1941,10,29,'USA','CA','Los Angeles','Wilbur','Murdoch','Wilbur Edwin',NULL,NULL,NULL,'R','1908-08-29','1908-10-03'),
 ('murfepe01',1994,5,2,'USA','TN','Nashville',NULL,NULL,NULL,NULL,NULL,NULL,'Penn','Murfee','William Penn',195,74,'R','R','2022-04-29','2022-10-04'),
 ('murffre01',1921,4,1,'USA','TX','Burlington',2008,11,28,'USA','TX','Tyler','Red','Murff','John Robert',195,75,'R','R','1956-04-21','1957-05-30'),
@@ -534021,6 +534378,7 @@ INSERT INTO `people` VALUES
 ('murrage01',1898,9,23,'USA','NC','Charlotte',1955,10,18,'USA','TN','Memphis','George','Murray','George King',200,74,'R','R','1922-05-08','1933-05-01'),
 ('murragl01',1970,11,23,'USA','SC','Manning',NULL,NULL,NULL,NULL,NULL,NULL,'Glenn','Murray','Glenn Everett',225,74,'R','R','1996-05-10','1996-07-24'),
 ('murrahe01',1973,4,19,'USA','OH','Troy',NULL,NULL,NULL,NULL,NULL,NULL,'Heath','Murray','Heath Robertson',205,76,'L','L','1997-05-24','2002-07-21'),
+('murraja01',1997,4,11,'USA','UT','Vernal',NULL,NULL,NULL,NULL,NULL,NULL,'Jayden','Murray','Jayden Allen',190,73,'R','R','2025-09-04',NULL),
 ('murraji01',1878,1,16,'USA','TX','Galveston',1945,4,25,'USA','TX','Galveston','Jim','Murray','James Oscar',180,70,'R','L','1902-09-02','1914-07-10'),
 ('murraji02',1894,12,31,'USA','PA','Scranton',1973,7,15,'USA','NY','Jamaica','Jim','Murray','James Francis',210,74,'B','L','1922-07-03','1922-09-24'),
 ('murrajo01',1920,11,11,'USA','PA','Wilkes-Barre',2001,10,19,'USA','CA','San Clemente','Joe','Murray','Joseph Ambrose',165,72,'L','L','1950-08-17','1950-09-28'),
@@ -534075,6 +534433,7 @@ INSERT INTO `people` VALUES
 ('myersri01',1930,4,7,'USA','CA','Sacramento',2011,6,24,'USA','CA','Yreka','Richie','Myers','Richard',150,66,'R','R','1956-04-21','1956-05-02'),
 ('myersro01',1969,6,26,'USA','IL','Rockford',NULL,NULL,NULL,NULL,NULL,NULL,'Rodney','Myers','Rodney Luther',200,73,'R','R','1996-04-03','2004-06-01'),
 ('myersro02',1973,1,14,'USA','TX','Conroe',NULL,NULL,NULL,NULL,NULL,NULL,'Rod','Myers','Roderick Demond',190,72,'L','L','1996-06-21','1997-09-28'),
+('myersto01',1998,8,5,'USA','FL','Winter Haven',NULL,NULL,NULL,NULL,NULL,NULL,'Tobias','Myers','Tobias Kane',223,73,'R','R','2024-04-23',NULL),
 ('myerswi01',1990,12,10,'USA','NC','Thomasville',NULL,NULL,NULL,NULL,NULL,NULL,'Wil','Myers','William Bradford',207,75,'R','R','2013-06-18','2022-10-05'),
 ('myettaa01',1977,9,26,'CAN','BC','New Westminster',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Myette','Aaron Kenneth',195,76,'R','R','1999-09-07','2004-09-27'),
 ('myricbo01',1952,10,1,'USA','MS','Hattiesburg',2012,8,23,'USA','MS','Hattiesburg','Bob','Myrick','Robert Howard',195,73,'R','L','1976-05-28','1978-05-18'),
@@ -534116,12 +534475,14 @@ INSERT INTO `people` VALUES
 ('narrosa01',1913,8,25,'USA','NC','Middlesex',1996,12,31,'USA','NC','Raleigh','Sam','Narron','Samuel Woody',180,70,'R','R','1935-09-15','1943-09-30'),
 ('narrosa02',1981,7,12,'USA','NC','Goldsboro',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Narron','Samuel Franklin',200,79,'L','L','2004-07-30','2004-07-30'),
 ('narumbu01',1940,11,16,'USA','PA','Philadelphia',2004,5,17,'USA','FL','Clearwater','Buster','Narum','Leslie Ferdinand',194,73,'R','R','1963-04-14','1967-09-26'),
+('narvaca01',1998,11,26,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Narváez','Carlos Luis',190,72,'R','R','2024-07-20',NULL),
 ('narvaom01',1992,2,10,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Omar','Narvaez','Omar David',220,71,'L','R','2016-07-17','2022-10-04'),
 ('narvech01',1981,12,20,'USA','CO','Englewood',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Narveson','Christopher Gregg',205,75,'L','L','2006-09-08','2016-04-19'),
 ('nashbi01',1865,6,24,'USA','VA','Richmond',1929,11,15,'USA','NJ','East Orange','Billy','Nash','William Mitchell',167,68,'R','R','1884-08-05','1898-05-28'),
 ('nashco01',1942,7,24,'USA','NJ','Jersey City',NULL,NULL,NULL,NULL,NULL,NULL,'Cotton','Nash','Charles Francis',220,78,'R','R','1967-09-01','1970-10-01'),
 ('nashji01',1945,2,9,'USA','NV','Hawthorne',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Nash','James Edwin',215,77,'R','R','1966-07-03','1972-09-30'),
 ('nashke01',1888,7,14,'USA','MA','Weymouth',1977,2,16,'USA','NH','Epsom','Ken','Nash','Kenneth Leland',140,68,'B','R','1912-07-04','1914-10-05'),
+('nastrni01',2000,2,18,'USA','CA','San Jose',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Nastrini','Nicholas',220,75,'R','R','2024-04-15',NULL),
 ('nastuph01',1955,3,8,'USA','CT','Bridgeport',NULL,NULL,NULL,NULL,NULL,NULL,'Phil','Nastu','Philip',180,74,'L','L','1978-09-15','1980-10-03'),
 ('natalro01',1965,11,13,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Natal','Robert Marcel',190,71,'R','R','1992-07-18','1997-09-26'),
 ('nathajo01',1974,11,22,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Nathan','Joseph Michael',230,76,'R','R','1999-04-21','2016-09-27'),
@@ -534159,6 +534520,7 @@ INSERT INTO `people` VALUES
 ('necciro01',1932,6,18,'USA','PA','Gallatin',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Necciai','Ronald Andrew',185,77,'R','R','1952-08-10','1952-09-28'),
 ('needhto01',1879,4,17,'Ireland',NULL,NULL,1926,12,14,'USA','OH','Steubenville','Tom','Needham','Thomas Joseph',180,70,'R','R','1904-05-12','1914-07-08'),
 ('neeltr01',1965,9,14,'USA','TX','Freeport',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Neel','Troy Lee',210,76,'L','R','1992-05-30','1994-08-11'),
+('neelyja01',2000,6,5,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Neely','Jack Preston',245,80,'R','R','2024-08-21',NULL),
 ('neemaca01',1929,2,18,'USA','IL','Valmeyer',2015,10,1,'USA','MO','Lake St. Louis','Cal','Neeman','Calvin Amandus',192,73,'R','R','1957-04-16','1963-09-29'),
 ('neffdo01',1891,10,8,'USA','VA','Harrisonburg',1932,5,23,'USA','VA','Cape Charles','Doug','Neff','Douglas Williams',141,69,'R','R','1914-06-26','1915-10-06'),
 ('negraro01',1930,2,26,'USA','OH','Akron',2018,11,8,'USA','OH','New Franklin','Ron','Negray','Ronald Alvin',185,73,'R','R','1952-09-14','1958-05-09'),
@@ -534177,8 +534539,7 @@ INSERT INTO `people` VALUES
 ('neitzer01',1894,11,13,'USA','OH','Toledo',1977,4,27,'USA','OH','Sylvania','Ernie','Neitzke','Ernest Frederick',180,70,'R','R','1921-06-02','1921-10-02'),
 ('nekolbo01',1906,12,10,'USA','NY','New York',1987,3,11,'USA','NY','Rockville Centre','Bots','Nekola','Francis Joseph',175,71,'L','L','1929-07-19','1933-04-30'),
 ('nelsoan01',1884,11,30,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Nelson','Andrew Anthony',NULL,NULL,NULL,'L','1908-05-26','1908-06-06'),
-('nelsobi01',1863,9,28,'USA','IN','Terre Haute',1941,6,23,'USA','IN','Terre Haute','Bill','Nelson','William F.',NULL,NULL,NULL,'R','1884-09-03','1884-09-10');
-INSERT INTO `people` VALUES
+('nelsobi01',1863,9,28,'USA','IN','Terre Haute',1941,6,23,'USA','IN','Terre Haute','Bill','Nelson','William F.',NULL,NULL,NULL,'R','1884-09-03','1884-09-10'),
 ('nelsobr01',1974,1,27,'USA','AR','Crossett',NULL,NULL,NULL,NULL,NULL,NULL,'Bry','Nelson','Bryant Lawrence',200,70,'B','R','2002-05-14','2002-07-15'),
 ('nelsobr02',1982,12,23,'USA','IA','Algona',NULL,NULL,NULL,NULL,NULL,NULL,'Brad','Nelson','John Bradley',255,74,'L','R','2008-09-01','2009-05-12'),
 ('nelsoca01',1849,3,14,'USA','ME','Portland',1910,9,4,'USA','NY','Brooklyn','Candy','Nelson','John W.',145,66,'L','R','1872-06-11','1890-08-25'),
@@ -534323,6 +534684,7 @@ INSERT INTO `people` VALUES
 ('nievewi01',1977,9,25,'P.R.',NULL,'San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Wil','Nieves','Wilbert',190,71,'R','R','2002-07-21','2015-04-29'),
 ('nifu01',1982,11,14,'Taiwan',NULL,'Pingtung County',NULL,NULL,NULL,NULL,NULL,NULL,'Fu-Te','Ni','Fu-Te',170,72,'L','L','2009-06-29','2010-06-29'),
 ('niggejo01',1903,7,10,'USA','IA','Remsen',1963,9,16,'USA','IA','Le Mars','Johnny','Niggeling','John Arnold',170,72,'R','R','1938-04-30','1946-09-01'),
+('nikhado01',1999,8,11,'USA','NC','Burlington',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Nikhazy','Douglas Samuel',210,72,'L','L','2025-04-26',NULL),
 ('nilanto01',1870,4,14,'USA','MA','Brookfield',1950,4,30,'USA','MA','Lynn','Tom','Niland','Thomas James',160,71,'R','R','1896-04-19','1896-06-06'),
 ('nilesbi01',1867,1,11,'USA','KY','Covington',1936,7,3,'USA','OH','Springfield','Bill','Niles','William E.',160,NULL,NULL,NULL,'1895-05-13','1895-08-05'),
 ('nilesha01',1880,9,10,'USA','MI','Buchanan',1953,4,18,'USA','MI','Sturgis','Harry','Niles','Herbert Clyde',175,68,'R','R','1906-04-24','1910-09-28'),
@@ -534351,6 +534713,7 @@ INSERT INTO `people` VALUES
 ('noboaju01',1964,11,10,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Junior','Noboa','Milciades Arturo',155,70,'R','R','1984-08-22','1994-08-05'),
 ('nocepa01',1959,12,16,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Noce','Paul David',175,70,'R','R','1987-06-01','1990-05-17'),
 ('nodary01',1996,3,30,'USA','IL','Volo',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Noda','Ryan Anthony',217,75,'L','L','2023-03-30','2023-10-01'),
+('noeljh01',2001,7,15,'D.R.','San Pedro de Macorís','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Jhonkensy','Noel','Jhonkensy',250,75,'R','R','2024-06-26',NULL),
 ('noelri01',1989,1,11,'USA','OK','Lawton',NULL,NULL,NULL,NULL,NULL,NULL,'Rico','Noel','Jablonski Rico',170,68,'R','R','2015-09-02','2015-10-04'),
 ('noesihe01',1987,1,26,'D.R.','Valverde','Esperanza',NULL,NULL,NULL,NULL,NULL,NULL,'Hector','Noesi','Hector',220,76,'R','R','2011-05-18','2019-09-27'),
 ('noftsge01',1859,8,24,'USA','PA','Shippensburg',1931,5,8,'USA','PA','Shippensburg','George','Noftsker','George Washington',135,68,'R','R','1884-04-17','1884-05-02'),
@@ -534376,6 +534739,7 @@ INSERT INTO `people` VALUES
 ('nootbla01',1997,9,8,'USA','CA','El Segundo',NULL,NULL,NULL,NULL,NULL,NULL,'Lars','Nootbaar','Lars Taylor-Tatsuji',210,75,'L','R','2021-06-22','2022-10-05'),
 ('nopsje01',1875,6,23,'USA','OH','Toledo',1937,3,26,'USA','NJ','Camden','Jerry','Nops','Jeremiah Henry',168,68,'L','L','1896-09-07','1901-09-23'),
 ('norbejo01',1986,12,8,'D.R.','Maria Trinidad Sanchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Norberto','Jordan',195,72,'L','L','2010-04-06','2012-08-17'),
+('norbyco01',2000,6,8,'USA','MN','Brooklyn Park',NULL,NULL,NULL,NULL,NULL,NULL,'Connor','Norby','Connor David',180,70,'R','R','2024-06-03',NULL),
 ('nordbti01',1949,7,7,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Nordbrook','Timothy Charles',180,73,'R','R','1974-09-13','1979-06-10'),
 ('nordhwa01',1948,7,4,'USA','MN','Thief River Falls',NULL,NULL,NULL,NULL,NULL,NULL,'Wayne','Nordhagen','Wayne Oren',205,74,'R','R','1976-07-16','1983-05-30'),
 ('nordylo01',1876,8,7,'USA','IA','Brighton',1945,9,27,'USA','CA','Los Angeles','Lou','Nordyke','Louis Ellis',185,72,'R','R','1906-04-18','1906-06-27'),
@@ -534422,14 +534786,17 @@ INSERT INTO `people` VALUES
 ('nunezab01',1976,3,16,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Abraham','Nunez','Abraham Orlando',200,71,'B','R','1997-08-27','2008-06-08'),
 ('nunezab02',1977,2,5,'D.R.','San Cristobal','Bajos de Haina',NULL,NULL,NULL,NULL,NULL,NULL,'Abraham','Nunez','Abraham',210,75,'B','R','2002-09-03','2004-10-03'),
 ('nunezda01',1993,3,19,'Cuba',NULL,'Las Tunas',NULL,NULL,NULL,NULL,NULL,NULL,'Darien','Nunez','Darien',205,74,'L','L','2021-07-09','2021-08-15'),
+('nunezde01',1996,6,5,'D.R.','Puerto Plata','Puerto Plata',NULL,NULL,NULL,NULL,NULL,NULL,'Dedniel','Núñez','Dedniel Omar',180,74,'R','R','2024-04-09',NULL),
 ('nunezdo01',1995,1,17,'USA','CA','Elk Grove',NULL,NULL,NULL,NULL,NULL,NULL,'Dom','Nunez','Dominic Manuel',212,73,'L','R','2019-08-13','2022-08-18'),
 ('nunezed01',1963,5,27,'P.R.',NULL,'Humacao',NULL,NULL,NULL,NULL,NULL,NULL,'Ed','Nunez','Edwin',235,77,'R','R','1982-04-07','1994-05-16'),
 ('nunezed02',1987,6,15,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Eduardo','Nunez','Eduardo Michelle',195,72,'R','R','2010-08-19','2020-07-26'),
+('nunezed03',1999,6,7,'D.R.','Samaná','Samana',NULL,NULL,NULL,NULL,NULL,NULL,'Eduarniel','Núñez','Eduarniel',174,74,'R','R','2025-07-02',NULL),
 ('nunezfr01',1977,1,18,'D.R.','Maria Trinidad Sanchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Franklin','Nunez','Franklin',175,72,'R','R','2004-08-14','2005-06-24'),
 ('nunezjh01',1985,11,26,'D.R.','Santiago','San Jose de las Matas',NULL,NULL,NULL,NULL,NULL,NULL,'Jhonny','Nunez','Jhonny J.',215,75,'R','R','2009-08-02','2009-09-26'),
 ('nunezjo01',1964,1,13,'D.R.','La Vega','Jarabacoa',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Nunez','Jose',175,75,'R','R','1987-04-09','1990-10-01'),
 ('nunezjo02',1979,3,14,'D.R.','Monte Cristi','Monte Cristi',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Nunez','Jose Antonio',173,74,'L','L','2001-04-03','2002-04-01'),
 ('nunezle01',1982,3,15,'D.R.','Monsenor Nouel','Bonao',NULL,NULL,NULL,NULL,NULL,NULL,'Juan Carlos','Oviedo','Juan Carlos',195,74,'R','R','2005-05-09','2014-07-19'),
+('nunezna01',2000,8,18,'USA','NY','Bronx',NULL,NULL,NULL,NULL,NULL,NULL,'Nasim','Nuñez','Nasim Emmanuel',165,68,'B','R','2024-03-30',NULL),
 ('nunezre01',1994,4,4,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Renato','Nunez','Renato Rafael',220,73,'R','R','2016-09-12','2021-08-20'),
 ('nunezvl01',1975,3,15,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Vladimir','Nunez','Vladimir',235,77,'R','R','1998-09-11','2009-09-18'),
 ('nunnajo01',1971,11,9,'USA','NC','Pelham',NULL,NULL,NULL,NULL,NULL,NULL,'Jon','Nunnally','Jonathan Keith',190,70,'L','R','1995-04-26','2000-05-31'),
@@ -534534,6 +534901,7 @@ INSERT INTO `people` VALUES
 ('ogandal01',1983,10,5,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Alexi','Ogando','Alexi',200,76,'R','R','2010-06-15','2018-05-04'),
 ('ogandcr01',1993,10,23,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Cristofer','Ogando','Cristofer Jesus',195,75,'R','R','2022-07-03','2022-09-25'),
 ('ogandne01',1989,6,3,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Nefi','Ogando','Nefi Ismael',230,72,'R','R','2015-09-09','2016-10-02'),
+('ogasash01',1997,10,8,'Japan','Kanagawa','Fujisawa',NULL,NULL,NULL,NULL,NULL,NULL,'Shinnosuke','Ogasawara','Shinnosuke',183,71,'L','L','2025-07-06',NULL),
 ('ogdencu01',1901,1,24,'USA','PA','Ogden',1964,8,6,'USA','PA','Upland','Curly','Ogden','Warren Harvey',180,73,'R','R','1922-07-18','1926-07-21'),
 ('ogdenja01',1897,11,5,'USA','PA','Ogden',1977,11,9,'USA','PA','Philadelphia','Jack','Ogden','John Mahlon',190,72,'R','R','1918-06-22','1932-09-09'),
 ('ogeach01',1970,11,9,'USA','LA','Lake Charles',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Ogea','Chad Wayne',200,74,'R','R','1994-05-03','1999-10-02'),
@@ -534553,6 +534921,7 @@ INSERT INTO `people` VALUES
 ('ohlenro01',1982,8,8,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Ross','Ohlendorf','Curtis Ross',240,76,'R','R','2007-09-11','2016-10-02'),
 ('ohljo01',1888,1,10,'USA','NJ','Jobstown',1951,12,18,'USA','NJ','Camden','Joe','Ohl','Joseph Earl',175,73,'L','L','1909-07-29','1909-08-05'),
 ('ohlmami01',1990,12,14,'USA','FL','Bradenton',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Ohlman','Michael Livingston',240,77,'R','R','2017-05-09','2017-08-15'),
+('ohlpi01',1999,9,10,'USA','CA','Moorpark',NULL,NULL,NULL,NULL,NULL,NULL,'Pierson','Ohl','Pierson Blaine',180,73,'R','R','2025-07-29',NULL),
 ('ohmanwi01',1977,8,13,'Germany','Hesse','Frankfurt',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Ohman','William McDaniel',225,74,'L','L','2000-09-19','2012-06-27'),
 ('ohmeke01',1971,4,13,'USA','FL','Palm Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Ohme','Kevin Arthur',180,73,'L','L','2003-04-14','2003-04-15'),
 ('ohopplo01',2000,2,9,'USA','NY','West Islip',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','O\'Hoppe','Logan',185,74,'R','R','2022-09-28','2022-10-05'),
@@ -534609,6 +534978,7 @@ INSERT INTO `people` VALUES
 ('olmstal01',1957,3,18,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Al','Olmsted','Alan Ray',195,74,'R','L','1980-09-12','1980-10-03'),
 ('olmstfr01',1881,7,3,'USA','MI','Grand Rapids',1936,10,22,'USA','OK','Muskogee','Fred','Olmstead','Frederic William',170,71,'R','R','1908-07-02','1911-09-04'),
 ('olmstha01',1879,1,12,'USA','MI','Sac Bay',1969,1,6,'USA','FL','Bradenton','Hank','Olmsted','Henry Theodore',147,68,'R','R','1905-07-15','1905-07-26'),
+('olougja01',2000,3,14,'Australia','SA','Adelaide',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','O\'Loughlin','Jack Te Haki',223,77,'L','L','2024-05-26',NULL),
 ('olougsi99',1872,8,15,'USA','NY','Rochester',1918,12,20,'Boston','USA','MA','Silk','O\'Loughlin','Francis H.',NULL,NULL,NULL,NULL,NULL,NULL),
 ('olsenba01',1919,9,11,'USA','MA','Everett',1977,3,30,'USA','MA','Everett','Barney','Olsen','Bernard Charles',179,71,'R','R','1941-08-23','1941-09-28'),
 ('olsenke01',1976,7,26,'USA','CA','Covina',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Olsen','Kevin Gary',200,74,'R','R','2001-09-07','2003-09-27'),
@@ -534682,6 +535052,7 @@ INSERT INTO `people` VALUES
 ('ormege01',1891,9,16,'USA','IN','Lebanon',1962,3,17,'USA','IN','Indianapolis','George','Orme','George William',160,70,'R','R','1920-09-14','1920-09-17'),
 ('orndoje01',1881,1,15,'USA','IL','Chicago',1960,9,28,'USA','CA','Cardiff-by-the-Sea','Jess','Orndorff','Jesse Walworth Thayer',168,72,'B','R','1907-04-18','1907-04-24'),
 ('orneljo01',2000,5,26,'USA','AZ','Glendale',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Ornelas','Jonathan',196,72,'R','R','2023-08-07','2023-09-17'),
+('ornelti01',2000,3,11,'México','Baja California','Tijuana',NULL,NULL,NULL,NULL,NULL,NULL,'Tirso','Ornelas','Tirso Abraham',200,75,'L','R','2025-04-19',NULL),
 ('oropeed01',1971,11,23,'Cuba',NULL,'Colon',NULL,NULL,NULL,NULL,NULL,NULL,'Eddie','Oropesa','Edilberto',215,75,'L','L','2001-04-02','2004-05-20'),
 ('oroscje01',1957,4,21,'USA','CA','Santa Barbara',NULL,NULL,NULL,NULL,NULL,NULL,'Jesse','Orosco','Jesse Russell',174,74,'R','L','1979-04-05','2003-09-27'),
 ('orour01',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'O\'Rourke',NULL,NULL,NULL,NULL,NULL,'1872-07-09','1872-07-09'),
@@ -534733,6 +535104,7 @@ INSERT INTO `people` VALUES
 ('ortonjo01',1965,12,8,'USA','CA','Santa Cruz',NULL,NULL,NULL,NULL,NULL,NULL,'John','Orton','John Andrew',195,73,'R','R','1989-08-20','1993-07-04'),
 ('orvelch01',1980,10,1,'USA','WA','Renton',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Orvella','Chad Robert',190,71,'R','R','2005-05-31','2007-06-08'),
 ('orwolos01',1900,11,17,'USA','OR','Portland',1967,5,8,'USA','IA','Decorah','Ossie','Orwoll','Oswald Christian',174,72,'L','L','1928-04-13','1929-08-21'),
+('orzeer01',1997,8,21,'USA','IL','Elk Grove Village',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Orze','Eric Paul',205,76,'R','R','2024-07-08',NULL),
 ('osborbo01',1903,4,17,'USA','TX','San Diego',1960,4,19,'USA','AR','Paris','Bob','Osborn','John Bode',175,73,'R','R','1925-09-16','1931-09-24'),
 ('osborbo02',1935,10,12,'USA','GA','Chattahoochee',2011,4,15,'USA','GA','Woodstock','Bobo','Osborne','Larry Sidney',205,73,'L','R','1957-06-27','1963-09-24'),
 ('osbordo01',1969,6,21,'USA','CA','Roseville',NULL,NULL,NULL,NULL,NULL,NULL,'Donovan','Osborne','Donovan Alan',195,74,'B','L','1992-04-09','2004-05-15'),
@@ -534762,11 +535134,13 @@ INSERT INTO `people` VALUES
 ('ostrojo02',1916,11,15,'USA','PA','West Wyoming',2003,1,3,'USA','PA','Wilkes-Barre','Joe','Ostrowski','Joseph Paul',180,72,'L','L','1948-07-08','1952-08-20'),
 ('osullse01',1987,9,1,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','O\'Sullivan','Sean Daniel',245,73,'R','R','2009-06-16','2016-07-08'),
 ('osunaal01',1965,8,10,'USA','CA','Inglewood',NULL,NULL,NULL,NULL,NULL,NULL,'Al','Osuna','Alfonso',200,75,'R','L','1990-09-02','1996-09-27'),
+('osunaal02',2002,10,10,'México','Sinaloa','Ahome',NULL,NULL,NULL,NULL,NULL,NULL,'Alejandro','Osuna','Tadeo Alejandro',185,69,'L','L','2025-05-25',NULL),
 ('osunaan01',1973,4,12,'Mexico','Sinaloa','Guasave',NULL,NULL,NULL,NULL,NULL,NULL,'Antonio','Osuna','Antonio Pedro',160,71,'R','R','1995-04-25','2005-04-10'),
 ('osunajo01',1992,12,12,'Venezuela','Trujillo','Trujillo',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Osuna','Jose Gregorio',235,74,'R','R','2017-04-18','2020-09-27'),
 ('osunaro01',1995,2,7,'Mexico','Sinaloa','Juan Jose Rios',NULL,NULL,NULL,NULL,NULL,NULL,'Roberto','Osuna','Roberto',217,74,'R','R','2015-04-08','2020-08-01'),
 ('oswalco01',1993,9,3,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Corey','Oswalt','Corey Edward',250,77,'R','R','2018-04-25','2021-07-04'),
 ('oswalro01',1977,8,29,'USA','MS','Kosciusko',NULL,NULL,NULL,NULL,NULL,NULL,'Roy','Oswalt','Roy Edward',190,72,'R','R','2001-05-06','2013-09-29'),
+('otanemi01',1997,7,3,'D.R.','Sánchez Ramírez','Villa La Mata',NULL,NULL,NULL,NULL,NULL,NULL,'Michel','Otañez','Michel',237,76,'R','R','2024-06-10',NULL),
 ('otanewi01',1973,4,19,'D.R.','Sanchez Ramirez','Cotui',NULL,NULL,NULL,NULL,NULL,NULL,'Willis','Otanez','Willis Alexander',200,73,'R','R','1998-08-25','1999-10-03'),
 ('oteroda01',1985,2,19,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Otero','Daniel Anthony',205,75,'R','R','2012-04-07','2019-09-28'),
 ('oterore01',1915,9,7,'Cuba','La Habana','La Habana',1988,10,21,'USA','FL','Hialeah','Reggie','Otero','Regino Jose',165,72,'L','R','1945-09-02','1945-09-29'),
@@ -534822,6 +535196,7 @@ INSERT INTO `people` VALUES
 ('owenspa99',1924,2,7,'USA','NY','Salamanca',2003,12,26,'USA','NJ','Woodbury','Paul','Owens','Paul Francis',190,75,'R','R',NULL,NULL),
 ('owensre01',1874,11,1,'USA','PA','Pottsville',1952,8,20,'USA','PA','Harrisburg','Red','Owens','Thomas Llewellyn',175,70,'R','R','1899-07-28','1905-05-31'),
 ('owensru01',1987,12,18,'USA','AZ','Mesa',NULL,NULL,NULL,NULL,NULL,NULL,'Rudy','Owens','Rudy C.',240,75,'L','L','2014-05-23','2014-05-23'),
+('owensty01',2001,1,9,'USA','FL','Ocala',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Owens','Tyler David',185,70,'R','R','2025-05-01',NULL),
 ('owingch01',1991,8,12,'USA','SC','Charleston',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Owings','Christopher Scott',185,70,'R','R','2013-09-03','2022-06-02'),
 ('owingmi01',1982,9,28,'USA','GA','Gainesville',NULL,NULL,NULL,NULL,NULL,NULL,'Micah','Owings','Micah Burton',220,77,'R','R','2007-04-06','2012-04-25'),
 ('ownberi01',1957,10,20,'USA','CA','Corona',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Ownbey','Richard Wayne',185,75,'R','R','1982-08-17','1986-07-03'),
@@ -534869,6 +535244,8 @@ INSERT INTO `people` VALUES
 ('pagemi02',1951,10,15,'USA','CA','Los Angeles',2011,3,12,'USA','AZ','Glendale','Mitchell','Page','Mitchell Otis',205,74,'L','R','1977-04-09','1984-09-30'),
 ('pageph01',1905,8,23,'USA','MA','Springfield',1958,6,27,'USA','MA','Springfield','Phil','Page','Philippe Rausac',175,74,'R','L','1928-09-18','1934-05-13'),
 ('pagesa01',1916,2,11,'USA','SC','Woodruff',2002,5,29,'USA','SC','Greenville','Sam','Page','Samuel Walter',172,72,'L','R','1939-09-11','1939-09-28'),
+('pagesan01',2000,12,8,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Pages','Andy',212,73,'R','R','2024-04-16',NULL),
+('pagespe01',1998,9,17,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','Pagés','Pedro Jose',245,71,'R','R','2024-04-07',NULL),
 ('pagete01',1903,4,22,'USA','KY','Glasgow',1984,12,1,'Pittsburgh','USA','PA','Ted','Page','Theodore Roosevelt',175,71,'L','R',NULL,NULL),
 ('pageva01',1905,9,15,'USA','NC','Elm City',1951,7,14,'USA','NC','Wilson','Vance','Page','Vance Linwood',180,72,'R','R','1938-08-06','1941-08-06'),
 ('pagliji01',1937,12,8,'USA','MI','Dearborn',2010,4,3,'USA','CA','Grass Valley','Jim','Pagliaroni','James Vincent',210,76,'R','R','1955-08-13','1969-09-30'),
@@ -534888,6 +535265,7 @@ INSERT INTO `people` VALUES
 ('palenda01',2000,2,5,'Venezuela','Cojedes','San Carlos',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Palencia','Daniel Jesús',160,71,'R','R','2023-07-04','2023-10-01'),
 ('palerst99',1949,10,9,'USA','MA','Worcester',2017,5,14,'Leawood','USA','KS','Steve','Palermo','Stephen Michael',175,74,NULL,NULL,NULL,NULL),
 ('palicer01',1928,2,9,'USA','CA','Lomita',1982,5,29,'USA','CA','Huntington Beach','Erv','Palica','Ervin Martin',180,73,'R','R','1945-04-21','1956-09-24'),
+('palisja01',1998,8,19,'USA','TX','Richardson',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Palisch','Jacob Benjamin',215,76,'L','L','2025-06-21',NULL),
 ('palkada01',1991,10,28,'USA','SC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Palka','Daniel Bennett',241,74,'L','L','2018-04-25','2019-09-29'),
 ('pallaan01',1998,9,18,'USA','CA','Mission Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Andre','Pallante','Neil Andre',203,72,'R','R','2022-04-10','2022-10-04'),
 ('palldo01',1962,1,11,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Donn','Pall','Donn Steven',185,74,'R','R','1988-08-01','1998-09-27'),
@@ -534903,6 +535281,7 @@ INSERT INTO `people` VALUES
 ('palmera01',1964,9,24,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Rafael','Palmeiro','Rafael',180,72,'L','L','1986-09-08','2005-08-30'),
 ('palmijo01',1902,11,19,'USA','GA','West Point',1971,11,5,'USA','NM','Albuquerque','Joe','Palmisano','Joseph',160,68,'R','R','1931-05-31','1931-09-25'),
 ('palmmi01',1925,2,13,'USA','MA','Boston',2011,7,24,'USA','MA','Scituate','Mike','Palm','Richard Paul',190,75,'R','R','1948-07-11','1948-07-21'),
+('palmqca01',2000,10,17,'USA','FL','Fort Myers',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Palmquist','Carson James',185,75,'L','L','2025-05-16',NULL),
 ('palmqed01',1933,6,10,'USA','CA','Los Angeles',2010,7,10,'USA','CA','Santa Maria','Ed','Palmquist','Edwin Lee',195,75,'R','R','1960-06-10','1961-06-11'),
 ('palumjo01',1994,10,26,'USA','NY','Stony Brook',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Palumbo','Joseph Anthony',195,72,'L','L','2019-06-08','2020-08-01'),
 ('palysst01',1930,5,1,'USA','PA','Blakely',2021,2,8,'USA','FL','Jupiter','Stan','Palys','Stanley Francis',190,74,'R','R','1953-09-20','1956-09-25'),
@@ -534951,6 +535330,7 @@ INSERT INTO `people` VALUES
 ('parkeja02',1988,11,24,'USA','IN','Fort Wayne',NULL,NULL,NULL,NULL,NULL,NULL,'Jarrod','Parker','Jarrod Brent',195,73,'R','R','2011-09-27','2013-09-28'),
 ('parkeja03',1989,1,1,'USA','VA','Fort Belvoir',NULL,NULL,NULL,NULL,NULL,NULL,'Jarrett','Parker','Jarrett Paul',225,76,'L','L','2015-06-13','2019-07-07'),
 ('parkeky01',1989,9,30,'USA','KY','Fort Thomas',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Parker','Kyle James',205,72,'R','R','2014-06-16','2015-10-04'),
+('parkemi01',1999,9,27,'USA','NM','Albuquerque',NULL,NULL,NULL,NULL,NULL,NULL,'Mitchell','Parker','Mitchell James',239,76,'L','L','2024-04-15',NULL),
 ('parkepa01',1893,5,22,'USA','MA','Somerville',1967,3,21,'USA','NH','Claremont','Pat','Parker','Clarence Perkins',160,67,'R','R','1915-08-10','1915-08-11'),
 ('parkeri01',1963,3,20,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Parker','Richard Alan',185,72,'R','R','1990-05-04','1996-08-30'),
 ('parkero01',1896,2,29,'USA','MO','Union',1954,5,17,'USA','OK','Tulsa','Roy','Parker','Roy William',200,75,'R','R','1919-09-10','1919-09-16'),
@@ -535022,6 +535402,7 @@ INSERT INTO `people` VALUES
 ('patinlu01',1999,10,26,'Colombia','Atlantico','Barranquilla',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Patino','Luis Fernando',192,73,'R','R','2020-08-05','2022-09-11'),
 ('patribo01',1917,10,27,'USA','AR','Fort Smith',1999,10,6,'USA','AR','Fort Smith','Bob','Patrick','Robert Lee',190,74,'R','R','1941-09-20','1942-04-26'),
 ('patribr01',1970,9,16,'USA','NC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Bronswell','Patrick','Bronswell Dante',220,73,'R','R','1998-05-18','1999-10-03'),
+('patrich01',1998,8,14,'USA','IN','Crown Point',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Patrick','Chandler Allen',217,73,'R','R','2025-03-29',NULL),
 ('pattebo01',1959,5,16,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Patterson','Robert Chandler',185,74,'R','L','1985-09-02','1998-07-11'),
 ('patteca01',1874,5,7,'USA','NY','Westport',1935,5,31,'USA','NY','Rochester','Casey','Patten','Case Lyman',175,72,'B','L','1901-05-04','1908-06-18'),
 ('pattecl01',1887,10,5,'USA','KS','Arkansas City',1913,3,28,'USA','CA','Mohave','Clare','Patterson','Lorenzo Clare',180,72,'L','R','1909-09-05','1909-10-05'),
@@ -535060,6 +535441,7 @@ INSERT INTO `people` VALUES
 ('paulaca01',1927,11,28,'Cuba','La Habana','La Habana',1983,4,25,'USA','FL','Miami','Carlos','Paula','Carlos',195,75,'R','R','1954-09-06','1956-06-23'),
 ('pauleda01',1983,6,17,'USA','CO','Longmont',NULL,NULL,NULL,NULL,NULL,NULL,'David','Pauley','David Wayne',215,74,'R','R','2006-05-31','2012-07-02'),
 ('paulege01',1891,5,26,'USA','IL','Centralia',1966,2,8,'USA','AR','Little Rock','Gene','Paulette','Eugene Edward',150,72,'R','R','1911-06-16','1920-10-03'),
+('paulegr01',2000,9,24,'USA','GA','Alpharetta',NULL,NULL,NULL,NULL,NULL,NULL,'Graham','Pauley','Graham Austin',200,73,'L','R','2024-03-20',NULL),
 ('paulga99',1910,1,4,'USA','NY','Rochester',1998,4,26,'Tampa','USA','FL','Gabe','Paul','Gabriel Howard',NULL,NULL,NULL,NULL,NULL,NULL),
 ('paulida01',1994,2,6,'D.R.','Peravia','Nizao',NULL,NULL,NULL,NULL,NULL,NULL,'David','Paulino','David Confesor',240,78,'R','R','2016-09-08','2021-08-13'),
 ('paulife01',1983,10,5,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Felipe','Paulino','Felipe Adolfo',270,75,'R','R','2007-09-05','2014-04-18'),
@@ -535138,6 +535520,7 @@ INSERT INTO `people` VALUES
 ('pegueel01',1997,3,20,'D.R.','Sanchez Ramirez','Cotui',NULL,NULL,NULL,NULL,NULL,NULL,'Elvis','Peguero','Elvis Antonio',208,77,'R','R','2021-08-26','2022-07-29'),
 ('peguefr01',1988,6,1,'D.R.','San Cristobal','Nigua',NULL,NULL,NULL,NULL,NULL,NULL,'Francisco','Peguero','Francisco',190,72,'R','R','2012-08-25','2013-09-29'),
 ('pegueja01',1981,1,4,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Jailen','Peguero','Jailen Alphonso',185,72,'R','R','2007-06-08','2008-09-25'),
+('peguejo01',1997,5,5,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Joel','Peguero','Joel Alberto',194,71,'R','R','2025-08-21',NULL),
 ('pegueju01',1968,9,7,'D.R.','Distrito Nacional','San Isidro',NULL,NULL,NULL,NULL,NULL,NULL,'Julio','Peguero','Julio Cesar',160,72,'B','R','1992-04-08','1992-06-03'),
 ('pegueli01',2000,12,31,'D.R.','La Altagracia','Higuey',NULL,NULL,NULL,NULL,NULL,NULL,'Liover','Peguero','Liover',200,74,'R','R','2022-06-18','2022-06-18'),
 ('peguest01',1968,5,21,'USA','MS','Pontotoc',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Pegues','Steven Antone',190,74,'R','R','1994-07-06','1995-09-29'),
@@ -535190,10 +535573,12 @@ INSERT INTO `people` VALUES
 ('pennibr01',1969,4,14,'USA','IN','Salem',NULL,NULL,NULL,NULL,NULL,NULL,'Brad','Pennington','Brad Lee',205,77,'L','L','1993-04-17','1998-09-22'),
 ('pennicl01',1984,6,15,'USA','TX','Corpus Christi',NULL,NULL,NULL,NULL,NULL,NULL,'Cliff','Pennington','Clifton Randolph',200,70,'B','R','2008-08-12','2018-04-25'),
 ('pennike01',1896,9,24,'USA','NY','New York',1953,5,3,'USA','NJ','Newark','Kewpie','Pennington','George Louis',168,68,'R','R','1917-04-14','1917-04-14'),
+('penniwa01',1998,4,14,'USA','CO','Broomfield',NULL,NULL,NULL,NULL,NULL,NULL,'Walter','Pennington','Walter Carlton',205,74,'L','L','2024-07-05',NULL),
 ('pennohe01',1894,2,10,'USA','PA','Kennett Square',1948,1,30,'USA','NY','New York','Herb','Pennock','Herbert Jefferis',160,72,'B','L','1912-05-14','1934-08-27'),
 ('pennsh01',1969,9,11,'USA','OH','Cincinnati',NULL,NULL,NULL,NULL,NULL,NULL,'Shannon','Penn','Shannon Dion',163,70,'B','R','1995-04-28','1996-09-29'),
 ('pennybr01',1978,5,24,'USA','OK','Blackwell',NULL,NULL,NULL,NULL,NULL,NULL,'Brad','Penny','Bradley Wayne',270,76,'R','R','2000-04-07','2014-09-26'),
 ('pennywi01',1968,5,25,'USA','NJ','Perth Amboy',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Pennyfeather','William Nathaniel',195,74,'R','R','1992-06-27','1994-04-17'),
+('penroza01',1997,6,16,'USA','ID','Nampa',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Penrod','Zach',210,74,'L','L','2024-09-14',NULL),
 ('pensopa01',1931,7,12,'USA','KS','Kansas City',2006,5,3,'USA','KS','Merriam','Paul','Penson','Paul Eugene',185,73,'R','R','1954-04-21','1954-05-30'),
 ('pentzge01',1953,6,21,'USA','PA','Johnstown',NULL,NULL,NULL,NULL,NULL,NULL,'Gene','Pentz','Eugene David',200,73,'R','R','1975-07-29','1978-05-03'),
 ('peoplji01',1863,10,8,'USA','MI','Big Beaver',1920,8,29,'USA','MI','Detroit','Jimmy','Peoples','James Elsworth',200,68,'R','R','1884-05-29','1889-07-23'),
@@ -535210,6 +535595,7 @@ INSERT INTO `people` VALUES
 ('peralfr01',1996,6,4,'D.R.','Espaillat','Moca',NULL,NULL,NULL,NULL,NULL,NULL,'Freddy','Peralta','Freddy',199,71,'R','R','2018-05-13','2022-10-02'),
 ('peraljh01',1982,5,28,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Jhonny','Peralta','Jhonny Antonio',225,74,'R','R','2003-06-12','2017-06-06'),
 ('peraljo01',1976,3,23,'D.R.','Monsenor Nouel','Bonao',NULL,NULL,NULL,NULL,NULL,NULL,'Joel','Peralta','Joel',210,70,'R','R','2005-05-25','2016-07-05'),
+('perallu01',2001,1,6,'D.R.','Espaillat','Moca',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Peralta','Luis David',170,71,'L','L','2024-08-24',NULL),
 ('peralsa01',1998,5,10,'USA','NY','Queens',NULL,NULL,NULL,NULL,NULL,NULL,'Sammy','Peralta','Samuel Felipe',205,74,'L','L','2023-05-04','2023-09-30'),
 ('peralwa01',1991,7,27,'D.R.','Duarte','San Francisco de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Wandy','Peralta','Wandy Luis',227,72,'L','L','2016-09-04','2022-09-18'),
 ('peralwi01',1989,5,8,'D.R.','Samana','Samana',NULL,NULL,NULL,NULL,NULL,NULL,'Wily','Peralta','Wily',255,73,'R','R','2012-04-22','2022-08-15'),
@@ -535224,6 +535610,7 @@ INSERT INTO `people` VALUES
 ('perdolu01',1984,4,27,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Perdomo','Luis M.',180,72,'R','R','2009-04-15','2012-10-03'),
 ('perdolu02',1993,5,9,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Perdomo','Luis David',201,74,'R','R','2016-04-04','2022-09-23'),
 ('perduhu01',1882,6,7,'USA','TN','Bethpage',1968,10,31,'USA','TN','Gallatin','Hub','Perdue','Herbert Rodney',192,70,'R','R','1911-04-19','1915-09-30'),
+('peredjh01',1996,4,18,'Venezuela','Aragua','San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Jhonny','Pereda','Jhonny Fernando',202,73,'R','R','2024-04-17',NULL),
 ('pereiev01',2001,4,10,'Venezuela','Lara','Cabudare',NULL,NULL,NULL,NULL,NULL,NULL,'Everson','Pereira','Everson Jose',191,71,'R','R','2023-08-22','2023-10-01'),
 ('perezan01',1980,1,26,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Antonio','Perez','Antonio Miguel',170,71,'R','R','2003-05-14','2006-09-28'),
 ('perezau01',1988,12,23,'D.R.','San Cristobal','Sabana Grande de Palenque',NULL,NULL,NULL,NULL,NULL,NULL,'Audry','Perez','Audris Joel',220,70,'R','R','2013-09-15','2014-07-10'),
@@ -535266,6 +535653,7 @@ INSERT INTO `people` VALUES
 ('perezto01',1942,5,14,'Cuba','Camaguey','Camaguey',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Perez','Atanacio',175,74,'R','R','1964-07-26','1986-10-05'),
 ('perezto02',1966,4,20,'Mexico','Baja California','Mexicali',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Perezchica','Antonio Llamas',165,71,'R','R','1988-09-07','1992-05-20'),
 ('perezto03',1973,12,29,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Tomas','Perez','Tomas Orlando',185,71,'B','R','1995-05-03','2008-04-21'),
+('perezwe01',1999,10,30,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Wenceel','Pérez','Wenceel Xavier',203,72,'B','R','2024-04-08',NULL),
 ('perezwi01',1991,5,21,'Venezuela','Portuguesa','Acarigua',NULL,NULL,NULL,NULL,NULL,NULL,'Williams','Perez','Williams David',240,72,'R','R','2015-05-08','2016-09-11'),
 ('perezye01',1991,2,24,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Yefri','Perez','Yefri',170,71,'B','R','2016-07-17','2016-10-02'),
 ('perezyo01',1967,9,30,'D.R.','San Cristobal','Bajos de Haina',NULL,NULL,NULL,NULL,NULL,NULL,'Yorkis','Perez','Yorkis Miguel Vargas',180,72,'L','L','1991-09-30','2002-09-10'),
@@ -535279,6 +535667,7 @@ INSERT INTO `people` VALUES
 ('perkicy01',1896,2,27,'USA','MA','Gloucester',1963,10,2,'USA','PA','Philadelphia','Cy','Perkins','Ralph Foster',158,70,'R','R','1915-09-25','1934-09-30'),
 ('perkida01',1975,3,15,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Perkins','Daniel Lee',193,74,'R','R','1999-04-07','1999-10-02'),
 ('perkigl01',1983,3,2,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Glen','Perkins','Glen Weston',205,72,'L','L','2006-09-21','2017-09-30'),
+('perkija01',1999,12,26,'USA','IN','Kokomo',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Perkins','Jackson Scott',220,73,'R','R','2025-06-22',NULL),
 ('perkoha01',1922,9,6,'USA','VA','Dante',2016,4,20,'USA','WV','Beckley','Harry','Perkowski','Harry Walter',196,74,'L','L','1947-09-13','1955-09-18'),
 ('perkojo01',1924,3,10,'USA','IL','Chicago',2000,9,16,'USA','AR','Little Rock','John','Perkovich','John Joseph',170,71,'R','R','1950-05-06','1950-05-06'),
 ('perlmjo01',1956,12,13,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Jon','Perlman','Jonathan Samuel',185,75,'L','R','1985-09-06','1988-07-08'),
@@ -535336,6 +535725,7 @@ INSERT INTO `people` VALUES
 ('peterjo02',1893,7,14,'USA','KS','Kansas City',1932,2,21,'USA','MO','Kansas City','John','Peters','John William',192,72,'R','R','1915-05-01','1922-09-25'),
 ('peterke01',1925,12,21,'USA','UT','Goshen',1995,4,27,'USA','UT','Highland','Kent','Peterson','Kent Franklin',170,70,'R','L','1944-07-15','1953-07-18'),
 ('peterky01',1976,4,9,'USA','NE','Elkhorn',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Peterson','Kyle Johnathan',215,75,'L','R','1999-07-19','2001-07-05'),
+('petermi01',1994,5,16,'England','London','London',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Petersen','Michael Kenechukwu',195,79,'R','R','2024-06-18',NULL),
 ('peterra01',1946,8,27,'USA','NY','Buffalo',2019,5,4,'USA','TX','Denton','Ray','Peters','Raymond James',210,77,'R','R','1970-06-04','1970-06-09'),
 ('peterri01',1955,11,21,'USA','CA','Lynwood',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Peters','Richard Devin',170,69,'B','R','1979-09-08','1986-06-29'),
 ('peterru01',1885,3,15,'USA','IL','Grantfork',1965,2,7,'USA','NJ','Pompton Plains','Rube','Peters','Otto Casper',195,73,'R','R','1912-04-13','1914-09-21'),
@@ -535344,6 +535734,7 @@ INSERT INTO `people` VALUES
 ('petersi01',1918,1,31,'USA','ND','Havelock',2001,8,29,'USA','TX','Wichita Falls','Sid','Peterson','Sidney Herbert',200,75,'R','R','1943-05-04','1943-05-12'),
 ('peterst01',1962,11,14,'USA','OK','Oklahoma City',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Peters','Steven Bradley',170,70,'L','L','1987-08-11','1988-10-02'),
 ('peterti01',1991,2,22,'USA','WA','Puyallup',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Peterson','Timothy Louis',215,73,'R','R','2018-05-30','2019-06-11'),
+('petertr01',2000,2,29,'CAN','MB','Winkler',NULL,NULL,NULL,NULL,NULL,NULL,'Tristan','Peters','Tristan Dimitri',180,72,'L','R','2025-08-08',NULL),
 ('petitgr01',1984,12,10,'Venezuela','Miranda','Ocumare del Tuy',NULL,NULL,NULL,NULL,NULL,NULL,'Gregorio','Petit','Gregorio Jesus',200,70,'R','R','2008-05-18','2018-09-29'),
 ('petityu01',1984,11,22,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Yusmeiro','Petit','Yusmeiro Alberto',252,73,'R','R','2006-05-14','2021-10-01'),
 ('petkoma01',1965,11,18,'USA','TX','Beaumont',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Petkovsek','Mark Joseph',185,72,'R','R','1991-06-08','2001-10-04'),
@@ -535367,6 +535758,7 @@ INSERT INTO `people` VALUES
 ('pettipa01',1931,11,29,'USA','CA','Los Angeles',2020,9,24,'USA','CA','Canyon Lake','Paul','Pettit','George William Paul',195,74,'L','L','1951-05-04','1953-09-19'),
 ('pettyad01',1977,6,11,'USA','AZ','Phoenix',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Pettyjohn','Adam Christopher',190,75,'R','L','2001-07-16','2008-09-28'),
 ('pettych01',1866,1,28,'USA','TN','Nashville',1928,12,7,'USA','MI','Detroit','Charlie','Petty','Charles Edward',175,NULL,NULL,'R','1889-07-30','1894-08-17'),
+('pettych02',2003,4,4,'USA','NJ','Camden',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Petty','Chase Robert',190,73,'R','R','2025-04-30',NULL),
 ('pettyje01',1894,11,23,'USA','OK','Orr',1971,10,23,'USA','MN','St. Paul','Jesse','Petty','Jesse Lee',195,72,'R','L','1921-04-14','1930-09-28'),
 ('peveyma01',1962,12,25,'USA','GA','Savannah',NULL,NULL,NULL,NULL,NULL,NULL,'Marty','Pevey','Marty Ashley',185,73,'L','R','1989-05-16','1989-06-29'),
 ('pezolla01',1893,6,22,'USA','LA','New Orleans',1957,10,22,'USA','LA','Baton Rouge','Larry','Pezold','Lorenz Johannes',175,69,'R','R','1914-07-27','1914-09-30'),
@@ -535432,6 +535824,7 @@ INSERT INTO `people` VALUES
 ('phillta01',1933,6,18,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Taylor','Phillips','William Taylor',185,71,'L','L','1956-06-08','1963-09-06'),
 ('phillto01',1889,4,1,'USA','PA','Phillipsburg',1929,4,12,'USA','PA','Phillipsburg','Tom','Phillips','Thomas Gerard',190,74,'R','R','1915-09-13','1922-07-10'),
 ('phillto02',1959,4,25,'USA','GA','Atlanta',2016,2,17,'USA','AZ','Scottsdale','Tony','Phillips','Keith Anthony',175,70,'B','R','1982-05-10','1999-08-15'),
+('phillty01',1997,10,27,'USA','NJ','Lumberton',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Phillips','Tyler Nicholas',225,77,'R','R','2024-07-07',NULL),
 ('phillza01',1986,9,21,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Phillips','Zachary David',200,73,'L','L','2011-08-31','2016-09-30'),
 ('phippde01',1985,7,22,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Denis','Phipps','Denis',220,74,'R','R','2012-09-03','2012-09-30'),
 ('phoebto01',1942,4,7,'USA','MD','Baltimore',2019,9,5,'USA','FL','Palm City','Tom','Phoebus','Thomas Harold',185,68,'R','R','1966-09-15','1972-10-02'),
@@ -535504,6 +535897,7 @@ INSERT INTO `people` VALUES
 ('pimenst01',1990,2,1,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Stolmy','Pimentel','Stolmy Ramon',230,75,'R','R','2013-09-04','2015-05-12'),
 ('pinaho01',1945,3,12,'Mexico','Coahuila','Matamoros',NULL,NULL,NULL,NULL,NULL,NULL,'Horacio','Pina','Horacio',177,74,'R','R','1968-08-14','1978-10-01'),
 ('pinama01',1987,6,5,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Manny','Pina','Manuel Elias',222,72,'R','R','2011-08-03','2022-04-24'),
+('pinaro01',1998,11,26,'D.R.','San Cristóbal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Robinson','Piña','Robinson',225,77,'R','R','2025-06-20',NULL),
 ('pindebr01',1989,1,26,'USA','CA','Corona',NULL,NULL,NULL,NULL,NULL,NULL,'Branden','Pinder','Branden Henry',215,76,'R','R','2015-04-15','2016-04-20'),
 ('pindech01',1992,3,29,'USA','VA','Richmond',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Pinder','Chadwick Hudson',210,74,'R','R','2016-08-20','2022-10-05'),
 ('pinedis01',2000,4,3,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Israel','Pineda','Israel Abrahan',188,71,'R','R','2022-09-11','2022-10-05'),
@@ -535517,6 +535911,7 @@ INSERT INTO `people` VALUES
 ('pinnaed01',1880,9,22,'CAN','ON','Walpole Island',1944,12,12,'CAN','ON','Walpole Island','Ed','Pinnance','Elijah Edward',180,73,'L','R','1903-09-14','1903-09-29'),
 ('pinoyo01',1983,12,26,'Venezuela','Aragua','Turmero',NULL,NULL,NULL,NULL,NULL,NULL,'Yohan','Pino','Yohan Jose',190,74,'R','R','2014-06-19','2015-06-19'),
 ('pinsova01',1938,8,11,'USA','TN','Memphis',1995,10,21,'USA','CA','Oakland','Vada','Pinson','Vada Edward',170,71,'L','L','1958-04-15','1975-09-28'),
+('pintajo01',1997,11,7,'USA','AL','Pelham',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Pintaro','Jonathan Ryan',235,74,'R','R','2025-06-25',NULL),
 ('pintojo01',1989,3,31,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Josmil','Pinto','Josmil Oswaldo',225,71,'R','R','2013-09-01','2016-10-02'),
 ('pintole01',1899,4,8,'USA','OH','Chillicothe',1983,5,13,'USA','CA','Oxnard','Lerton','Pinto','William Lerton',190,72,'L','L','1922-05-23','1924-09-05'),
 ('pintore01',1982,7,8,'Venezuela','Miranda','Cupira',NULL,NULL,NULL,NULL,NULL,NULL,'Renyel','Pinto','Renyel Eligio',280,76,'L','L','2006-05-18','2010-06-16'),
@@ -535626,6 +536021,7 @@ INSERT INTO `people` VALUES
 ('poolera01',1920,1,16,'USA','NC','Salisbury',2006,3,1,'USA','NC','Burlington','Ray','Poole','Raymond Herman',180,72,'L','R','1941-09-09','1947-06-13'),
 ('poolha01',1908,3,13,'USA','CA','Lakeport',1963,2,15,'USA','CA','Rodeo','Harlin','Pool','Harlin Welty',195,70,'L','R','1934-05-30','1935-06-02'),
 ('poormto01',1857,10,14,'USA','PA','Lock Haven',1905,2,18,'USA','PA','Lock Haven','Tom','Poorman','Thomas Iverson',135,67,'L','R','1880-05-05','1888-09-18'),
+('popeau01',1998,10,26,'USA','NY','White Plains',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Pope','Austin Joseph',210,75,'R','R','2025-09-25',NULL),
 ('popeda01',1921,6,17,'USA','AL','Talladega',1999,8,28,'USA','OH','Cleveland','Dave','Pope','David',170,70,'L','R','1952-07-01','1956-09-30'),
 ('popovpa01',1940,8,18,'USA','WV','Flemington',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Popovich','Paul Edward',175,72,'B','R','1964-04-19','1975-07-21'),
 ('popowed99',1913,8,20,'USA','NJ','Sayreville',2001,12,4,'USA','NJ','Sayreville','Eddie','Popowski','Edward Joseph',145,65,'R','R',NULL,NULL),
@@ -535677,9 +536073,11 @@ INSERT INTO `people` VALUES
 ('pottsda01',1869,1,NULL,'USA','PA','Bristol',1934,8,18,'USA','PA','Doylestown','Vivian','Potts','Vivian',NULL,NULL,NULL,NULL,'1892-10-03','1892-10-03'),
 ('pottsjo01',1887,2,6,'USA','OH','Tipp City',1962,9,5,'USA','OH','Cleveland','John','Potts','John Frederick',165,67,'L','R','1914-04-18','1914-09-02'),
 ('pottsmi01',1970,9,5,'USA','AL','Langdale',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Potts','Michael Larry',170,69,'L','L','1996-04-06','1996-07-15'),
+('poulipj01',1996,7,25,'USA','MA','Marion',NULL,NULL,NULL,NULL,NULL,NULL,'PJ','Poulin','Peter Arthur',195,73,'R','L','2025-08-05',NULL),
 ('poulske01',1947,8,4,'USA','CA','Van Nuys',2017,12,28,'USA','CA','Fresno','Ken','Poulsen','Ken Sterling',190,73,'L','R','1967-07-03','1967-07-14'),
 ('poundbi01',1878,3,11,'USA','NJ','Paterson',1936,7,7,'USA','NJ','Paterson','Bill','Pounds','Jeared Wells',178,70,'R','L','1903-05-02','1903-06-30'),
 ('poundbr01',1990,9,26,'USA','CA','Riverside',NULL,NULL,NULL,NULL,NULL,NULL,'Brooks','Pounders','Brooks Casey',265,77,'R','R','2016-07-05','2019-06-29'),
+('povicca01',2000,4,12,'USA','NV','Reno',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Povich','Cade Jackie',185,75,'L','L','2024-06-06',NULL),
 ('povsema01',1993,8,23,'USA','NC','Cary',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Povse','Max Walter',185,80,'R','R','2017-06-22','2017-07-20'),
 ('powelab01',1860,12,15,'USA','PA','Shenandoah',1953,8,7,'USA','LA','New Orleans','Abner','Powell','Abner Charles',160,67,'L','R','1884-08-04','1886-09-13'),
 ('powelal01',1964,12,12,'USA','CA','San Francisco',NULL,NULL,NULL,NULL,NULL,NULL,'Alonzo','Powell','Alonzo Sidney',190,74,'R','R','1987-04-06','1991-10-06'),
@@ -535760,6 +536158,7 @@ INSERT INTO `people` VALUES
 ('priesqu01',2000,9,16,'USA','IL','Glendale Heights',NULL,NULL,NULL,NULL,NULL,NULL,'Quinn','Priester','Charles Quinn',210,75,'R','R','2023-07-17','2023-09-30'),
 ('prietal01',1976,6,19,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Prieto','Alejandro Antonio',200,70,'R','R','2003-07-26','2004-06-24'),
 ('prietar01',1969,10,22,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Ariel','Prieto','Ariel',220,75,'R','R','1995-07-02','2001-05-10'),
+('prietce01',1999,5,10,'Cuba','Cienfuegos','Cienfuegos',NULL,NULL,NULL,NULL,NULL,NULL,'César','Prieto','César',195,69,'L','R','2025-08-29',NULL),
 ('prietch01',1972,8,24,'USA','CA','Carmel',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Prieto','Christian Michael',180,71,'L','L','2005-05-14','2005-05-16'),
 ('primra01',1906,12,30,'USA','AL','Salitpa',1995,4,29,'USA','CA','Monte Rio','Ray','Prim','Raymond Lee',178,72,'R','L','1933-09-24','1946-09-28'),
 ('princdo01',1938,4,5,'USA','NC','Clarkton',2017,11,8,'USA','SC','Myrtle Beach','Don','Prince','Donald Mark',200,76,'R','R','1962-09-21','1962-09-21'),
@@ -535850,6 +536249,7 @@ INSERT INTO `people` VALUES
 ('quellge01',1903,2,10,'USA','CA','Johnsville',1958,8,31,'USA','CA','Johnsville','George','Quellich','George William',180,73,'R','R','1931-08-01','1931-08-16'),
 ('quentca01',1982,8,28,'USA','CA','Bellflower',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Quentin','Carlos Jose',235,73,'R','R','2006-07-20','2014-07-26'),
 ('quereju01',1992,9,19,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Juniel','Querecuto','Juniel Alberto',198,69,'B','R','2016-09-22','2016-09-30'),
+('queroed01',2003,4,6,'Cuba','Cienfuegos','Cienfuegos',NULL,NULL,NULL,NULL,NULL,NULL,'Edgar','Quero','Edgar Yoel',205,70,'B','R','2025-04-17',NULL),
 ('questjo01',1852,11,16,'USA','PA','New Castle',1924,11,14,'USA','CA','San Diego','Joe','Quest','Joseph L.',150,66,'R','R','1871-08-30','1886-07-13'),
 ('queveru01',1979,1,5,'Venezuela','Carabobo','Valencia',2016,6,7,'Venezuela','La Guaira','La Guaira','Ruben','Quevedo','Ruben Eduardo',190,73,'R','R','2000-04-14','2003-09-28'),
 ('quezajo01',1994,8,25,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Johan','Quezada','Johan Ramon',255,81,'R','R','2020-09-12','2020-09-17'),
@@ -535928,6 +536328,7 @@ INSERT INTO `people` VALUES
 ('raggibr01',1972,9,17,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Brady','Raggio','Brady John',210,76,'R','R','1997-04-15','2003-07-12'),
 ('raglafr01',1904,5,26,'USA','MS','Water Valley',1959,7,28,'USA','MS','Paris','Frank','Ragland','Frank Roland',186,73,'R','R','1932-04-17','1933-09-24'),
 ('raglato01',1946,6,16,'USA','AL','Talladega',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Ragland','Thomas',155,70,'R','R','1971-04-05','1973-09-29'),
+('ragsdca01',1998,5,25,'USA','FL','Wesley Chapel',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Ragsdale','Carson Andrew',235,80,'R','R','2025-09-14',NULL),
 ('raicher01',1951,11,1,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Raich','Eric James',225,76,'R','R','1975-05-24','1976-09-12'),
 ('rainech01',1954,7,14,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Chuck','Rainey','Charles David',190,71,'R','R','1979-04-08','1984-09-09'),
 ('rainejo01',1864,7,16,'USA','MI','Birmingham',1912,11,11,'USA','MI','Detroit','John','Rainey','John M.',164,70,'L','R','1887-08-25','1890-07-29'),
@@ -535949,6 +536350,7 @@ INSERT INTO `people` VALUES
 ('ramazbo01',1917,1,16,'USA','PA','Elanora',2000,2,15,'USA','PA','Altoona','Bob','Ramazzotti','Robert Louis',175,68,'R','R','1946-04-20','1953-09-17'),
 ('rambepe01',1916,8,1,'USA','OH','Cleveland',1974,11,16,'USA','FL','West Palm Beach','Pep','Rambert','Elmer Donald',175,72,'R','R','1939-09-23','1940-09-29'),
 ('rambope01',1906,11,1,'USA','NJ','Thorofare',1991,6,19,'USA','NJ','Camden','Pete','Rambo','Warren Dawson',150,69,'R','R','1926-09-16','1926-09-16'),
+('ramirag01',2001,9,10,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Agustín','Ramírez','Agustín',210,73,'R','R','2025-04-21',NULL),
 ('ramiral01',1957,5,1,'USA','TX','Victoria',NULL,NULL,NULL,NULL,NULL,NULL,'Allan','Ramirez','Daniel Allan',180,70,'R','R','1983-06-08','1983-09-13'),
 ('ramiral02',1974,10,3,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Ramirez','Alexander Ramon',180,71,'R','R','1998-09-19','2000-09-27'),
 ('ramiral03',1981,9,22,'Cuba','Pinar del Rio','Pinar del Rio',NULL,NULL,NULL,NULL,NULL,NULL,'Alexei','Ramirez','Alexei Fernando',180,74,'R','R','2008-03-31','2016-10-02'),
@@ -535957,6 +536359,7 @@ INSERT INTO `people` VALUES
 ('ramired01',1981,3,28,'D.R.','San Juan','El Cercado',NULL,NULL,NULL,NULL,NULL,NULL,'Edwar','Ramirez','Edwar Emilio',165,75,'R','R','2007-07-03','2010-05-12'),
 ('ramirel01',1983,1,28,'D.R.','Santo Domingo','Villa Mella',NULL,NULL,NULL,NULL,NULL,NULL,'Elizardo','Ramirez','Elizardo',180,72,'B','R','2004-05-25','2008-06-04'),
 ('ramirel02',1987,10,10,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Elvin','Ramirez','Elvin',208,75,'R','R','2012-06-03','2012-10-03'),
+('ramirem01',1994,7,15,'D.R.','Puerto Plata','Puerto Plata',NULL,NULL,NULL,NULL,NULL,NULL,'Emmanuel','Ramirez','Emmanuel Odalis',190,74,'R','R','2024-04-28',NULL),
 ('ramirer01',1976,4,29,'USA','CA','Santa Ana',NULL,NULL,NULL,NULL,NULL,NULL,'Erasmo','Ramirez','Erasmo',180,72,'L','L','2003-04-30','2007-07-13'),
 ('ramirer02',1990,5,2,'Nicaragua','Rivas','Rivas',NULL,NULL,NULL,NULL,NULL,NULL,'Erasmo','Ramirez','Erasmo Jose',217,72,'R','R','2012-04-09','2022-10-05'),
 ('ramirha01',1983,12,23,'D.R.','Samana','Samana',NULL,NULL,NULL,NULL,NULL,NULL,'Hanley','Ramirez','Hanley',235,74,'R','R','2005-09-20','2019-04-17'),
@@ -535986,6 +536389,7 @@ INSERT INTO `people` VALUES
 ('ramiryo01',1995,5,6,'D.R.','Santo Domingo','Villa Mella',NULL,NULL,NULL,NULL,NULL,NULL,'Yohan','Ramirez','Yohan Manuel',212,76,'R','R','2020-07-24','2022-10-05'),
 ('ramosaj01',1986,9,20,'USA','TX','Lubbock',NULL,NULL,NULL,NULL,NULL,NULL,'AJ','Ramos','Alejandro',200,70,'R','R','2012-09-04','2021-10-03'),
 ('ramosbo01',1955,11,5,'Cuba',NULL,'Calabazar de Sagua',NULL,NULL,NULL,NULL,NULL,NULL,'Bobby','Ramos','Roberto',190,71,'R','R','1978-09-26','1984-09-09'),
+('ramosbr01',2002,3,12,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Bryan','Ramos','Bryan',225,74,'R','R','2024-05-04',NULL),
 ('ramosce01',1984,6,22,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Cesar','Ramos','Cesar',200,74,'L','L','2009-09-16','2016-07-10'),
 ('ramosch01',1918,4,12,'Venezuela','Monagas','Maturin',1977,9,2,'Venezuela','Distrito Federal','Caracas','Chucho','Ramos','Jesus Manuel',167,70,'R','L','1944-05-07','1944-05-30'),
 ('ramosdo01',1958,3,29,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Domingo','Ramos','Domingo Antonio',154,70,'R','R','1978-09-08','1990-10-03'),
@@ -536019,6 +536423,7 @@ INSERT INTO `people` VALUES
 ('randowi01',1954,7,6,'USA','SC','Holly Hill',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','Randolph','Willie Larry',165,71,'R','R','1975-07-29','1992-10-04'),
 ('ranewme01',1938,5,10,'USA','GA','Albany',2011,10,18,'USA','GA','Valdosta','Merritt','Ranew','Merritt Thomas',170,71,'L','R','1962-04-13','1969-09-30'),
 ('raneyri01',1923,2,16,'USA','MI','Detroit',2003,7,7,'USA','MI','Warren','Ribs','Raney','Frank Robert Donald',190,76,'R','R','1949-09-18','1950-04-23'),
+('rangeal01',1997,8,21,'México','Sonora','Hermosillo',NULL,NULL,NULL,NULL,NULL,NULL,'Alan','Rangel','Alan Eduardo',170,74,'R','R','2025-06-06',NULL),
 ('ransoco01',1976,2,17,'USA','AZ','Mesa',NULL,NULL,NULL,NULL,NULL,NULL,'Cody','Ransom','Bryan Cody',200,74,'R','R','2001-09-05','2013-08-31'),
 ('ransoje01',1960,11,11,'USA','CA','Fresno',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Ransom','Jeffrey Dean',185,71,'R','R','1981-09-05','1983-10-02'),
 ('rapadcl01',1981,3,9,'USA','VA','Portsmouth',NULL,NULL,NULL,NULL,NULL,NULL,'Clay','Rapada','Clayton Anthony',195,77,'R','L','2007-06-14','2013-09-22'),
@@ -536026,8 +536431,10 @@ INSERT INTO `people` VALUES
 ('rappgo01',1894,2,6,'USA','OH','Cincinnati',1966,7,1,'USA','CA','La Mesa','Goldie','Rapp','Joseph Aloysius',165,70,'B','R','1921-04-13','1923-07-04'),
 ('rapppa01',1967,7,13,'USA','LA','Jennings',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','Rapp','Patrick Leland',195,75,'R','R','1992-07-10','2001-10-06'),
 ('rappve99',1928,5,11,'USA','MO','St. Louis',2015,12,31,'USA','CO','Broomfield','Vern','Rapp','Vernon Fred',195,72,'R','R',NULL,NULL),
+('raqueni01',1995,12,12,'USA','PA','Boalsberg',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Raquet','Nick',215,72,'R','L','2025-09-08',NULL),
 ('raridbi01',1888,2,5,'USA','IN','Bedford',1942,8,28,'USA','IN','Bedford','Bill','Rariden','William Angle',168,70,'R','R','1909-08-09','1920-10-02'),
 ('raschvi01',1919,3,28,'USA','MA','West Springfield',1988,10,14,'USA','NY','Groveland','Vic','Raschi','Victor John Angelo',205,73,'R','R','1946-09-23','1955-09-13'),
+('rashita01',1996,1,15,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Taylor','Rashi','Taylor Steven',220,76,'R','R','2025-08-28',NULL),
 ('rasmuco01',1986,8,11,'USA','GA','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'Colby','Rasmus','Colby Ryan',195,74,'L','L','2009-04-07','2018-07-01'),
 ('rasmuco02',1987,11,6,'USA','GA','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'Cory','Rasmus','Cory Taylor',200,72,'R','R','2013-05-22','2016-10-01'),
 ('rasmude01',1959,4,18,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Dennis','Rasmussen','Dennis Lee',230,79,'L','L','1983-09-16','1995-07-01'),
@@ -536050,6 +536457,7 @@ INSERT INTO `people` VALUES
 ('raudmbo01',1942,3,14,'USA','PA','Erie',2020,12,17,'USA','MN','Duluth','Bob','Raudman','Robert Joyce',185,69,'L','L','1966-09-13','1967-09-12'),
 ('raudo01',1948,12,15,'USA','TX','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Rau','Douglas James',175,74,'L','L','1972-09-02','1981-05-26'),
 ('rautzla01',1952,8,20,'USA','PA','Pottsville',2016,1,9,'USA','SC','Myrtle Beach','Lance','Rautzhan','Clarence George',195,73,'R','L','1977-07-23','1979-06-03'),
+('ravejo01',1997,12,30,'USA','IL','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'John','Rave','John Michael',194,71,'L','L','2025-05-26',NULL),
 ('ravelra01',1992,4,24,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Rangel','Ravelo','Rangel',235,73,'R','R','2019-06-17','2020-09-25'),
 ('ravinjo01',1988,1,21,'USA','CA','West Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Ravin','Joshua Joseph',215,76,'R','R','2015-06-02','2018-04-20'),
 ('rawlesh01',1955,7,27,'USA','WI','Racine',NULL,NULL,NULL,NULL,NULL,NULL,'Shane','Rawley','Shane William',170,72,'R','L','1978-04-06','1989-09-17'),
@@ -536292,6 +536700,7 @@ INSERT INTO `people` VALUES
 ('reynorj01',1959,4,19,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'R. J.','Reynolds','Robert James',190,72,'B','R','1983-09-01','1990-10-02'),
 ('reynoro01',1887,8,20,'USA','TX','Barksdale',1970,6,23,'USA','OK','Ada','Ross','Reynolds','Ross Ernest',185,74,'R','R','1914-05-02','1915-05-01'),
 ('reynoro02',1958,9,28,'USA','KS','Wichita',NULL,NULL,NULL,NULL,NULL,NULL,'Ronn','Reynolds','Ronn Dwayne',200,72,'R','R','1982-09-29','1990-07-05'),
+('reynose01',1998,4,19,'USA','CA','Redondo Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Reynolds','Sean William',250,80,'L','R','2024-07-14',NULL),
 ('reynosh01',1968,3,26,'USA','LA','Bastrop',NULL,NULL,NULL,NULL,NULL,NULL,'Shane','Reynolds','Richard Shane',210,75,'R','R','1992-07-20','2004-06-28'),
 ('reynoto01',1941,8,15,'USA','LA','Arizona',NULL,NULL,NULL,NULL,NULL,NULL,'Tommie','Reynolds','Tommie D.',190,74,'R','R','1963-09-05','1972-10-01'),
 ('rhameja01',1993,3,16,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Rhame','Jacob Alan',215,73,'R','R','2017-09-02','2019-08-03'),
@@ -536312,9 +536721,11 @@ INSERT INTO `people` VALUES
 ('rhombke01',1955,11,22,'USA','IA','Dubuque',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Rhomberg','Kevin Jay',175,72,'R','R','1982-09-01','1984-06-05'),
 ('rhymewi01',1983,4,1,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Rhymes','William Daniel',170,68,'L','R','2010-07-25','2012-08-05'),
 ('rhyneha01',1899,3,30,'USA','CA','Paso Robles',1971,1,7,'USA','CA','Orangevale','Hal','Rhyne','Harold J.',163,68,'R','R','1926-04-18','1933-10-01'),
+('ribalor01',1998,3,5,'Cuba','Santa Clara','Santa Clara',NULL,NULL,NULL,NULL,NULL,NULL,'Orlando','Ribalta','Orlando Andres',245,79,'R','R','2024-08-13',NULL),
 ('ribande01',1941,9,20,'USA','MI','Detroit',2023,4,24,'USA','CA','Newport Coast','Dennis','Ribant','Dennis Joseph',165,71,'R','R','1964-08-09','1969-09-27'),
 ('riccefr01',1953,2,24,'USA','NY','Syracuse',NULL,NULL,NULL,NULL,NULL,NULL,'Frank','Riccelli','Frank Joseph',205,75,'L','L','1976-09-11','1979-06-17'),
 ('riccich01',1968,11,20,'USA','PA','Abington',NULL,NULL,NULL,NULL,NULL,NULL,'Chuck','Ricci','Charles Mark',180,74,'R','R','1995-09-08','1995-10-01'),
+('ricebe01',1999,2,22,'USA','MA','Cohasset',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Rice','Benjamin Kimball',228,74,'L','R','2024-06-18',NULL),
 ('ricebo01',1899,5,28,'USA','PA','Philadelphia',1986,2,20,'USA','PA','Elizabethtown','Bob','Rice','Robert Turnbull',170,70,'R','R','1926-09-01','1926-09-29'),
 ('ricede01',1922,10,27,'USA','OH','Portsmouth',1983,1,26,'USA','CA','Buena Park','Del','Rice','Delbert W.',190,74,'R','R','1945-05-02','1961-08-31'),
 ('riceha01',1901,11,22,'USA','IL','Ware Station',1971,1,1,'USA','OR','Portland','Harry','Rice','Harry Francis',185,69,'L','R','1923-04-18','1933-10-01'),
@@ -536454,11 +536865,13 @@ INSERT INTO `people` VALUES
 ('ritteha01',1893,10,12,'USA','PA','McCoysville',1964,9,3,'USA','OH','Akron','Hank','Ritter','William Herbert',180,72,'R','R','1912-08-03','1916-09-27'),
 ('rittele01',1875,9,7,'USA','PA','Liverpool',1952,5,27,'USA','PA','Harrisburg','Lew','Ritter','Lewis Elmer',150,69,'R','R','1902-09-10','1908-08-29'),
 ('rittere01',1960,1,23,'USA','AR','Malvern',NULL,NULL,NULL,NULL,NULL,NULL,'Reggie','Ritter','Reggie Blake',195,74,'L','R','1986-05-17','1987-10-02'),
+('rittery01',2000,11,10,'USA','IL','Evergreen Park',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Ritter','Ryan Michael',195,73,'R','R','2025-06-06',NULL),
 ('rittewh01',1855,4,26,'USA','PA','Philadelphia',1917,7,28,'USA','PA','East Rockhill Township','Whitey','Ritterson','Edward West',NULL,68,'R','R','1876-05-02','1876-08-09'),
 ('rittwji01',1944,10,23,'USA','OH','Cleveland',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Rittwage','James Michael',190,75,'R','R','1970-09-07','1970-09-30'),
 ('ritzji01',1874,NULL,NULL,'USA','PA','Altoona',1896,11,10,'USA','PA','Pittsburgh','Jim','Ritz','James S.',165,68,NULL,NULL,'1894-07-20','1894-07-20'),
 ('ritzke01',1965,6,8,'USA','NJ','Eatontown',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Ritz','Kevin D.',195,76,'R','R','1989-07-15','1998-05-16'),
 ('rivasal01',1996,9,13,'USA','CA','Chula Vista',NULL,NULL,NULL,NULL,NULL,NULL,'Alfonso','Rivas','Alfonso',190,71,'L','L','2021-08-29','2022-10-05'),
+('rivasle01',1997,10,10,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Leo','Rivas','Leonardo Andres',150,68,'B','R','2024-04-28',NULL),
 ('rivaslu01',1979,8,30,'Venezuela','La Guaira','La Guaira',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Rivas','Luis Wilfredo',175,70,'R','R','2000-09-16','2008-09-20'),
 ('rivaswe01',1990,8,8,'D.R.','Maria Trinidad Sanchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Webster','Rivas','Webster Julian',219,73,'R','R','2021-05-28','2021-10-03'),
 ('riverbe01',1968,1,11,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Rivera','Bienvenido',210,78,'R','R','1992-04-09','1994-07-31'),
@@ -536489,6 +536902,7 @@ INSERT INTO `people` VALUES
 ('rizzoto01',1971,5,24,'USA','PA','Media',NULL,NULL,NULL,NULL,NULL,NULL,'Todd','Rizzo','Todd Michael',220,75,'R','L','1998-04-02','1999-07-18'),
 ('rizzuph01',1917,9,25,'USA','NY','Brooklyn',2007,8,13,'USA','NJ','West Orange','Phil','Rizzuto','Philip Francis',150,66,'R','R','1941-04-14','1956-08-16'),
 ('rlealse01',1980,6,21,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Sendy','Rleal','Sendy',190,73,'R','R','2006-04-05','2006-09-27'),
+('roach01',1999,4,2,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Roa','Christian Michael',220,76,'R','R','2025-09-06',NULL),
 ('roachdo01',1989,12,14,'USA','NV','Las Vegas',NULL,NULL,NULL,NULL,NULL,NULL,'Donn','Roach','Donn Mitchell',195,72,'R','R','2014-04-02','2016-08-02'),
 ('roachja01',1976,4,20,'USA','NC','Kinston',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Roach','Jason Glenn',190,76,'R','R','2003-06-14','2003-07-08'),
 ('roachjo01',1867,11,19,'USA','PA','North Bend',1934,4,2,'USA','IL','Peoria','John','Roach','John F.',175,69,'R','L','1887-05-14','1887-05-14'),
@@ -536522,6 +536936,7 @@ INSERT INTO `people` VALUES
 ('roberda08',1985,4,9,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'David','Robertson','David Alan',195,71,'R','R','2008-06-29','2022-10-04'),
 ('roberda09',1985,9,30,'USA','CA','Fontana',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Robertson','Daniel Roger',200,71,'R','R','2014-04-29','2017-06-25'),
 ('roberda10',1994,3,22,'USA','CA','Upland',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Robertson','Daniel Ray',210,73,'R','R','2017-04-04','2021-07-04'),
+('roberda11',1994,8,30,'USA','AL','Hoover',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Robert','Daniel McGee',210,76,'L','R','2024-07-10',NULL),
 ('roberdi01',1891,9,16,'USA','MD','Rockville',1944,10,2,'USA','LA','New Orleans','Dick','Robertson','Preston James',160,69,'R','R','1913-09-16','1919-06-30'),
 ('roberdo01',1930,10,15,'USA','IL','Harvey',NULL,NULL,NULL,NULL,NULL,NULL,'Don','Robertson','Donald Alexander',180,70,'L','L','1954-04-13','1954-05-23'),
 ('roberet01',1997,7,4,'USA','TN','Sparta',NULL,NULL,NULL,NULL,NULL,NULL,'Ethan','Roberts','Ethan Michael',180,70,'R','R','2022-04-09','2022-04-29'),
@@ -536551,6 +536966,7 @@ INSERT INTO `people` VALUES
 ('robersk02',1917,5,19,'USA','MA','Lowell',1993,6,7,'USA','MA','Lowell','Skippy','Roberge','Joseph Albert Armand',185,71,'R','R','1941-07-18','1946-06-15'),
 ('roberty01',1987,12,23,'USA','CA','Simi Valley',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Robertson','Tyler Patrick',285,77,'L','L','2012-06-26','2013-04-05'),
 ('roberwi01',1975,6,19,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Willis','Roberts','Willis Augusto',175,75,'R','R','1999-07-02','2004-08-13'),
+('roberwi02',1997,12,26,'USA','MO','Loose Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Robertson','Jonathan Will',215,73,'L','L','2025-06-15',NULL),
 ('robidbi01',1964,1,13,'USA','MA','Ware',NULL,NULL,NULL,NULL,NULL,NULL,'Billy Jo','Robidoux','William Joseph',200,73,'L','R','1985-09-11','1990-09-17'),
 ('robinaa01',1915,6,23,'USA','SC','Lancaster',1966,3,9,'USA','SC','Lancaster','Aaron','Robinson','Aaron Andrew',205,74,'L','R','1943-05-06','1951-09-28'),
 ('robinbi01',1865,1,19,'USA','KY','Spencer County',1936,5,5,'USA','KY','Taylorsville','Bill','Anderson','William',NULL,NULL,NULL,NULL,'1889-08-12','1889-08-12'),
@@ -536608,9 +537024,12 @@ INSERT INTO `people` VALUES
 ('rochfmi01',1963,3,14,'USA','MA','Methuen',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Rochford','Michael Joseph',205,76,'L','L','1988-09-03','1990-04-16'),
 ('rockeik01',1876,11,3,'USA','NE','Omaha',1927,2,21,'USA','CA','San Diego','Ike','Rockenfield','Isaac Broc',150,67,'R','R','1905-05-05','1906-10-07'),
 ('rockejo01',1974,10,17,'USA','GA','Statesboro',NULL,NULL,NULL,NULL,NULL,NULL,'John','Rocker','John Loy',210,76,'R','L','1998-05-05','2003-05-14'),
+('rockeku01',1999,11,22,'USA','GA','Watkinsville',NULL,NULL,NULL,NULL,NULL,NULL,'Kumar','Rocker','Kumar',245,77,'R','R','2024-09-12',NULL),
 ('rockepa01',1955,1,9,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','Rockett','Patrick Edward',170,71,'R','R','1976-09-17','1978-07-08'),
+('rockjo01',2000,7,29,'USA','PA','Sewickley',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Rock','Joseph Richard',220,78,'L','L','2025-06-28',NULL),
 ('rockle01',1912,8,19,'USA','MN','Springfield',1991,9,9,'USA','CA','Davis','Les','Rock','Lester Henry',184,74,'L','R','1936-09-11','1936-09-23'),
 ('rodasri01',1959,11,7,'USA','CA','Roseville',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Rodas','Richard Martin',180,74,'L','L','1983-09-06','1984-06-19'),
+('rodenal01',1999,12,22,'USA','WI','Middleton',NULL,NULL,NULL,NULL,NULL,NULL,'Alan','Roden','Alan Eric',215,71,'L','R','2025-03-27',NULL),
 ('rodgean01',1934,12,2,'Bahamas','New Providence','Nassau',2004,12,13,'Bahamas','New Providence','Nassau','Andre','Rodgers','Kenneth Andre Ian',200,75,'R','R','1957-04-16','1967-09-30'),
 ('rodgebi01',1887,4,18,'USA','OH','Pleasant Ridge',1978,12,24,'USA','TX','Goliad','Bill','Rodgers','Wilbur Kincaid',170,69,'L','R','1915-04-15','1916-05-13'),
 ('rodgebi02',1922,12,5,'USA','PA','Harrisburg',2002,5,13,'USA','MA','Worcester','Bill','Rodgers','William Sherman',162,72,'L','L','1944-09-27','1945-04-21'),
@@ -536623,7 +537042,9 @@ INSERT INTO `people` VALUES
 ('rodrial01',1975,7,27,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Rodriguez','Alexander Enmanuel',230,75,'R','R','1994-07-08','2016-08-12'),
 ('rodrian01',1987,12,13,'D.R.','La Altagracia','Higuey',NULL,NULL,NULL,NULL,NULL,NULL,'Aneury','Rodriguez','Aneury',250,76,'R','R','2011-04-02','2012-05-08'),
 ('rodriau01',1947,12,28,'Mexico','Sonora','Cananea',2000,9,23,'USA','MI','Detroit','Aurelio','Rodriguez','Aurelio',180,70,'R','R','1967-09-01','1983-10-01'),
+('rodribr01',2003,11,16,'Venezuela','Miranda','Petare',NULL,NULL,NULL,NULL,NULL,NULL,'Bradgley','Rodriguez','Bradgley Eduardo',160,73,'R','R','2025-05-31',NULL),
 ('rodrica01',1967,11,1,'Mexico','Distrito Federal','Mexico',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Rodriguez','Carlos',160,69,'B','R','1991-06-16','1995-10-01'),
+('rodrica02',2001,11,27,'Nicaragua','Rivas','Rivas',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Rodriguez','Carlos Fernando',205,71,'R','R','2024-06-11',NULL),
 ('rodrich01',1998,7,20,'USA','FL','Coral Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Rodriguez','Chris',185,74,'R','R','2021-04-02','2021-08-10'),
 ('rodride01',1992,6,5,'USA','TX','Arlington',NULL,NULL,NULL,NULL,NULL,NULL,'Dereck','Rodriguez','Ivan Dereck',208,72,'R','R','2018-05-29','2022-09-17'),
 ('rodried01',1952,3,6,'P.R.',NULL,'Barceloneta',2009,3,6,'P.R.',NULL,'Barceloneta','Eduardo','Rodriguez','Eduardo',180,72,'R','R','1973-06-20','1979-09-17'),
@@ -536656,6 +537077,7 @@ INSERT INTO `people` VALUES
 ('rodrijo05',1984,12,18,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Rodriguez','Joshua Joel',192,72,'R','R','2011-04-05','2011-04-21'),
 ('rodrijo06',1995,8,29,'Venezuela','Bolivar','Ciudad Bolivar',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Rodriguez','Jose Daniel',210,74,'R','R','2019-07-27','2020-08-02'),
 ('rodrijo07',2001,5,13,'D.R.','Valverde','Valverde',NULL,NULL,NULL,NULL,NULL,NULL,'José','Rodriguez','José Augusto',175,71,'R','R','2023-06-20','2023-06-20'),
+('rodrijo08',1999,11,4,'P.R.',NULL,'Bayamon',NULL,NULL,NULL,NULL,NULL,NULL,'Johnathan','Rodríguez','Johnathan',224,73,'R','R','2024-05-21',NULL),
 ('rodriju01',2000,12,29,'D.R.','Dajabon','Loma de Cabrera',NULL,NULL,NULL,NULL,NULL,NULL,'Julio','Rodriguez','Julio Yarnel',228,75,'R','R','2022-04-08','2022-10-05'),
 ('rodrili01',1976,11,5,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Liu','Rodriguez','Liubiemithz',195,69,'B','R','1999-06-09','1999-10-03'),
 ('rodrilu01',1980,6,27,'Venezuela','Cojedes','San Carlos',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Rodriguez','Luis Orlando',190,69,'B','R','2005-05-21','2011-09-27'),
@@ -536663,6 +537085,7 @@ INSERT INTO `people` VALUES
 ('rodrine01',1971,3,4,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Nerio','Rodriguez','Nerio',220,73,'R','R','1996-08-16','2002-08-29'),
 ('rodrini01',1997,4,16,'Venezuela','Carabobo','Naguanagua',NULL,NULL,NULL,NULL,NULL,NULL,'Nivaldo','Rodriguez','Nivaldo Apolinar',214,73,'R','R','2020-07-28','2021-06-12'),
 ('rodrira01',1984,9,24,'D.R.','Sanchez Ramirez','Cotui',NULL,NULL,NULL,NULL,NULL,NULL,'Rafael','Rodriguez','Rafael',195,73,'R','R','2009-04-15','2010-08-11'),
+('rodrira02',1999,9,5,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Rodríguez','Randy Alberto',195,72,'R','R','2024-05-04',NULL),
 ('rodriri01',1960,9,21,'USA','CA','Oakland',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Rodriguez','Ricardo',190,75,'R','R','1986-09-17','1990-08-26'),
 ('rodriri02',1963,3,1,'USA','CA','Downey',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Rodriguez','Richard Anthony',185,70,'L','L','1990-06-30','2003-05-03'),
 ('rodriri03',1978,5,21,'D.R.','Monte Cristi','Guayubin',NULL,NULL,NULL,NULL,NULL,NULL,'Ricardo','Rodriguez','Ricardo Antonio',195,75,'L','R','2002-08-21','2005-08-08'),
@@ -536680,6 +537103,7 @@ INSERT INTO `people` VALUES
 ('rodriwa01',1979,1,18,'D.R.','Santiago Rodriguez','Santiago Rodriguez',NULL,NULL,NULL,NULL,NULL,NULL,'Wandy','Rodriguez','Wandy Fulton',195,71,'B','L','2005-05-23','2015-07-28'),
 ('rodriwi01',1979,3,20,'Venezuela','Bolivar','Ciudad Bolivar',NULL,NULL,NULL,NULL,NULL,NULL,'Wilfredo','Rodriguez','Wilfredo Jose',180,75,'L','L','2001-09-21','2001-10-04'),
 ('rodriwi02',1990,3,2,'Venezuela','Carabobo','Puerto Cabello',NULL,NULL,NULL,NULL,NULL,NULL,'Wilking','Rodriguez','Wilking Jose',180,73,'R','R','2014-06-03','2014-06-06'),
+('rodriya01',1997,3,10,'Cuba','Camagüey','Camagüey',NULL,NULL,NULL,NULL,NULL,NULL,'Yariel','Rodríguez','Yariel Humberto',165,72,'R','R','2024-04-13',NULL),
 ('rodriye01',1997,10,15,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Yerry','Rodriguez','Yerry Manuel',198,74,'R','R','2022-10-05','2022-10-05'),
 ('rodriyo01',1992,8,15,'Venezuela','Aragua','Ocumare de la Costa',NULL,NULL,NULL,NULL,NULL,NULL,'Yorman','Rodriguez','Yorman Jose',210,74,'R','R','2014-09-04','2014-09-28'),
 ('roebued01',1931,7,3,'USA','PA','East Millsboro',2018,6,14,'USA','CA','Lakewood','Ed','Roebuck','Edward Jack',185,74,'R','R','1955-04-18','1966-07-07'),
@@ -536744,6 +537168,8 @@ INSERT INTO `people` VALUES
 ('rolensc01',1975,4,4,'USA','IN','Evansville',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Rolen','Scott Bruce',245,76,'R','R','1996-08-01','2012-10-03'),
 ('rolfere01',1908,10,17,'USA','NH','Penacook',1969,7,8,'USA','NH','Gilford','Red','Rolfe','Robert Abial',170,71,'L','R','1931-06-29','1942-09-27'),
 ('rolisna01',1977,3,27,'USA','MS','Hattiesburg',NULL,NULL,NULL,NULL,NULL,NULL,'Nate','Rolison','Nathan Mardis',225,77,'L','R','2000-09-05','2000-09-30'),
+('rolisry01',1997,7,11,'USA','TN','Jackson',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Rolison','Ryan Perry',213,74,'R','L','2025-05-13',NULL),
+('rollech01',1996,10,8,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Roller','Christopher P.',186,71,'R','R','2024-05-15',NULL),
 ('rollibi01',1856,6,10,'USA','ME','Fairfield',1938,9,28,'USA','VA','Bristow','Bill','Rollinson','William',NULL,NULL,NULL,NULL,'1884-06-17','1884-06-17'),
 ('rollida01',1989,12,21,'USA','TX','Deberry',NULL,NULL,NULL,NULL,NULL,NULL,'David','Rollins','David Dwane',210,73,'L','L','2015-07-04','2016-09-20'),
 ('rolliji01',1978,11,27,'USA','CA','Oakland',NULL,NULL,NULL,NULL,NULL,NULL,'Jimmy','Rollins','James Calvin',175,67,'B','R','2000-09-17','2016-06-08'),
@@ -536783,6 +537209,7 @@ INSERT INTO `people` VALUES
 ('rominau01',1988,11,22,'USA','CA','Lake Forest',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Romine','Austin Allen',216,73,'R','R','2011-09-11','2022-10-05'),
 ('rominke01',1961,5,23,'USA','NH','Exeter',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Romine','Kevin Andrew',185,71,'R','R','1985-09-05','1991-08-04'),
 ('rommeed01',1897,9,13,'USA','MD','Baltimore',1970,8,26,'USA','MD','Baltimore','Eddie','Rommel','Edwin Americus',197,74,'R','R','1920-04-19','1932-09-17'),
+('romodr01',2001,8,29,'USA','CA','Fountain Valley',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Romo','Drew Arthur',205,73,'B','R','2024-08-17',NULL),
 ('romoen01',1947,7,15,'Mexico','Baja California Sur','Santa Rosalia',NULL,NULL,NULL,NULL,NULL,NULL,'Enrique','Romo','Enrique',185,71,'R','R','1977-04-07','1982-10-01'),
 ('romonjo01',1929,7,7,'USA','IL','Harrisburg',2011,10,2,'USA','OH','Columbus','John','Romonosky','John',195,74,'R','R','1953-09-06','1959-09-11'),
 ('romose01',1983,3,4,'USA','CA','Brawley',NULL,NULL,NULL,NULL,NULL,NULL,'Sergio','Romo','Sergio Francisco',185,71,'R','R','2008-06-26','2022-07-14'),
@@ -536803,6 +537230,7 @@ INSERT INTO `people` VALUES
 ('rooksge01',1863,10,21,'USA','IL','Chicago',1935,3,11,'USA','IL','Chicago','George','Rooks','George Brinton McClellan',170,71,'R','R','1891-05-12','1891-05-16'),
 ('roomero01',1962,2,15,'Jamaica','Kingston','Kingston',NULL,NULL,NULL,NULL,NULL,NULL,'Rolando','Roomes','Rolando Audley',180,75,'R','R','1988-04-12','1990-09-30'),
 ('roonefr01',1884,10,12,'Czech Republic','Central Bohemia','Podebrady',1977,4,6,'USA','MI','Bessemer','Frank','Rooney','Frank',170,71,'L','L','1914-04-18','1914-06-06'),
+('roonejo01',1997,1,28,'USA','NY','Melrose',NULL,NULL,NULL,NULL,NULL,NULL,'John','Rooney','John',215,77,'R','L','2025-08-24',NULL),
 ('roonepa01',1957,11,28,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Pat','Rooney','Patrick Eugene',190,73,'R','R','1981-09-09','1981-10-04'),
 ('rootch01',1899,3,17,'USA','OH','Middletown',1970,11,5,'USA','CA','Hollister','Charlie','Root','Charles Henry',190,70,'R','R','1923-04-18','1941-09-02'),
 ('roperjo01',1971,11,21,'USA','NC','Southern Pines',NULL,NULL,NULL,NULL,NULL,NULL,'John','Roper','John Christopher',175,72,'R','R','1993-05-16','1995-09-11'),
@@ -536892,6 +537320,7 @@ INSERT INTO `people` VALUES
 ('rothsla01',1954,3,12,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Larry','Rothschild','Lawrence Lee',180,74,'L','R','1981-09-11','1982-09-11'),
 ('rottivi01',1980,4,7,'USA','WI','Racine',NULL,NULL,NULL,NULL,NULL,NULL,'Vinny','Rottino','Vincent Antonio',215,73,'R','R','2006-09-01','2012-10-02'),
 ('rounsge01',1944,9,27,'USA','OK','Konawa',NULL,NULL,NULL,NULL,NULL,NULL,'Gene','Rounsaville','Virle Gene',205,75,'R','R','1970-04-07','1970-04-29'),
+('rouppla01',1998,9,10,'USA','NC','Rocky Mount',NULL,NULL,NULL,NULL,NULL,NULL,'Landen','Roupp','Landen Brice',215,74,'R','R','2024-03-29',NULL),
 ('rousemi01',1980,4,25,'USA','CA','San Jose',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Rouse','Michael Gregory',200,71,'L','R','2006-06-09','2007-08-04'),
 ('roushed01',1893,5,8,'USA','IN','Oakland City',1988,3,21,'USA','FL','Bradenton','Edd','Roush','Edd J.',170,71,'L','L','1913-08-20','1931-09-27'),
 ('routcph01',1870,10,24,'CAN','ON','Frontenac',1918,10,4,'USA','NY','Oswego','Phil','Routcliffe','Philip John',175,72,'R','R','1890-04-21','1890-04-21'),
@@ -536917,6 +537346,7 @@ INSERT INTO `people` VALUES
 ('rowsoja99',1976,9,12,'USA','NY','Mount Vernon',NULL,NULL,NULL,NULL,NULL,NULL,'James','Rowson','James Frank',190,71,'R','R',NULL,NULL),
 ('roxbuji01',1858,1,17,'USA','CA','Santa Cruz',1934,2,21,'USA','CA','San Francisco','Jim','Roxburgh','James Henry',170,70,'R','R','1884-05-30','1887-06-09'),
 ('roych01',1884,6,22,'USA','MN','Beaulieu',1950,2,10,'USA','ID','Blackfoot','Charlie','Roy','Robert Charles',190,70,'R','R','1906-06-27','1906-08-10'),
+('roycrch01',1997,6,21,'USA','IL','Dundee',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Roycroft','Chris Michael',230,80,'R','R','2024-05-07',NULL),
 ('royem01',1907,5,26,'USA','MA','Brighton',1997,1,5,'USA','FL','Crystal River','Emil','Roy','Emil Arthur',180,71,'R','R','1933-09-30','1933-09-30'),
 ('royerst01',1967,8,31,'USA','IL','Olney',NULL,NULL,NULL,NULL,NULL,NULL,'Stan','Royer','Stanley Dean',195,75,'R','R','1991-09-11','1994-07-22'),
 ('royje01',1920,6,26,'CAN','QC','Montreal',2014,10,31,'USA','FL','Pompano Beach','Jean-Pierre','Roy','Jean-Pierre',160,70,'B','R','1946-05-05','1946-05-11'),
@@ -536984,6 +537414,7 @@ INSERT INTO `people` VALUES
 ('rushan01',1889,12,26,'USA','KS','Hartland',1969,3,16,'USA','CA','Fresno','Andy','Rush','Jesse Howard',180,75,'R','R','1925-04-16','1925-05-15'),
 ('rushbo01',1925,12,21,'USA','MI','Battle Creek',2011,3,19,'USA','AZ','Mesa','Bob','Rush','Robert Ransom',205,76,'R','R','1948-04-22','1960-08-07'),
 ('rushfji01',1974,3,24,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Rushford','James Thomas',225,73,'L','L','2002-09-03','2002-09-29'),
+('rushida01',2001,2,21,'USA','TN','Memphis',NULL,NULL,NULL,NULL,NULL,NULL,'Dalton','Rushing','Dalton Wayne',220,71,'L','R','2025-05-15',NULL),
 ('rusieam01',1871,5,30,'USA','IN','Mooresville',1942,12,6,'USA','WA','Seattle','Amos','Rusie','Amos Wilson',200,73,'R','R','1889-05-09','1901-06-09'),
 ('rusinch01',1986,10,22,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Rusin','Christopher Patrick',200,74,'L','L','2012-08-21','2020-08-03'),
 ('ruskisc01',1963,6,8,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Ruskin','Scott Drew',185,74,'R','L','1990-04-09','1993-09-16'),
@@ -537041,6 +537472,7 @@ INSERT INTO `people` VALUES
 ('ryanmi02',1941,11,25,'USA','MA','Haverhill',2020,7,7,'USA','NH','Wolfeboro','Mike','Ryan','Michael James',205,74,'R','R','1964-10-03','1974-09-10'),
 ('ryanmi03',1977,7,6,'USA','PA','Indiana',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Ryan','Michael Sean',182,70,'L','R','2002-09-20','2010-06-14'),
 ('ryanno01',1947,1,31,'USA','TX','Refugio',NULL,NULL,NULL,NULL,NULL,NULL,'Nolan','Ryan','Lynn Nolan',170,74,'R','R','1966-09-11','1993-09-22'),
+('ryanri01',1998,8,17,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'River','Ryan','River Jason',195,74,'R','R','2024-07-22',NULL),
 ('ryanro01',1898,3,15,'USA','MA','Worcester',1980,12,10,'USA','AZ','Scottsdale','Rosy','Ryan','Wilfred Patrick Dolan',185,72,'L','R','1919-09-07','1933-09-17'),
 ('ryanro02',1973,6,24,'USA','MT','Havre',NULL,NULL,NULL,NULL,NULL,NULL,'Rob','Ryan','Robert James',190,71,'L','L','1999-08-20','2001-10-07'),
 ('ryanry01',1995,5,11,'USA','NC','Huntersville',NULL,NULL,NULL,NULL,NULL,NULL,'Ryder','Ryan','Ryder Michael',205,74,'R','R','2023-08-11','2023-08-11'),
@@ -537059,6 +537491,7 @@ INSERT INTO `people` VALUES
 ('saboal01',1910,2,14,'USA','NJ','New Brunswick',2001,1,3,'USA','NJ','Tuckerton','Alex','Sabo','Alexander',192,72,'R','R','1936-08-01','1937-08-01'),
 ('saboch01',1962,1,19,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Sabo','Christopher Andrew',185,71,'R','R','1988-04-04','1996-09-02'),
 ('sabolbl01',1998,1,7,'USA','CA','Aliso Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Blake','Sabol','Blake Joseph',225,76,'L','R','2023-03-30','2023-10-01'),
+('sabroer01',1997,10,31,'CAN','AB','Edmonton',NULL,NULL,NULL,NULL,NULL,NULL,'Erik','Sabrowski','Erik Wayne Thomas',230,76,'R','L','2024-09-04',NULL),
 ('saccoma01',1980,4,30,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Saccomanno','Mark Edison',210,75,'R','R','2008-09-08','2008-09-28'),
 ('sackafr01',1924,8,30,'USA','MI','Romulus',1994,12,7,'USA','MI','Dearborn','Frank','Sacka','Frank',195,72,'R','R','1951-04-29','1953-09-13'),
 ('sackibr01',1971,6,22,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Sackinsky','Brian Walter',220,76,'R','R','1996-04-20','1996-04-24'),
@@ -537082,6 +537515,7 @@ INSERT INTO `people` VALUES
 ('sageha01',1864,3,16,'USA','IL','Rock Island',1947,5,27,'USA','IL','Rock Island','Harry','Sage','Harry',185,70,'R','R','1890-04-17','1890-10-12'),
 ('sageraj01',1965,3,3,'USA','OH','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'A. J.','Sager','Anthony Joseph',220,76,'R','R','1994-04-04','1998-09-26'),
 ('sagerpo01',1848,8,12,'USA','PA','Holmesburg',1928,10,15,'USA','NH','Newport','Pony','Sager','Samuel B.',140,66,NULL,NULL,'1871-05-06','1871-05-30'),
+('saggeth01',2002,4,10,'USA','CA','Carlsbad',NULL,NULL,NULL,NULL,NULL,NULL,'Thomas','Saggese','Thomas Darren',185,71,'R','R','2024-09-10',NULL),
 ('sagmoma01',1971,4,16,'USA','WA','Seattle',NULL,NULL,NULL,NULL,NULL,NULL,'Marc','Sagmoen','Marc Richard',185,71,'L','L','1997-04-15','1997-09-20'),
 ('saiervi01',1891,5,4,'USA','MI','Lansing',1967,5,14,'USA','MI','East Lansing','Vic','Saier','Victor Sylvester',185,71,'L','R','1911-05-03','1919-08-05'),
 ('sainjo01',1917,9,25,'USA','AR','Havana',2006,11,7,'USA','IL','Downers Grove','Johnny','Sain','John Franklin',185,74,'R','R','1942-04-17','1955-07-15'),
@@ -537122,6 +537556,7 @@ INSERT INTO `people` VALUES
 ('sambijo01',1952,6,28,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Sambito','Joseph Charles',185,73,'L','L','1976-07-20','1987-10-03'),
 ('samcoed01',1924,9,1,'USA','CA','Sacramento',2018,3,29,'USA','CA','Fair Oaks','Ed','Samcoff','Edward William',165,70,'R','R','1951-04-21','1951-04-26'),
 ('samforo01',1930,2,28,'USA','TX','Dallas',2021,1,14,'USA','TX','Dallas','Ron','Samford','Ronald Edward',156,71,'R','R','1954-04-15','1959-09-23'),
+('sammobr01',1995,4,27,'USA','NC','Wilmington',NULL,NULL,NULL,NULL,NULL,NULL,'Bryan','Sammons','Bryan Todd',235,76,'L','L','2024-07-29',NULL),
 ('sammocl01',1983,5,15,'USA','GA','Decatur',NULL,NULL,NULL,NULL,NULL,NULL,'Clint','Sammons','Clint Joseph',210,73,'R','R','2007-09-12','2009-10-04'),
 ('sampebi01',1963,1,18,'USA','IL','Lincoln',NULL,NULL,NULL,NULL,NULL,NULL,'Bill','Sampen','William Albert',185,73,'R','R','1990-04-10','1994-05-09'),
 ('samplbi01',1955,4,2,'USA','VA','Roanoke',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Sample','William Amos',175,69,'R','R','1978-09-02','1986-10-05'),
@@ -537175,6 +537610,7 @@ INSERT INTO `people` VALUES
 ('sandbry01',1959,9,18,'USA','WA','Spokane',NULL,NULL,NULL,NULL,NULL,NULL,'Ryne','Sandberg','Ryne Dee',175,73,'R','R','1981-09-02','1997-09-28'),
 ('sandean01',1974,3,2,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Sanders','Anthony Marcus',200,74,'R','R','1999-04-26','2001-04-18'),
 ('sandebe01',1865,2,16,'USA','VA','Catharpin',1930,8,29,'USA','TN','Memphis','Ben','Sanders','Alexander Bennett',210,72,'R','R','1888-06-06','1892-10-14'),
+('sandeca01',1996,12,9,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Sanders','Cameron Ronald',190,74,'R','R','2025-08-05',NULL),
 ('sandeda01',1979,8,29,'USA','OK','Oklahoma City',NULL,NULL,NULL,NULL,NULL,NULL,'David','Sanders','David Andrew',200,72,'L','L','2003-04-23','2005-09-10'),
 ('sandede01',1921,4,8,'USA','TX','Quitman',2007,8,17,'USA','OK','McAlester','Dee','Sanders','Dee Wilman',195,75,'R','R','1945-08-12','1945-08-13'),
 ('sandede02',1967,8,9,'USA','FL','Fort Myers',NULL,NULL,NULL,NULL,NULL,NULL,'Deion','Sanders','Deion Luwynn',195,73,'L','L','1989-05-31','2001-06-14'),
@@ -537196,6 +537632,7 @@ INSERT INTO `people` VALUES
 ('sandofr01',1982,8,16,'Mexico','Baja California','Tijuana',NULL,NULL,NULL,NULL,NULL,NULL,'Freddy','Sandoval','Freddy Carol',205,73,'B','R','2008-09-08','2009-10-04'),
 ('sandopa01',1986,8,11,'Venezuela','Carabobo','Puerto Cabello',NULL,NULL,NULL,NULL,NULL,NULL,'Pablo','Sandoval','Pablo Emilio',268,70,'B','R','2008-08-14','2021-07-29'),
 ('sandopa02',1996,10,18,'USA','CA','Mission Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Patrick','Sandoval','Patrick Jordan',190,75,'L','L','2019-08-05','2022-10-03'),
+('sandrja01',1999,2,11,'USA','MD','Hagerstown',NULL,NULL,NULL,NULL,NULL,NULL,'Jayvien','Sandridge','Jayvien',220,77,'L','L','2025-07-05',NULL),
 ('sandsch01',1947,12,17,'USA','VA','Newport News',2016,8,22,'USA','FL','Naples','Charlie','Sands','Charles Duane',200,74,'L','R','1967-06-21','1975-05-08'),
 ('sandsco01',1997,7,17,'USA','FL','Tallahassee',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Sands','Bryson Cole',215,75,'R','R','2022-05-01','2022-10-05'),
 ('sandsdo01',1996,5,16,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Donny','Sands','Donny',190,74,'R','R','2022-09-02','2022-09-23'),
@@ -537211,6 +537648,7 @@ INSERT INTO `people` VALUES
 ('sanitam01',1979,7,4,'Cuba','La Habana','La Habana',NULL,NULL,NULL,NULL,NULL,NULL,'Amauri','Sanit','Amauri',205,68,'R','R','2011-05-12','2011-06-10'),
 ('sankebe01',1907,9,2,'USA','AL','Nauvoo',2001,10,14,'USA','GA','Washington','Ben','Sankey','Benjamin Turner',155,70,'R','R','1929-10-05','1931-09-27'),
 ('sanmare01',1996,4,15,'Colombia','Bolivar','Cartagena',NULL,NULL,NULL,NULL,NULL,NULL,'Reiver','Sanmartin','Reiver Jose',160,74,'L','L','2021-09-27','2022-10-05'),
+('sanojja01',2002,9,3,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Javier','Sanoja','Javier Ernesto',150,67,'R','R','2024-09-07',NULL),
 ('sanomi01',1993,5,11,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Miguel','Sano','Miguel Angel',272,76,'R','R','2015-07-02','2022-07-29'),
 ('santaan01',1968,2,5,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Andres','Santana','Andres Confesor',160,71,'B','R','1990-09-16','1990-10-03'),
 ('santaan02',1994,10,19,'Venezuela','Nueva Esparta','Margarita',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Santander','Anthony Roger',235,74,'B','R','2017-08-18','2022-10-05'),
@@ -537257,6 +537695,7 @@ INSERT INTO `people` VALUES
 ('sarmima01',1956,2,2,'Venezuela','Aragua','Cagua',NULL,NULL,NULL,NULL,NULL,NULL,'Manny','Sarmiento','Manuel Eduardo',170,72,'R','R','1976-07-30','1983-10-01'),
 ('sarnibi01',1927,9,19,'USA','CA','Los Angeles',1983,4,15,'USA','MO','Creve Coeur','Bill','Sarni','William Florine',180,71,'R','R','1951-05-09','1956-09-18'),
 ('sasakka01',1968,2,22,'Japan','Miyagi','Sendai',NULL,NULL,NULL,NULL,NULL,NULL,'Kazuhiro','Sasaki','Kazuhiro',209,76,'R','R','2000-04-05','2003-09-28'),
+('sasakro01',2001,11,3,'Japan','Iwate','Rikuzentakata',NULL,NULL,NULL,NULL,NULL,NULL,'Roki','Sasaki','Roki',187,74,'R','R','2025-03-19',NULL),
 ('sassema01',1962,8,3,'USA','GA','Fort Gaines',NULL,NULL,NULL,NULL,NULL,NULL,'Mackey','Sasser','Mack Daniel',190,73,'L','R','1987-07-17','1995-05-15'),
 ('sassero01',1975,3,9,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Rob','Sasser','Robert Doffell',205,75,'R','R','1998-07-31','1998-07-31'),
 ('satinjo01',1984,12,23,'USA','CA','Hidden Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Satin','Joshua Blake',215,74,'R','R','2011-09-04','2014-09-25'),
@@ -537267,6 +537706,7 @@ INSERT INTO `people` VALUES
 ('saucike01',1956,8,9,'USA','FL','Pensacola',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Saucier','Kevin Andrew',190,73,'L','L','1978-10-01','1982-07-25'),
 ('sauered01',1919,1,3,'USA','PA','Pittsburgh',1988,7,1,'USA','CA','Thousand Oaks','Ed','Sauer','Edward',188,73,'R','R','1943-09-17','1949-10-02'),
 ('sauerha01',1917,3,17,'USA','PA','Pittsburgh',2001,8,24,'USA','CA','Burlingame','Hank','Sauer','Henry John',198,75,'R','R','1941-09-09','1959-08-17'),
+('sauerma01',1999,1,21,'USA','CA','Santa Maria',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Sauer','Matthew David',230,76,'R','R','2024-03-31',NULL),
 ('sauersc01',1971,11,9,'USA','OH','Cincinnati',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Sauerbeck','Scott William',190,75,'R','L','1999-04-05','2006-09-23'),
 ('saundde01',1949,1,4,'USA','CA','Alhambra',NULL,NULL,NULL,NULL,NULL,NULL,'Dennis','Saunders','Dennis James',195,75,'B','R','1970-05-21','1970-06-12'),
 ('saunddo01',1969,12,13,'USA','CA','Yorba Linda',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Saunders','Douglas Long',172,72,'R','R','1993-06-13','1993-10-03'),
@@ -537332,6 +537772,7 @@ INSERT INTO `people` VALUES
 ('schaeha01',1924,6,23,'USA','PA','Reading',2008,7,12,'USA','PA','Shillington','Harry','Schaeffer','Harry Edward',175,74,'L','L','1952-07-28','1952-08-20'),
 ('schaeje01',1960,5,31,'USA','NY','Patchogue',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Schaefer','Jeffrey Scott',170,70,'R','R','1989-04-07','1994-06-15'),
 ('schaema01',1948,6,5,'USA','CA','Santa Monica',2022,6,1,'USA','CA','West Hills','Mark','Schaeffer','Mark Philip',215,77,'L','L','1972-04-18','1972-09-26'),
+('schaewa99',1985,1,28,'USA','PA','Vandergrift',NULL,NULL,NULL,NULL,NULL,NULL,'Warren','Schaeffer','Warren James',180,72,'R','R',NULL,NULL),
 ('schafha01',1846,8,14,'USA','PA','Philadelphia',1935,2,28,'USA','PA','Philadelphia','Harry','Schafer','Harry C.',143,69,'R','R','1871-05-05','1878-08-31'),
 ('schafji01',1936,4,5,'USA','PA','Limeport',NULL,NULL,NULL,NULL,NULL,NULL,'Jimmie','Schaffer','Jimmie Ronald',170,69,'R','R','1961-05-20','1968-07-11'),
 ('schafjo01',1937,8,6,'USA','NJ','Trenton',2016,6,18,'USA','NJ','Berkeley Heights','Joe','Schaffernoth','Joseph Arthur',195,76,'R','R','1959-04-15','1961-09-30'),
@@ -537402,6 +537843,7 @@ INSERT INTO `people` VALUES
 ('schleru01',1941,11,5,'USA','OH','Cincinnati',2023,8,13,'USA','OH','Cincinnati','Bill','Schlesinger','William Cordes',175,74,'R','R','1965-05-04','1965-05-04'),
 ('schlibi01',1884,12,4,'USA','NY','Rochester',1948,1,4,'USA','MA','Wellesley Hills','Victor','Schlitzer','Victor Joseph',175,71,'R','R','1908-04-17','1914-05-01'),
 ('schlibr01',1985,12,21,'USA','IL','Oak Park',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Schlitter','Brian Patrick',238,75,'R','R','2010-06-28','2019-07-25'),
+('schlica01',2001,2,5,'USA','MA','Walpole',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Schlittler','Cameron John',225,78,'R','R','2025-07-09',NULL),
 ('schlidu01',1891,5,19,'Germany','Berlin','Berlin',1975,4,15,'USA','OH','Toledo','Dutch','Schliebner','Frederick Paul',180,70,'R','R','1923-04-17','1923-10-07'),
 ('schlitr01',1984,10,19,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Schlichting','Travis Jay',205,76,'R','R','2009-06-07','2010-08-21'),
 ('schlogu01',1988,10,20,'USA','FL','Sarasota',NULL,NULL,NULL,NULL,NULL,NULL,'Gus','Schlosser','August Carl',225,76,'R','R','2014-03-31','2014-09-25'),
@@ -537438,6 +537880,7 @@ INSERT INTO `people` VALUES
 ('schneda01',1942,8,29,'USA','IN','Evansville',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Schneider','Daniel Louis',170,75,'L','L','1963-05-12','1969-04-27'),
 ('schneda02',1949,6,18,'USA','PA','Allentown',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Schneck','David Lee',200,70,'L','L','1972-07-14','1974-10-01'),
 ('schneda03',1999,1,26,'USA','NJ','Berlin',NULL,NULL,NULL,NULL,NULL,NULL,'Davis','Schneider','Davis',190,69,'R','R','2023-08-04','2023-10-01'),
+('schneda04',1997,1,23,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Schneemann','Daniel',185,71,'L','R','2024-06-02',NULL),
 ('schnefr01',1880,3,12,'USA','WI','Milwaukee',1948,5,18,'USA','WI','Milwaukee','Frank','Schneiberg','Frank Fred',165,73,NULL,'R','1910-06-08','1910-06-08'),
 ('schneje01',1952,12,6,'USA','WA','Bremerton',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Schneider','Jeffrey Theodore',195,75,'B','L','1981-08-12','1981-10-02'),
 ('schnejo99',1980,2,14,'USA','NJ','Princeton',NULL,NULL,NULL,NULL,NULL,NULL,'John','Schneider','John Patrick',250,75,'R','R',NULL,NULL),
@@ -537473,6 +537916,7 @@ INSERT INTO `people` VALUES
 ('schroke01',1954,11,23,'USA','ID','Grangeville',NULL,NULL,NULL,NULL,NULL,NULL,'Ken','Schrom','Kenneth Marvin',195,74,'R','R','1980-08-08','1987-10-03'),
 ('schroma01',1994,10,12,'USA','WA','Tacoma',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Schrock','Max William',185,69,'L','R','2020-08-15','2022-07-16'),
 ('schubhe01',1906,11,1,'USA','TX','Houston',1990,10,2,'USA','TX','Baytown','Heinie','Schuble','Henry George',152,69,'R','R','1927-07-08','1936-05-15'),
+('schuema01',1997,6,11,'USA','MI','Kalamazoo',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Schuemann','Maxwell Carter',186,72,'R','R','2024-04-12',NULL),
 ('schuero01',1948,4,14,'USA','KS','Catherine',NULL,NULL,NULL,NULL,NULL,NULL,'Ron','Schueler','Ronald Richard',205,76,'R','R','1972-04-16','1979-07-04'),
 ('schugaj01',1989,6,27,'USA','FL','Winter Haven',NULL,NULL,NULL,NULL,NULL,NULL,'A. J.','Schugel','Andrew Jeffrey',200,72,'R','R','2015-04-12','2017-09-29'),
 ('schulal01',1889,5,12,'USA','OH','Toledo',1931,12,14,'USA','OH','Gallipolis','Al','Schulz','Albert Christopher',182,72,'R','L','1912-09-25','1916-09-23'),
@@ -537499,12 +537943,14 @@ INSERT INTO `people` VALUES
 ('schulle01',1916,12,5,'USA','MO','St. Charles',1986,5,6,'USA','FL','Orlando','Len','Schulte','Leonard Bernard',160,70,'R','R','1944-09-27','1946-06-16'),
 ('schulmi01',1920,12,17,'USA','NY','Syracuse',2004,8,2,'USA','NY','East Syracuse','Mike','Schultz','William Michael',175,73,'L','L','1947-04-20','1947-04-20'),
 ('schulmi02',1979,11,28,'USA','CA','Van Nuys',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Schultz','Michael Alan',220,79,'R','R','2007-04-20','2007-04-20'),
+('schulpa01',1998,1,5,'USA','UT','Orem',NULL,NULL,NULL,NULL,NULL,NULL,'Paxton','Schultz','Paxton James',205,75,'L','R','2025-04-20',NULL),
 ('schulwa01',1900,4,16,'USA','MO','St. Louis',1928,2,27,'USA','AZ','Prescott','Walt','Schulz','Walter Frederick',170,72,'R','R','1920-07-08','1920-09-24'),
 ('schulwe01',1898,1,31,'USA','WI','Wautoma',1986,7,26,'USA','WI','Delavan','Webb','Schultz','Wilbert Carl',172,71,'R','R','1924-08-03','1924-08-03'),
 ('schulwe02',1901,8,21,'USA','OR','Hillsboro',1985,6,26,'USA','OR','Corvallis','Wes','Schulmerich','Edward Wesley',210,71,'R','R','1931-05-01','1934-09-30'),
 ('schumha01',1884,8,13,'USA','NY','Buffalo',1946,3,25,'USA','NY','Millgrove','Hack','Schumann','Charles J.',230,74,NULL,'R','1906-09-18','1906-10-03'),
 ('schumha02',1910,11,23,'USA','NY','Hinckley',1993,4,21,'USA','NY','Cooperstown','Hal','Schumacher','Harold Henry',190,72,'R','R','1931-04-15','1946-09-25'),
 ('schumsk01',1980,2,3,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Skip','Schumaker','Jared Michael',185,70,'L','R','2005-06-08','2015-10-04'),
+('schunaa01',1997,7,24,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Schunk','Aaron Livingston',205,74,'R','R','2024-06-29',NULL),
 ('schupfe01',1891,1,16,'USA','KY','Louisville',1971,12,16,'USA','CA','Los Angeles','Ferdie','Schupp','Ferdinand Maurice',150,70,'R','L','1913-08-19','1922-07-27'),
 ('schuri01',1962,1,26,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Schu','Richard Spencer',170,72,'R','R','1984-09-01','1996-08-14'),
 ('schurjo99',1940,10,1,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'John','Schuerholz','John',NULL,NULL,NULL,NULL,NULL,NULL),
@@ -537524,6 +537970,7 @@ INSERT INTO `people` VALUES
 ('schweha01',1890,8,23,'USA','PA','Schuykill',1955,9,3,'USA','MO','Kansas City','Hal','Schwenk','Harold Edward',185,72,'L','L','1913-09-04','1913-09-04'),
 ('schwepi01',1892,11,22,'USA','NY','Angola',1941,3,11,'USA','DC','Washington','Pi','Schwert','Pius Louis',160,70,'R','R','1914-08-20','1915-10-07'),
 ('schweru01',1884,4,6,'USA','KY','Louisville',1941,11,27,'USA','KY','Anchorage','Rudy','Schwenck','Rudolph Christian',174,72,'L','L','1909-09-23','1909-10-06'),
+('schwesp01',2000,5,31,'USA','MI','Saginaw',NULL,NULL,NULL,NULL,NULL,NULL,'Spencer','Schwellenbach','Spencer Drew',200,73,'R','R','2024-05-29',NULL),
 ('schwiar01',1889,11,4,'USA','IN','Fort Wayne',1968,1,13,'USA','IL','Sullivan','Art','Schwind','Arthur Edwin',150,68,'B','R','1912-10-03','1912-10-03'),
 ('schwich01',1986,9,22,'USA','CA','Visalia',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Schwinden','Christopher Anthony',215,75,'R','R','2011-09-08','2012-05-30'),
 ('schwifr01',1992,6,29,'USA','NJ','Livingston',NULL,NULL,NULL,NULL,NULL,NULL,'Frank','Schwindel','Frank J.',220,73,'R','R','2019-03-28','2022-08-07'),
@@ -537535,6 +537982,7 @@ INSERT INTO `people` VALUES
 ('sconida01',1958,10,3,'USA','CA','San Bernardino',NULL,NULL,NULL,NULL,NULL,NULL,'Daryl','Sconiers','Daryl Anthony',185,74,'L','L','1981-09-13','1985-10-06'),
 ('scorehe01',1933,6,7,'USA','NY','Rosedale',2008,11,11,'USA','OH','Rocky River','Herb','Score','Herbert Jude',185,74,'L','L','1955-04-15','1962-05-04'),
 ('scott01',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Scott',NULL,NULL,NULL,NULL,NULL,'1884-07-16','1884-08-05'),
+('scottch01',1999,6,15,'USA','FL','Coconut Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Scott','Christian David',207,76,'R','R','2024-05-04',NULL),
 ('scottda01',1968,8,6,'USA','CA','Fresno',NULL,NULL,NULL,NULL,NULL,NULL,'Darryl','Scott','Darryl Nelson',185,73,'R','R','1993-05-31','1993-10-01'),
 ('scottdi01',1883,2,5,'USA','OH','Bethel',1911,1,18,'USA','IL','Chicago','Dick','Scott','Amos Richard',180,72,'R','R','1901-06-26','1901-07-08'),
 ('scottdi02',1933,3,15,'USA','NH','Portsmouth',2020,2,10,'USA','GA','Carrollton','Dick','Scott','Richard Lewis',185,74,'R','L','1963-05-08','1964-07-10'),
@@ -537562,6 +538010,7 @@ INSERT INTO `people` VALUES
 ('scottta02',1992,6,1,'South Africa','Gauteng','Johannesburg',NULL,NULL,NULL,NULL,NULL,NULL,'Tayler','Scott','Tayler James',185,75,'R','R','2019-06-08','2022-08-12'),
 ('scottti01',1966,11,16,'USA','CA','Hanford',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Scott','Timothy Dale',185,74,'R','R','1991-06-25','1997-07-02'),
 ('scottto01',1951,9,18,'USA','OH','Cincinnati',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Scott','Anthony',164,72,'B','R','1973-09-01','1984-09-21'),
+('scottvi01',2001,2,12,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Scott','Victor Dwanyne',190,71,'L','L','2024-03-28',NULL),
 ('scranji01',1960,4,5,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Scranton','James Dean',175,72,'R','R','1984-09-05','1985-10-06'),
 ('scribev01',1985,7,19,'USA','CT','New Milford',NULL,NULL,NULL,NULL,NULL,NULL,'Evan','Scribner','Evan Lee',190,75,'R','R','2011-04-26','2017-04-25'),
 ('scribtr01',1991,7,2,'USA','CT','Washington Depot',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Scribner','Troy Alex',190,75,'L','R','2017-07-29','2018-05-12'),
@@ -537618,6 +538067,7 @@ INSERT INTO `people` VALUES
 ('seibeku01',1955,10,16,'USA','MD','Cheverly',NULL,NULL,NULL,NULL,NULL,NULL,'Kurt','Seibert','Kurt Elliott',165,72,'B','R','1979-09-03','1979-09-30'),
 ('seibeph01',1979,1,28,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Phil','Seibel','Philip Matthew',195,73,'L','L','2004-04-15','2004-04-18'),
 ('seiboso01',1896,5,31,'USA','PA','Philadelphia',1965,9,21,'USA','PA','Philadelphia','Socks','Seibold','Harry',162,68,'R','R','1915-09-18','1933-06-13'),
+('seiglan01',1999,6,20,'USA','AZ','Fort Defiance',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Seigler','Anthony',192,70,'L','R','2025-07-02',NULL),
 ('seilhri01',1960,8,30,'USA','TX','Brenham',NULL,NULL,NULL,NULL,NULL,NULL,'Ricky','Seilheimer','Ricky Allen',185,71,'L','R','1980-07-05','1980-08-08'),
 ('seitzke01',1962,3,26,'USA','IL','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Seitzer','Kevin Lee',180,71,'R','R','1986-09-03','1997-09-28'),
 ('selbaki01',1872,3,24,'USA','OH','Columbus',1956,2,17,'USA','OH','Columbus','Kip','Selbach','Albert Karl',190,67,'R','R','1894-04-24','1906-06-29'),
@@ -537646,6 +538096,7 @@ INSERT INTO `people` VALUES
 ('semprra01',1931,1,7,'USA','OH','Cleveland',NULL,NULL,NULL,NULL,NULL,NULL,'Ray','Semproch','Roman Anthony',180,71,'R','R','1958-04-15','1961-05-02'),
 ('senerso01',1929,4,6,'USA','NJ','Newark',2003,11,1,'USA','NJ','Freehold','Sonny','Senerchia','Emanuel Robert',195,73,'R','R','1952-08-19','1952-09-28'),
 ('sengako01',1993,1,30,'Japan','Aichi','Gamagori',NULL,NULL,NULL,NULL,NULL,NULL,'Kodai','Senga','Kodai',202,73,'L','R','2023-04-02','2023-09-27'),
+('sengeha01',1997,4,3,'USA','OH','Hamilton',NULL,NULL,NULL,NULL,NULL,NULL,'Hayden','Senger','Hayden Craig',214,73,'R','R','2025-03-27',NULL),
 ('senseco01',1847,12,28,'USA','PA','Philadelphia',1903,5,3,'USA','PA','Philadelphia','Count','Sensenderfer','John Phillips Jenkins',170,69,NULL,NULL,'1871-05-20','1874-10-21'),
 ('sentepa01',1879,8,27,'USA','LA','New Orleans',1923,4,27,'USA','OH','Cincinnati','Paul','Sentell','Leopold Theodore',176,69,'R','R','1906-04-12','1907-04-27'),
 ('sentest01',1955,8,7,'USA','IN','Indianapolis',1989,6,18,'USA','CA','Colusa','Steve','Senteney','Stephen Leonard',205,74,'R','R','1982-06-06','1982-09-30'),
@@ -537692,7 +538143,10 @@ INSERT INTO `people` VALUES
 ('sextoto01',1865,3,14,'USA','IL','Rock Island',1934,2,8,'USA','IL','Rock Island','Tom','Sexton','Thomas William',NULL,NULL,'L',NULL,'1884-09-27','1884-10-12'),
 ('seyboso01',1870,11,23,'USA','OH','Washingtonville',1921,11,21,'USA','PA','Greensburg','Socks','Seybold','Ralph Orlando',175,71,'R','R','1899-08-20','1908-10-07'),
 ('seyfrgo01',1937,7,4,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Gordon','Seyfried','Gordon Clay',185,72,'R','R','1963-09-13','1964-04-28'),
+('seymobo01',1998,10,7,'USA','IL','Harvey',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Seymour','Robert John',250,75,'L','R','2025-08-15',NULL),
+('seymoca01',1998,12,16,'USA','CA','Poway',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Seymour','Carson James',255,78,'R','R','2025-06-29',NULL),
 ('seymocy01',1872,12,9,'USA','NY','Albany',1919,9,20,'USA','NY','New York','Cy','Seymour','James Bentley',200,72,'L','L','1896-04-22','1913-07-17'),
+('seymoia01',1998,12,13,'USA','CT','Madison',NULL,NULL,NULL,NULL,NULL,NULL,'Ian','Seymour','Ian Albert',215,72,'L','L','2025-06-09',NULL),
 ('seymoja01',1854,NULL,NULL,'USA','PA','Pittsburgh',1897,8,1,'USA','PA','Allegheny','Jake','Seymour','Jacob',NULL,NULL,NULL,NULL,'1882-09-23','1882-09-23'),
 ('shabaad01',1978,2,6,'USA','IL','Streator',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Shabala','Adam Jason',190,73,'L','R','2005-06-16','2005-07-20'),
 ('shackbr01',1976,8,30,'USA','OK','McAlester',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Shackelford','Brian Wesley',195,73,'L','L','2005-06-26','2006-09-20'),
@@ -537753,6 +538207,7 @@ INSERT INTO `people` VALUES
 ('shawje01',1966,7,7,'USA','OH','Washington Court House',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Shaw','Jeffrey Lee',185,74,'R','R','1990-04-30','2001-10-06'),
 ('shawji01',1893,8,13,'USA','PA','Pittsburgh',1962,1,27,'USA','DC','Washington','Jim','Shaw','James Aloysius',180,72,'R','R','1913-09-15','1921-07-13'),
 ('shawkbo01',1890,12,4,'USA','PA','Sigel',1980,12,31,'USA','NY','Syracuse','Bob','Shawkey','James Robert',168,71,'R','R','1913-07-16','1927-09-29'),
+('shawma01',2001,11,6,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Shaw','Matthew James',185,70,'R','R','2025-03-18',NULL),
 ('shawsa01',1863,5,7,'USA','MD','Baltimore',1947,2,13,'USA','PA','Upper Darby','Sam','Shaw','Samuel Elmer',140,65,'R','R','1888-05-03','1893-06-16'),
 ('shawtr01',1990,4,16,'USA','OH','Washington Court House',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Shaw','Travis Richard',230,76,'L','R','2015-05-08','2022-04-28'),
 ('shayda01',1876,11,8,'USA','OH','Springfield',1927,12,1,'USA','MO','Kansas City','Danny','Shay','Daniel Charles',NULL,70,'R','R','1901-04-30','1907-09-10'),
@@ -537803,6 +538258,7 @@ INSERT INTO `people` VALUES
 ('sheltde99',1970,7,30,'USA','IL','Carbondale',NULL,NULL,NULL,NULL,NULL,NULL,'Derek','Shelton','Derek Lee',186,72,'R','R',NULL,NULL),
 ('sheltsk01',1888,6,29,'USA','WV','Huntington',1954,1,9,'USA','WV','Huntington','Skeeter','Shelton','Andrew Kemper',175,71,'R','R','1915-08-25','1915-09-01'),
 ('shemost01',1915,4,9,'USA','PA','Swoyersville',1992,4,13,'USA','NC','Eden','Steve','Shemo','Stephen Michael',175,71,'R','R','1944-04-18','1945-07-16'),
+('shentau01',1998,1,22,'USA','WA','Spokane',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Shenton','Austin P.',205,72,'L','R','2024-03-31',NULL),
 ('shepabe01',1920,6,28,'USA','IN','Dana',2008,6,16,'USA','CA','Highland','Bert','Shepard','Bert Robert',185,71,'L','L','1945-08-04','1945-08-04'),
 ('shepaja01',1931,5,13,'USA','CA','Clovis',1994,12,31,'USA','CA','Atherton','Jack','Shepard','Jack Leroy',195,74,'R','R','1953-06-19','1956-09-30'),
 ('shepala99',1919,4,3,'USA','OH','Lakewood',2011,4,5,'USA','NE','Lincoln','Larry','Shepard','Lawrence William',180,71,'R','R',NULL,NULL),
@@ -537905,6 +538361,7 @@ INSERT INTO `people` VALUES
 ('shubage01',1924,12,13,'USA','OH','Youngstown',2014,9,29,'USA','OH','Youngstown','George','Shuba','George Thomas',180,71,'L','R','1948-07-02','1955-09-25'),
 ('shuckja01',1987,6,18,'USA','OH','Westerville',NULL,NULL,NULL,NULL,NULL,NULL,'JB','Shuck','Jack Burdett',195,71,'L','L','2011-08-05','2019-05-03'),
 ('shueypa01',1970,9,16,'USA','OH','Lima',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Shuey','Paul Kenneth',215,75,'R','R','1994-05-08','2007-08-26'),
+('shugach01',1996,10,24,'USA','TX','Bridge City',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Shugart','Chase C.',200,71,'L','R','2024-08-15',NULL),
 ('shugafr01',1866,12,10,'USA','PA','Luthersburg',1944,9,9,'USA','PA','Clearfield','Frank','Shugart','Frank Harry',170,68,'L','R','1890-08-23','1901-09-27'),
 ('shultto01',1888,10,10,'USA','PA','Homestead',1959,1,30,'USA','PA','McKeesport','Toots','Shultz','Wallace Luther',175,70,'R','R','1911-05-05','1912-09-13'),
 ('shumaan01',1973,5,14,'USA','AZ','Tucson',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Shumaker','Anthony Warren',225,77,'L','L','1999-07-23','1999-10-02'),
@@ -537973,12 +538430,15 @@ INSERT INTO `people` VALUES
 ('simonme01',1900,7,1,'USA','IL','Carlyle',1974,11,10,'USA','KY','Paducah','Mel','Simons','Melbern Ellis',175,70,'L','R','1931-04-14','1932-04-20'),
 ('simonmi01',1883,4,13,'USA','IN','Hayden',1963,6,10,'USA','CA','Los Angeles','Mike','Simon','Michael Edward',188,71,'R','R','1909-06-27','1915-09-30'),
 ('simonra01',1975,5,25,'Curacao',NULL,'Willemstad',NULL,NULL,NULL,NULL,NULL,NULL,'Randall','Simon','Randall Carlito',180,72,'L','L','1997-09-01','2006-09-30'),
+('simonro01',2000,4,17,'D.R.','La Romana','La Romana',NULL,NULL,NULL,NULL,NULL,NULL,'Ronny','Simon','Ronny Oliver',150,68,'B','R','2025-04-21',NULL),
 ('simonsy01',1897,12,14,'USA','IN','Evansville',1973,2,28,'USA','IN','Chandler','Syl','Simon','Sylvester Adam',170,70,'R','R','1923-10-01','1924-09-27'),
 ('simpsal01',1977,8,26,'USA','IL','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Allan','Simpson','Larry Allan',180,76,'R','R','2004-05-17','2006-06-09'),
+('simpsch01',2000,11,18,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Chandler','Simpson','Chandler Lenard',170,71,'L','R','2025-04-19',NULL),
 ('simpsdi01',1943,7,28,'USA','DC','Washington',NULL,NULL,NULL,NULL,NULL,NULL,'Dick','Simpson','Richard Charles',176,76,'R','R','1962-09-21','1969-08-27'),
 ('simpsdu01',1927,9,15,'USA','OH','Columbus',2021,2,7,'USA','CA','Folsom','Tom','Simpson','Thomas Leo',190,73,'R','R','1953-05-06','1953-09-17'),
 ('simpsha01',1925,12,3,'USA','GA','Atlanta',1979,4,3,'USA','OH','Akron','Harry','Simpson','Harry Leon',180,73,'L','R','1951-04-21','1959-09-27'),
 ('simpsjo01',1951,12,31,'USA','OK','Purcell',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Simpson','Joe Allen',175,75,'L','L','1975-09-02','1983-10-01'),
+('simpsjo02',1997,8,19,'USA','CT','Stafford',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Simpson','Joshua Wayne',190,74,'L','L','2025-06-21',NULL),
 ('simpsma01',NULL,NULL,NULL,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Marty','Simpson','Martin',NULL,NULL,NULL,NULL,'1873-05-14','1873-07-11'),
 ('simpsst01',1948,8,30,'USA','MO','St. Joseph',1989,11,2,'USA','NE','Omaha','Steve','Simpson','Steven Edward',200,75,'R','R','1972-09-10','1972-10-03'),
 ('simpswa01',1948,12,2,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Wayne','Simpson','Wayne Kirby',220,75,'R','R','1970-04-09','1977-09-29'),
@@ -538009,6 +538469,7 @@ INSERT INTO `people` VALUES
 ('siscoch01',1995,2,24,'USA','CA','Corona',NULL,NULL,NULL,NULL,NULL,NULL,'Chance','Sisco','Chance Thomas Leo',210,75,'L','R','2017-09-02','2021-09-03'),
 ('siscost01',1969,12,2,'USA','CA','Thousand Oaks',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Sisco','Steven Michael',190,70,'R','R','2000-05-06','2000-09-30'),
 ('siskdo01',1957,9,26,'USA','WA','Renton',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Sisk','Douglas Randall',210,74,'R','R','1982-09-06','1991-05-23'),
+('siskev01',1997,4,23,'USA','SC','Chester',NULL,NULL,NULL,NULL,NULL,NULL,'Evan','Sisk','Samuel Evan',209,74,'L','L','2025-04-15',NULL),
 ('siskto01',1942,4,12,'USA','OK','Ardmore',NULL,NULL,NULL,NULL,NULL,NULL,'Tommie','Sisk','Tommie Wayne',195,75,'R','R','1962-07-19','1970-06-14'),
 ('sisleda01',1931,10,16,'USA','MO','St. Louis',2011,1,9,'USA','MO','St. Louis','Dave','Sisler','David Michael',200,76,'R','R','1956-04-21','1962-09-23'),
 ('sisledi01',1920,11,2,'USA','MO','St. Louis',1998,11,20,'USA','TN','Nashville','Dick','Sisler','Richard Allan',205,74,'L','R','1946-04-16','1953-08-01'),
@@ -538028,6 +538489,7 @@ INSERT INTO `people` VALUES
 ('skalsjo01',1964,9,26,'USA','IL','Burnham',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Skalski','Joseph Douglas',190,75,'R','R','1989-04-10','1989-04-14'),
 ('skaugda01',1940,1,10,'USA','IA','Algona',2023,7,16,'USA','CA','Desert Hot Springs','Dave','Skaugstad','David Wendell',179,73,'L','L','1957-09-25','1957-09-29'),
 ('skeelda01',1891,12,29,'USA','WA','Addy',1926,12,2,'USA','WA','Spokane','Dave','Skeels','David L.',187,73,'L','R','1910-09-14','1910-09-14'),
+('skenepa01',2002,5,29,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Skenes','Paul David',260,78,'R','R','2024-05-11',NULL),
 ('sketcbu01',1919,3,30,'CAN','MB','Virden',1979,12,19,'USA','CA','Los Angeles','Harry','Sketchley','Harry Clement',180,70,'L','L','1942-04-14','1942-04-29'),
 ('skidmro01',1945,10,30,'USA','IL','Decatur',NULL,NULL,NULL,NULL,NULL,NULL,'Roe','Skidmore','Robert Roe',188,75,'R','R','1970-09-17','1970-09-17'),
 ('skiffbi01',1895,10,16,'USA','NY','New Rochelle',1976,12,25,'USA','NY','Bronxville','Bill','Skiff','William Franklin',170,70,'R','R','1921-05-17','1926-09-26'),
@@ -538057,6 +538519,7 @@ INSERT INTO `people` VALUES
 ('slappjo01',1898,8,8,'USA','GA','Albany',1957,6,10,'USA','GA','Marietta','John','Slappey','John Henry',170,76,'L','L','1920-08-23','1920-10-02'),
 ('slateau01',1992,12,13,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Slater','Austin Thomas',204,73,'R','R','2017-06-02','2022-10-05'),
 ('slatedo01',1980,2,4,'USA','CA','Venice',2016,10,4,'USA','FL','Palm Beach Gardens','Doug','Slaten','Douglas',215,77,'L','L','2006-09-04','2012-06-25'),
+('slateju01',1997,9,15,'USA','TX','Longview',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Slaten','Justin Michael',222,76,'R','R','2024-03-30',NULL),
 ('slatoji01',1950,6,19,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Slaton','James Michael',185,72,'R','R','1971-04-14','1986-09-28'),
 ('slattja01',1878,1,6,'USA','MA','South Boston',1949,7,17,'USA','MA','Boston','Jack','Slattery','John Thomas',191,74,'R','R','1901-09-28','1909-09-29'),
 ('slattmi01',1866,11,26,'USA','MA','Boston',1904,10,16,'USA','MA','Boston','Mike','Slattery','Michael J.',210,74,'L','L','1884-04-17','1891-07-23'),
@@ -538126,6 +538589,8 @@ INSERT INTO `people` VALUES
 ('smithca02',1989,10,19,'USA','TX','Midland',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Smith','Carson Donald',215,78,'R','R','2014-09-01','2018-05-14'),
 ('smithca03',1991,7,28,'USA','TX','Huntsville',NULL,NULL,NULL,NULL,NULL,NULL,'Caleb','Smith','Caleb Anthony',207,72,'R','L','2017-07-17','2022-10-05'),
 ('smithca04',1999,4,30,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Canaan','Smith-Njigba','Canaan Elijah',230,72,'L','R','2022-06-14','2022-06-15'),
+('smithca05',1999,5,9,'CAN','BC','Abbotsford',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Smith','Cade Jared Benjamin',230,77,'R','R','2024-03-30',NULL),
+('smithca07',2003,2,22,'USA','FL','Lake Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Smith','Cameron Vaughn',224,75,'R','R','2025-03-27',NULL),
 ('smithch01',1840,12,11,'USA','NY','Brooklyn',1897,11,15,'USA','NY','Great Neck','Charlie','Smith','Charles J.',150,70,NULL,NULL,'1871-05-18','1871-08-01'),
 ('smithch02',1880,4,20,'USA','OH','Cleveland',1929,1,3,'USA','OH','Wickliffe','Charlie','Smith','Charles Edwin',185,73,'R','R','1902-08-06','1914-09-19'),
 ('smithch03',1892,12,2,'USA','KY','Dayton',1935,10,11,'USA','KY','Dayton','Chick','Smith','John William',165,68,'L','L','1913-04-12','1913-05-21'),
@@ -538152,6 +538617,7 @@ INSERT INTO `people` VALUES
 ('smithdr01',1993,9,24,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Smith','Andrew David',192,73,'R','R','2018-06-23','2022-10-04'),
 ('smithdw01',1963,11,8,'USA','FL','Tallahassee',2022,7,22,'USA','GA','Peachtree City','Dwight','Smith','John Dwight',175,71,'L','R','1989-05-01','1996-09-29'),
 ('smithdw02',1992,10,26,'USA','GA','Peachtree City',NULL,NULL,NULL,NULL,NULL,NULL,'Dwight','Smith','John Dwight',210,72,'L','R','2017-05-18','2020-08-20'),
+('smithdy01',2000,5,28,'USA','AL','Huntsville',NULL,NULL,NULL,NULL,NULL,NULL,'Dylan','Smith','Dylan Miguel',180,74,'R','R','2025-06-02',NULL),
 ('smithea01',1891,1,20,'USA','OH','Oak Hill',1943,3,13,'USA','OH','Portsmouth','Earl','Smith','Earl Leonard',170,71,'B','R','1916-09-10','1922-08-06'),
 ('smithea02',1897,2,14,'USA','AR','Sheridan',1963,6,8,'USA','AR','Little Rock','Earl','Smith','Earl Sutton',180,70,'L','R','1919-04-24','1930-09-28'),
 ('smithea03',1928,3,14,'USA','WA','Sunnyside',2014,9,27,'USA','CA','Fresno','Earl','Smith','Earl Calvin',185,72,'R','R','1955-04-14','1955-04-29'),
@@ -538252,6 +538718,7 @@ INSERT INTO `people` VALUES
 ('smithru01',1905,1,24,'USA','NC','Guilford College',1984,8,21,'USA','SC','Aiken','Rufus','Smith','Rufus Frazier',165,68,'R','L','1927-10-02','1927-10-02'),
 ('smithse01',1982,9,30,'USA','MS','Jackson',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Smith','Garry Seth',210,75,'L','L','2007-09-16','2017-09-30'),
 ('smithsh01',1891,2,18,'USA','GA','Monticello',1949,9,12,'USA','GA','Reidsville','Sherry','Smith','Sherrod Malone',170,73,'R','L','1911-05-11','1927-07-18'),
+('smithsh02',2000,4,4,'USA','MA','Danvers',NULL,NULL,NULL,NULL,NULL,NULL,'Shane','Smith','Shane Jeffrey',240,75,'R','R','2025-04-01',NULL),
 ('smithsk01',1868,3,19,'USA','MD','Baltimore',1916,4,26,'USA','MO','St. Louis','Skyrocket','Smith','Samuel J.',170,74,'R',NULL,'1888-04-18','1888-07-08'),
 ('smithst01',1873,11,24,'USA','IL','Elmwood',1947,11,14,'USA','MA','Fall River','Stub','Smith','James Abner',145,66,'L','R','1898-09-10','1898-10-15'),
 ('smithst02',1978,9,1,'USA','OK','McAlester',NULL,NULL,NULL,NULL,NULL,NULL,'Stephen','Smitherman','Stephen Lydell',230,76,'R','R','2003-07-01','2003-09-25'),
@@ -538346,6 +538813,7 @@ INSERT INTO `people` VALUES
 ('soffra01',1958,10,31,'USA','MI','Adrian',NULL,NULL,NULL,NULL,NULL,NULL,'Ray','Soff','Raymond John',185,72,'R','R','1986-07-17','1987-05-28'),
 ('sofieri01',1956,12,16,'USA','WY','Cheyenne',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Sofield','Richard Michael',195,73,'L','R','1979-04-06','1981-10-04'),
 ('sogarer01',1986,5,22,'USA','AZ','Phoenix',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Sogard','Eric Sidney',180,70,'L','R','2010-09-14','2021-07-21'),
+('sogarni01',1997,9,9,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Sogard','Nicholas John',189,73,'B','R','2024-08-02',NULL),
 ('sojolu01',1965,1,3,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Sojo','Luis Beltran',172,71,'R','R','1990-07-14','2003-09-28'),
 ('solaito01',1947,1,15,'American Samoa',NULL,'Nuuuli',1990,2,10,'American Samoa',NULL,'Tafuna','Tony','Solaita','Tolia',210,72,'L','L','1968-09-16','1979-09-30'),
 ('solakni01',1995,1,11,'USA','IL','Woodridge',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Solak','Nicholas Blake',185,71,'R','R','2019-08-20','2022-09-14'),
@@ -538368,6 +538836,7 @@ INSERT INTO `people` VALUES
 ('somerjo01',1882,10,26,'USA','IN','Flint',1965,4,21,'USA','IN','Butler','John','Somerlott','John Wesley',160,72,'R','R','1910-09-19','1911-05-25'),
 ('sommean01',1876,2,6,'USA','NY','Brooklyn',1931,6,16,'USA','NY','Jamaica','Andy','Sommerville','Andrew Henry',NULL,NULL,NULL,NULL,'1894-08-08','1894-08-08'),
 ('sommebi01',1923,2,17,'USA','NY','Brooklyn',2000,9,22,'USA','FL','Palm City','Bill','Sommers','William Dunn',180,72,'R','R','1950-04-25','1950-10-01'),
+('sommedr01',2000,8,14,'USA','IL','Hoffman Estates',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Sommers','Drew Gregory',250,75,'L','L','2025-08-22',NULL),
 ('sommejo01',1858,11,20,'USA','KY','Covington',1938,1,16,'USA','OH','Cincinnati','Joe','Sommer','Joseph John',165,71,'R','R','1880-07-08','1890-10-15'),
 ('sommepe01',1865,10,26,'USA','OH','Cleveland',1908,7,22,'USA','OH','Cleveland','Andy','Sommers','John Andrew',181,71,'R','R','1887-04-27','1890-10-04'),
 ('sommeru01',1886,10,30,'USA','OH','Cincinnati',1949,3,18,'USA','KY','Louisville','Rudy','Sommers','Rudolph',165,71,'B','L','1912-09-08','1927-07-13'),
@@ -538455,6 +538924,7 @@ INSERT INTO `people` VALUES
 ('spencha99',1853,2,22,'USA','NY','New York',1908,5,17,'USA','IL','Chicago','Harry','Spence','Harrison Leslie',NULL,NULL,NULL,NULL,NULL,NULL),
 ('spencji01',1947,7,30,'USA','PA','Hanover',2002,2,10,'USA','FL','Fort Lauderdale','Jim','Spencer','James Lloyd',195,74,'L','L','1968-09-07','1982-06-20'),
 ('spencjo01',1988,1,22,'Australia','Victoria','Grovedale',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Spence','Joshua Patrick William',195,74,'L','L','2011-06-24','2012-05-11'),
+('spencmi01',1998,5,6,'USA','WA','Kirkland',NULL,NULL,NULL,NULL,NULL,NULL,'Mitch','Spence','Mitch Perry',185,73,'R','R','2024-03-29',NULL),
 ('spencro01',1900,2,22,'USA','NC','Scranton',1973,2,8,'USA','FL','Port Charlotte','Roy','Spencer','Roy Hampton',168,70,'R','R','1925-04-19','1938-05-09'),
 ('spencse01',1975,5,29,'USA','WA','Seattle',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Spencer','Sean James',185,71,'L','L','1999-05-06','2000-09-28'),
 ('spencsh01',1972,2,20,'USA','FL','Key West',NULL,NULL,NULL,NULL,NULL,NULL,'Shane','Spencer','Michael Shane',210,71,'R','R','1998-04-10','2004-07-22'),
@@ -538505,6 +538975,7 @@ INSERT INTO `people` VALUES
 ('sprinjo01',1902,8,3,'USA','MO','St. Louis',1994,1,11,'USA','CA','Fremont','Joe','Sprinz','Joseph Conrad',185,71,'R','R','1930-07-16','1933-05-18'),
 ('sprinru01',1968,11,7,'USA','LA','Alexandria',NULL,NULL,NULL,NULL,NULL,NULL,'Russ','Springer','Russell Paul',195,76,'R','R','1992-04-17','2010-08-04'),
 ('sprinst01',1961,2,11,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Springer','Steven Michael',190,72,'R','R','1990-05-22','1992-08-25'),
+('sproabr01',2000,9,17,'USA','FL','Pensacola',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Sproat','Brandon Carl',215,75,'R','R','2025-09-07',NULL),
 ('sproubo01',1941,12,5,'USA','PA','Florin',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Sprout','Robert Samuel',165,72,'L','L','1961-09-27','1961-09-27'),
 ('sprouch01',1919,1,9,'USA','GA','Taylorsville',1980,1,13,'USA','IL','Rockford','Charlie','Sproull','Charles William',185,75,'R','R','1945-04-19','1945-09-21'),
 ('sprowbo01',1956,4,14,'USA','OH','Sandusky',NULL,NULL,NULL,NULL,NULL,NULL,'Bobby','Sprowl','Robert John',190,74,'L','L','1978-09-05','1981-10-03'),
@@ -538684,12 +539155,14 @@ INSERT INTO `people` VALUES
 ('sterljo01',NULL,NULL,NULL,'USA','PA','Philadelphia',1908,11,12,'USA','NJ','Gloucester','John Albert','Sterling',NULL,172,73,'R','R','1890-10-12','1890-10-12'),
 ('sterlra01',1951,4,21,'USA','FL','Key West',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Sterling','Randall Wayne',195,74,'B','R','1974-09-16','1974-09-28'),
 ('sternad01',1980,2,12,'CAN','ON','London',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Stern','Adam James',190,71,'L','R','2005-07-07','2010-05-31'),
+('sternju01',1996,8,29,'USA','CA','La Jolla',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Sterner','Justin James',215,73,'R','R','2024-05-31',NULL),
 ('sterrdu01',1889,10,1,'USA','PA','Milroy',1965,12,8,'USA','MD','Baltimore','Charles','Sterrett','Charles Hurlbut',165,71,'R','R','1912-06-20','1913-06-17'),
 ('stettmi01',1981,1,16,'USA','IN','Huntingburg',NULL,NULL,NULL,NULL,NULL,NULL,'Mitch','Stetter','Mitchel Blake',215,77,'L','L','2007-09-01','2011-05-14'),
 ('stevean01',1994,6,1,'USA','LA','Lafayette',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Stevenson','Andrew Patrick',191,72,'L','L','2017-07-23','2021-10-03'),
 ('stevebo01',1907,4,17,'USA','MD','Chevy Chase',2005,12,30,'USA','MD','Frederick','Bobby','Stevens','Robert Jordan',149,68,'L','R','1931-07-03','1931-08-05'),
 ('steveca01',1996,9,12,'USA','CA','Fremont',NULL,NULL,NULL,NULL,NULL,NULL,'Cal','Stevenson','Cal',175,70,'L','L','2022-08-10','2022-09-04'),
 ('stevech01',1918,7,10,'USA','NM','Van Houten',2018,5,28,'USA','CA','Garden Grove','Chuck','Stevens','Charles Augustus',180,73,'B','L','1941-09-16','1948-07-25'),
+('stevech02',1999,2,3,'USA','CA','Walnut Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Stevens','Chad David',215,75,'R','R','2025-07-03',NULL),
 ('steveda01',1970,3,4,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Stevens','David James',210,75,'R','R','1994-05-20','2000-07-06'),
 ('steveed01',1925,1,12,'USA','TX','Galveston',2012,7,22,'USA','TX','Houston','Ed','Stevens','Edward Lee',190,73,'L','L','1945-07-20','1950-10-01'),
 ('steveje01',1983,9,5,'USA','CA','Berkeley',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Stevens','Jeffrey Allen',205,74,'R','R','2009-07-10','2011-04-22'),
@@ -538720,6 +539193,7 @@ INSERT INTO `people` VALUES
 ('stewama02',1914,9,23,'USA','AL','Stevenson',1960,3,21,'USA','GA','Macon','Mack','Stewart','William Macklin',167,72,'R','R','1944-07-07','1945-06-22'),
 ('stewane01',1918,5,21,'USA','OH','South Charleston',1990,6,8,'USA','OH','London','Neb','Stewart','Walter Nesbitt',195,73,'R','R','1940-09-08','1940-09-29'),
 ('stewasa01',1954,10,28,'USA','NC','Asheville',2018,3,2,'USA','NC','Hendersonville','Sammy','Stewart','Samuel Lee',200,75,'R','R','1978-09-01','1987-10-03'),
+('stewasa02',2003,12,7,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Sal','Stewart','Sal Maxwell',224,73,'R','R','2025-09-01',NULL),
 ('stewasc01',1975,8,14,'USA','MA','Stoughton',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Stewart','Scott Edward',225,74,'R','L','2001-04-05','2004-10-03'),
 ('stewash01',1974,2,25,'USA','OH','Cincinnati',NULL,NULL,NULL,NULL,NULL,NULL,'Shannon','Stewart','Shannon Harold',175,72,'R','R','1995-09-02','2008-06-07'),
 ('stewast01',1894,1,31,'USA','FL','Jasper',1980,12,30,'USA','FL','Lake City','Stuffy','Stewart','John Franklin',160,69,'R','R','1916-09-03','1929-06-29'),
@@ -538867,6 +539341,7 @@ INSERT INTO `people` VALUES
 ('stroued01',1939,10,31,'USA','AL','Lapine',2012,7,2,'USA','OH','Cleveland','Ed','Stroud','Edwin Marvin',180,71,'L','R','1966-09-11','1971-06-29'),
 ('strousa01',1885,3,15,'USA','NJ','Ironia',1970,4,11,'USA','CA','Stockton','Ralph','Stroud','Ralph Vivian',160,72,'R','R','1910-04-29','1916-06-13'),
 ('stroust01',1952,3,15,'USA','CA','Visalia',2018,3,6,'USA','CA','Fresno','Steve','Stroughter','Stephen Lewis',190,74,'L','L','1982-04-07','1982-07-24'),
+('strowka01',1997,9,17,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Kade','Strowd','Randall Kade',200,74,'R','R','2025-05-18',NULL),
 ('strunam01',1889,1,22,'USA','PA','Philadelphia',1979,7,22,'USA','PA','Llanerch','Amos','Strunk','Amos Aaron',175,71,'L','L','1908-09-24','1924-06-28'),
 ('strusst01',1909,2,24,'USA','IL','Riverdale',1985,9,12,'USA','MI','Grand Rapids','Clarence','Struss','Clarence Herbert',163,71,'R','R','1934-09-30','1934-09-30'),
 ('struval01',1860,6,26,'USA','OH','Cincinnati',1929,1,28,'USA','OH','Greenfield','Al','Strueve','Albert Frederick',NULL,NULL,NULL,NULL,'1884-06-22','1884-06-24'),
@@ -538877,6 +539352,7 @@ INSERT INTO `people` VALUES
 ('stuarjo01',1901,4,27,'USA','TN','Clinton',1970,5,13,'USA','WV','Charleston','Johnny','Stuart','John Davis',170,71,'R','R','1922-07-27','1925-10-02'),
 ('stuarlu01',1892,5,23,'USA','NC','Alamance County',1947,6,15,'USA','NC','Winston-Salem','Luke','Stuart','Luther Lane',165,68,'R','R','1921-07-28','1921-08-09'),
 ('stuarma01',1918,8,8,'USA','AR','Paragould',1994,6,16,'USA','AR','Paragould','Marlin','Stuart','Marlin Henry',185,74,'L','R','1949-04-26','1954-08-08'),
+('stubbcj01',1996,11,12,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'CJ','Stubbs','Cameron J.',207,75,'R','R','2025-09-01',NULL),
 ('stubbdr01',1984,10,4,'USA','TX','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Stubbs','Robert Andrew',205,76,'R','R','2009-08-19','2017-05-05'),
 ('stubbfr01',1960,10,21,'USA','NC','Laurinburg',NULL,NULL,NULL,NULL,NULL,NULL,'Franklin','Stubbs','Franklin Lee',215,74,'L','L','1984-04-28','1995-09-29'),
 ('stubbga01',1993,5,26,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Garrett','Stubbs','Garrett Patrick',170,70,'L','R','2019-05-28','2022-10-05'),
@@ -538923,6 +539399,7 @@ INSERT INTO `people` VALUES
 ('sudhowi01',1874,9,17,'USA','MO','St. Louis',1917,5,25,'USA','MO','St. Louis','Willie','Sudhoff','John William',165,67,'R','R','1897-08-20','1906-06-16'),
 ('suerowa01',1991,9,15,'D.R.','Peravia','Sabana Larga',NULL,NULL,NULL,NULL,NULL,NULL,'Wander','Suero','Wander',216,76,'R','R','2018-05-01','2021-09-15'),
 ('suerowi01',1966,11,7,'D.R.','Distrito Nacional','Santo Domingo',1995,11,30,'D.R.','Distrito Nacional','Santo Domingo','William','Suero','Williams',175,69,'R','R','1992-04-09','1993-07-19'),
+('suganto01',1989,10,11,'Japan','Ishikawa','Kanagawa',NULL,NULL,NULL,NULL,NULL,NULL,'Tomoyuki','Sugano','Tomoyuki',198,73,'R','R','2025-03-30',NULL),
 ('sugdejo01',1870,7,31,'USA','PA','Philadelphia',1959,6,26,'USA','PA','Philadelphia','Joe','Sugden','Joseph',180,70,'B','R','1893-07-20','1912-05-18'),
 ('suggsge01',1882,7,7,'USA','NC','Kinston',1949,4,4,'USA','NC','Kinston','George','Suggs','George Franklin',168,67,'R','R','1908-04-21','1915-09-18'),
 ('suhrgu01',1906,1,3,'USA','CA','San Francisco',2004,1,15,'USA','AZ','Scottsdale','Gus','Suhr','August Richard',180,72,'L','R','1930-04-15','1940-05-12'),
@@ -539021,6 +539498,7 @@ INSERT INTO `people` VALUES
 ('suzukku01',1983,10,4,'USA','HI','Wailuku',NULL,NULL,NULL,NULL,NULL,NULL,'Kurt','Suzuki','Kurt Kiyoshi',210,71,'R','R','2007-06-12','2022-10-04'),
 ('suzukma01',1975,5,31,'Japan','Hyogo','Kobe',NULL,NULL,NULL,NULL,NULL,NULL,'Mac','Suzuki','Makoto',195,75,'R','R','1996-07-07','2002-06-28'),
 ('suzukse01',1994,8,18,'Japan','Tokyo','Arakawa',NULL,NULL,NULL,NULL,NULL,NULL,'Seiya','Suzuki','Seiya',182,71,'R','R','2022-04-07','2022-10-05'),
+('svansma01',1999,1,31,'USA','IL','Lake Zurich',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Svanson','Matthew Patrick',230,77,'R','R','2025-04-17',NULL),
 ('sveumda01',1963,11,23,'USA','CA','Richmond',NULL,NULL,NULL,NULL,NULL,NULL,'Dale','Sveum','Dale Curtis',185,74,'B','R','1986-05-12','1999-10-03'),
 ('swababi01',1867,8,1,'USA','NY','New York',1949,5,17,'USA','CT','Stamford','Bill','Swarback','William',170,66,NULL,NULL,'1887-07-09','1887-07-12'),
 ('swaciha01',1881,8,22,'USA','MO','St. Louis',1944,6,21,'USA','AL','Birmingham','Harry','Swacina','Harry Joseph',190,74,'R','R','1907-09-13','1915-08-26'),
@@ -539065,6 +539543,7 @@ INSERT INTO `people` VALUES
 ('sweenpe01',1863,12,31,'USA','CA','San Mateo',1901,8,22,'USA','CA','San Francisco','Pete','Sweeney','Peter John',170,69,'R','R','1888-09-28','1890-10-02'),
 ('sweenro01',1858,11,1,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Rooney','Sweeney','John J.',155,68,NULL,NULL,'1883-07-25','1885-06-09'),
 ('sweenry01',1985,2,20,'USA','IA','Cedar Rapids',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Sweeney','Ryan Joseph',225,76,'L','L','2006-09-01','2014-08-26'),
+('sweentr01',2000,4,24,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Trey','Sweeney','Trey Thomas',212,75,'L','R','2024-08-16',NULL),
 ('sweetde01',1996,9,6,'USA','NC','Greensboro',NULL,NULL,NULL,NULL,NULL,NULL,'Devin','Sweet','Devin',183,71,'B','R','2023-07-19','2023-09-19'),
 ('sweetle01',1901,8,15,'USA','MI','St. Ignace',1974,3,4,'USA','FL','Melbourne','Les','Sweetland','Lester Leo',155,71,'R','L','1927-07-04','1931-09-21'),
 ('sweetri01',1952,9,7,'USA','WA','Longview',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Sweet','Ricky Joe',200,73,'B','R','1978-04-08','1983-10-02'),
@@ -539182,6 +539661,7 @@ INSERT INTO `people` VALUES
 ('taverle01',1998,9,8,'D.R.','Hermanas Mirabal','Tenares',NULL,NULL,NULL,NULL,NULL,NULL,'Leody','Taveras','Leody',195,74,'B','R','2020-07-24','2022-10-05'),
 ('taveros01',1992,6,19,'D.R.','Puerto Plata','Puerto Plata',2014,10,26,'D.R.','Puerto Plata','Puerto Plata','Oscar','Taveras','Oscar Francisco',200,74,'L','L','2014-05-31','2014-09-28'),
 ('taverwi01',1981,12,25,'D.R.','Hermanas Mirabal','Tenares',NULL,NULL,NULL,NULL,NULL,NULL,'Willy','Taveras','Willy',180,72,'R','R','2004-09-06','2010-05-15'),
+('tawati01',1999,4,7,'USA','OR','West Linn',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Tawa','Timothy John',196,71,'R','R','2025-04-05',NULL),
 ('tayloaa01',1977,8,20,'USA','GA','Valdosta',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Taylor','Aaron Wade',230,79,'R','R','2002-09-09','2004-10-02'),
 ('tayloan01',1986,8,18,'USA','NC','Durham',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Taylor','Andrew Raymond',205,74,'R','L','2012-09-27','2012-10-03'),
 ('tayloar01',1896,3,16,'USA','IN','Warrick County',1958,9,10,'USA','FL','Dade City','Arlas','Taylor','Arlas Walter',NULL,71,'R','L','1921-09-15','1921-09-15'),
@@ -539213,6 +539693,7 @@ INSERT INTO `people` VALUES
 ('tayloga01',1945,10,19,'USA','MI','Detroit',NULL,NULL,NULL,NULL,NULL,NULL,'Gary','Taylor','Gary William',190,74,'R','R','1969-09-02','1969-09-25'),
 ('tayloge99',1852,11,22,'USA','NY','New York',1911,10,28,'USA','NY','New York','George','Taylor','George J.',NULL,NULL,NULL,NULL,NULL,NULL),
 ('taylogr01',1984,5,25,'USA','KY','Covington',NULL,NULL,NULL,NULL,NULL,NULL,'Graham','Taylor','Graham Michael',225,75,'L','L','2009-04-26','2009-05-06'),
+('taylogr02',2002,5,20,'USA','AL','Florence',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Taylor','Grant Alan',230,74,'R','R','2025-06-10',NULL),
 ('tayloha01',1866,4,4,'USA','NY','Halsey Valley',1955,7,12,'USA','NY','Buffalo','Harry','Taylor','Harry Leonard',160,74,'L',NULL,'1890-04-18','1893-09-29'),
 ('tayloha02',1907,12,26,'USA','PA','McKeesport',1969,4,27,'USA','OH','Toledo','Harry','Taylor','Harry Warren',185,73,'L','L','1932-04-14','1932-05-28'),
 ('tayloha03',1919,5,20,'USA','IN','East Glenn',2000,11,5,'USA','IN','Terre Haute','Harry','Taylor','James Harry',175,73,'R','R','1946-09-22','1952-05-04'),
@@ -539237,6 +539718,7 @@ INSERT INTO `people` VALUES
 ('taylote01',1964,7,28,'USA','FL','Crestview',NULL,NULL,NULL,NULL,NULL,NULL,'Terry','Taylor','Terry Derrell',180,73,'R','R','1988-08-19','1988-09-20'),
 ('tayloto01',1892,9,17,'USA','TX','Mexia',1956,4,5,'USA','MS','Greenville','Tommy','Taylor','Thomas Livingstone Carlton',160,68,'R','R','1924-07-09','1924-09-30'),
 ('tayloto02',1935,12,19,'Cuba','Matanzas','Central Alava',2020,7,16,'USA','FL','Hialeah','Tony','Taylor','Antonio Nemesio',170,69,'R','R','1958-04-15','1976-09-29'),
+('taylotr01',2001,9,9,'USA','CA','Fontana',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Taylor','Troy Jonathan',205,72,'R','R','2024-08-11',NULL),
 ('tayloty01',1994,1,22,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Tyrone','Taylor','Tyrone Anthony',194,72,'R','R','2019-09-07','2022-10-05'),
 ('taylowa01',1965,10,19,'USA','AL','Mobile',NULL,NULL,NULL,NULL,NULL,NULL,'Wade','Taylor','Wade Eric',185,73,'R','R','1991-06-02','1991-09-26'),
 ('taylowi01',1888,3,18,'USA','KS','Wamego',1954,7,8,'USA','KS','Westmoreland','Wiley','Taylor','Philip Wiley',175,73,'R','R','1911-09-06','1914-08-05'),
@@ -539253,6 +539735,7 @@ INSERT INTO `people` VALUES
 ('tebeapu01',1870,2,22,'USA','MA','Worcester',1950,3,25,'USA','MA','Pittsfield','Pussy','Tebeau','Charles Alston',175,70,NULL,NULL,'1895-07-22','1895-07-23'),
 ('tedroal01',1891,12,14,'USA','OH','Westerville',1958,1,23,'USA','OH','Westerville','Al','Tedrow','Allen Seymour',180,72,'R','L','1914-09-15','1914-09-27'),
 ('teeddi01',1926,3,8,'USA','MA','Springfield',2014,8,17,'USA','RI','Newport','Dick','Teed','Richard Leroy',180,71,'B','R','1953-07-24','1953-07-24'),
+('teelky01',2002,2,15,'USA','NJ','Ridgewood',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Teel','Kyle Henry',210,72,'L','R','2025-06-06',NULL),
 ('teherju01',1991,1,27,'Colombia','Bolivar','Cartagena',NULL,NULL,NULL,NULL,NULL,NULL,'Julio','Teheran','Julio Alberto',205,74,'R','R','2011-05-07','2021-04-03'),
 ('teixema01',1980,4,11,'USA','MD','Annapolis',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Teixeira','Mark Charles',225,75,'B','R','2003-04-01','2016-10-02'),
 ('tejadmi01',1974,5,25,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Miguel','Tejada','Miguel Odalis',220,69,'R','R','1997-08-27','2013-08-10'),
@@ -539275,10 +539758,12 @@ INSERT INTO `people` VALUES
 ('tenacge01',1946,10,10,'USA','PA','Russellton',NULL,NULL,NULL,NULL,NULL,NULL,'Gene','Tenace','Fury Gene',190,72,'R','R','1969-05-29','1983-09-30'),
 ('tenajo01',2001,3,20,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'José','Tena','José Luis',195,71,'L','R','2023-08-05','2023-10-01'),
 ('tenerjo01',1863,7,25,'Ireland',NULL,'County Tyrone',1946,5,19,'USA','PA','Pittsburgh','John','Tener','John Kinley',180,76,'R','R','1885-06-08','1890-10-04'),
+('tengka01',1998,12,1,'Taiwan','Taichung City','Taichung City',NULL,NULL,NULL,NULL,NULL,NULL,'Kai-Wei','Teng','Kai-Wei',241,76,'R','R','2024-03-31',NULL),
 ('tennaji01',1907,3,3,'USA','WV','Shepherdstown',1967,4,16,'USA','CT','Trumbull','Jim','Tennant','James McDonnell',190,73,'R','R','1929-09-28','1929-09-28'),
 ('tennato01',1882,7,3,'USA','WI','Monroe',1955,2,15,'USA','CA','San Carlos','Tom','Tennant','Thomas Francis',165,71,'L','L','1912-04-18','1912-04-21'),
 ('tennefr01',1859,7,9,'USA','NH','Marlborough',1919,6,15,'USA','MA','Fall River','Fred','Tenney','Fred Clay',NULL,NULL,NULL,'L','1884-06-17','1884-08-28'),
 ('tennefr02',1871,11,26,'USA','MA','Georgetown',1952,7,3,'USA','MA','Boston','Fred','Tenney','Frederick',155,69,'L','L','1894-06-16','1911-10-07'),
+('teodobr01',1999,6,18,'USA','SC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Bryce','Teodosio','Bryce Thomas',220,75,'R','L','2024-09-07',NULL),
 ('tepedfr01',1947,11,23,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Frank','Tepedino','Frank Ronald',185,71,'L','L','1967-05-12','1975-04-29'),
 ('teperry01',1987,11,3,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Tepera','Dennis Ryan',195,73,'R','R','2015-05-10','2022-10-04'),
 ('tepesni01',1988,10,12,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Tepesch','Nicholas James',240,76,'R','R','2013-04-09','2017-08-19'),
@@ -539358,6 +539843,8 @@ INSERT INTO `people` VALUES
 ('thomacl02',1983,11,14,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Clete','Thomas','Michael Clete',200,71,'L','R','2008-03-31','2013-09-29'),
 ('thomacl03',1896,11,25,'USA','KY','Greenup',1990,12,3,'Charleston','USA','WV','Clinton','Thomas','Clinton Cyrus',186,69,'R','R',NULL,NULL),
 ('thomaco01',1994,10,8,'USA','TX','Colleyville',NULL,NULL,NULL,NULL,NULL,NULL,'Cody','Thomas','Cody Ryan',211,76,'L','R','2022-09-01','2022-09-15'),
+('thomaco02',1998,5,29,'USA','GA','Tifton',NULL,NULL,NULL,NULL,NULL,NULL,'Connor','Thomas','Sidney Connor',200,72,'L','L','2025-03-29',NULL),
+('thomaco03',2001,1,26,'USA','GA','Valdosta',NULL,NULL,NULL,NULL,NULL,NULL,'Colby','Thomas','Colby Grant',190,70,'R','R','2025-06-30',NULL),
 ('thomada01',1951,5,9,'USA','AL','Birmingham',1980,6,12,'USA','AL','Mobile','Dan','Thomas','Danny Lee',190,74,'R','R','1976-09-02','1977-05-18'),
 ('thomade01',1951,1,14,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Derrel','Thomas','Derrell Osbon',160,72,'B','R','1971-09-14','1985-10-05'),
 ('thomadi01',1992,12,10,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Dillon','Thomas','Dillon Everett',215,73,'L','L','2021-06-09','2022-08-02'),
@@ -539386,6 +539873,7 @@ INSERT INTO `people` VALUES
 ('thomapi01',1888,1,24,'USA','IL','Camp Point',1953,12,24,'USA','CA','Modesto','Pinch','Thomas','Chester David',173,69,'L','R','1912-04-24','1921-06-19'),
 ('thomara01',1910,7,9,'USA','NH','Dover',1993,12,6,'USA','NC','Wilson','Ray','Thomas','Raymond Joseph',175,70,'R','R','1938-07-22','1938-07-22'),
 ('thomare01',1898,4,25,'USA','AL','Hargrove',1962,3,22,'USA','OH','Fremont','Red','Thomas','Robert William',165,71,'R','R','1921-09-13','1921-09-28'),
+('thomarh01',2000,4,15,'USA','CA','Ventura',NULL,NULL,NULL,NULL,NULL,NULL,'Rhylan','Thomas','Rhylan Christopher',170,70,'L','L','2025-05-02',NULL),
 ('thomaro01',1874,3,24,'USA','PA','Norristown',1959,11,20,'USA','PA','Norristown','Roy','Thomas','Roy Allen',150,71,'L','L','1899-04-14','1911-09-04'),
 ('thomaro02',1953,6,22,'USA','VA','Quantico',NULL,NULL,NULL,NULL,NULL,NULL,'Roy','Thomas','Roy Justin',215,77,'R','R','1977-09-21','1987-08-04'),
 ('thomast01',1949,7,11,'USA','ME','Rumford',NULL,NULL,NULL,NULL,NULL,NULL,'Stan','Thomas','Stanley Brown',185,74,'R','R','1974-07-05','1977-10-02'),
@@ -539464,6 +539952,7 @@ INSERT INTO `people` VALUES
 ('thornwa01',1875,2,18,'USA','IL','Peoria',1960,7,14,'USA','CA','Los Angeles','Walter','Thornton','Walter Miller',180,73,'L','L','1895-07-01','1898-10-08'),
 ('thorpbo01',1926,11,19,'USA','FL','Caryville',1996,10,30,'USA','MS','Waveland','Bob','Thorpe','Benjamin Robert',190,73,'R','R','1951-04-19','1953-09-27'),
 ('thorpbo02',1935,6,12,'USA','CA','San Diego',1960,3,17,'USA','CA','San Diego','Bob','Thorpe','Robert Joseph',170,73,'R','R','1955-04-17','1955-04-20'),
+('thorpdr01',2000,10,1,'USA','UT','Washington',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Thorpe','Andrew Robert',220,76,'L','R','2024-06-11',NULL),
 ('thorpji01',1887,5,28,'USA','OK','Prague',1953,3,28,'USA','CA','Lomita','Jim','Thorpe','James Francis',185,73,'R','R','1913-04-14','1919-09-25'),
 ('thorple01',1995,11,23,'Australia','Victoria','Melbourne',NULL,NULL,NULL,NULL,NULL,NULL,'Lewis','Thorpe','Lewis James',218,73,'R','L','2019-06-30','2021-08-18'),
 ('thrasbu01',1889,8,6,'USA','GA','Watkinsville',1938,6,12,'USA','TN','Cleveland','Buck','Thrasher','Frank Edward',182,71,'L','R','1916-09-27','1917-05-17'),
@@ -539483,6 +539972,7 @@ INSERT INTO `people` VALUES
 ('tibbsja01',1962,1,4,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Jay','Tibbs','Jay Lindsey',185,75,'R','R','1984-07-15','1990-07-07'),
 ('ticety01',1996,7,4,'USA','AR','Prairie Grove',NULL,NULL,NULL,NULL,NULL,NULL,'Ty','Tice','Ty Christian',185,69,'L','R','2021-04-09','2021-06-21'),
 ('tidrodi01',1947,5,14,'USA','CA','San Francisco',2021,7,10,'USA','MO','Lee\'s Summit','Dick','Tidrow','Richard William',210,76,'R','R','1972-04-18','1984-05-07'),
+('tidwebl01',2001,6,8,'USA','TN','Columbia',NULL,NULL,NULL,NULL,NULL,NULL,'Blade','Tidwell','Janzen Blade',207,76,'R','R','2025-05-04',NULL),
 ('tiefebo01',1929,10,10,'USA','MO','Desloge',2000,6,13,'USA','MO','Desloge','Bobby','Tiefenauer','Bobby Gene',185,74,'R','R','1952-07-14','1968-09-21'),
 ('tiefeve01',1937,7,11,'USA','IA','Breda',NULL,NULL,NULL,NULL,NULL,NULL,'Verle','Tiefenthaler','Verle Matthew',190,73,'L','R','1962-08-19','1962-08-31'),
 ('tiemeed01',1885,5,9,'USA','OH','Cincinnati',1946,9,27,'USA','OH','Cincinnati','Eddie','Tiemeyer','Edward Carl',185,71,'R','R','1906-08-19','1909-10-01'),
@@ -539542,10 +540032,12 @@ INSERT INTO `people` VALUES
 ('tolanbo01',1945,11,19,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Bobby','Tolan','Robert',170,71,'L','L','1965-09-03','1979-09-19'),
 ('tolarke01',1971,1,28,'USA','FL','Panama City',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Tolar','Kevin Anthony',225,75,'R','L','2000-09-11','2003-05-04'),
 ('tolbema01',1982,5,4,'USA','MS','McComb',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Tolbert','Christopher Matthew',185,72,'B','R','2008-04-01','2011-09-27'),
+('tolbety01',1998,1,27,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Tolbert','Tyler Mangual',185,71,'R','R','2025-03-31',NULL),
 ('tolenjo01',1961,6,3,'Mexico','Distrito Federal','Mexico',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Tolentino','Jose',195,73,'L','L','1991-07-28','1991-10-06'),
 ('tolesan01',1992,5,24,'USA','GA','Decatur',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Toles','Alvin Andrew',192,69,'L','R','2016-07-08','2018-09-30'),
 ('tolivfr01',1961,2,3,'USA','MS','Natchez',NULL,NULL,NULL,NULL,NULL,NULL,'Freddie','Toliver','Freddie Lee',165,73,'R','R','1984-09-15','1993-07-04'),
 ('tollbbr01',1972,9,16,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Tollberg','Brian Patrick',195,75,'R','R','2000-06-20','2003-06-10'),
+('tollepa01',2002,11,1,'USA','OK','Stillwater',NULL,NULL,NULL,NULL,NULL,NULL,'Payton','Tolle','Payton John',250,78,'L','L','2025-08-29',NULL),
 ('tollesh01',1988,1,19,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Shawn','Tolleson','Shawn Mark',214,73,'R','R','2012-06-07','2016-07-27'),
 ('tollest01',1983,11,1,'USA','SC','Spartanburg',NULL,NULL,NULL,NULL,NULL,NULL,'Steven','Tolleson','Steven Wayne',185,71,'R','R','2010-04-28','2015-05-26'),
 ('tollewa01',1955,11,22,'USA','SC','Spartanburg',NULL,NULL,NULL,NULL,NULL,NULL,'Wayne','Tolleson','Jimmy Wayne',160,69,'B','R','1981-09-01','1990-09-30'),
@@ -539568,6 +540060,7 @@ INSERT INTO `people` VALUES
 ('tompkro01',1944,11,27,'USA','CA','San Diego',2023,2,4,'USA','CA','Laguna Niguel','Ron','Tompkins','Ronald Everett',198,76,'R','R','1965-09-09','1971-09-29'),
 ('tomsto01',1951,10,15,'USA','VA','Charlottesville',NULL,NULL,NULL,NULL,NULL,NULL,'Tommy','Toms','Thomas Howard',195,76,'R','R','1975-05-04','1977-07-02'),
 ('toneyfr01',1888,12,11,'USA','TN','Nashville',1953,3,11,'USA','TN','Nashville','Fred','Toney','Fred Alexandra',195,74,'R','R','1911-04-15','1923-09-29'),
+('tongjo01',2003,6,19,'CAN','ON','Markham',NULL,NULL,NULL,NULL,NULL,NULL,'Jonah','Tong','Jonah Reid Tin Chee Matthew',180,73,'R','R','2025-08-29',NULL),
 ('tonismi01',1979,2,9,'USA','CA','Sacramento',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Tonis','Michael Timothy',220,75,'R','R','2004-06-20','2004-06-24'),
 ('tonkido01',1881,8,11,'USA','NH','Concord',1959,5,30,'USA','FL','Miami','Doc','Tonkin','Harry Glenville',165,69,'L','L','1907-08-19','1907-08-19'),
 ('tonkimi01',1989,11,19,'USA','CA','Glendale',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Tonkin','Michael Harvey',220,79,'R','R','2013-07-11','2017-09-30'),
@@ -539856,10 +540349,12 @@ INSERT INTO `people` VALUES
 ('urreajo01',1955,2,9,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'John','Urrea','John Godoy',200,75,'R','R','1977-04-10','1981-10-04'),
 ('urruthe01',1987,2,13,'Cuba','Las Tunas','Las Tunas',NULL,NULL,NULL,NULL,NULL,NULL,'Henry','Urrutia','Henry Alexander',200,77,'L','R','2013-07-20','2015-08-25'),
 ('urshegi01',1991,10,11,'Colombia','Bolivar','Cartagena',NULL,NULL,NULL,NULL,NULL,NULL,'Gio','Urshela','Giovanny',215,72,'R','R','2015-06-09','2022-10-05'),
+('uruetlu99',1981,1,9,'Colombia','Atlántico','Barranquilla',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Urueta','Luis Felipe',210,74,'B','R',NULL,NULL),
 ('urylo01',1877,4,NULL,'USA','KS','Fort Scott',1918,3,4,'USA','MO','Kansas City','Lon','Ury','Louis Newton',168,72,NULL,'R','1903-09-09','1903-09-12'),
 ('usherbo01',1925,3,1,'USA','CA','San Diego',2014,12,29,'USA','CA','San Jose','Bob','Usher','Robert Royce',180,73,'R','R','1946-04-16','1957-09-19'),
 ('ussatdu01',1904,4,11,'USA','OH','Dayton',1959,5,29,'USA','OH','Dayton','Dutch','Ussat','William August',170,73,'R','R','1925-09-13','1927-10-02'),
 ('utleych01',1978,12,17,'USA','CA','Pasadena',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Utley','Chase Cameron',195,73,'L','R','2003-04-04','2018-09-30'),
+('uwasana01',1994,2,6,'Japan','Chiba','Matsudo',NULL,NULL,NULL,NULL,NULL,NULL,'Naoyuki','Uwasawa','Naoyuki',194,73,'R','R','2024-05-02',NULL),
 ('vachete01',1889,11,17,'USA','CA','Santa Monica',1953,6,11,'USA','CA','Los Angeles','Ernest','Vache','Ernest Lewis',200,73,'R','R','1925-04-16','1925-09-22'),
 ('vadebge01',1859,9,5,'CAN','QC','Louiseville',1893,4,16,'USA','CA','Sacramento','Gene','Vadeboncoeur','Onesime Eugene',150,66,NULL,NULL,'1884-07-11','1884-07-22'),
 ('vahreha01',1885,2,13,'USA','MO','St. Louis',1943,10,10,'USA','MO','St. Louis','Harry','Vahrenhorst','Harry Henry',175,73,'R','R','1904-09-21','1904-09-21'),
@@ -539910,6 +540405,7 @@ INSERT INTO `people` VALUES
 ('valenjo04',1979,12,24,'USA','NV','Las Vegas',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Valentine','Joseph John',190,74,'R','R','2003-08-24','2005-09-30'),
 ('valenvi01',1928,9,16,'USA','NJ','West New York',2021,8,5,'USA','NY','Mount Vernon','Vito','Valentinetti','Vito John',195,72,'R','R','1954-06-20','1959-05-11'),
 ('valerbr01',1992,1,8,'Venezuela','Carabobo','Montalban',NULL,NULL,NULL,NULL,NULL,NULL,'Breyvic','Valera','Breyvic Jose',190,71,'B','R','2017-09-05','2021-09-30'),
+('valerge01',2000,11,13,'USA','NY','Queens',NULL,NULL,NULL,NULL,NULL,NULL,'George','Valera','George',195,70,'L','L','2025-09-01',NULL),
 ('valerju01',1968,10,13,'P.R.',NULL,'Aguadilla',NULL,NULL,NULL,NULL,NULL,NULL,'Julio','Valera','Julio Enrique',185,74,'R','R','1990-09-01','1996-07-26'),
 ('valeryo01',1976,8,17,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Yohanny','Valera','Yohanny',196,73,'R','R','2000-09-13','2000-09-29'),
 ('valleda01',1960,10,30,'USA','NY','Bayside',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Valle','David',200,74,'R','R','1984-09-07','1996-09-29'),
@@ -539918,7 +540414,9 @@ INSERT INTO `people` VALUES
 ('valoel01',1921,3,5,'Czech Republic','Plzensky','Rybnik',1998,7,19,'USA','PA','Palmerton','Elmer','Valo','Elmer William',190,71,'L','R','1940-09-22','1961-10-01'),
 ('valvejo01',1978,3,24,'D.R.','San Pedro de Macoris','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Valverde','Jose Rafael',265,76,'R','R','2003-06-01','2014-05-26'),
 ('vanalcl01',1900,5,24,'USA','NY','Stuyvesant',1960,1,5,'USA','NY','Hudson','Clay','Van Alstyne','Clayton Emory',180,71,'R','R','1927-08-20','1928-05-07'),
+('vanasri01',1998,10,13,'USA','FL','Morriston',NULL,NULL,NULL,NULL,NULL,NULL,'Ricky','Vanasco','Ricky',180,75,'R','R','2024-04-15',NULL),
 ('vanatru01',1906,6,21,'USA','NJ','Augusta',1986,10,10,'USA','NJ','Andover','Russ','Van Atta','Russell',184,72,'L','L','1933-04-25','1939-05-11'),
+('vanbebr01',1996,9,3,'USA','FL','Pembroke Pines',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Van Belle','Brian Michael',185,75,'R','R','2025-08-24',NULL),
 ('vanbejo01',1980,4,14,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'John','Van Benschoten','John Wesley',215,76,'R','R','2004-08-18','2008-07-26'),
 ('vanbroz01',1926,9,28,'CAN','ON','Kingsville',2018,8,18,'USA','CA','La Jolla','Ozzie','Van Brabant','Camille Oscar',165,73,'R','R','1954-04-13','1955-04-23'),
 ('vanbude01',1870,12,14,'USA','IL','LaSalle County',1957,6,29,'USA','OR','Portland','Deacon','Van Buren','Edward Eugene',175,70,'L','R','1904-04-21','1904-05-15'),
@@ -539955,6 +540453,7 @@ INSERT INTO `people` VALUES
 ('vanrybe01',1971,8,9,'USA','IN','Fort Wayne',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','VanRyn','Benjamin Ashley',185,77,'L','L','1996-05-09','1998-09-26'),
 ('vanslan01',1960,12,21,'USA','NY','Utica',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Van Slyke','Andrew James',190,73,'L','R','1983-06-17','1995-10-01'),
 ('vanslsc01',1986,7,24,'USA','MO','Chesterfield',NULL,NULL,NULL,NULL,NULL,NULL,'Scott','Van Slyke','Scott Tyler',215,76,'R','R','2012-05-09','2017-07-06'),
+('vanwelo01',1999,2,14,'USA','MO','Joplin',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','VanWey','Logan Christopher',205,74,'R','R','2025-04-11',NULL),
 ('vanzadi01',1864,11,NULL,'USA','IN','Richmond',1912,8,6,'USA','IN','Richmond','Dick','Van Zant','Richard',175,70,NULL,NULL,'1888-10-04','1888-10-15'),
 ('vanzaik01',1876,2,NULL,'USA','NY','Brooklyn',1908,9,14,'USA','NH','Nashua','Ike','Van Zandt','Charles Isaac',NULL,NULL,'L','L','1901-08-05','1905-10-08'),
 ('vargaan01',1930,12,11,'USA','IL','Chicago',1992,11,4,'USA','FL','Orlando','Andy','Varga','Andrew William',187,76,'R','L','1950-09-09','1951-09-23'),
@@ -539978,6 +540477,7 @@ INSERT INTO `people` VALUES
 ('varshga01',1961,6,20,'USA','WI','Marshfield',NULL,NULL,NULL,NULL,NULL,NULL,'Gary','Varsho','Gary Andrew',190,71,'L','R','1988-07-06','1995-10-01'),
 ('varvaan01',1984,10,31,'USA','NY','Staten Island',2022,9,11,'USA','NJ','Jersey City','Anthony','Varvaro','Anthony Michael',190,72,'R','R','2010-09-24','2015-04-28'),
 ('vasbica01',1880,7,19,'USA','OH','Scio',1950,12,22,'USA','OH','Cadiz','Cal','Vasbinder','Moses Calhoun',NULL,74,'R','R','1902-04-27','1902-05-07'),
+('vasilmi01',2000,3,19,'USA','MA','Boston',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Vasil','Michael',244,76,'L','R','2025-03-31',NULL),
 ('vasquan01',1986,9,19,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Vasquez','Anthony Russell',190,72,'L','L','2011-08-23','2011-09-28'),
 ('vasquan02',1993,9,14,'USA','CA','Rancho Cucamonga',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Vasquez','Andrew Jude',235,78,'L','L','2018-09-01','2022-10-05'),
 ('vasques01',1983,11,7,'D.R.','Hermanas Mirabal','Tenares',NULL,NULL,NULL,NULL,NULL,NULL,'Esmerling','Vasquez','Esmerling de Jesus',200,73,'R','R','2009-04-26','2012-10-01'),
@@ -540003,6 +540503,7 @@ INSERT INTO `people` VALUES
 ('vavrate01',1997,5,12,'USA','WI','Menomonie',NULL,NULL,NULL,NULL,NULL,NULL,'Terrin','Vavra','Terrin Thomas',200,73,'L','R','2022-07-29','2022-10-05'),
 ('vazquch01',1990,8,21,'P.R.',NULL,'Bayamon',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Vazquez','Christian Rafael',205,69,'R','R','2014-07-09','2022-10-05'),
 ('vazquja01',1976,7,25,'P.R.',NULL,'Ponce',NULL,NULL,NULL,NULL,NULL,NULL,'Javier','Vazquez','Javier Carlos',210,74,'R','R','1998-04-03','2011-09-27'),
+('vazqulu01',1999,10,10,'P.R.',NULL,'Orocovis',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Vázquez','Luis',165,72,'R','R','2024-05-22',NULL),
 ('vazqura01',1976,8,21,'P.R.',NULL,'Aibonito',NULL,NULL,NULL,NULL,NULL,NULL,'Ramon','Vazquez','Ramon Luis',195,71,'L','R','2001-09-07','2009-10-04'),
 ('veachal01',1909,8,6,'USA','AL','Maylene',1990,9,6,'USA','NC','Charlotte','Al','Veach','Alvis Lindel',178,71,'R','R','1935-09-22','1935-09-28'),
 ('veachbo01',1888,6,29,'USA','KY','St. Charles',1945,8,7,'USA','MI','Detroit','Bobby','Veach','Robert Hayes',160,71,'L','R','1912-09-06','1925-10-02'),
@@ -540012,6 +540513,7 @@ INSERT INTO `people` VALUES
 ('vealebo01',1935,10,28,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Veale','Robert Andrew',212,78,'B','L','1962-04-16','1974-09-08'),
 ('veddelo01',1897,4,20,'USA','MI','Oakville',1990,3,9,'USA','FL','Lake Placid','Lou','Vedder','Louis Edward',175,70,'R','R','1920-09-18','1920-09-18'),
 ('veeckbi99',1914,2,9,'USA','IL','Chicago',1986,1,2,'USA','IL','Chicago','Bill','Veeck','William Louis',NULL,NULL,NULL,NULL,NULL,NULL),
+('veenza01',2001,12,12,'USA','FL','Port Orange',NULL,NULL,NULL,NULL,NULL,NULL,'Zac','Veen','Zachary Richard',190,75,'L','R','2025-04-08',NULL),
 ('vegaje01',1955,10,14,'P.R.',NULL,'Bayamon',NULL,NULL,NULL,NULL,NULL,NULL,'Jesus','Vega','Jesus Anthony',176,73,'R','R','1979-09-05','1982-09-08'),
 ('veigeal01',1917,1,30,'USA','OH','Dover',2012,4,8,'USA','OH','Dover','Al','Veigel','Allen Francis',180,73,'R','R','1939-09-21','1939-09-25'),
 ('veilbu01',1881,8,2,'USA','PA','Tyrone',1931,4,16,'USA','PA','Altoona','Bucky','Veil','Frederick William',165,70,'R','R','1903-04-19','1904-04-23'),
@@ -540089,6 +540591,7 @@ INSERT INTO `people` VALUES
 ('villada01',1997,1,27,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'David','Villar','David Alexander',215,73,'R','R','2022-07-04','2022-10-05'),
 ('villaed01',1979,8,29,'Venezuela','Distrito Federal','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Eduardo','Villacis','Eduardo Enrique',170,74,'R','R','2004-05-01','2004-05-01'),
 ('villael01',1986,7,27,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Elih','Villanueva','Elih Christopher',230,74,'R','R','2011-06-15','2011-06-15'),
+('villael02',1997,6,26,'USA','CA','La Habra',NULL,NULL,NULL,NULL,NULL,NULL,'Eli','Villalobos','Elijah Daniel',195,76,'R','R','2024-05-05',NULL),
 ('villahe01',1964,10,2,'P.R.',NULL,'Rio Piedras',NULL,NULL,NULL,NULL,NULL,NULL,'Hector','Villanueva','Hector',220,73,'R','R','1990-06-01','1993-06-13'),
 ('villahe02',1987,5,24,'D.R.','Monsenor Nouel','Bonao',NULL,NULL,NULL,NULL,NULL,NULL,'Henry','Villar','Henry',180,71,'R','R','2010-09-10','2010-10-02'),
 ('villajo01',1991,5,2,'D.R.','La Vega','La Vega',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Villar','Jonathan Rafael',233,72,'B','R','2013-07-22','2022-07-23'),
@@ -540120,6 +540623,7 @@ INSERT INTO `people` VALUES
 ('vitkojo01',1970,2,1,'USA','NJ','Somerville',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Vitko','Joseph John',210,80,'R','R','1992-09-18','1992-09-28'),
 ('vittejo01',1989,8,27,'USA','CA','Anaheim',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Vitters','Joshua Warren',200,74,'R','R','2012-08-05','2012-10-03'),
 ('vittos01',1890,1,4,'USA','CA','San Francisco',1963,1,31,'USA','CA','Oakland','Ossie','Vitt','Oscar Joseph',150,70,'R','R','1912-04-11','1921-10-01'),
+('vivasjo01',2001,3,9,'Venezuela','Carabobo','Puerto Cabello',NULL,NULL,NULL,NULL,NULL,NULL,'Jorbit','Vivas','Jorbit Jose',171,69,'L','R','2025-05-02',NULL),
 ('vizcaar01',1990,11,13,'D.R.','San Cristobal','Yaguate',NULL,NULL,NULL,NULL,NULL,NULL,'Arodys','Vizcaino','Arodys',245,72,'R','R','2011-08-10','2022-06-13'),
 ('vizcajo01',1968,3,26,'D.R.','San Cristobal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Vizcaino','Jose Luis',150,73,'B','R','1989-09-10','2006-10-01'),
 ('vizcalu01',1974,8,6,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Vizcaino','Luis',170,73,'R','R','1999-07-23','2009-06-19'),
@@ -540178,6 +540682,7 @@ INSERT INTO `people` VALUES
 ('wadety01',1994,11,23,'USA','CA','Murrieta',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Wade','Tyler Dean',188,73,'L','R','2017-06-27','2022-07-01'),
 ('wadswja01',1867,12,17,'USA','OH','Wellington',1941,7,8,'USA','OH','Elyria','Jack','Wadsworth','John L.',180,NULL,'L','R','1890-05-01','1895-04-29'),
 ('waechdo01',1981,1,28,'USA','FL','St. Petersburg',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Waechter','Douglas Michael',200,76,'R','R','2003-08-27','2009-08-11'),
+('wagamer01',1997,8,14,'USA','CA','Mission Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Wagaman','Eric',210,76,'R','R','2024-09-10',NULL),
 ('wagenwo01',1863,6,3,'USA','PA','Gouldsboro',1946,2,14,'USA','DC','Washington','Woody','Wagenhorst','Ellwood Otto',165,71,'L',NULL,'1888-06-25','1888-06-26'),
 ('wagnebi01',1894,1,2,'USA','IA','Jessup',1951,1,11,'USA','IA','Waterloo','Bill','Wagner','William Joseph',187,72,'R','R','1914-07-16','1918-09-02'),
 ('wagnebi02',1971,7,25,'USA','VA','Marion',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Wagner','William Edward',180,70,'L','L','1995-09-13','2010-10-03'),
@@ -540197,6 +540702,7 @@ INSERT INTO `people` VALUES
 ('wagnepa01',1967,11,14,'USA','WI','Milwaukee',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Wagner','Paul Alan',205,75,'R','R','1992-07-26','1999-05-07'),
 ('wagnery01',1982,7,15,'USA','TX','Yoakum',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Wagner','Ryan Scott',210,76,'R','R','2003-07-19','2007-05-06'),
 ('wagnety01',1991,1,24,'USA','NV','Las Vegas',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Wagner','Tyler Joseph',205,75,'R','R','2015-05-31','2016-04-24'),
+('wagnewi01',1998,7,29,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Wagner','William James',210,72,'L','R','2024-08-12',NULL),
 ('wagueja01',1993,11,5,'USA','LA','Prairieville',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Waguespack','Jacob Daniel',235,78,'R','R','2019-05-27','2020-09-16'),
 ('wahlbo01',1992,3,21,'USA','VA','Alexandria',NULL,NULL,NULL,NULL,NULL,NULL,'Bobby','Wahl','Robert Martin',216,75,'R','R','2017-05-03','2020-07-28'),
 ('wahlke01',1922,11,18,'USA','SD','Columbia',1987,9,16,'USA','AZ','Tucson','Kermit','Wahl','Kermit Emerson',170,71,'R','R','1944-06-22','1951-07-29'),
@@ -540221,6 +540727,7 @@ INSERT INTO `people` VALUES
 ('waldema01',1988,9,13,'USA','CA','Fresno',NULL,NULL,NULL,NULL,NULL,NULL,'Marcus','Walden','Marcus Walter',198,70,'R','R','2018-04-01','2020-09-22'),
 ('waldike01',1998,1,8,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Ken','Waldichuk','Kenneth Dieter',220,76,'L','L','2022-09-01','2022-10-05'),
 ('waldimi01',1992,9,10,'USA','CA','Lodi',NULL,NULL,NULL,NULL,NULL,NULL,'Mitch','Walding','Mitchell S.',190,75,'L','R','2018-05-30','2019-04-23'),
+('waldrhu01',2002,3,1,'USA','GA','Cairo',NULL,NULL,NULL,NULL,NULL,NULL,'Hurston','Waldrep','Hurston Wayne',210,74,'R','R','2024-06-09',NULL),
 ('waldrir01',1872,1,21,'USA','NY','Hillside',1944,7,22,'USA','MA','Worcester','Irv','Waldron','Irving J.',155,65,'L','R','1901-04-25','1901-09-27'),
 ('waldrky01',1985,10,27,'USA','TN','Knoxville',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Waldrop','Steven Kyle',220,77,'R','R','2011-09-05','2012-10-02'),
 ('waldrky02',1991,11,26,'USA','FL','Fort Myers',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Waldrop','Kyle Michael',215,74,'L','L','2015-08-02','2016-08-16'),
@@ -540327,6 +540834,8 @@ INSERT INTO `people` VALUES
 ('walshmi99',1850,4,29,'Ireland',NULL,NULL,1929,2,2,'USA','KY','Louisville','Mike','Walsh','Michael John',NULL,NULL,NULL,NULL,NULL,NULL),
 ('walshto01',1885,2,28,'USA','IA','Davenport',1963,3,16,'USA','FL','Naples','Tom','Walsh','Thomas Joseph',170,71,'R','R','1906-08-15','1906-09-26'),
 ('walshwa01',1897,4,30,'USA','NJ','Newark',1966,1,15,'USA','NJ','Avon-by-the-Sea','Walt','Walsh','Walter William',170,71,'R','R','1920-05-04','1920-05-05'),
+('walstbl01',2001,6,28,'USA','NC','Wilmington',NULL,NULL,NULL,NULL,NULL,NULL,'Blake','Walston','Matthew Blake',175,77,'L','L','2024-05-01',NULL),
+('waltean01',2000,12,8,'USA','FL','Palm Bay',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Walters','Andrew Wayne',222,76,'R','R','2024-09-12',NULL),
 ('waltebe01',1908,8,15,'USA','TN','Dover',1988,10,30,'USA','TN','Nashville','Bernie','Walter','James Bernard',175,73,'R','R','1930-08-16','1930-08-16'),
 ('waltebr01',1996,9,8,'USA','DE','New Castle',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Walter','Brandon Lee',201,74,'L','L','2023-06-22','2023-09-14'),
 ('waltebu01',1909,4,19,'USA','PA','Philadelphia',1991,4,20,'USA','PA','Abington','Bucky','Walters','William Henry',180,73,'R','R','1931-09-17','1950-07-23'),
@@ -540403,6 +540912,7 @@ INSERT INTO `people` VALUES
 ('warrebi01',1884,2,11,'USA','IL','Cairo',1960,1,28,'USA','TN','Whiteville','Bill','Warren','William Hackney',165,68,'L','R','1914-04-30','1915-05-23'),
 ('warremi01',1961,3,26,'USA','CA','Inglewood',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Warren','Michael Bruce',175,73,'R','R','1983-06-12','1985-07-02'),
 ('warreto01',1917,7,5,'USA','OK','Tulsa',1968,1,2,'USA','OK','Tulsa','Tommy','Warren','Thomas Gentry',190,73,'B','L','1944-04-18','1944-09-03'),
+('warrewi01',1999,6,16,'USA','MS','Brandon',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Warren','William Harper',200,74,'R','R','2024-07-30',NULL),
 ('warstra01',1903,9,13,'USA','OH','North Canton',1964,5,31,'USA','OH','North Canton','Rabbit','Warstler','Harold Burton',150,67,'R','R','1930-07-24','1940-09-29'),
 ('warthda01',1952,12,1,'USA','NE','Omaha',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Warthen','Daniel Dean',200,72,'B','L','1975-05-18','1978-09-29'),
 ('warwibi01',1897,11,26,'USA','PA','Philadelphia',1984,12,19,'USA','TX','San Antonio','Bill','Warwick','Firman Newton',180,72,'R','R','1921-07-18','1926-09-26'),
@@ -540526,7 +541036,8 @@ INSERT INTO `people` VALUES
 ('weemsjo01',1992,11,7,'USA','GA','Columbus',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Weems','Jordan Blake',209,76,'L','R','2020-07-28','2022-10-04'),
 ('wegenmi01',1946,10,8,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Wegener','Michael Denis',215,76,'R','R','1969-04-09','1970-09-26'),
 ('wegmabi01',1962,12,19,'USA','OH','Cincinnati',NULL,NULL,NULL,NULL,NULL,NULL,'Bill','Wegman','William Edward',200,77,'R','R','1985-09-14','1995-10-01'),
-('wehdebi01',1906,11,23,'USA','IA','Holstein',1970,9,21,'USA','SD','Sioux Falls','Biggs','Wehde','Wilbur',180,70,'R','R','1930-09-15','1931-08-03'),
+('wehdebi01',1906,11,23,'USA','IA','Holstein',1970,9,21,'USA','SD','Sioux Falls','Biggs','Wehde','Wilbur',180,70,'R','R','1930-09-15','1931-08-03');
+INSERT INTO `people` VALUES
 ('wehmehe01',1927,2,18,'USA','OH','Cincinnati',1973,5,21,'USA','TX','Dallas','Herm','Wehmeier','Herman Ralph',185,74,'R','R','1945-09-07','1958-07-23'),
 ('wehnejo01',1967,6,29,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'John','Wehner','John Paul',205,75,'R','R','1991-07-17','2001-07-27'),
 ('wehrmda01',1952,11,9,'USA','IL','Berwyn',NULL,NULL,NULL,NULL,NULL,NULL,'Dave','Wehrmeister','David Thomas',195,76,'R','R','1976-04-16','1985-10-04'),
@@ -540598,6 +541109,7 @@ INSERT INTO `people` VALUES
 ('wendele01',1892,3,22,'USA','NY','New York',1953,7,11,'USA','NY','Brooklyn','Lew','Wendell','Lewis Charles',178,71,'R','R','1915-06-10','1926-05-22'),
 ('wendetu01',1967,5,19,'USA','MA','Pittsfield',NULL,NULL,NULL,NULL,NULL,NULL,'Turk','Wendell','Steven John',185,74,'B','R','1993-06-17','2004-05-13'),
 ('wendljo01',1990,4,26,'USA','DE','Wilmington',NULL,NULL,NULL,NULL,NULL,NULL,'Joey','Wendle','Joseph Patrick',195,73,'L','R','2016-08-31','2022-10-04'),
+('wendzda01',1997,5,23,'USA','CA','Irvine',NULL,NULL,NULL,NULL,NULL,NULL,'Davis','Wendzel','Davis McKee',206,71,'R','R','2024-04-09',NULL),
 ('wengedo01',1969,11,6,'USA','IA','Sioux City',NULL,NULL,NULL,NULL,NULL,NULL,'Don','Wengert','Donald Paul',205,74,'R','R','1995-04-30','2001-05-26'),
 ('wenslbu01',1915,12,3,'USA','CA','Sausalito',2001,2,18,'USA','CA','San Rafael','Charles','Wensloff','Charles William',185,71,'R','R','1943-05-02','1948-05-04'),
 ('wentzja01',1863,3,4,'USA','KY','Louisville',1907,9,14,'USA','KY','Louisville','Jack','Wentz','John George',175,70,'R','R','1891-04-15','1891-04-15'),
@@ -540625,6 +541137,7 @@ INSERT INTO `people` VALUES
 ('wessoba01',1977,4,6,'USA','MS','Tupelo',NULL,NULL,NULL,NULL,NULL,NULL,'Barry','Wesson','Barry Jarvis',210,74,'R','R','2002-07-15','2003-09-28'),
 ('westbi01',1853,8,15,'USA','NY','Williamsburg',1928,10,27,'USA','NY','Richmond Hill','Billy','West','William O.',NULL,NULL,NULL,NULL,'1874-05-22','1876-09-09'),
 ('westbja01',1977,9,29,'USA','GA','Athens',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Westbrook','Jacob Cauthen',210,75,'R','R','2000-06-17','2013-09-29'),
+('westbja02',1995,6,18,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Jamie','Westbrook','Jamie Vaughn',193,67,'R','R','2024-06-02',NULL),
 ('westbjo01',1999,2,18,'USA','TX','New Braunfels',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Westburg','Jordan Cole',210,74,'R','R','2023-06-26','2023-10-10'),
 ('westbu01',1860,8,29,'USA','OH','Spring Mill',1929,1,13,'USA','OH','Mansfield','Buck','West','Milton Douglas',200,70,'L','R','1884-08-24','1890-09-18'),
 ('westda01',1964,9,1,'USA','TN','Memphis',2022,5,14,'USA','FL','Palm City','David','West','David Lee',205,78,'L','L','1988-09-24','1998-09-04'),
@@ -540681,6 +541194,7 @@ INSERT INTO `people` VALUES
 ('whelake01',1984,1,8,'USA','TX','Kerrville',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Whelan','Kevin Joseph',205,71,'R','R','2011-06-10','2014-08-11'),
 ('whelato01',1894,1,3,'USA','MA','Lynn',1957,6,26,'USA','MA','Boston','Tom','Whelan','Thomas Joseph',175,71,'R','R','1920-08-13','1920-08-13'),
 ('whillja01',1942,11,4,'USA','AR','Clinton',2021,12,20,'USA','TX','Arlington','Jack','Whillock','Jack Franklin',195,75,'R','R','1971-08-29','1971-09-21'),
+('whiseca01',2000,10,20,'USA','NC','Winston-Salem',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Whisenhunt','Carson Lee',214,75,'L','L','2025-07-28',NULL),
 ('whisela01',1956,7,3,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Larry','Whisenton','Larry',190,73,'L','L','1977-09-17','1982-09-30'),
 ('whisema01',1971,6,8,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Whisenant','Matthew Michael',215,75,'R','L','1997-07-04','2000-05-29'),
 ('whisepe01',1929,12,14,'USA','NC','Asheville',1996,3,22,'USA','FL','Port Charlotte','Pete','Whisenant','Thomas Peter',190,74,'R','R','1952-04-16','1961-08-09'),
@@ -540691,6 +541205,7 @@ INSERT INTO `people` VALUES
 ('whitast01',1943,5,7,'USA','WA','Tacoma',NULL,NULL,NULL,NULL,NULL,NULL,'Steve','Whitaker','Stephen Edward',180,72,'L','R','1966-08-23','1970-05-09'),
 ('whitbbi01',1943,7,29,'USA','VA','Crewe',2016,3,12,'USA','NC','Huntersville','Bill','Whitby','William Edward',190,73,'R','R','1964-06-17','1964-06-25'),
 ('whitcbo01',1917,4,29,'USA','NH','Berlin',1997,5,8,'USA','OH','Akron','Bob','Whitcher','Robert Arthur',165,68,'L','L','1945-08-20','1945-09-18'),
+('whitcsh01',1998,9,28,'USA','CA','Thousand Oaks',NULL,NULL,NULL,NULL,NULL,NULL,'Shay','Whitcomb','Shay Lane',202,73,'R','R','2024-08-17',NULL),
 ('whiteaa01',1996,9,2,'Australia','Queensland','Brisbane',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Whitefield','Aaron James',210,76,'R','R','2020-07-25','2022-05-14'),
 ('whiteab01',1904,5,16,'USA','GA','Winder',1978,10,1,'USA','GA','Atlanta','Abe','White','Adel',185,72,'R','L','1937-07-05','1937-07-18'),
 ('whiteal01',1988,8,29,'USA','NC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','White','Alex Bruce',220,75,'R','R','2011-04-30','2012-09-30'),
@@ -540760,6 +541275,7 @@ INSERT INTO `people` VALUES
 ('whitied01',1860,NULL,NULL,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Ed','Whiting','Edward C.',188,NULL,'L','L','1882-05-02','1886-07-03'),
 ('whitije01',1879,5,30,'USA','PA','Philadelphia',1937,10,28,'USA','PA','Philadelphia','Jesse','Whiting','Jesse Way',154,70,NULL,'R','1902-09-27','1907-04-29'),
 ('whitlch01',1989,6,14,'USA','AL','Ranburne',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Whitley','Chase Coleman',220,76,'R','R','2014-05-15','2018-04-27'),
+('whitlfo01',1997,9,15,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Forrest','Whitley','Charles Forrest',208,79,'R','R','2024-04-16',NULL),
 ('whitlga01',1996,6,11,'USA','GA','Snellville',NULL,NULL,NULL,NULL,NULL,NULL,'Garrett','Whitlock','Garrett Getts',225,77,'R','R','2021-04-04','2022-09-16'),
 ('whitlko01',1995,2,21,'USA','NC','Clayton',NULL,NULL,NULL,NULL,NULL,NULL,'Kodi','Whitley','Kodi James',220,75,'R','R','2020-07-26','2022-06-02'),
 ('whitmda01',1955,11,23,'USA','CA','Redlands',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Whitmer','Daniel Charles',195,75,'R','R','1980-07-20','1981-05-10'),
@@ -540810,8 +541326,10 @@ INSERT INTO `people` VALUES
 ('wilbede01',1919,2,24,'USA','MI','Lincoln Park',2002,7,18,'USA','FL','St. Petersburg','Del','Wilber','Delbert Quentin',200,75,'R','R','1946-04-21','1954-09-19'),
 ('wilbocl01',1912,9,1,'USA','NC','Woodsdale',1992,11,13,'USA','NC','Roxboro','Claude','Wilborn','Claude Edward',180,73,'L','R','1940-09-08','1940-09-29'),
 ('wilbote01',1958,12,16,'USA','TX','Waco',NULL,NULL,NULL,NULL,NULL,NULL,'Ted','Wilborn','Thaddeaus Inglehart',165,72,'B','R','1979-04-05','1980-10-05'),
+('wilcoco01',1999,7,14,'USA','TN','Chattanooga',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Wilcox','Mitchell Cole',232,77,'R','R','2025-09-19',NULL),
 ('wilcomi01',1950,4,20,'USA','HI','Honolulu',NULL,NULL,NULL,NULL,NULL,NULL,'Milt','Wilcox','Milton Edward',185,74,'R','R','1970-09-05','1986-06-12'),
 ('wilesco01',1994,5,30,'USA','KS','Overland Park',NULL,NULL,NULL,NULL,NULL,NULL,'Collin','Wiles','Collin James',222,76,'R','R','2022-09-14','2022-09-29'),
+('wilesna01',1998,7,2,'USA','KS','Overland Park',NULL,NULL,NULL,NULL,NULL,NULL,'Nathan','Wiles','Nathan Daniel',228,76,'R','R','2025-04-22',NULL),
 ('wilesra01',1951,9,10,'USA','VA','Fort Belvoir',2015,9,15,'USA','LA','New Orleans','Randy','Wiles','Randall E.',185,73,'L','L','1977-08-07','1977-08-16'),
 ('wiley01',1857,3,14,'USA','PA','Philadelphia',1924,1,8,'USA','PA','Philadelphia','Joseph','Wiley','Joseph',NULL,NULL,NULL,NULL,'1884-06-23','1884-06-23'),
 ('wileyma01',1948,2,28,'USA','CA','National City',NULL,NULL,NULL,NULL,NULL,NULL,'Mark','Wiley','Mark Eugene',200,73,'R','R','1975-06-17','1978-09-29'),
@@ -540858,12 +541376,14 @@ INSERT INTO `people` VALUES
 ('williau01',1992,12,19,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Austen','Williams','Austen Thomas',220,75,'R','R','2018-09-02','2019-04-17'),
 ('willibe01',1948,10,8,'USA','CA','Alameda',NULL,NULL,NULL,NULL,NULL,NULL,'Bernie','Williams','Bernard',175,73,'R','R','1970-09-07','1974-05-12'),
 ('willibe02',1968,9,13,'P.R.',NULL,'San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Bernie','Williams','Bernabe',180,74,'B','R','1991-07-07','2006-10-01'),
+('willibe03',2000,11,5,'USA','VA','Fairfax',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Williamson','Benjamin Andrew',210,72,'R','R','2025-04-15',NULL),
 ('willibi01',1938,6,15,'USA','AL','Whistler',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Williams','Billy Leo',175,73,'L','R','1959-08-06','1976-10-02'),
 ('willibi02',1932,6,13,'USA','SC','Newberry',2013,6,11,'USA','CA','Berkeley','Billy','Williams','William',195,75,'L','R','1969-08-15','1969-08-20'),
 ('willibo01',1884,4,27,'USA','OH','Monday',1962,8,6,'USA','OH','Nelsonville','Bob','Williams','Robert Elias',190,72,'R','R','1911-07-03','1913-04-26'),
 ('willibr01',1969,2,15,'USA','SC','Lancaster',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Williams','Brian O\'Neal',205,75,'R','R','1991-09-16','2000-07-05'),
 ('willibr02',1998,4,2,'USA','MN','Fairmont',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Williamson','Brandon Martin',210,78,'R','L','2023-05-16','2023-09-29'),
 ('willica01',1960,12,28,'USA','VA','Danville',NULL,NULL,NULL,NULL,NULL,NULL,'Carl','Willis','Carl Blake',210,76,'L','R','1984-06-09','1995-05-03'),
+('willica02',2003,6,25,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Williams','Carson Everett',180,74,'R','R','2025-08-22',NULL),
 ('willich01',1947,10,11,'USA','NY','Flushing',2015,1,27,'USA','FL','Port Orange','Charlie','Williams','Charles Prosek',200,74,'R','R','1971-04-23','1978-09-11'),
 ('willicy01',1887,12,21,'USA','IN','Wadena',1974,4,23,'USA','WI','Eagle River','Cy','Williams','Fred',180,74,'L','L','1912-07-18','1930-09-22'),
 ('willida01',1855,10,6,'USA','KY','Ludlow',1939,10,22,'USA','KY','Covington','Dale','Williams','Elisha Alphonso',175,69,'R','R','1876-08-12','1876-09-09'),
@@ -540984,8 +541504,7 @@ INSERT INTO `people` VALUES
 ('wilsoch02',1905,1,13,'USA','SC','Clinton',1970,12,19,'USA','NY','Rochester','Charlie','Wilson','Charles Woodrow',178,70,'B','R','1931-04-14','1935-06-22'),
 ('wilsocj01',1980,11,18,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'C. J.','Wilson','Christopher John',210,73,'L','L','2005-06-10','2015-07-28'),
 ('wilsoco01',1996,7,4,'USA','FL','West Palm Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Cody','Wilson','Cody Roger George',200,74,'R','R','2021-04-07','2021-04-07'),
-('wilsocr01',1964,11,28,'USA','MD','Annapolis',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Wilson','Craig',175,71,'R','R','1989-09-06','1993-09-29');
-INSERT INTO `people` VALUES
+('wilsocr01',1964,11,28,'USA','MD','Annapolis',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Wilson','Craig',175,71,'R','R','1989-09-06','1993-09-29'),
 ('wilsocr02',1970,9,3,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Wilson','Craig Franklin',185,72,'R','R','1998-09-05','2000-10-01'),
 ('wilsocr03',1976,11,30,'USA','CA','Fountain Valley',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Wilson','Craig Alan',217,74,'R','R','2001-04-22','2007-05-11'),
 ('wilsoda01',1969,3,25,'USA','IL','Arlington Heights',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Wilson','Daniel Allen',190,75,'R','R','1992-09-07','2005-09-30'),
@@ -541010,6 +541529,7 @@ INSERT INTO `people` VALUES
 ('wilsoja01',1912,4,12,'USA','OR','Portland',1995,4,19,'USA','WA','Edmonds','Jack','Wilson','John Francis',210,71,'R','R','1934-09-09','1942-09-16'),
 ('wilsoja02',1977,12,29,'USA','CA','Westlake Village',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Wilson','Jack Eugene',200,72,'R','R','2001-04-03','2012-07-13'),
 ('wilsoja03',1990,7,29,'USA','TN','Bartlett',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Wilson','Jacob Clinton',219,72,'R','R','2021-07-10','2021-08-22'),
+('wilsoja04',2002,3,30,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Wilson','Jacob',190,74,'R','R','2024-07-19',NULL),
 ('wilsoji01',1900,7,23,'USA','PA','Philadelphia',1947,5,31,'USA','FL','Bradenton','Jimmie','Wilson','James',200,73,'R','R','1923-04-17','1940-09-29'),
 ('wilsoji02',1922,2,20,'USA','CA','San Diego',1986,9,2,'USA','CA','Newport Beach','Jim','Wilson','James Alger',200,73,'R','R','1945-04-18','1958-09-14'),
 ('wilsoji03',1960,12,29,'USA','OR','Corvallis',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Wilson','James George',230,75,'R','R','1985-09-13','1989-09-29'),
@@ -541049,6 +541569,7 @@ INSERT INTO `people` VALUES
 ('wilsowe01',1994,9,11,'USA','NC','High Point',NULL,NULL,NULL,NULL,NULL,NULL,'Weston','Wilson','Weston Graham',215,75,'R','R','2023-08-09','2023-10-01'),
 ('wilsowi01',1885,1,7,'USA','OH','Columbus',1925,10,28,'USA','WA','Seattle','Willy','Wilson','William',NULL,NULL,'R','R','1906-10-03','1906-10-03'),
 ('wilsowi02',1955,7,9,'USA','AL','Montgomery',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','Wilson','Willie James',190,75,'B','R','1976-09-04','1994-05-16'),
+('wilsowi03',1998,7,21,'USA','NC','Kings Mountain',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Wilson','Will Bradley',184,70,'R','R','2025-04-23',NULL),
 ('wilsoze01',1869,12,24,'USA','AL','Benton',1928,4,26,'USA','AL','Montgomery','Zeke','Wilson','Frank Ealton',165,70,'R','R','1895-04-23','1899-06-28'),
 ('wiltsha01',1903,8,6,'USA','IL','Clay City',1983,11,2,'USA','LA','Bunkie','Hal','Wiltse','Harold James',168,69,'L','L','1926-04-13','1931-04-20'),
 ('wiltsho01',1879,9,7,'USA','NY','Hamilton',1959,1,21,'USA','NY','Long Beach','Hooks','Wiltse','George Leroy',185,72,'R','L','1904-04-21','1915-09-25'),
@@ -541082,6 +541603,8 @@ INSERT INTO `people` VALUES
 ('winklbo99',1930,3,11,'USA','AR','Tuckerman',2020,4,17,'USA','CA','Indian Wells','Bobby','Winkles','Bobby Brooks',168,69,'R','R',NULL,NULL),
 ('winklda01',1990,2,2,'USA','IL','Effingham',NULL,NULL,NULL,NULL,NULL,NULL,'Dan','Winkler','Daniel Allen',205,75,'R','R','2015-09-21','2021-08-16'),
 ('winklge01',1858,6,NULL,'USA','OH',NULL,1921,1,1,'USA','NY','New York','George','Winkleman','George W.',NULL,NULL,NULL,NULL,'1883-08-04','1883-08-09'),
+('winklja01',1998,11,4,'USA','CO','Littleton',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Winkler','Jack Tanner',195,73,'R','R','2025-05-31',NULL),
+('winnco01',1999,11,25,'USA','CO','Longmont',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Winn','Cole Robert',190,74,'R','R','2024-04-14',NULL),
 ('winnge01',1897,10,26,'USA','GA','Perry',1969,11,1,'USA','GA','Roberta','George','Winn','George Benjamin',170,71,'L','L','1919-04-29','1923-04-28'),
 ('winnihe01',1961,12,1,'USA','SC','Orangeburg',NULL,NULL,NULL,NULL,NULL,NULL,'Herm','Winningham','Herman Son',185,71,'L','R','1984-09-01','1992-10-03'),
 ('winnji01',1959,9,23,'USA','CA','Stockton',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','Winn','James Francis',210,75,'R','R','1983-04-10','1988-09-06'),
@@ -541160,6 +541683,7 @@ INSERT INTO `people` VALUES
 ('wolfle01',1900,6,10,'USA','CT','Hartford',1971,9,25,'USA','LA','New Orleans','Walter','Wolf','Walter Francis',163,70,'R','L','1921-07-04','1921-09-24'),
 ('wolfra01',1904,7,15,'USA','IL','Chicago',1979,10,4,'USA','TX','Fort Worth','Ray','Wolf','Raymond Bernard',175,71,'R','R','1927-07-27','1927-07-27'),
 ('wolfra02',1976,8,22,'USA','CA','Canoga Park',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Wolf','Randall Christopher',205,72,'L','L','1999-06-11','2015-10-04'),
+('wolfrgr01',1996,12,12,'USA','MI','Holland',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Wolfram','Grant',240,79,'L','L','2025-04-26',NULL),
 ('wolfro01',1982,10,18,'USA','IL','Effingham',NULL,NULL,NULL,NULL,NULL,NULL,'Ross','Wolf','Ross Garrett',190,72,'R','R','2007-08-10','2013-09-13'),
 ('wolfwa01',1942,1,5,'USA','CA','South Gate',2020,7,7,'USA','CA','Los Angeles','Wally','Wolf','Walter Beck',191,72,'R','R','1969-09-27','1970-05-05'),
 ('wolstab01',1861,3,4,'USA','PA','Philadelphia',1916,3,4,'USA','PA','Philadelphia','Abe','Wolstenholme','Abraham Lincoln',NULL,NULL,NULL,NULL,'1883-06-04','1883-06-11'),
@@ -541198,6 +541722,7 @@ INSERT INTO `people` VALUES
 ('woodhu01',1993,8,12,'USA','AR','Rogers',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Wood','Hunter Blake',175,73,'R','R','2017-05-30','2021-05-22'),
 ('woodja01',1937,6,22,'USA','NJ','Elizabeth',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Wood','Jacob',163,73,'R','R','1961-04-11','1967-08-11'),
 ('woodja02',1969,12,16,'USA','CA','San Bernardino',NULL,NULL,NULL,NULL,NULL,NULL,'Jason','Wood','Jason William',200,74,'R','R','1998-04-01','2008-04-02'),
+('woodja03',2002,9,17,'USA','MD','Rockville',NULL,NULL,NULL,NULL,NULL,NULL,'James','Wood','James Irvin',234,79,'L','R','2024-07-01',NULL),
 ('woodji01',1843,12,1,'USA','NY','Brooklyn',1927,11,30,'USA','CA','San Francisco','Jimmy','Wood','James Leon',150,68,NULL,'R','1871-05-08','1873-11-01'),
 ('woodjo01',1872,5,14,'USA','PA','Harrisburg',1929,1,30,'USA','PA','Philadelphia','John','Wood','John B.',142,67,NULL,'R','1896-05-09','1896-05-09'),
 ('woodjo02',1889,10,25,'USA','MO','Kansas City',1985,7,27,'USA','CT','West Haven','Smoky Joe','Wood','Joe',180,71,'R','R','1908-08-24','1922-09-24'),
@@ -541245,6 +541770,7 @@ INSERT INTO `people` VALUES
 ('wordsfa01',1850,4,NULL,'USA','NY','New York',1888,8,12,'USA','NY','New York','Favel','Wordsworth','Favel Parry',NULL,NULL,NULL,NULL,'1873-04-28','1873-08-07'),
 ('workmbr01',1988,8,13,'USA','TX','Arlington',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Workman','Brandon Carlin',235,77,'R','R','2013-07-10','2021-07-29'),
 ('workmch01',1915,1,6,'USA','MO','Leeton',1953,1,3,'USA','MO','Kansas City','Chuck','Workman','Charles Thomas',175,72,'L','R','1938-09-18','1946-09-27'),
+('workmga01',1999,10,24,'USA','AZ','Chandler',NULL,NULL,NULL,NULL,NULL,NULL,'Gage','Workman','Gage Tater',202,76,'L','R','2025-03-29',NULL),
 ('workmha01',1926,2,5,'USA','CA','Los Angeles',2020,3,16,'USA','CA','Santa Monica','Hank','Workman','Henry Kilgariff',185,73,'L','R','1950-09-04','1950-10-01'),
 ('workmho01',1899,9,25,'USA','WV','Huntington',1972,5,20,'USA','FL','Fort Myers','Hoge','Workman','Harry Hallworth',170,71,'R','R','1924-06-27','1924-09-01'),
 ('worksra01',1888,3,16,'USA','IL','Payson',1941,8,8,'USA','CA','Pasadena','Ralph','Works','Ralph Talmadge',185,74,'L','R','1909-05-01','1913-04-28'),
@@ -541306,6 +541832,7 @@ INSERT INTO `people` VALUES
 ('wrighwe01',1985,1,28,'USA','AL','Montgomery',NULL,NULL,NULL,NULL,NULL,NULL,'Wesley','Wright','Dequam LaWesley',185,70,'R','L','2008-03-31','2015-10-04'),
 ('wriglph99',1894,12,5,'USA','IL','Chicago',1977,4,12,'Elkhorn','USA','WI','Philip','Wrigley','Philip Knight',NULL,NULL,NULL,NULL,NULL,NULL),
 ('wriglze01',1874,1,18,'USA','PA','Philadelphia',1952,9,28,'USA','PA','Philadelphia','Zeke','Wrigley','George Watson',150,68,NULL,NULL,'1896-08-31','1899-10-14'),
+('wroblju01',2000,7,14,'USA','IL','Hoffman Estates',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Wrobleski','Justin Michael',194,73,'L','L','2024-07-07',NULL),
 ('wronari01',1963,12,10,'USA','OK','Tulsa',NULL,NULL,NULL,NULL,NULL,NULL,'Rick','Wrona','Richard James',185,73,'R','R','1988-09-03','1994-07-22'),
 ('wuertmi01',1978,12,15,'USA','MN','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Wuertz','Michael James',225,74,'R','R','2004-04-05','2011-09-20'),
 ('wuestya01',1903,10,18,'USA','MO','St. Louis',1970,4,26,'USA','MO','St. Louis','Yats','Wuestling','George',167,71,'R','R','1929-06-15','1930-09-28'),
@@ -541336,8 +541863,10 @@ INSERT INTO `people` VALUES
 ('yalead01',1870,4,17,'USA','CT','Bristol',1948,4,27,'USA','CT','Bridgeport','Ad','Yale','William M.',NULL,NULL,'R',NULL,'1905-09-18','1905-09-20'),
 ('yamagsh01',1987,7,11,'Japan','Oita','Nakatsu',NULL,NULL,NULL,NULL,NULL,NULL,'Shun','Yamaguchi','Shun',225,74,'R','R','2020-07-26','2020-09-27'),
 ('yamamjo01',1996,5,11,'USA','HI','Pearl City',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Yamamoto','Jordan Michael Michiru',201,71,'R','R','2019-06-12','2021-05-23'),
+('yamamyo01',1998,8,17,'Japan','Okayama','Bizen',NULL,NULL,NULL,NULL,NULL,NULL,'Yoshinobu','Yamamoto','Yoshinobu',176,70,'R','R','2024-03-21',NULL),
 ('yancyhu01',1950,10,16,'USA','FL','Sarasota',NULL,NULL,NULL,NULL,NULL,NULL,'Hugh','Yancy','Hugh',170,71,'R','R','1972-07-05','1976-05-29'),
 ('yanes01',1975,6,22,'D.R.','El Seibo','Campina',NULL,NULL,NULL,NULL,NULL,NULL,'Esteban','Yan','Esteban Luis',255,76,'R','R','1996-05-20','2006-07-06'),
+('yanger01',1998,3,26,'USA','CA','Woodland Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Yang','Eric Lawrence',185,71,'R','R','2024-07-31',NULL),
 ('yanghy01',1988,3,1,'South Korea','Gwangju','Gwangju',NULL,NULL,NULL,NULL,NULL,NULL,'Hyeon-jong','Yang','Hyeon-jong',200,72,'L','L','2021-04-26','2021-09-13'),
 ('yankoge01',1922,11,19,'USA','MA','Cambridge',2020,2,25,'USA','FL','The Villages','George','Yankowski','George Edward',180,72,'R','R','1942-08-17','1949-06-28'),
 ('yantzge01',1886,7,27,'USA','KY','Louisville',1967,2,26,'USA','KY','Louisville','George','Yantz','George Webb',168,66,'R','R','1912-09-30','1912-09-30'),
@@ -541369,6 +541898,7 @@ INSERT INTO `people` VALUES
 ('yerkeca01',1903,6,13,'USA','PA','McSherrystown',1950,12,20,'USA','CA','Oakland','Carroll','Yerkes','Charles Carroll',180,71,'R','L','1927-05-31','1933-04-25'),
 ('yerkest01',1874,11,28,'USA','PA','Cheltenham',1940,7,28,'USA','MA','Boston','Stan','Yerkes','Stanley Lewis',165,70,'R','R','1901-05-03','1903-04-17'),
 ('yerkest02',1888,5,15,'USA','PA','Hatboro',1971,1,31,'USA','PA','Lansdale','Steve','Yerkes','Stephen Douglas',165,69,'R','R','1909-09-16','1916-10-01'),
+('yesavtr01',2003,7,28,'USA','PA','Pottstown',NULL,NULL,NULL,NULL,NULL,NULL,'Trey','Yesavage','Trey David',225,76,'R','R','2025-09-15',NULL),
 ('yettri01',1962,10,6,'USA','CA','Pomona',NULL,NULL,NULL,NULL,NULL,NULL,'Rich','Yett','Richard Martin',187,74,'R','R','1985-04-13','1990-04-25'),
 ('yewcito01',1932,5,9,'USA','PA','Conemaugh',2020,10,20,'USA','MA','Arlington','Tom','Yewcic','Thomas J.',180,71,'R','R','1957-06-27','1957-06-27'),
 ('yeweled01',1862,8,22,'USA','DC','Washington',1940,9,15,'USA','DC','Washington','Ed','Yewell','Edwin Leonard',NULL,NULL,NULL,NULL,'1884-05-12','1884-08-07'),
@@ -541382,6 +541912,8 @@ INSERT INTO `people` VALUES
 ('yochile01',1928,10,16,'USA','LA','New Orleans',2013,5,11,'USA','LA','River Ridge','Len','Yochim','Leonard Joseph',200,74,'L','L','1951-09-18','1954-06-19'),
 ('yochira01',1922,7,19,'USA','LA','New Orleans',2002,1,26,'USA','LA','New Orleans','Ray','Yochim','Raymond Austin Aloysius',170,73,'R','R','1948-05-02','1949-05-22'),
 ('yohebi01',1878,9,2,'USA','IL','Mount Erie',1938,12,24,'USA','WA','Bremerton','Bill','Yohe','William Clyde',180,68,'L','R','1909-08-30','1909-09-27'),
+('yohocr01',1999,10,23,'USA','IN','Fishers',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Yoho','Craig',235,74,'R','R','2025-04-21',NULL),
+('yorkeni01',2002,4,2,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Yorke','Nicholas Anthony',210,72,'R','R','2024-09-16',NULL),
 ('yorkji01',1947,8,27,'USA','CA','Maywood',NULL,NULL,NULL,NULL,NULL,NULL,'Jim','York','James Harlan',200,75,'R','R','1970-09-21','1976-08-05'),
 ('yorkle01',1892,11,1,'USA','AR','West Fork',1961,4,9,'USA','PA','York','James','York','James Edward',185,70,'L','L','1919-09-12','1921-10-02'),
 ('yorkmi01',1964,9,6,'USA','IL','Oak Park',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','York','Michael David',187,73,'R','R','1990-08-17','1991-08-16'),
@@ -541402,11 +541934,13 @@ INSERT INTO `people` VALUES
 ('youngan02',1994,5,10,'USA','ND','West Fargo',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Young','Andrew Jacob',196,72,'R','R','2020-08-01','2021-09-15'),
 ('youngba01',1915,7,1,'USA','NY','Astoria',1983,12,25,'USA','MA','Everett','Babe','Young','Norman Robert',185,74,'L','L','1936-09-26','1948-10-02'),
 ('youngbo01',1925,1,22,'USA','MD','Granite',1985,2,4,'USA','MD','Baltimore','Bobby','Young','Robert George',175,73,'L','R','1948-08-30','1958-09-28'),
+('youngbr01',1998,8,19,'USA','TX','Lumberton',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Young','Brandon Wayne',210,78,'R','R','2025-04-19',NULL),
 ('youngch01',1893,1,12,'USA','PA','Philadelphia',1952,5,12,'USA','NJ','Riverside','Charlie','Young','Charles',155,70,'B','R','1915-09-05','1915-10-03'),
 ('youngch02',1900,6,13,'USA','TX','Hillsboro',1968,7,6,'USA','TX','Amarillo','Albert','Youngblood','Albert Clyde',202,75,'L','R','1922-06-16','1922-07-31'),
 ('youngch03',1979,5,25,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Young','Christopher Ryan',255,82,'R','R','2004-08-24','2017-06-17'),
 ('youngch04',1983,9,5,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Young','Christopher Brandon',200,74,'R','R','2006-08-18','2018-07-03'),
 ('youngcl01',1964,8,2,'USA','TX','Willis',1993,11,4,'USA','TX','Montgomery County','Cliff','Young','Clifford Raphael',200,76,'L','L','1990-07-14','1993-07-24'),
+('youngco01',2003,7,29,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Young','Cole Douglas',180,71,'L','R','2025-05-31',NULL),
 ('youngcu01',1960,4,16,'USA','MI','Saginaw',NULL,NULL,NULL,NULL,NULL,NULL,'Curt','Young','Curtis Allen',175,73,'R','L','1983-06-24','1993-07-05'),
 ('youngcy01',1867,3,29,'USA','OH','Gilmore',1955,11,4,'USA','OH','Newcomerstown','Cy','Young','Denton True',210,74,'R','R','1890-08-06','1911-10-06'),
 ('youngda01',1971,11,3,'USA','TN','Smyrna',2023,6,11,'USA','TN','Dowelltown','Danny','Young','Daniel Bracy',210,76,'R','L','2000-03-30','2000-04-06'),
@@ -541495,6 +542029,7 @@ INSERT INTO `people` VALUES
 ('zdebjo01',1953,6,27,'USA','IL','Compton',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Zdeb','Joseph Edmund',185,71,'R','R','1977-04-07','1979-05-29'),
 ('zearfda01',1868,1,1,'USA','NY','Schenectady',1945,9,12,'USA','DE','Wilmington','Dave','Zearfoss','David William Tilden',174,69,NULL,'R','1896-04-17','1905-07-08'),
 ('zeberge01',1950,8,29,'USA','PA','Ellwood City',NULL,NULL,NULL,NULL,NULL,NULL,'George','Zeber','George William',170,71,'B','R','1977-05-07','1978-06-14'),
+('zeferry01',1998,2,28,'USA','KS','Topeka',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Zeferjahn','Ryan Joseph',209,77,'R','R','2024-08-25',NULL),
 ('zeidero01',1883,11,16,'USA','IN','Auburn',1967,9,12,'USA','IN','Garrett','Rollie','Zeider','Rollie Hubert',162,70,'R','R','1910-04-14','1918-08-29'),
 ('zeidjo01',1987,3,24,'USA','CT','New Haven',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Zeid','Joshua Alexander',220,76,'R','R','2013-07-30','2014-07-24'),
 ('zeihehe01',1862,8,11,'USA','PA','Philadelphia',1951,10,14,'USA','PA','Philadelphia','Henry','Zeiher','Henry',149,70,NULL,NULL,NULL,NULL),
@@ -541548,6 +542083,7 @@ INSERT INTO `people` VALUES
 ('zuberjo01',1969,12,10,'USA','CA','Encino',NULL,NULL,NULL,NULL,NULL,NULL,'Jon','Zuber','Jon Edward',190,73,'L','L','1996-04-19','1998-09-27'),
 ('zuberty01',1995,6,16,'USA','AR','White Hall',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Zuber','John Tyler',175,71,'R','R','2020-07-24','2021-09-30'),
 ('zuletju01',1975,3,28,'Panama','Panama','Panama',NULL,NULL,NULL,NULL,NULL,NULL,'Julio','Zuleta','Julio Ernesto',230,78,'R','R','2000-04-06','2001-06-25'),
+('zulueyo01',1998,1,23,'Cuba','Villa Clara','Remedios',NULL,NULL,NULL,NULL,NULL,NULL,'Yosver','Zulueta','Yosver Jose',190,73,'R','R','2024-06-25',NULL),
 ('zumayjo01',1984,11,9,'USA','CA','Chula Vista',NULL,NULL,NULL,NULL,NULL,NULL,'Joel','Zumaya','Joel Martin',215,75,'R','R','2006-04-03','2010-06-28'),
 ('zuniggu01',1998,10,10,'Colombia','Bolivar','Cartagena',NULL,NULL,NULL,NULL,NULL,NULL,'Guillermo','Zuñiga','Guillermo Enrique',230,77,'R','R','2023-05-02','2023-08-19'),
 ('zuninmi01',1991,3,25,'USA','FL','Cape Coral',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Zunino','Michael Accorsi',235,74,'R','R','2013-06-12','2022-06-09'),
@@ -541556,517 +542092,11 @@ INSERT INTO `people` VALUES
 ('zuvelpa01',1958,10,31,'USA','CA','San Mateo',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Zuvella','Paul',173,72,'R','R','1982-09-04','1991-05-02'),
 ('zuverge01',1924,8,20,'USA','MI','Holland',2014,9,8,'USA','AZ','Tempe','George','Zuverink','George',195,76,'R','R','1951-04-21','1959-06-15'),
 ('zwilldu01',1888,11,2,'USA','MO','St. Louis',1978,3,27,'USA','CA','La Crescenta','Dutch','Zwilling','Edward Harrison',160,66,'L','L','1910-08-14','1916-07-12'),
-('zychto01',1990,8,7,'USA','IL','Monee',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Zych','Anthony Aaron',190,75,'R','R','2015-09-04','2017-08-19'),
-('abelmi01',2001,8,18,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Mick','Abel','McLean Stine',190,77,'R','R','2025-05-18',NULL),
-('abnerph01',2002,5,5,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Philip','Abner','Philip James',230,73,'L','L','2025-09-19',NULL),
-('adamstr01',2000,1,19,'USA','CA','Palm Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Travis','Adams','Travis Michael',197,73,'R','R','2025-07-05',NULL),
-('agnosza01',2000,8,15,'USA','VA','Haymarket',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Agnos','Zachary George',208,72,'R','R','2025-04-20',NULL),
-('aguiaju01',2001,6,4,'USA','CA','Long Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Julian','Aguiar','Julian',180,75,'L','R','2024-08-19',NULL),
-('aldegsa01',2001,9,19,'Italy','Veneto','Verona',NULL,NULL,NULL,NULL,NULL,NULL,'Sam','Aldegheri','Samuel',210,73,'L','L','2024-08-30',NULL),
-('alvaran01',1999,6,13,'USA','CA','Anaheim',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Alvarez','Michael Andrew',215,75,'L','L','2025-09-01',NULL),
-('alvarel01',1999,2,23,'D.R.','Santiago Rodríguez','Sabaneta',NULL,NULL,NULL,NULL,NULL,NULL,'Elvis','Alvarado','Elvis Ernesto',183,76,'R','R','2025-05-09',NULL),
-('ariaslu01',2000,12,12,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Luarbert','Arias','Luarbert Elias',176,74,'R','R','2025-03-31',NULL),
-('arrigsp01',2000,1,2,'USA','NM','Albuquerque',NULL,NULL,NULL,NULL,NULL,NULL,'Spencer','Arrighetti','Spencer Zane',186,74,'R','R','2024-04-10',NULL),
-('ashcrbr01',1999,10,5,'USA','TX','Waco',NULL,NULL,NULL,NULL,NULL,NULL,'Braxton','Ashcraft','Braxton',220,77,'L','R','2025-05-26',NULL),
-('avilalu02',2001,8,21,'Venezuela','Distrito Capital','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Luinder','Avila','Luinder Gabriel',195,75,'R','R','2025-08-13',NULL),
-('avilani01',1997,7,25,'USA','CA','Modesto',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Avila','Nicholas Paul',195,76,'R','R','2024-04-01',NULL),
-('bachala01',1995,6,3,'USA','IL','Winfield',NULL,NULL,NULL,NULL,NULL,NULL,'Lake','Bachar','Lake David',219,74,'R','R','2024-09-08',NULL),
-('backhky01',1998,1,31,'USA','TX','New Waverly',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Backhus','Kyle Jordan',185,76,'L','L','2025-06-08',NULL),
-('barcohu01',2000,12,15,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Barco','Hunter Harkins',235,76,'L','L','2025-09-23',NULL),
-('barnema02',2000,11,7,'USA','GA','Kennesaw',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Barnett','Mason McLendon',218,72,'R','R','2025-08-30',NULL),
-('bassobr01',1997,10,8,'USA','TX','Pearland',NULL,NULL,NULL,NULL,NULL,NULL,'Brady','Basso','Brady Marshall',213,74,'R','L','2024-05-31',NULL),
-('beetecl01',1998,10,9,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Clayton','Beeter','Clayton Howard',220,74,'R','R','2024-03-29',NULL),
-('bellova01',2000,1,4,'México','Baja California','Mexicali',NULL,NULL,NULL,NULL,NULL,NULL,'Valente','Bellozo','Valente',208,70,'R','R','2024-06-26',NULL),
-('bergery01',2000,3,8,'USA','OH','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Bergert','Ryan Michael',210,73,'R','R','2025-04-26',NULL),
-('bermujo01',1995,10,16,'P.R.',NULL,'Coamo',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Bermúdez','Jonathan Alberto',226,74,'L','L','2024-08-27',NULL),
-('biggehu01',1998,6,12,'USA','FL','Orlando',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Bigge','Hunter Bradford',215,72,'R','R','2024-07-09',NULL),
-('birdsha01',2001,8,30,'USA','IL','Mattoon',NULL,NULL,NULL,NULL,NULL,NULL,'Hayden','Birdsong','Hayden',216,76,'R','R','2024-06-26',NULL),
-('bivensp01',1994,6,28,'USA','VA','Virginia Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Spencer','Bivens','Spencer',217,77,'R','R','2024-06-16',NULL),
-('blackma01',1999,12,10,'USA','PA','Scranton',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Black','Mason Peter',228,75,'R','R','2024-05-06',NULL),
-('blalobr01',2000,12,25,'USA','GA','Conyers',NULL,NULL,NULL,NULL,NULL,NULL,'Bradley','Blalock','Bradley Christopher',213,74,'R','R','2024-06-20',NULL),
-('blossja01',2001,6,23,'USA','NC','Greensboro',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Bloss','John',223,75,'R','R','2024-06-21',NULL),
-('blubaaj01',2000,7,4,'USA','OH','Mansfield',NULL,NULL,NULL,NULL,NULL,NULL,'AJ','Blubaugh','Alan Joseph',190,74,'R','R','2025-04-30',NULL),
-('booseca01',1992,5,4,'USA','WA','Seattle',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Booser','Cameron Joseph',230,75,'L','L','2024-04-19',NULL),
-('brownbe01',1999,9,9,'USA','NY','East Setauket',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Brown','Benjamin',210,78,'R','R','2024-03-30',NULL),
-('brownmc01',2000,8,15,'USA','IL','Normal',NULL,NULL,NULL,NULL,NULL,NULL,'McCade','Brown','McCade David',225,78,'R','R','2025-08-24',NULL),
-('brzykza01',1999,7,12,'USA','NC','Hickory',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Brzykcy','Zachary John-William',208,74,'R','R','2024-09-01',NULL),
-('burgoju01',1999,12,22,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Burgos','Juan',185,72,'R','R','2025-07-01',NULL),
-('burgora01',1998,11,29,'P.R.',NULL,'Rio Grande',NULL,NULL,NULL,NULL,NULL,NULL,'Raymond','Burgos','Raymond',209,77,'L','L','2024-06-24',NULL),
-('burkese01',1999,12,18,'USA','MA','Sutton',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Burke','Sean Michael',240,78,'R','R','2024-09-10',NULL),
-('burnsch01',2003,1,16,'Italy','Campania','Napoli',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Burns','Chase David',210,75,'R','R','2025-06-24',NULL),
-('burromi01',1999,11,8,'USA','CT','Waterford',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Burrows','Michael Thomas',200,73,'R','R','2024-09-28',NULL),
-('bushky01',1999,11,12,'USA','UT','Ogden',NULL,NULL,NULL,NULL,NULL,NULL,'Ky','Bush','Kyler Spencer',250,78,'L','L','2024-08-05',NULL),
-('camerno01',1999,7,17,'USA','MO','St. Joseph',NULL,NULL,NULL,NULL,NULL,NULL,'Noah','Cameron','Noah',220,75,'L','L','2025-04-30',NULL),
-('cannojo02',2000,7,19,'USA','SC','Columbia',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Cannon','Jonathan Patrick',225,78,'R','R','2024-04-17',NULL),
-('cantijo01',1999,12,18,'USA','HI','Honolulu',NULL,NULL,NULL,NULL,NULL,NULL,'Joey','Cantillo','Joseph Lopaka',225,76,'L','L','2024-07-28',NULL),
-('carrial01',1997,6,6,'USA','CA','Paramount',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Carrillo','Alejandro',245,74,'R','R','2025-07-08',NULL),
-('caspabe01',1999,2,11,'USA','CT','Westport',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Casparius','Benjamin Keith',215,74,'R','R','2024-08-31',NULL),
-('castabl01',1998,9,8,'D.R.','Espaillat','Espaillat',NULL,NULL,NULL,NULL,NULL,NULL,'Blas','Castano','Blas',162,70,'R','R','2025-05-28',NULL),
-('chandbu01',2002,9,14,'USA','GA','Lawrenceville',NULL,NULL,NULL,NULL,NULL,NULL,'Bubba','Chandler','Roy Ruben',218,75,'B','R','2025-08-22',NULL),
-('chivian01',2002,7,28,'D.R.','Santo Domingo','La Victoria',NULL,NULL,NULL,NULL,NULL,NULL,'Angel','Chivilli','Angel',162,74,'R','R','2024-06-03',NULL),
-('churcma01',2001,3,30,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Marc','Church','Marc Easton',189,75,'R','R','2024-09-28',NULL),
-('contrlu01',1996,4,29,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Contreras','Luis Eduardo',175,73,'R','R','2024-06-23',NULL),
-('cornijo01',2003,6,22,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Jose','Corniell','Jose Armando',165,75,'R','R','2025-09-28',NULL),
-('criswje01',1999,3,10,'USA','MI','Portage',NULL,NULL,NULL,NULL,NULL,NULL,'Jeff','Criswell','Jeffrey Kelley',203,76,'R','R','2024-08-21',NULL),
-('cruzom01',1999,1,26,'México','Sonora','Hermosillo',NULL,NULL,NULL,NULL,NULL,NULL,'Omar','Cruz','Omar Alejandro',210,72,'L','L','2025-04-01',NULL),
-('curvelu01',2000,10,21,'Venezuela','Miranda','Higuerote',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Curvelo','Luis Jefferso',170,73,'R','R','2025-07-31',NULL),
-('danaca01',2003,12,17,'USA','NY','Warwick',NULL,NULL,NULL,NULL,NULL,NULL,'Caden','Dana','Caden Lawrence',215,76,'L','R','2024-09-01',NULL),
-('darnedu01',1997,6,26,'USA','MI','Northville',NULL,NULL,NULL,NULL,NULL,NULL,'Dugan','Darnell','Dugan Tate',205,74,'L','R','2025-08-01',NULL),
-('darremi01',1997,11,13,'USA','WV','Parkersburg',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Darrell-Hicks','Michael Brian',215,77,'R','R','2025-04-11',NULL),
-('davidlo01',1997,12,26,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Davidson','Logan Douglas',185,75,'B','R','2025-05-24',NULL),
-('diazyi01',2000,8,19,'Venezuela','Miranda','Guatire',NULL,NULL,NULL,NULL,NULL,NULL,'Yilber','Díaz','Yilber Daniel',190,72,'R','R','2024-07-08',NULL),
-('dobbihu01',1999,8,30,'USA','TX','Bryan',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Dobbins','Hunter',185,74,'R','R','2025-04-06',NULL),
-('dollach01',2001,10,26,'USA','GA','Evans',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Dollander','Tyler Chase',200,74,'R','R','2025-04-06',NULL),
-('dreyeja01',1999,2,27,'USA','UT','Salt Lake City',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Dreyer','Jacob Andrew',205,74,'R','L','2025-03-19',NULL),
-('dunshpa01',1995,2,12,'USA','IN','Zionsville',NULL,NULL,NULL,NULL,NULL,NULL,'Parker','Dunshee','Parker Edward',215,72,'R','R','2024-08-08',NULL),
-('duranca01',2001,7,30,'D.R.','María Trinidad Sánchez','Nagua',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Duran','Carlos Daniel',230,79,'R','R','2025-05-22',NULL),
-('earlyco01',2002,4,3,'USA','VA','Midlothian',NULL,NULL,NULL,NULL,NULL,NULL,'Connelly','Early','Todd Connelly McNeil',195,75,'L','L','2025-09-09',NULL),
-('ederja01',1998,10,9,'USA','FL','Boynton Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Eder','Jacob Andrew',225,76,'L','L','2024-09-17',NULL),
-('eiserbr01',1998,1,19,'USA','OR','Portland',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Eisert','Brandon Michael',210,74,'L','L','2024-06-17',NULL),
-('ellarfr01',1997,11,6,'USA','GA','Roswell',NULL,NULL,NULL,NULL,NULL,NULL,'Fraser','Ellard','Fraser',220,75,'L','L','2024-07-30',NULL),
-('enrigni01',1997,1,8,'USA','VA','Richmond',NULL,NULL,NULL,NULL,NULL,NULL,'Nic','Enright','Nicholas Crispen',219,75,'R','R','2025-05-25',NULL),
-('espadjo99',1975,8,20,'P.R.',NULL,'Santurce',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Espada','Josue',175,70,'R','R',NULL,NULL),
-('estrala01',1999,4,24,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Lazaro','Estrada','Lazaro Alejandro',180,70,'R','R','2025-07-05',NULL),
-('evanslo01',2001,6,5,'USA','MI','Ann Arbor',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Evans','Logan Michael',215,77,'R','R','2025-04-27',NULL),
-('farrimi01',2001,2,14,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'Mitch','Farris','Mitchell Thomas',195,74,'L','L','2025-09-02',NULL),
-('feiglbr01',1990,12,27,'USA','MD','Severn',NULL,NULL,NULL,NULL,NULL,NULL,'Brady','Feigl','Brady Matthew',195,76,'R','L','2024-08-26',NULL),
-('ferguty01',1993,10,5,'USA','CA','Fresno',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Ferguson','Tyler Clark',225,76,'R','R','2024-05-07',NULL),
-('fermijo02',2001,11,28,'D.R.','María Trinidad Sánchez','Payita',NULL,NULL,NULL,NULL,NULL,NULL,'José','Fermin','José Miguel',242,75,'R','R','2025-04-26',NULL),
-('fernary01',1998,6,11,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Fernandez','Ryan Austin',200,72,'R','R','2024-04-03',NULL),
-('festada01',2000,3,8,'USA','NJ','Verona',NULL,NULL,NULL,NULL,NULL,NULL,'David','Festa','David',185,78,'R','R','2024-06-27',NULL),
-('fishebr02',2000,7,26,'USA','TX','League City',NULL,NULL,NULL,NULL,NULL,NULL,'Braydon','Fisher','Braydon',180,76,'R','R','2025-05-11',NULL),
-('fittsri01',1999,12,17,'USA','AL','Helena',NULL,NULL,NULL,NULL,NULL,NULL,'Richard','Fitts','Richard Logan',230,75,'R','R','2024-09-08',NULL),
-('fitzgry01',1994,6,17,'USA','IL','Hinsdale',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Fitzgerald','Ryan',186,70,'L','R','2025-05-16',NULL),
-('fluhama01',2001,8,13,'USA','DE','Lewes',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Fluharty','Mason Lynn',215,74,'R','L','2025-04-01',NULL),
-('freemca01',1998,2,23,'USA','TX','Abilene',NULL,NULL,NULL,NULL,NULL,NULL,'Caleb','Freeman','Caleb Aron',195,73,'R','R','2025-05-05',NULL),
-('fuentdi01',2005,6,17,'Colombia','Sucre','Tolu',NULL,NULL,NULL,NULL,NULL,NULL,'Didier','Fuentes','Didier Nicolas',170,72,'R','R','2025-06-20',NULL),
-('garabge01',1995,8,19,'D.R.','San Cristóbal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Gerson','Garabito','Gerson Yeris',160,72,'R','R','2024-05-26',NULL),
-('garcibr02',2000,5,27,'USA','RI','Newport',NULL,NULL,NULL,NULL,NULL,NULL,'Brandyn','Garcia','Brandyn Michael',235,76,'L','L','2025-07-21',NULL),
-('gassero01',1999,5,31,'USA','CA','El Dorado Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Robert','Gasser','Robert Riordan',192,72,'L','L','2024-05-10',NULL),
-('gervapa01',2000,5,23,'USA','NC','Cary',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Gervase','Paul Thomas',230,82,'R','R','2025-06-21',NULL),
-('gibsoca01',1998,2,18,'USA','LA','Ruston',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Gibson','Cade Michael',195,74,'L','L','2025-04-20',NULL),
-('gillico01',1997,11,10,'USA','VA','Earlysville',NULL,NULL,NULL,NULL,NULL,NULL,'Connor','Gillispie','Connor Brammer',185,71,'R','R','2024-08-04',NULL),
-('ginnjt01',1999,5,20,'USA','MS','Flowood',NULL,NULL,NULL,NULL,NULL,NULL,'J. T.','Ginn','John Thomas',200,74,'R','R','2024-08-21',NULL),
-('gonzawi02',2002,3,25,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Wikelman','González','Wikelman David',220,72,'R','R','2025-06-20',NULL),
-('gordoco01',1998,12,20,'USA','FL','St. Petersburg',NULL,NULL,NULL,NULL,NULL,NULL,'Colton','Gordon','Colton Zimring',225,76,'L','L','2025-05-14',NULL),
-('gordota01',1997,10,26,'USA','IL','Champaign',NULL,NULL,NULL,NULL,NULL,NULL,'Tanner','Gordon','Tanner Robert',215,77,'L','R','2024-07-07',NULL),
-('gracego01',2000,3,17,'USA','NJ','Wayne',NULL,NULL,NULL,NULL,NULL,NULL,'Gordon','Graceffo','Gordon Joseph',220,76,'R','R','2024-06-29',NULL),
-('granian01',2000,5,12,'USA','CA','Hemet',NULL,NULL,NULL,NULL,NULL,NULL,'Andre','Granillo','Andre Anthony',250,76,'R','R','2025-06-12',NULL),
-('guerrlu01',2000,8,5,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Guerrero','Luis Sadiel',215,72,'R','R','2024-09-08',NULL),
-('gustory01',1999,3,11,'USA','CA','Santa Rosa',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Gusto','Ryan Cole',232,76,'R','R','2025-03-31',NULL),
-('hagenju01',1996,10,7,'USA','NJ','Voorhees',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Hagenman','Justin Michael',205,75,'R','R','2025-04-16',NULL),
-('halvose01',2000,2,18,'USA','IL','Chicago',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Halvorsen','Seth Michael',225,74,'R','R','2024-08-30',NULL),
-('hameldo01',1999,3,2,'USA','AZ','Chandler',NULL,NULL,NULL,NULL,NULL,NULL,'Dom','Hamel','Dominic Avery',237,74,'R','R','2025-09-17',NULL),
-('harriha01',1999,3,2,'USA','GA','Augusta',NULL,NULL,NULL,NULL,NULL,NULL,'Hayden','Harris','Hayden Lee',186,72,'L','L','2025-09-02',NULL),
-('harrito03',2001,7,12,'USA','NC','Sanford',NULL,NULL,NULL,NULL,NULL,NULL,'Tom','Harrington','Thomas Hinson',185,74,'R','R','2025-04-01',NULL),
-('hendelo01',2002,3,2,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Henderson','Logan Blake',209,72,'R','R','2025-04-20',NULL),
-('henlebl01',1997,5,14,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Blair','Henley','Michael Blair',218,75,'R','R','2024-04-08',NULL),
-('henried01',2002,6,24,'Venezuela','Sucre','Cumana',NULL,NULL,NULL,NULL,NULL,NULL,'Edgardo','Henriquez','Edgardo Luis',200,76,'R','R','2024-09-24',NULL),
-('henryco01',1999,7,15,'USA','AL','Florence',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Henry','Jeffrey Cole',200,76,'R','R','2025-04-13',NULL),
-('herzdj01',2001,1,4,'USA','NC','Fayetteville',NULL,NULL,NULL,NULL,NULL,NULL,'DJ','Herz','Davidjohn Patrick',197,74,'R','L','2024-06-04',NULL),
-('hillja01',1999,12,22,'USA','AR','Ashdown',NULL,NULL,NULL,NULL,NULL,NULL,'Jaden','Hill','Kenneth Jaden',234,76,'R','R','2024-09-07',NULL),
-('hiralya01',1995,12,31,'D.R.','Santiago','Santiago',NULL,NULL,NULL,NULL,NULL,NULL,'Yaramil','Hiraldo','Yaramil Junior',180,73,'R','R','2025-05-27',NULL),
-('hodgepo01',2001,2,21,'USA','UT','Salt Lake City',NULL,NULL,NULL,NULL,NULL,NULL,'Porter','Hodge','Porter Dene',230,76,'R','R','2024-05-22',NULL),
-('hoffman01',2000,2,2,'USA','IL','Joliet',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Hoffmann','Andrew Michael',210,77,'R','R','2025-05-30',NULL),
-('hoffmno01',1997,8,9,'USA','NE','Lincoln',NULL,NULL,NULL,NULL,NULL,NULL,'Nolan','Hoffman','Nolan',190,76,'R','R','2025-08-18',NULL),
-('hoglugu01',1999,12,17,'USA','FL','Dunedin',NULL,NULL,NULL,NULL,NULL,NULL,'Gunnar','Hoglund','Gunnar Thomas',220,76,'L','R','2025-05-02',NULL),
-('holmagr01',2000,5,31,'USA','WA','Kirkland',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Holman','Grant James',250,78,'R','R','2024-08-17',NULL),
-('holmegr01',1996,3,22,'USA','SC','Conway',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Holmes','Harrison Grant',226,72,'L','R','2024-06-16',NULL),
-('hornba01',1998,1,15,'USA','TX','Waco',NULL,NULL,NULL,NULL,NULL,NULL,'Bailey','Horn','Bailey Christian Tant',210,74,'L','L','2024-06-29',NULL),
-('hortoca01',2001,8,20,'USA','OK','Oklahoma City',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Horton','Cade Michael',190,74,'R','R','2025-05-10',NULL),
-('hurtebr01',1998,9,6,'USA','GA','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'Brant','Hurter','Brant Harris',250,78,'L','L','2024-08-04',NULL),
-('imanash01',1993,9,1,'Japan','Fukuoka','Kitakyushu',NULL,NULL,NULL,NULL,NULL,NULL,'Shota','Imanaga','Shota',175,70,'L','L','2024-04-01',NULL),
-('iriarja01',2001,12,15,'Venezuela','La Guaira','La Guaira',NULL,NULL,NULL,NULL,NULL,NULL,'Jairo','Iriarte','Jairo Alejandro',240,76,'R','R','2024-09-03',NULL),
-('jayty01',1994,4,19,'USA','IL','Lemont',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Jay','Tyler Ryan',191,72,'L','L','2024-04-11',NULL),
-('jobeja01',2002,7,30,'USA','TX','Irving',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Jobe','Jackson William',190,74,'R','R','2024-09-25',NULL),
-('johnsry01',2002,8,5,'USA','TX','Dallas',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Johnson','Ryan Christopher',215,78,'B','R','2025-03-27',NULL),
-('johnsse01',1998,9,19,'USA','NC','Concord',NULL,NULL,NULL,NULL,NULL,NULL,'Seth','Johnson','Seth William',205,73,'R','R','2024-09-08',NULL),
-('jonesja09',2001,8,6,'USA','CA','Whittier',NULL,NULL,NULL,NULL,NULL,NULL,'Jared','Jones','Jared Keith',190,72,'L','R','2024-03-30',NULL),
-('kavadni01',1998,10,27,'USA','IN','South Bend',NULL,NULL,NULL,NULL,NULL,NULL,'Niko','Kavadas','Nikolos Siade',235,72,'L','R','2024-08-16',NULL),
-('kentza01',1998,2,24,'USA','VA','Henrico',NULL,NULL,NULL,NULL,NULL,NULL,'Zak','Kent','Zachary Allen',208,75,'R','R','2025-04-23',NULL),
-('kingbr01',1996,11,5,'USA','CO','Littleton',NULL,NULL,NULL,NULL,NULL,NULL,'Bryan','King','Bryan Dalton',205,73,'R','L','2024-06-23',NULL),
-('kitchau01',1997,2,11,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Kitchen','Austin Christopher',200,72,'L','L','2024-07-30',NULL),
-('kleinwi01',1999,11,28,'USA','IN','Bloomington',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Klein','William Boone',230,77,'R','R','2024-04-28',NULL),
-('kloffad01',2000,8,25,'USA','TX','Magnolia',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Kloffenstein','Adam',245,77,'R','R','2024-06-20',NULL),
-('knackla01',1997,7,15,'USA','TN','Johnson City',NULL,NULL,NULL,NULL,NULL,NULL,'Landon','Knack','Landon Dakota',220,74,'L','R','2024-04-17',NULL),
-('kochaja01',2000,12,22,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Kochanowicz','Jack Von',228,79,'L','R','2024-07-11',NULL),
-('kolekst01',1997,4,18,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Stephen','Kolek','Stephen James',210,75,'R','R','2024-03-21',NULL),
-('kossch01',1998,1,27,'USA','CA','Riverside',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Koss','Christian',186,73,'R','R','2025-04-01',NULL),
-('kraveev01',1996,12,19,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Evan','Kravetz','Evan Jacob',240,80,'L','L','2024-08-28',NULL),
-('kristza01',1997,12,8,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Zac','Kristofak','Zachary',189,69,'R','R','2024-04-28',NULL),
-('laosa01',1999,8,14,'D.R.','Barahona','Barahona',NULL,NULL,NULL,NULL,NULL,NULL,'Sauryn','Lao','Sauryn',182,74,'R','R','2025-04-22',NULL),
-('laraan01',2003,1,6,'Venezuela','Falcón','Coro',NULL,NULL,NULL,NULL,NULL,NULL,'Andry','Lara','Andry Jose',180,76,'R','R','2025-07-02',NULL),
-('lawerco01',1998,5,10,'USA','ME','Bingham',NULL,NULL,NULL,NULL,NULL,NULL,'Cody','Laweryson','Cody Orion',205,76,'L','R','2025-09-13',NULL),
-('lazarma01',1999,6,3,'USA','FL','Coral Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Lazar','Max',200,73,'R','R','2024-08-10',NULL),
-('leasujo01',1998,8,15,'USA','FL','Riverview',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Leasure','Jordan Davis',220,75,'R','R','2024-03-30',NULL),
-('leech02',1998,8,13,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Lee','Chase Alexander',170,72,'R','R','2025-04-22',NULL),
-('leiteja01',2000,4,21,'USA','FL','Plantation',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Leiter','Jack Thomas',205,73,'R','R','2024-04-18',NULL),
-('linarro99',1977,8,7,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Rodney','Linares','Rodney',180,71,'R','R',NULL,NULL),
-('littlja02',1998,1,10,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Little','Jack Alan',190,76,'L','R','2025-06-19',NULL),
-('lopezom99',1977,1,3,'Venezuela','Carabobo','Valencia',NULL,NULL,NULL,NULL,NULL,NULL,'Omar','López','Omar E.',180,72,'R','R',NULL,NULL),
-('lordbr02',2000,2,14,'USA','FL','Tallahassee',NULL,NULL,NULL,NULL,NULL,NULL,'Brad','Lord','Bradley Ryan',210,75,'R','R','2025-03-30',NULL),
-('loutory01',1999,1,29,'USA','IL','Elk Grove',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Loutos','Ryan William',240,77,'R','R','2024-06-01',NULL),
-('lowderh01',2002,3,8,'USA','NC','Albemarle',NULL,NULL,NULL,NULL,NULL,NULL,'Rhett','Lowder','Rhett Hamilton',200,74,'R','R','2024-08-30',NULL),
-('maciejo01',1995,8,14,'USA','NC','Morrisville',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Maciejewski','Josh Graham',210,75,'R','L','2024-04-08',NULL),
-('macivwi01',1996,10,28,'USA','CA','Pleasant Hill',NULL,NULL,NULL,NULL,NULL,NULL,'Willie','MacIver','William',205,74,'R','R','2025-05-25',NULL),
-('maddety01',2000,2,21,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Ty','Madden','Tyler Dylan',215,75,'R','R','2024-08-26',NULL),
-('maldoan01',1998,2,6,'USA','FL','Wellington',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Maldonado','Anthony Omar',220,76,'R','R','2024-04-26',NULL),
-('mansoto99',1982,9,28,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Mansolino','Anthony Joseph',170,69,'R','R',NULL,NULL),
-('matsuyu01',1995,10,30,'Japan','Kanagawa','Yokohama',NULL,NULL,NULL,NULL,NULL,NULL,'Yuki','Matsui','Yuki',165,68,'L','L','2024-03-20',NULL),
-('matthze01',2000,5,22,'USA','NC','Cullowhee',NULL,NULL,NULL,NULL,NULL,NULL,'Zebby','Matthews','Daniel Zebulon',225,77,'R','R','2024-08-13',NULL),
-('maxweza01',2001,1,26,'USA','TN','Nashville',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Maxwell','Zachary Thomas',275,79,'R','R','2025-08-23',NULL),
-('mazurad01',2001,4,20,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Adam','Mazur','Adam McKinnlee',180,74,'R','R','2024-06-04',NULL),
-('mcculcl99',1979,12,27,'USA','NC','Oxford',NULL,NULL,NULL,NULL,NULL,NULL,'Clayton','McCullough','Clayton Anthony',180,70,'L','R',NULL,NULL),
-('mcdanga01',1999,12,15,'USA','SC','Marion',NULL,NULL,NULL,NULL,NULL,NULL,'Garrett','McDaniels','Garrett Nicholas',180,74,'L','L','2025-03-31',NULL),
-('mcderch01',1998,8,22,'USA','IN','Anderson',NULL,NULL,NULL,NULL,NULL,NULL,'Chayce','McDermott','Chayce Michael',197,75,'L','R','2024-07-24',NULL),
-('mcdontr01',2001,2,26,'USA','AL','Mobile',NULL,NULL,NULL,NULL,NULL,NULL,'Trevor','McDonald','Trevor Dale',201,74,'R','R','2024-09-29',NULL),
-('mcgremi01',2000,7,8,'USA','CA','San Clemente',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','McGreevy','Michael Stephen',220,76,'L','R','2024-07-31',NULL),
-('mcleano01',2001,7,24,'USA','NC','Willow Spring',NULL,NULL,NULL,NULL,NULL,NULL,'Nolan','McLean','Nolan James',214,74,'R','R','2025-08-16',NULL),
-('meekeja01',1995,3,22,'USA','NJ','Livingston',NULL,NULL,NULL,NULL,NULL,NULL,'James','Meeker','James Henry',222,76,'R','R','2024-06-07',NULL),
-('mejiaju01',2000,7,4,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Mejia','Juan Manuel',200,75,'R','R','2025-04-24',NULL),
-('meltotr01',2000,12,3,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Melton','Troy Edward',210,76,'R','R','2025-07-23',NULL),
-('menacr01',2002,12,21,'D.R.','Duarte','San Francisco de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Cristian','Mena','Cristian Jose',200,74,'R','R','2024-07-03',NULL),
-('mendoca99',1979,11,27,'Venezuela','Lara','Barquisimeto',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Mendoza','Carlos Enrique',190,72,'B','R',NULL,NULL),
-('mercami01',1999,4,15,'USA','SC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Mercado','David Michael',205,76,'R','R','2024-06-24',NULL),
-('merrija01',2003,4,19,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Merrill','Jackson Peter',195,75,'L','R','2024-03-20',NULL),
-('messipa01',2000,10,26,'USA','FL','Plant City',NULL,NULL,NULL,NULL,NULL,NULL,'Parker','Messick','Parker Chase',225,72,'L','L','2025-08-20',NULL),
-('meylu01',2001,6,24,'D.R.','San Pedro de Macorís','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Mey','Luis Ellison',235,77,'R','R','2025-05-01',NULL),
-('milleer01',1998,2,13,'USA','MO','St. Louis',NULL,NULL,NULL,NULL,NULL,NULL,'Erik','Miller','Erik Christopher',268,77,'L','L','2024-03-28',NULL),
-('millery01',1996,3,28,'USA','FL','Sarasota',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Miller','Ryan Robert',180,72,'R','R','2024-08-27',NULL),
-('misioja01',2002,4,3,'USA','MO','Blue Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Misiorowski','Jacob Walter',197,79,'R','R','2025-06-12',NULL),
-('molinan01',2002,1,12,'Venezuela','Carabobo','San Joaquin',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Molina','Anthony Jose',170,73,'R','R','2024-03-28',NULL),
-('montech01',1999,8,30,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Montes De Oca','Christian',230,76,'R','R','2025-06-07',NULL),
-('monteke01',2000,7,6,'Venezuela','Miranda','Santa Teresa del Tuy',NULL,NULL,NULL,NULL,NULL,NULL,'Keider','Montero','Keider Eduardo',145,73,'R','R','2024-05-29',NULL),
-('montepa01',1997,9,24,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Patrick','Monteverde','Patrick Dillon',190,74,'R','L','2025-04-19',NULL),
-('montgma01',2000,6,17,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Mason','Montgomery','Mason Jack',205,74,'L','L','2024-09-05',NULL),
-('morallu01',2002,9,24,'Cuba','Holguín','Antilla',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Morales','Luis Danys',200,75,'R','R','2025-08-01',NULL),
-('morgada01',1999,10,26,'USA','CA','Mission Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'David','Morgan','David Scott',185,72,'R','R','2025-05-26',NULL),
-('morilju02',1999,3,19,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Juan','Morillo','Juan Diego',150,73,'R','R','2025-04-19',NULL),
-('munozro01',2000,4,14,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Roddery','Muñoz','Roddery',210,74,'R','R','2024-04-20',NULL),
-('munozro02',2000,4,14,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Rolddy','Muñoz','Rolddy',183,74,'R','R','2025-09-02',NULL),
-('murdono01',1998,8,20,'USA','VA','Richmond',NULL,NULL,NULL,NULL,NULL,NULL,'Noah','Murdock','Noah James',205,80,'R','R','2025-03-29',NULL),
-('murraja01',1997,4,11,'USA','UT','Vernal',NULL,NULL,NULL,NULL,NULL,NULL,'Jayden','Murray','Jayden Allen',190,73,'R','R','2025-09-04',NULL),
-('myersto01',1998,8,5,'USA','FL','Winter Haven',NULL,NULL,NULL,NULL,NULL,NULL,'Tobias','Myers','Tobias Kane',223,73,'R','R','2024-04-23',NULL),
-('nastrni01',2000,2,18,'USA','CA','San Jose',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Nastrini','Nicholas',220,75,'R','R','2024-04-15',NULL),
-('neelyja01',2000,6,5,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Neely','Jack Preston',245,80,'R','R','2024-08-21',NULL),
-('nikhado01',1999,8,11,'USA','NC','Burlington',NULL,NULL,NULL,NULL,NULL,NULL,'Doug','Nikhazy','Douglas Samuel',210,72,'L','L','2025-04-26',NULL),
-('nunezde01',1996,6,5,'D.R.','Puerto Plata','Puerto Plata',NULL,NULL,NULL,NULL,NULL,NULL,'Dedniel','Núñez','Dedniel Omar',180,74,'R','R','2024-04-09',NULL),
-('nunezed03',1999,6,7,'D.R.','Samaná','Samana',NULL,NULL,NULL,NULL,NULL,NULL,'Eduarniel','Núñez','Eduarniel',174,74,'R','R','2025-07-02',NULL),
-('ogasash01',1997,10,8,'Japan','Kanagawa','Fujisawa',NULL,NULL,NULL,NULL,NULL,NULL,'Shinnosuke','Ogasawara','Shinnosuke',183,71,'L','L','2025-07-06',NULL),
-('ohlpi01',1999,9,10,'USA','CA','Moorpark',NULL,NULL,NULL,NULL,NULL,NULL,'Pierson','Ohl','Pierson Blaine',180,73,'R','R','2025-07-29',NULL),
-('olougja01',2000,3,14,'Australia','SA','Adelaide',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','O\'Loughlin','Jack Te Haki',223,77,'L','L','2024-05-26',NULL),
-('orzeer01',1997,8,21,'USA','IL','Elk Grove Village',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Orze','Eric Paul',205,76,'R','R','2024-07-08',NULL),
-('otanemi01',1997,7,3,'D.R.','Sánchez Ramírez','Villa La Mata',NULL,NULL,NULL,NULL,NULL,NULL,'Michel','Otañez','Michel',237,76,'R','R','2024-06-10',NULL),
-('owensty01',2001,1,9,'USA','FL','Ocala',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Owens','Tyler David',185,70,'R','R','2025-05-01',NULL),
-('palisja01',1998,8,19,'USA','TX','Richardson',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Palisch','Jacob Benjamin',215,76,'L','L','2025-06-21',NULL),
-('palmqca01',2000,10,17,'USA','FL','Fort Myers',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Palmquist','Carson James',185,75,'L','L','2025-05-16',NULL),
-('parkemi01',1999,9,27,'USA','NM','Albuquerque',NULL,NULL,NULL,NULL,NULL,NULL,'Mitchell','Parker','Mitchell James',239,76,'L','L','2024-04-15',NULL),
-('patrich01',1998,8,14,'USA','IN','Crown Point',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Patrick','Chandler Allen',217,73,'R','R','2025-03-29',NULL),
-('peguejo01',1997,5,5,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Joel','Peguero','Joel Alberto',194,71,'R','R','2025-08-21',NULL),
-('penniwa01',1998,4,14,'USA','CO','Broomfield',NULL,NULL,NULL,NULL,NULL,NULL,'Walter','Pennington','Walter Carlton',205,74,'L','L','2024-07-05',NULL),
-('penroza01',1997,6,16,'USA','ID','Nampa',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Penrod','Zach',210,74,'L','L','2024-09-14',NULL),
-('perallu01',2001,1,6,'D.R.','Espaillat','Moca',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Peralta','Luis David',170,71,'L','L','2024-08-24',NULL),
-('peredjh01',1996,4,18,'Venezuela','Aragua','San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Jhonny','Pereda','Jhonny Fernando',202,73,'R','R','2024-04-17',NULL),
-('perkija01',1999,12,26,'USA','IN','Kokomo',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Perkins','Jackson Scott',220,73,'R','R','2025-06-22',NULL),
-('petermi01',1994,5,16,'England','London','London',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Petersen','Michael Kenechukwu',195,79,'R','R','2024-06-18',NULL),
-('pettych02',2003,4,4,'USA','NJ','Camden',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Petty','Chase Robert',190,73,'R','R','2025-04-30',NULL),
-('phillty01',1997,10,27,'USA','NJ','Lumberton',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Phillips','Tyler Nicholas',225,77,'R','R','2024-07-07',NULL),
-('pinaro01',1998,11,26,'D.R.','San Cristóbal','San Cristobal',NULL,NULL,NULL,NULL,NULL,NULL,'Robinson','Piña','Robinson',225,77,'R','R','2025-06-20',NULL),
-('pintajo01',1997,11,7,'USA','AL','Pelham',NULL,NULL,NULL,NULL,NULL,NULL,'Jonathan','Pintaro','Jonathan Ryan',235,74,'R','R','2025-06-25',NULL),
-('popeau01',1998,10,26,'USA','NY','White Plains',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Pope','Austin Joseph',210,75,'R','R','2025-09-25',NULL),
-('poulipj01',1996,7,25,'USA','MA','Marion',NULL,NULL,NULL,NULL,NULL,NULL,'PJ','Poulin','Peter Arthur',195,73,'R','L','2025-08-05',NULL),
-('povicca01',2000,4,12,'USA','NV','Reno',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Povich','Cade Jackie',185,75,'L','L','2024-06-06',NULL),
-('ragsdca01',1998,5,25,'USA','FL','Wesley Chapel',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Ragsdale','Carson Andrew',235,80,'R','R','2025-09-14',NULL),
-('ramirem01',1994,7,15,'D.R.','Puerto Plata','Puerto Plata',NULL,NULL,NULL,NULL,NULL,NULL,'Emmanuel','Ramirez','Emmanuel Odalis',190,74,'R','R','2024-04-28',NULL),
-('rangeal01',1997,8,21,'México','Sonora','Hermosillo',NULL,NULL,NULL,NULL,NULL,NULL,'Alan','Rangel','Alan Eduardo',170,74,'R','R','2025-06-06',NULL),
-('raqueni01',1995,12,12,'USA','PA','Boalsberg',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Raquet','Nick',215,72,'R','L','2025-09-08',NULL),
-('rashita01',1996,1,15,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Taylor','Rashi','Taylor Steven',220,76,'R','R','2025-08-28',NULL),
-('reynose01',1998,4,19,'USA','CA','Redondo Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Sean','Reynolds','Sean William',250,80,'L','R','2024-07-14',NULL),
-('ribalor01',1998,3,5,'Cuba','Santa Clara','Santa Clara',NULL,NULL,NULL,NULL,NULL,NULL,'Orlando','Ribalta','Orlando Andres',245,79,'R','R','2024-08-13',NULL),
-('rivasle01',1997,10,10,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Leo','Rivas','Leonardo Andres',150,68,'B','R','2024-04-28',NULL),
-('roach01',1999,4,2,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Roa','Christian Michael',220,76,'R','R','2025-09-06',NULL),
-('roberda11',1994,8,30,'USA','AL','Hoover',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Robert','Daniel McGee',210,76,'L','R','2024-07-10',NULL),
-('rockeku01',1999,11,22,'USA','GA','Watkinsville',NULL,NULL,NULL,NULL,NULL,NULL,'Kumar','Rocker','Kumar',245,77,'R','R','2024-09-12',NULL),
-('rockjo01',2000,7,29,'USA','PA','Sewickley',NULL,NULL,NULL,NULL,NULL,NULL,'Joe','Rock','Joseph Richard',220,78,'L','L','2025-06-28',NULL),
-('rodribr01',2003,11,16,'Venezuela','Miranda','Petare',NULL,NULL,NULL,NULL,NULL,NULL,'Bradgley','Rodriguez','Bradgley Eduardo',160,73,'R','R','2025-05-31',NULL),
-('rodrica02',2001,11,27,'Nicaragua','Rivas','Rivas',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Rodriguez','Carlos Fernando',205,71,'R','R','2024-06-11',NULL),
-('rodrira02',1999,9,5,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Randy','Rodríguez','Randy Alberto',195,72,'R','R','2024-05-04',NULL),
-('rodriya01',1997,3,10,'Cuba','Camagüey','Camagüey',NULL,NULL,NULL,NULL,NULL,NULL,'Yariel','Rodríguez','Yariel Humberto',165,72,'R','R','2024-04-13',NULL),
-('rolisry01',1997,7,11,'USA','TN','Jackson',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Rolison','Ryan Perry',213,74,'R','L','2025-05-13',NULL),
-('roonejo01',1997,1,28,'USA','NY','Melrose',NULL,NULL,NULL,NULL,NULL,NULL,'John','Rooney','John',215,77,'R','L','2025-08-24',NULL),
-('rouppla01',1998,9,10,'USA','NC','Rocky Mount',NULL,NULL,NULL,NULL,NULL,NULL,'Landen','Roupp','Landen Brice',215,74,'R','R','2024-03-29',NULL),
-('roycrch01',1997,6,21,'USA','IL','Dundee',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Roycroft','Chris Michael',230,80,'R','R','2024-05-07',NULL),
-('ryanri01',1998,8,17,'USA','NC','Charlotte',NULL,NULL,NULL,NULL,NULL,NULL,'River','Ryan','River Jason',195,74,'R','R','2024-07-22',NULL),
-('sabroer01',1997,10,31,'CAN','AB','Edmonton',NULL,NULL,NULL,NULL,NULL,NULL,'Erik','Sabrowski','Erik Wayne Thomas',230,76,'R','L','2024-09-04',NULL),
-('sammobr01',1995,4,27,'USA','NC','Wilmington',NULL,NULL,NULL,NULL,NULL,NULL,'Bryan','Sammons','Bryan Todd',235,76,'L','L','2024-07-29',NULL),
-('sandeca01',1996,12,9,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Sanders','Cameron Ronald',190,74,'R','R','2025-08-05',NULL),
-('sandrja01',1999,2,11,'USA','MD','Hagerstown',NULL,NULL,NULL,NULL,NULL,NULL,'Jayvien','Sandridge','Jayvien',220,77,'L','L','2025-07-05',NULL),
-('sanojja01',2002,9,3,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Javier','Sanoja','Javier Ernesto',150,67,'R','R','2024-09-07',NULL),
-('sasakro01',2001,11,3,'Japan','Iwate','Rikuzentakata',NULL,NULL,NULL,NULL,NULL,NULL,'Roki','Sasaki','Roki',187,74,'R','R','2025-03-19',NULL),
-('sauerma01',1999,1,21,'USA','CA','Santa Maria',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Sauer','Matthew David',230,76,'R','R','2024-03-31',NULL),
-('schaewa99',1985,1,28,'USA','PA','Vandergrift',NULL,NULL,NULL,NULL,NULL,NULL,'Warren','Schaeffer','Warren James',180,72,'R','R',NULL,NULL),
-('schlica01',2001,2,5,'USA','MA','Walpole',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Schlittler','Cameron John',225,78,'R','R','2025-07-09',NULL),
-('schulpa01',1998,1,5,'USA','UT','Orem',NULL,NULL,NULL,NULL,NULL,NULL,'Paxton','Schultz','Paxton James',205,75,'L','R','2025-04-20',NULL),
-('schwesp01',2000,5,31,'USA','MI','Saginaw',NULL,NULL,NULL,NULL,NULL,NULL,'Spencer','Schwellenbach','Spencer Drew',200,73,'R','R','2024-05-29',NULL),
-('scottch01',1999,6,15,'USA','FL','Coconut Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Scott','Christian David',207,76,'R','R','2024-05-04',NULL),
-('seiglan01',1999,6,20,'USA','AZ','Fort Defiance',NULL,NULL,NULL,NULL,NULL,NULL,'Anthony','Seigler','Anthony',192,70,'L','R','2025-07-02',NULL),
-('seymoca01',1998,12,16,'USA','CA','Poway',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Seymour','Carson James',255,78,'R','R','2025-06-29',NULL),
-('seymoia01',1998,12,13,'USA','CT','Madison',NULL,NULL,NULL,NULL,NULL,NULL,'Ian','Seymour','Ian Albert',215,72,'L','L','2025-06-09',NULL),
-('shugach01',1996,10,24,'USA','TX','Bridge City',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Shugart','Chase C.',200,71,'L','R','2024-08-15',NULL),
-('simpsjo02',1997,8,19,'USA','CT','Stafford',NULL,NULL,NULL,NULL,NULL,NULL,'Josh','Simpson','Joshua Wayne',190,74,'L','L','2025-06-21',NULL),
-('siskev01',1997,4,23,'USA','SC','Chester',NULL,NULL,NULL,NULL,NULL,NULL,'Evan','Sisk','Samuel Evan',209,74,'L','L','2025-04-15',NULL),
-('skenepa01',2002,5,29,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'Paul','Skenes','Paul David',260,78,'R','R','2024-05-11',NULL),
-('slateju01',1997,9,15,'USA','TX','Longview',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Slaten','Justin Michael',222,76,'R','R','2024-03-30',NULL),
-('smithca05',1999,5,9,'CAN','BC','Abbotsford',NULL,NULL,NULL,NULL,NULL,NULL,'Cade','Smith','Cade Jared Benjamin',230,77,'R','R','2024-03-30',NULL),
-('smithdy01',2000,5,28,'USA','AL','Huntsville',NULL,NULL,NULL,NULL,NULL,NULL,'Dylan','Smith','Dylan Miguel',180,74,'R','R','2025-06-02',NULL),
-('smithsh02',2000,4,4,'USA','MA','Danvers',NULL,NULL,NULL,NULL,NULL,NULL,'Shane','Smith','Shane Jeffrey',240,75,'R','R','2025-04-01',NULL),
-('sommedr01',2000,8,14,'USA','IL','Hoffman Estates',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Sommers','Drew Gregory',250,75,'L','L','2025-08-22',NULL),
-('spencmi01',1998,5,6,'USA','WA','Kirkland',NULL,NULL,NULL,NULL,NULL,NULL,'Mitch','Spence','Mitch Perry',185,73,'R','R','2024-03-29',NULL),
-('sproabr01',2000,9,17,'USA','FL','Pensacola',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Sproat','Brandon Carl',215,75,'R','R','2025-09-07',NULL),
-('sternju01',1996,8,29,'USA','CA','La Jolla',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Sterner','Justin James',215,73,'R','R','2024-05-31',NULL),
-('strowka01',1997,9,17,'USA','TX','Fort Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Kade','Strowd','Randall Kade',200,74,'R','R','2025-05-18',NULL),
-('suganto01',1989,10,11,'Japan','Ishikawa','Kanagawa',NULL,NULL,NULL,NULL,NULL,NULL,'Tomoyuki','Sugano','Tomoyuki',198,73,'R','R','2025-03-30',NULL),
-('svansma01',1999,1,31,'USA','IL','Lake Zurich',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Svanson','Matthew Patrick',230,77,'R','R','2025-04-17',NULL),
-('taylogr02',2002,5,20,'USA','AL','Florence',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Taylor','Grant Alan',230,74,'R','R','2025-06-10',NULL),
-('taylotr01',2001,9,9,'USA','CA','Fontana',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Taylor','Troy Jonathan',205,72,'R','R','2024-08-11',NULL),
-('tengka01',1998,12,1,'Taiwan','Taichung City','Taichung City',NULL,NULL,NULL,NULL,NULL,NULL,'Kai-Wei','Teng','Kai-Wei',241,76,'R','R','2024-03-31',NULL),
-('thomaco02',1998,5,29,'USA','GA','Tifton',NULL,NULL,NULL,NULL,NULL,NULL,'Connor','Thomas','Sidney Connor',200,72,'L','L','2025-03-29',NULL),
-('thorpdr01',2000,10,1,'USA','UT','Washington',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Thorpe','Andrew Robert',220,76,'L','R','2024-06-11',NULL),
-('tidwebl01',2001,6,8,'USA','TN','Columbia',NULL,NULL,NULL,NULL,NULL,NULL,'Blade','Tidwell','Janzen Blade',207,76,'R','R','2025-05-04',NULL),
-('tollepa01',2002,11,1,'USA','OK','Stillwater',NULL,NULL,NULL,NULL,NULL,NULL,'Payton','Tolle','Payton John',250,78,'L','L','2025-08-29',NULL),
-('tongjo01',2003,6,19,'CAN','ON','Markham',NULL,NULL,NULL,NULL,NULL,NULL,'Jonah','Tong','Jonah Reid Tin Chee Matthew',180,73,'R','R','2025-08-29',NULL),
-('uruetlu99',1981,1,9,'Colombia','Atlántico','Barranquilla',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Urueta','Luis Felipe',210,74,'B','R',NULL,NULL),
-('uwasana01',1994,2,6,'Japan','Chiba','Matsudo',NULL,NULL,NULL,NULL,NULL,NULL,'Naoyuki','Uwasawa','Naoyuki',194,73,'R','R','2024-05-02',NULL),
-('vanasri01',1998,10,13,'USA','FL','Morriston',NULL,NULL,NULL,NULL,NULL,NULL,'Ricky','Vanasco','Ricky',180,75,'R','R','2024-04-15',NULL),
-('vanbebr01',1996,9,3,'USA','FL','Pembroke Pines',NULL,NULL,NULL,NULL,NULL,NULL,'Brian','Van Belle','Brian Michael',185,75,'R','R','2025-08-24',NULL),
-('vanwelo01',1999,2,14,'USA','MO','Joplin',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','VanWey','Logan Christopher',205,74,'R','R','2025-04-11',NULL),
-('vasilmi01',2000,3,19,'USA','MA','Boston',NULL,NULL,NULL,NULL,NULL,NULL,'Mike','Vasil','Michael',244,76,'L','R','2025-03-31',NULL),
-('vazqulu01',1999,10,10,'P.R.',NULL,'Orocovis',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','Vázquez','Luis',165,72,'R','R','2024-05-22',NULL),
-('villael02',1997,6,26,'USA','CA','La Habra',NULL,NULL,NULL,NULL,NULL,NULL,'Eli','Villalobos','Elijah Daniel',195,76,'R','R','2024-05-05',NULL),
-('waldrhu01',2002,3,1,'USA','GA','Cairo',NULL,NULL,NULL,NULL,NULL,NULL,'Hurston','Waldrep','Hurston Wayne',210,74,'R','R','2024-06-09',NULL),
-('walstbl01',2001,6,28,'USA','NC','Wilmington',NULL,NULL,NULL,NULL,NULL,NULL,'Blake','Walston','Matthew Blake',175,77,'L','L','2024-05-01',NULL),
-('waltean01',2000,12,8,'USA','FL','Palm Bay',NULL,NULL,NULL,NULL,NULL,NULL,'Andrew','Walters','Andrew Wayne',222,76,'R','R','2024-09-12',NULL),
-('warrewi01',1999,6,16,'USA','MS','Brandon',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Warren','William Harper',200,74,'R','R','2024-07-30',NULL),
-('whiseca01',2000,10,20,'USA','NC','Winston-Salem',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Whisenhunt','Carson Lee',214,75,'L','L','2025-07-28',NULL),
-('whitlfo01',1997,9,15,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Forrest','Whitley','Charles Forrest',208,79,'R','R','2024-04-16',NULL),
-('wilcoco01',1999,7,14,'USA','TN','Chattanooga',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Wilcox','Mitchell Cole',232,77,'R','R','2025-09-19',NULL),
-('wilesna01',1998,7,2,'USA','KS','Overland Park',NULL,NULL,NULL,NULL,NULL,NULL,'Nathan','Wiles','Nathan Daniel',228,76,'R','R','2025-04-22',NULL),
-('wilsoja04',2002,3,30,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Wilson','Jacob',190,74,'R','R','2024-07-19',NULL),
-('wilsowi03',1998,7,21,'USA','NC','Kings Mountain',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Wilson','Will Bradley',184,70,'R','R','2025-04-23',NULL),
-('winnco01',1999,11,25,'USA','CO','Longmont',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Winn','Cole Robert',190,74,'R','R','2024-04-14',NULL),
-('wolfrgr01',1996,12,12,'USA','MI','Holland',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Wolfram','Grant',240,79,'L','L','2025-04-26',NULL),
-('woodja03',2002,9,17,'USA','MD','Rockville',NULL,NULL,NULL,NULL,NULL,NULL,'James','Wood','James Irvin',234,79,'L','R','2024-07-01',NULL),
-('wroblju01',2000,7,14,'USA','IL','Hoffman Estates',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Wrobleski','Justin Michael',194,73,'L','L','2024-07-07',NULL),
-('yamamyo01',1998,8,17,'Japan','Okayama','Bizen',NULL,NULL,NULL,NULL,NULL,NULL,'Yoshinobu','Yamamoto','Yoshinobu',176,70,'R','R','2024-03-21',NULL),
-('yesavtr01',2003,7,28,'USA','PA','Pottstown',NULL,NULL,NULL,NULL,NULL,NULL,'Trey','Yesavage','Trey David',225,76,'R','R','2025-09-15',NULL),
-('yohocr01',1999,10,23,'USA','IN','Fishers',NULL,NULL,NULL,NULL,NULL,NULL,'Craig','Yoho','Craig',235,74,'R','R','2025-04-21',NULL),
-('youngbr01',1998,8,19,'USA','TX','Lumberton',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Young','Brandon Wayne',210,78,'R','R','2025-04-19',NULL),
-('zeferry01',1998,2,28,'USA','KS','Topeka',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Zeferjahn','Ryan Joseph',209,77,'R','R','2024-08-25',NULL),
-('zulueyo01',1998,1,23,'Cuba','Villa Clara','Remedios',NULL,NULL,NULL,NULL,NULL,NULL,'Yosver','Zulueta','Yosver Jose',190,73,'R','R','2024-06-25',NULL);
-INSERT INTO `people` VALUES
-('acostma02',2002,10,29,'Venezuela','Distrito Capital','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Maximo','Acosta','Maximo Douglas Jose',187,71,'R','R','2025-08-18',NULL),
-('acunalu01',2002,3,12,'Venezuela','Distrito Capital','Caracas',NULL,NULL,NULL,NULL,NULL,NULL,'Luisangel','Acuña','Luisangel Jose',181,68,'R','R','2024-09-14',NULL),
-('alcanke01',2002,7,12,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Kevin','Alcántara','Kevin',188,78,'R','R','2024-09-25',NULL),
-('alexabl01',1999,6,11,'USA','FL','Cape Coral',NULL,NULL,NULL,NULL,NULL,NULL,'Blaze','Alexander','Blaze Chanee',160,72,'R','R','2024-03-28',NULL),
-('alexacj01',1996,7,17,'USA','IN','Merrillville',NULL,NULL,NULL,NULL,NULL,NULL,'CJ','Alexander','Charles Joseph Wesley',215,76,'L','R','2024-06-24',NULL),
-('alvarar01',1994,7,14,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Armando','Alvarez','Armando Francisco',189,72,'R','R','2024-06-22',NULL),
-('alvarna01',2003,4,11,'USA','CA','Fontana',NULL,NULL,NULL,NULL,NULL,NULL,'Nacho','Alvarez','Ignacio',190,70,'R','R','2024-07-22',NULL),
-('amadoad01',2003,4,11,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Adael','Amador','Adael Alexander',200,71,'B','R','2024-06-09',NULL),
-('anthoro01',2004,5,13,'USA','FL','West Palm Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Roman','Anthony','Roman Joseph',200,75,'L','R','2025-06-09',NULL),
-('avansdr01',1996,6,13,'USA','AL','Alabaster',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Avans','Drew',195,70,'L','L','2025-05-27',NULL),
-('bakerda02',1999,2,11,'USA','CA','Redwood City',NULL,NULL,NULL,NULL,NULL,NULL,'Darren','Baker','Darren John',167,70,'L','R','2024-09-01',NULL),
-('baldwbr01',2000,8,15,'USA','NC','Whiteville',NULL,NULL,NULL,NULL,NULL,NULL,'Brooks','Baldwin','Riley Brooks',195,73,'B','R','2024-07-19',NULL),
-('baldwdr01',2001,3,28,'USA','WI','Madison',NULL,NULL,NULL,NULL,NULL,NULL,'Drake','Baldwin','Drake Randall',225,73,'L','R','2025-03-27',NULL),
-('ballemo01',2003,11,8,'Venezuela','Miranda','Los Teques',NULL,NULL,NULL,NULL,NULL,NULL,'Moisés','Ballesteros','Moisés Alejandro',215,68,'L','R','2025-05-13',NULL),
-('banfiwi01',1999,11,18,'USA','GA','Lawrenceville',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Banfield','William Frank',215,72,'R','R','2025-08-23',NULL),
-('banueda01',1996,10,1,'USA','CA','Ontario',NULL,NULL,NULL,NULL,NULL,NULL,'David','Bañuelos','David Clemente',205,70,'R','R','2024-04-16',NULL),
-('bargead01',1999,11,12,'USA','WA','Bellevue',NULL,NULL,NULL,NULL,NULL,NULL,'Addison','Barger','Addison',210,72,'L','R','2024-04-24',NULL),
-('barrojo01',2001,2,17,'Venezuela','Carabobo','Puerto Cabello',NULL,NULL,NULL,NULL,NULL,NULL,'Jorge','Barrosa','Jorge Luis',165,66,'B','L','2024-04-01',NULL),
-('basalsa01',2004,8,13,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Samuel','Basallo','Samuel Alexander',180,76,'L','R','2025-08-17',NULL),
-('beavedy01',2001,8,11,'USA','CA','San Luis Obispo',NULL,NULL,NULL,NULL,NULL,NULL,'Dylan','Beavers','Dylan Matthew',206,77,'L','R','2025-08-16',NULL),
-('beckjo01',2001,4,19,'USA','AL','Hazel Green',NULL,NULL,NULL,NULL,NULL,NULL,'Jordan','Beck','Jordan Alexander',225,74,'R','R','2024-04-30',NULL),
-('bernawa01',2002,6,6,'D.R.','Peravia','Bani',NULL,NULL,NULL,NULL,NULL,NULL,'Warming','Bernabel','Warming Jose',180,73,'R','R','2025-07-26',NULL),
-('berrost01',1999,6,5,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Steward','Berroa','Steward',178,69,'B','R','2024-06-23',NULL),
-('blackty01',2000,7,26,'CAN','ON','Toronto',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Black','Tyler Alexander',199,73,'L','R','2024-04-30',NULL),
-('blissry01',1999,12,13,'USA','CA','Burbank',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Bliss','Ryan Isiah',165,67,'R','R','2024-05-27',NULL),
-('brooktr01',1995,7,3,'USA','CA','Alpine',NULL,NULL,NULL,NULL,NULL,NULL,'Trenton','Brooks','Trenton Alan',195,71,'L','L','2024-05-28',NULL),
-('caglija01',2003,2,9,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Jac','Caglianone','Jeffrey Alan',250,77,'L','L','2025-06-03',NULL),
-('caissow01',2002,7,8,'CAN','ON','Burlington',NULL,NULL,NULL,NULL,NULL,NULL,'Owen','Caissie','Owen Andrew',190,75,'L','R','2025-08-14',NULL),
-('callity01',2000,6,22,'USA','FL','Jacksonville',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Callihan','Tyler',205,71,'L','R','2025-04-30',NULL),
-('camarja01',1999,7,1,'Colombia','Atlántico','Barranquilla',NULL,NULL,NULL,NULL,NULL,NULL,'Jair','Camargo','Jair David',230,70,'R','R','2024-04-16',NULL),
-('campbkr01',2002,6,28,'USA','TN','Chattanooga',NULL,NULL,NULL,NULL,NULL,NULL,'Kristian','Campbell','Kristian Eron',210,75,'R','R','2025-03-27',NULL),
-('campegu01',1997,9,20,'Colombia','Córdoba','Lorica',NULL,NULL,NULL,NULL,NULL,NULL,'Gustavo','Campero','Gustavo Angel',183,66,'B','R','2024-09-15',NULL),
-('chapaan01',1999,5,4,'Venezuela','Mérida','El Vigia',NULL,NULL,NULL,NULL,NULL,NULL,'Andrés','Chaparro','Andrés Alfonso',200,72,'R','R','2024-08-13',NULL),
-('chengts01',2001,7,26,'Taiwan','Pingtung County','Jiuru',NULL,NULL,NULL,NULL,NULL,NULL,'Tsung-Che','Cheng','Tsung-Che',173,67,'L','R','2025-04-09',NULL),
-('chourja01',2004,3,11,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Chourio','Jackson Bryan',204,72,'R','R','2024-03-29',NULL),
-('churcna01',2000,7,12,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Nathan','Church','Nathan Michael',180,70,'L','L','2025-08-17',NULL),
-('clarkde02',2000,5,1,'CAN','ON','Toronto',NULL,NULL,NULL,NULL,NULL,NULL,'Denzel','Clarke','Denzel Leslie',220,76,'R','R','2025-05-23',NULL),
-('clasejo01',2002,5,23,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Jonatan','Clase','Jonatan',150,70,'B','R','2024-04-15',NULL),
-('coleza01',2000,8,4,'USA','MO','Ozark',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Cole','Zachary Robert',190,74,'L','R','2025-09-12',NULL),
-('colliis01',1997,7,22,'USA','MN','Maple Grove',NULL,NULL,NULL,NULL,NULL,NULL,'Isaac','Collins','Isaac Michael',188,68,'B','R','2024-09-08',NULL),
-('coningr01',1997,7,11,'USA','FL','Plantation',NULL,NULL,NULL,NULL,NULL,NULL,'Griffin','Conine','Griffin Riley',210,73,'L','R','2024-08-26',NULL),
-('cookbi01',1999,1,7,'USA','UT','Layton',NULL,NULL,NULL,NULL,NULL,NULL,'Billy','Cook','William Monroe',200,72,'R','R','2024-09-08',NULL),
-('coronke01',2000,3,21,'Venezuela','Zulia','Maracaibo',NULL,NULL,NULL,NULL,NULL,NULL,'Kenedy','Corona','Kenedy Junior',189,70,'R','R','2025-07-07',NULL),
-('corteca01',1997,6,30,'USA','FL','Orlando',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Cortes','Carlos Andres',206,67,'L','B','2025-07-23',NULL),
-('crewsdy01',2002,2,26,'USA','FL','Altamonte Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Dylan','Crews','Dylan Gray',203,72,'R','R','2024-08-26',NULL),
-('crimbl01',1997,6,17,'USA','AL','Mobile',NULL,NULL,NULL,NULL,NULL,NULL,'Blaine','Crim','Linton Blaine',200,70,'R','R','2025-05-02',NULL),
-('crookji01',2001,7,19,'USA','TX','Euless',NULL,NULL,NULL,NULL,NULL,NULL,'Jimmy','Crooks','James Dale',230,72,'L','R','2025-08-29',NULL),
-('deanju01',1996,12,6,'USA','SC','Mauldin',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Dean','Justin Emmanuel',185,68,'R','R','2025-08-08',NULL),
-('delauch01',2001,10,8,'USA','MD','Frederick',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','DeLauter','Chase Daniel',235,75,'L','L','2025-10-01',NULL),
-('delcaad01',1999,9,27,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Adrian','Del Castillo','Adrian Jose',208,70,'L','R','2024-08-07',NULL),
-('deloaza01',1998,8,18,'USA','TX','Irving',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','DeLoach','Zachary Dixon',215,73,'L','R','2024-05-22',NULL),
-('deloslu03',1998,6,9,'D.R.','San Cristóbal','Bajos de Haina',NULL,NULL,NULL,NULL,NULL,NULL,'Luis','De Los Santos','Luis Alberto',160,74,'R','R','2024-07-31',NULL),
-('devanca01',1997,4,13,'USA','NH','Nashua',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Devanney','Cameron Michael',195,73,'R','R','2025-08-31',NULL),
-('dezenza01',2000,5,11,'USA','OH','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'Zach','Dezenzo','Zachary',220,77,'R','R','2024-08-06',NULL),
-('dingldi01',1998,9,17,'USA','OH','Massillon',NULL,NULL,NULL,NULL,NULL,NULL,'Dillon','Dingler','Francis Dillon',210,73,'R','R','2024-07-29',NULL),
-('donaljo03',1891,2,20,'USA','MO','Glasgow',1970,4,14,'USA','IL','Chicago','John','Donaldson','John Wesley',180,73,'L','L',NULL,NULL),
-('drisclo01',1997,11,3,'USA','CO','Colorado Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Logan','Driscoll','Logan Rylee',225,71,'L','R','2024-09-03',NULL),
-('dunnbl01',1998,9,5,'USA','MI','Holland',NULL,NULL,NULL,NULL,NULL,NULL,'Blake','Dunn','Blake William',210,70,'R','R','2024-06-04',NULL),
-('dunnol01',1997,9,2,'USA','UT','Salt Lake City',NULL,NULL,NULL,NULL,NULL,NULL,'Oliver','Dunn','Oliver Harris',207,71,'L','R','2024-03-30',NULL),
-('durbica01',2000,2,22,'USA','IL','Lake Forest',NULL,NULL,NULL,NULL,NULL,NULL,'Caleb','Durbin','Caleb',183,67,'R','R','2025-04-18',NULL),
-('eldribr01',2004,10,20,'USA','VA','Fairfax',NULL,NULL,NULL,NULL,NULL,NULL,'Bryce','Eldridge','Bryson Edward',240,79,'L','R','2025-09-15',NULL),
-('elkoti01',1998,12,27,'USA','KS','Wichita',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Elko','Timothy John',250,75,'R','R','2025-05-10',NULL),
-('ellisdu01',1998,1,16,'USA','LA','Shreveport',NULL,NULL,NULL,NULL,NULL,NULL,'Duke','Ellis','Robert Duke',180,74,'L','L','2024-06-04',NULL),
-('englitr01',1997,5,14,'USA','GA','Stockbridge',NULL,NULL,NULL,NULL,NULL,NULL,'Tristin','English','Tristin Hall',208,74,'R','R','2025-07-09',NULL),
-('escarjc01',1995,4,24,'USA','FL','Hialeah',NULL,NULL,NULL,NULL,NULL,NULL,'J. C.','Escarra','Juan Carlos',220,74,'L','R','2025-03-29',NULL),
-('fabiasa01',1998,3,6,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Sandro','Fabian','Sandro',180,71,'R','R','2024-09-06',NULL),
-('feduchu01',1997,6,5,'USA','LA','Lake Charles',NULL,NULL,NULL,NULL,NULL,NULL,'Hunter','Feduccia','Hunter',215,73,'L','R','2024-07-31',NULL),
-('fernaya01',2003,1,1,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Yanquiel','Fernández','Yanquiel',198,74,'L','L','2025-07-02',NULL),
-('florera03',2000,11,7,'USA','CA','Anaheim',NULL,NULL,NULL,NULL,NULL,NULL,'Rafael','Flores','Rafael',232,76,'R','R','2025-09-17',NULL),
-('fordha01',2003,2,21,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Harry','Ford','Harrison Michael',200,70,'R','R','2025-09-05',NULL),
-('foscuju01',1999,3,2,'USA','AL','Huntsville',NULL,NULL,NULL,NULL,NULL,NULL,'Justin','Foscue','Justin Connor',205,71,'R','R','2024-04-05',NULL),
-('freelal01',2001,8,24,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Alex','Freeland','Alexander Chance',200,72,'B','R','2025-07-30',NULL),
-('freemco01',2001,1,5,'USA','CA','Pomona',NULL,NULL,NULL,NULL,NULL,NULL,'Cody','Freeman','Cody Nicholas',180,68,'R','R','2025-07-18',NULL),
-('fulfobr01',1998,12,9,'USA','TX','Lubbock',NULL,NULL,NULL,NULL,NULL,NULL,'Braxton','Fulford','Braxton Albert',190,70,'R','R','2025-04-16',NULL),
-('garcijh01',2002,12,11,'Venezuela','Apure','San Fernando de Apure',NULL,NULL,NULL,NULL,NULL,NULL,'Jhostynxon','Garcia','Jhostynxon Alirio',163,72,'R','R','2025-08-22',NULL),
-('gaspemi01',1995,10,11,'USA','NH','Merrimack',NULL,NULL,NULL,NULL,NULL,NULL,'Mickey','Gasper','Michael',205,70,'B','R','2024-08-12',NULL),
-('gentrty01',1999,2,1,'USA','TN','Memphis',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Gentry','Tyler Jackson',210,73,'R','R','2024-08-25',NULL),
-('gilbedr01',2000,9,27,'USA','MN','St. Paul',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Gilbert','Andrew Christopher',195,69,'L','L','2025-08-08',NULL),
-('gorskma01',1997,12,22,'USA','IN','Fishers',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Gorski','Matthew',220,74,'R','R','2025-04-24',NULL),
-('guzmade01',2004,2,8,'D.R.','San Pedro de Macorís','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Denzer','Guzman','Denzer',190,73,'R','R','2025-09-13',NULL),
-('halpipe01',2002,5,26,'USA','CA','San Mateo',NULL,NULL,NULL,NULL,NULL,NULL,'Petey','Halpin','Peter Lyndon',200,71,'L','R','2025-09-20',NULL),
-('handlma01',1998,3,10,'USA','CO','Denver',NULL,NULL,NULL,NULL,NULL,NULL,'Maverick','Handley','Maverick Dayne',210,69,'R','R','2025-04-29',NULL),
-('harribr02',1998,6,24,'USA','IL','Arlington Heights',NULL,NULL,NULL,NULL,NULL,NULL,'Brett','Harris','Brett Steven',208,74,'R','R','2024-05-03',NULL),
-('harridu01',1999,7,8,'USA','FL','Tampa',NULL,NULL,NULL,NULL,NULL,NULL,'Dustin','Harris','Dustin Alexander',185,74,'L','R','2024-09-28',NULL),
-('hassero02',2001,8,15,'USA','TN','Franklin',NULL,NULL,NULL,NULL,NULL,NULL,'Robert','Hassell','Robert Harris',186,73,'L','L','2025-05-22',NULL),
-('helmami01',1996,5,23,'USA','NE','Lincoln',NULL,NULL,NULL,NULL,NULL,NULL,'Michael','Helman','Michael James',195,72,'R','R','2024-09-03',NULL),
-('hernada04',2001,8,3,'P.R.',NULL,'San Juan',NULL,NULL,NULL,NULL,NULL,NULL,'Darell','Hernaiz','Darell Giovan',190,72,'R','R','2024-03-28',NULL),
-('hernahe01',1999,12,16,'D.R.','Monseñor Nouel','Bonao',NULL,NULL,NULL,NULL,NULL,NULL,'Heriberto','Hernandez','Heriberto Jose',195,72,'R','R','2025-05-30',NULL),
-('hicksli01',1999,6,2,'CAN','ON','Toronto',NULL,NULL,NULL,NULL,NULL,NULL,'Liam','Hicks','Liam John Sherwood',185,69,'L','R','2025-03-28',NULL),
-('hindsre01',2000,9,5,'USA','FL','Niceville',NULL,NULL,NULL,NULL,NULL,NULL,'Rece','Hinds','Rece Xola',215,75,'R','R','2024-07-08',NULL),
-('hollija01',2003,12,4,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Jackson','Holliday','Jackson Matthew',185,72,'L','R','2024-04-10',NULL),
-('housebr01',2003,6,4,'USA','GA','Winder',NULL,NULL,NULL,NULL,NULL,NULL,'Brady','House','Brady Hunter',208,76,'R','R','2025-06-16',NULL),
-('hurtuja01',1997,12,11,'USA','IN','Indianapolis',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Hurtubise','Jacob Gilles',180,71,'L','R','2024-05-13',NULL),
-('jacksje02',2000,3,26,'USA','TN','Antioch',NULL,NULL,NULL,NULL,NULL,NULL,'Jeremiah','Jackson','Jeremiah',165,71,'R','R','2025-08-01',NULL),
-('jenseca01',2003,7,3,'USA','MO','Kansas City',NULL,NULL,NULL,NULL,NULL,NULL,'Carter','Jensen','Carter James',210,72,'L','R','2025-09-02',NULL),
-('jimenle01',2001,5,17,'Panama','Herrera','Chitre',NULL,NULL,NULL,NULL,NULL,NULL,'Leo','Jimenez','Leonardo Joel',215,70,'R','R','2024-07-04',NULL),
-('johnstr02',1997,6,22,'USA','WA','Tacoma',NULL,NULL,NULL,NULL,NULL,NULL,'Troy','Johnston','Troy Michael',205,71,'L','L','2025-07-29',NULL),
-('jonesgr02',1998,3,7,'USA','NC','Cary',NULL,NULL,NULL,NULL,NULL,NULL,'Greg','Jones','Gregory',175,72,'B','R','2024-06-06',NULL),
-('jordale01',1995,9,24,'USA','WA','Puyallup',NULL,NULL,NULL,NULL,NULL,NULL,'Levi','Jordan','Levi David',185,75,'R','R','2024-06-24',NULL),
-('jungja01',2000,10,4,'USA','TX','San Antonio',NULL,NULL,NULL,NULL,NULL,NULL,'Jace','Jung','Jace Andrew',205,72,'L','R','2024-08-16',NULL),
-('karroky01',2002,7,26,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Karros','Kyle Garret',220,77,'R','R','2025-08-08',NULL),
-('kayfucj01',2001,10,28,'USA','FL','Boca Raton',NULL,NULL,NULL,NULL,NULL,NULL,'C. J.','Kayfus','Collin Joseph',192,71,'L','L','2025-08-02',NULL),
-('keasclu01',2002,8,15,'USA','CA','Watsonville',NULL,NULL,NULL,NULL,NULL,NULL,'Luke','Keaschall','Luke T.',190,72,'R','R','2025-04-18',NULL),
-('keirsda01',1997,5,13,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'DaShawn','Keirsey','DaShawn Robert',195,72,'L','L','2024-09-05',NULL),
-('keithco01',2001,8,14,'USA','OH','Zanesville',NULL,NULL,NULL,NULL,NULL,NULL,'Colt','Keith','Colten Thomas',211,74,'L','R','2024-03-28',NULL),
-('kempot01',1999,9,9,'USA','CA','Fullerton',NULL,NULL,NULL,NULL,NULL,NULL,'Otto','Kemp','Otto Severson',185,71,'R','R','2025-06-07',NULL),
-('kimhy02',1999,1,27,'South Korea','Gyeonggi Province','Goyang',NULL,NULL,NULL,NULL,NULL,NULL,'Hyeseong','Kim','Hyeseong',176,70,'L','R','2025-05-03',NULL),
-('kochgr01',1997,2,5,'USA','AR','Fayetteville',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','Koch','Grant',195,70,'R','R','2024-05-29',NULL),
-('kurtzni01',2003,3,12,'USA','PA','Lancaster',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Kurtz','Nicholas Jeffrey',240,77,'L','L','2025-04-23',NULL),
-('langfwy01',2001,11,15,'USA','FL','Trenton',NULL,NULL,NULL,NULL,NULL,NULL,'Wyatt','Langford','Wyatt Michael',225,72,'R','R','2024-03-28',NULL),
-('leebr02',2001,2,14,'USA','CA','San Luis Obispo',NULL,NULL,NULL,NULL,NULL,NULL,'Brooks','Lee','Brooks Thomas',205,73,'B','R','2024-07-03',NULL),
-('leeju01',1998,8,20,'Japan','Aichi','Nagoya',NULL,NULL,NULL,NULL,NULL,NULL,'Jung Hoo','Lee','Jung Hoo',197,72,'L','R','2024-03-28',NULL),
-('leonpe01',1998,5,28,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','León','Pedro Manuel',170,69,'R','R','2024-08-03',NULL),
-('lileda01',2002,11,30,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Daylen','Lile','Daylen Anthony',195,71,'L','R','2025-05-23',NULL),
-('lipsctr01',2000,6,14,'USA','MD','Frederick',NULL,NULL,NULL,NULL,NULL,NULL,'Trey','Lipscomb','LaVictor Antwain',202,74,'R','R','2024-03-30',NULL),
-('locklty01',2000,11,24,'USA','MD','Baltimore',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Locklear','Tyler Evan',210,74,'R','R','2024-06-09',NULL),
-('lockrbr01',1997,3,14,'USA','FL','Pensacola',NULL,NULL,NULL,NULL,NULL,NULL,'Brandon','Lockridge','Brandon Marcus',185,71,'R','R','2024-09-13',NULL),
-('loperjo01',1999,5,11,'USA','PA','Philadelphia',NULL,NULL,NULL,NULL,NULL,NULL,'Joey','Loperfido','Mario Joseph',220,74,'L','R','2024-04-30',NULL),
-('lugoma01',2001,5,9,'P.R.',NULL,'Manati',NULL,NULL,NULL,NULL,NULL,NULL,'Matthew','Lugo','Matthew Jabel',190,72,'R','R','2025-05-09',NULL),
-('malloju02',2000,2,19,'USA','NY','New York',NULL,NULL,NULL,NULL,NULL,NULL,'Justyn-Henry','Malloy','Justyn-Henry Conrad',212,73,'R','R','2024-06-03',NULL),
-('manguja01',1996,3,8,'USA','MS','Flowood',NULL,NULL,NULL,NULL,NULL,NULL,'Jake','Mangum','Jake Thomas',190,72,'B','L','2025-03-30',NULL),
-('manzaky01',2000,7,18,'USA','ID','Coeur d\'Alene',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Manzardo','Kyle Thomas',205,72,'L','R','2024-05-06',NULL),
-('marseja01',2001,6,28,'USA','MI','Dearborn',NULL,NULL,NULL,NULL,NULL,NULL,'Jakob','Marsee','Jakob Joseph',180,72,'L','L','2025-08-01',NULL),
-('martian02',2002,1,27,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Angel','Martínez','Angel',200,71,'B','R','2024-06-22',NULL),
-('martiau01',1999,3,23,'USA','FL','DeLand',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Martin','Christopher Austin',185,71,'R','R','2024-03-30',NULL),
-('martior01',2001,11,19,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Orelvis','Martinez','Orelvis Miguel',200,71,'R','R','2024-06-21',NULL),
-('matthbr01',2002,3,16,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Brice','Matthews','Brice Andre',190,71,'R','R','2025-07-11',NULL),
-('mayerma01',2002,12,12,'USA','CA','Chula Vista',NULL,NULL,NULL,NULL,NULL,NULL,'Marcelo','Mayer','Marcelo',188,75,'L','R','2025-05-24',NULL),
-('mayoco01',2001,12,10,'USA','FL','Coral Springs',NULL,NULL,NULL,NULL,NULL,NULL,'Coby','Mayo','Coby Gerald',230,76,'R','R','2024-08-02',NULL),
-('mccanky01',1997,12,2,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','McCann','Kyle Joseph',217,74,'L','R','2024-03-30',NULL),
-('mccragr01',2000,12,7,'USA','MT','Billings',NULL,NULL,NULL,NULL,NULL,NULL,'Grant','McCray','Grant Snow',190,73,'L','R','2024-08-14',NULL),
-('mccusca01',1998,5,22,'USA','NV','Sparks',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','McCusker','Carson Michael',250,80,'R','R','2025-05-18',NULL),
-('meidrch01',2001,7,23,'USA','CA','Torrance',NULL,NULL,NULL,NULL,NULL,NULL,'Chase','Meidroth','Chase Gregory',190,70,'R','R','2025-04-11',NULL),
-('meltoja01',2000,9,7,'USA','OR','Medford',NULL,NULL,NULL,NULL,NULL,NULL,'Jacob','Melton','Jacob William',208,75,'L','L','2025-06-01',NULL),
-('mesavi01',2001,9,8,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Mesa','Victor',195,71,'L','L','2025-05-26',NULL),
-('misneka01',1998,1,8,'USA','MO','Poplar Bluff',NULL,NULL,NULL,NULL,NULL,NULL,'Kameron','Misner','Kameron Lee',220,76,'L','L','2024-08-02',NULL),
-('montgco01',2002,2,27,'USA','IN','Holland',NULL,NULL,NULL,NULL,NULL,NULL,'Colson','Montgomery','Colson Kade',230,75,'L','R','2025-07-04',NULL),
-('moorech03',2002,10,21,'USA','NY','Brooklyn',NULL,NULL,NULL,NULL,NULL,NULL,'Christian','Moore','Christian',210,72,'R','R','2025-06-13',NULL),
-('muncyma02',2002,8,25,'USA','CA','Camarillo',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Muncy','Maxwell Price',180,73,'R','R','2025-03-27',NULL),
-('narvaca01',1998,11,26,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Carlos','Narváez','Carlos Luis',190,72,'R','R','2024-07-20',NULL),
-('noeljh01',2001,7,15,'D.R.','San Pedro de Macorís','San Pedro de Macoris',NULL,NULL,NULL,NULL,NULL,NULL,'Jhonkensy','Noel','Jhonkensy',250,75,'R','R','2024-06-26',NULL),
-('norbyco01',2000,6,8,'USA','MN','Brooklyn Park',NULL,NULL,NULL,NULL,NULL,NULL,'Connor','Norby','Connor David',180,70,'R','R','2024-06-03',NULL),
-('nunezna01',2000,8,18,'USA','NY','Bronx',NULL,NULL,NULL,NULL,NULL,NULL,'Nasim','Nuñez','Nasim Emmanuel',165,68,'B','R','2024-03-30',NULL),
-('ornelti01',2000,3,11,'México','Baja California','Tijuana',NULL,NULL,NULL,NULL,NULL,NULL,'Tirso','Ornelas','Tirso Abraham',200,75,'L','R','2025-04-19',NULL),
-('osunaal02',2002,10,10,'México','Sinaloa','Ahome',NULL,NULL,NULL,NULL,NULL,NULL,'Alejandro','Osuna','Tadeo Alejandro',185,69,'L','L','2025-05-25',NULL),
-('pagesan01',2000,12,8,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Andy','Pages','Andy',212,73,'R','R','2024-04-16',NULL),
-('pagespe01',1998,9,17,'Venezuela','Aragua','Maracay',NULL,NULL,NULL,NULL,NULL,NULL,'Pedro','Pagés','Pedro Jose',245,71,'R','R','2024-04-07',NULL),
-('paulegr01',2000,9,24,'USA','GA','Alpharetta',NULL,NULL,NULL,NULL,NULL,NULL,'Graham','Pauley','Graham Austin',200,73,'L','R','2024-03-20',NULL),
-('perezwe01',1999,10,30,'D.R.','Azua','Azua',NULL,NULL,NULL,NULL,NULL,NULL,'Wenceel','Pérez','Wenceel Xavier',203,72,'B','R','2024-04-08',NULL),
-('petertr01',2000,2,29,'CAN','MB','Winkler',NULL,NULL,NULL,NULL,NULL,NULL,'Tristan','Peters','Tristan Dimitri',180,72,'L','R','2025-08-08',NULL),
-('prietce01',1999,5,10,'Cuba','Cienfuegos','Cienfuegos',NULL,NULL,NULL,NULL,NULL,NULL,'César','Prieto','César',195,69,'L','R','2025-08-29',NULL),
-('queroed01',2003,4,6,'Cuba','Cienfuegos','Cienfuegos',NULL,NULL,NULL,NULL,NULL,NULL,'Edgar','Quero','Edgar Yoel',205,70,'B','R','2025-04-17',NULL),
-('ramirag01',2001,9,10,'D.R.','Distrito Nacional','Santo Domingo',NULL,NULL,NULL,NULL,NULL,NULL,'Agustín','Ramírez','Agustín',210,73,'R','R','2025-04-21',NULL),
-('ramosbr01',2002,3,12,'Cuba','La Habana','Havana',NULL,NULL,NULL,NULL,NULL,NULL,'Bryan','Ramos','Bryan',225,74,'R','R','2024-05-04',NULL),
-('ravejo01',1997,12,30,'USA','IL','Canton',NULL,NULL,NULL,NULL,NULL,NULL,'John','Rave','John Michael',194,71,'L','L','2025-05-26',NULL),
-('ricebe01',1999,2,22,'USA','MA','Cohasset',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Rice','Benjamin Kimball',228,74,'L','R','2024-06-18',NULL),
-('rittery01',2000,11,10,'USA','IL','Evergreen Park',NULL,NULL,NULL,NULL,NULL,NULL,'Ryan','Ritter','Ryan Michael',195,73,'R','R','2025-06-06',NULL),
-('roberwi02',1997,12,26,'USA','MO','Loose Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Robertson','Jonathan Will',215,73,'L','L','2025-06-15',NULL),
-('rodenal01',1999,12,22,'USA','WI','Middleton',NULL,NULL,NULL,NULL,NULL,NULL,'Alan','Roden','Alan Eric',215,71,'L','R','2025-03-27',NULL),
-('rodrijo08',1999,11,4,'P.R.',NULL,'Bayamon',NULL,NULL,NULL,NULL,NULL,NULL,'Johnathan','Rodríguez','Johnathan',224,73,'R','R','2024-05-21',NULL),
-('rollech01',1996,10,8,'USA','TX','Austin',NULL,NULL,NULL,NULL,NULL,NULL,'Chris','Roller','Christopher P.',186,71,'R','R','2024-05-15',NULL),
-('romodr01',2001,8,29,'USA','CA','Fountain Valley',NULL,NULL,NULL,NULL,NULL,NULL,'Drew','Romo','Drew Arthur',205,73,'B','R','2024-08-17',NULL),
-('rushida01',2001,2,21,'USA','TN','Memphis',NULL,NULL,NULL,NULL,NULL,NULL,'Dalton','Rushing','Dalton Wayne',220,71,'L','R','2025-05-15',NULL),
-('saggeth01',2002,4,10,'USA','CA','Carlsbad',NULL,NULL,NULL,NULL,NULL,NULL,'Thomas','Saggese','Thomas Darren',185,71,'R','R','2024-09-10',NULL),
-('schneda04',1997,1,23,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Daniel','Schneemann','Daniel',185,71,'L','R','2024-06-02',NULL),
-('schuema01',1997,6,11,'USA','MI','Kalamazoo',NULL,NULL,NULL,NULL,NULL,NULL,'Max','Schuemann','Maxwell Carter',186,72,'R','R','2024-04-12',NULL),
-('schunaa01',1997,7,24,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Aaron','Schunk','Aaron Livingston',205,74,'R','R','2024-06-29',NULL),
-('scottvi01',2001,2,12,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Victor','Scott','Victor Dwanyne',190,71,'L','L','2024-03-28',NULL),
-('sengeha01',1997,4,3,'USA','OH','Hamilton',NULL,NULL,NULL,NULL,NULL,NULL,'Hayden','Senger','Hayden Craig',214,73,'R','R','2025-03-27',NULL),
-('seymobo01',1998,10,7,'USA','IL','Harvey',NULL,NULL,NULL,NULL,NULL,NULL,'Bob','Seymour','Robert John',250,75,'L','R','2025-08-15',NULL),
-('shawma01',2001,11,6,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Matt','Shaw','Matthew James',185,70,'R','R','2025-03-18',NULL),
-('shentau01',1998,1,22,'USA','WA','Spokane',NULL,NULL,NULL,NULL,NULL,NULL,'Austin','Shenton','Austin P.',205,72,'L','R','2024-03-31',NULL),
-('simonro01',2000,4,17,'D.R.','La Romana','La Romana',NULL,NULL,NULL,NULL,NULL,NULL,'Ronny','Simon','Ronny Oliver',150,68,'B','R','2025-04-21',NULL),
-('simpsch01',2000,11,18,'USA','GA','Atlanta',NULL,NULL,NULL,NULL,NULL,NULL,'Chandler','Simpson','Chandler Lenard',170,71,'L','R','2025-04-19',NULL),
-('smithca07',2003,2,22,'USA','FL','Lake Worth',NULL,NULL,NULL,NULL,NULL,NULL,'Cam','Smith','Cameron Vaughn',224,75,'R','R','2025-03-27',NULL),
-('sogarni01',1997,9,9,'USA','CA','Los Angeles',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Sogard','Nicholas John',189,73,'B','R','2024-08-02',NULL),
-('stevech02',1999,2,3,'USA','CA','Walnut Creek',NULL,NULL,NULL,NULL,NULL,NULL,'Chad','Stevens','Chad David',215,75,'R','R','2025-07-03',NULL),
-('stewasa02',2003,12,7,'USA','FL','Miami',NULL,NULL,NULL,NULL,NULL,NULL,'Sal','Stewart','Sal Maxwell',224,73,'R','R','2025-09-01',NULL),
-('stubbcj01',1996,11,12,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'CJ','Stubbs','Cameron J.',207,75,'R','R','2025-09-01',NULL),
-('sweentr01',2000,4,24,'USA','KY','Louisville',NULL,NULL,NULL,NULL,NULL,NULL,'Trey','Sweeney','Trey Thomas',212,75,'L','R','2024-08-16',NULL),
-('tawati01',1999,4,7,'USA','OR','West Linn',NULL,NULL,NULL,NULL,NULL,NULL,'Tim','Tawa','Timothy John',196,71,'R','R','2025-04-05',NULL),
-('teelky01',2002,2,15,'USA','NJ','Ridgewood',NULL,NULL,NULL,NULL,NULL,NULL,'Kyle','Teel','Kyle Henry',210,72,'L','R','2025-06-06',NULL),
-('teodobr01',1999,6,18,'USA','SC','Greenville',NULL,NULL,NULL,NULL,NULL,NULL,'Bryce','Teodosio','Bryce Thomas',220,75,'R','L','2024-09-07',NULL),
-('thomaco03',2001,1,26,'USA','GA','Valdosta',NULL,NULL,NULL,NULL,NULL,NULL,'Colby','Thomas','Colby Grant',190,70,'R','R','2025-06-30',NULL),
-('thomarh01',2000,4,15,'USA','CA','Ventura',NULL,NULL,NULL,NULL,NULL,NULL,'Rhylan','Thomas','Rhylan Christopher',170,70,'L','L','2025-05-02',NULL),
-('tolbety01',1998,1,27,'USA','AL','Birmingham',NULL,NULL,NULL,NULL,NULL,NULL,'Tyler','Tolbert','Tyler Mangual',185,71,'R','R','2025-03-31',NULL),
-('valerge01',2000,11,13,'USA','NY','Queens',NULL,NULL,NULL,NULL,NULL,NULL,'George','Valera','George',195,70,'L','L','2025-09-01',NULL),
-('veenza01',2001,12,12,'USA','FL','Port Orange',NULL,NULL,NULL,NULL,NULL,NULL,'Zac','Veen','Zachary Richard',190,75,'L','R','2025-04-08',NULL),
-('vivasjo01',2001,3,9,'Venezuela','Carabobo','Puerto Cabello',NULL,NULL,NULL,NULL,NULL,NULL,'Jorbit','Vivas','Jorbit Jose',171,69,'L','R','2025-05-02',NULL),
-('wagamer01',1997,8,14,'USA','CA','Mission Viejo',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Wagaman','Eric',210,76,'R','R','2024-09-10',NULL),
-('wagnewi01',1998,7,29,'USA','TX','Houston',NULL,NULL,NULL,NULL,NULL,NULL,'Will','Wagner','William James',210,72,'L','R','2024-08-12',NULL),
-('wendzda01',1997,5,23,'USA','CA','Irvine',NULL,NULL,NULL,NULL,NULL,NULL,'Davis','Wendzel','Davis McKee',206,71,'R','R','2024-04-09',NULL),
-('westbja02',1995,6,18,'USA','MA','Springfield',NULL,NULL,NULL,NULL,NULL,NULL,'Jamie','Westbrook','Jamie Vaughn',193,67,'R','R','2024-06-02',NULL),
-('whitcsh01',1998,9,28,'USA','CA','Thousand Oaks',NULL,NULL,NULL,NULL,NULL,NULL,'Shay','Whitcomb','Shay Lane',202,73,'R','R','2024-08-17',NULL),
-('willibe03',2000,11,5,'USA','VA','Fairfax',NULL,NULL,NULL,NULL,NULL,NULL,'Ben','Williamson','Benjamin Andrew',210,72,'R','R','2025-04-15',NULL),
-('willica02',2003,6,25,'USA','CA','San Diego',NULL,NULL,NULL,NULL,NULL,NULL,'Carson','Williams','Carson Everett',180,74,'R','R','2025-08-22',NULL),
-('winklja01',1998,11,4,'USA','CO','Littleton',NULL,NULL,NULL,NULL,NULL,NULL,'Jack','Winkler','Jack Tanner',195,73,'R','R','2025-05-31',NULL),
-('workmga01',1999,10,24,'USA','AZ','Chandler',NULL,NULL,NULL,NULL,NULL,NULL,'Gage','Workman','Gage Tater',202,76,'L','R','2025-03-29',NULL),
-('yanger01',1998,3,26,'USA','CA','Woodland Hills',NULL,NULL,NULL,NULL,NULL,NULL,'Eric','Yang','Eric Lawrence',185,71,'R','R','2024-07-31',NULL),
-('yorkeni01',2002,4,2,'USA','CA','Newport Beach',NULL,NULL,NULL,NULL,NULL,NULL,'Nick','Yorke','Nicholas Anthony',210,72,'R','R','2024-09-16',NULL),
-('youngco01',2003,7,29,'USA','PA','Pittsburgh',NULL,NULL,NULL,NULL,NULL,NULL,'Cole','Young','Cole Douglas',180,71,'L','R','2025-05-31',NULL);
+('zychto01',1990,8,7,'USA','IL','Monee',NULL,NULL,NULL,NULL,NULL,NULL,'Tony','Zych','Anthony Aaron',190,75,'R','R','2015-09-04','2017-08-19');
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `pitching`
@@ -542074,7 +542104,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `pitching`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pitching` (
   `pitching_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -542120,6 +542150,7 @@ CREATE TABLE `pitching` (
 -- Dumping data for table `pitching`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `pitching` WRITE;
 /*!40000 ALTER TABLE `pitching` DISABLE KEYS */;
 INSERT INTO `pitching` VALUES
@@ -595489,6 +595520,8 @@ INSERT INTO `pitching` VALUES
 (257865,'zuniggu01',2024,'LAA',1,0,0,15,0,0,0,2,53,16,10,5,8,12,0.242,5.09,2,1,1,0,76,6,10,0,1,2);
 /*!40000 ALTER TABLE `pitching` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `pitchingpost`
@@ -595496,7 +595529,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `pitchingpost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pitchingpost` (
   `pitchingpost_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -595541,6 +595574,7 @@ CREATE TABLE `pitchingpost` (
 -- Dumping data for table `pitchingpost`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `pitchingpost` WRITE;
 /*!40000 ALTER TABLE `pitchingpost` DISABLE KEYS */;
 INSERT INTO `pitchingpost` VALUES
@@ -602778,6 +602812,8 @@ INSERT INTO `pitchingpost` VALUES
 (13770,'yesavtr01',2025,'TOR','WS',1,0,3,2,0,0,0,38,8,4,2,4,17,0.186,2.84,0,0,1,0,48,0,4,0,0,2);
 /*!40000 ALTER TABLE `pitchingpost` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `salaries`
@@ -602785,7 +602821,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `salaries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `salaries` (
   `salaries_ID` int(12) NOT NULL AUTO_INCREMENT,
   `playerID` varchar(9) NOT NULL,
@@ -602804,6 +602840,7 @@ CREATE TABLE `salaries` (
 -- Dumping data for table `salaries`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `salaries` WRITE;
 /*!40000 ALTER TABLE `salaries` DISABLE KEYS */;
 INSERT INTO `salaries` VALUES
@@ -629323,6 +629360,8 @@ INSERT INTO `salaries` VALUES
 (132483,'schwaky01',2024,'PHI',20000000);
 /*!40000 ALTER TABLE `salaries` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `schools`
@@ -629330,7 +629369,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `schools`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `schools` (
   `schoolId` varchar(15) NOT NULL,
   `school_name` varchar(255) DEFAULT NULL,
@@ -629345,6 +629384,7 @@ CREATE TABLE `schools` (
 -- Dumping data for table `schools`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `schools` WRITE;
 /*!40000 ALTER TABLE `schools` DISABLE KEYS */;
 INSERT INTO `schools` VALUES
@@ -629355,6 +629395,7 @@ INSERT INTO `schools` VALUES
 ('alabama','University of Alabama','Tuscaloosa','AL','USA'),
 ('alabamaam','Alabama A&M University','Normal','AL','USA'),
 ('alabamast','Alabama State University','Montgomery','AL','USA'),
+('alabamast1929','Alabama State Teachers College','Montgomery','AL','USA'),
 ('albanyst','Albany State University','Albany','GA','USA'),
 ('albertsnid','Albertson College','Caldwell','ID','USA'),
 ('albevil','Bevill State Community College','Sumiton','AL','USA'),
@@ -629363,6 +629404,7 @@ INSERT INTO `schools` VALUES
 ('alcalho','Calhoun Community College','Decatur','AL','USA'),
 ('alchatt','Chattahoochee Valley Community College','Phenix City','AL','USA'),
 ('alcornst','Alcorn State University','Lorman','MS','USA'),
+('alcornst1878','Alcorn A&M College','Lorman','MS','USA'),
 ('alenter','Enterprise-Ozark Community College','Enterprise','AL','USA'),
 ('alfaulk','Faulkner University','Montgomery','AL','USA'),
 ('alfscco','Faulkner State College','Bay Minette','AL','USA'),
@@ -629373,8 +629415,11 @@ INSERT INTO `schools` VALUES
 ('almami','Alma College','Alma','MI','USA'),
 ('almario','Marion Military Institute','Marion','AL','USA'),
 ('almiles','Miles College','Fairfield','AL','USA'),
+('almiles1898','Miles Memorial College','Fairfield','AL','USA'),
 ('alnorth','Northwest-Shoals Community College','Muscle Shoals','AL','USA'),
+('alstillman','Stillman Institute','Tuscaloosa','AL','USA'),
 ('alsuscc','Southern Union State Community College','Wadley','AL','USA'),
+('altallad','Talladega College','Talladega','AL','USA'),
 ('alverniapa','Alvernia College','Reading','PA','USA'),
 ('alwsdot','Wallace State Community College (Dothan)','Dothan','AL','USA'),
 ('alwshan','Wallace State Community College (Hanceville)','Hanceville','AL','USA'),
@@ -629384,12 +629429,14 @@ INSERT INTO `schools` VALUES
 ('andersonsc','Anderson College','Anderson','SC','USA'),
 ('appalst','Appalachian State University','Boone','NC','USA'),
 ('aquinasmi','Aquinas College','Grand Rapids','MI','USA'),
+('arbaptist','Arkansas Baptist College','Little Rock','AR','USA'),
 ('arftsmi','University of Arkansas-Fort Smith','Fort Smith','AR','USA'),
 ('arizona','University of Arizona','Tucson','AZ','USA'),
 ('arizonast','Arizona State University','Tempe','AZ','USA'),
 ('arkansas','University of Arkansas','Fayetteville','AR','USA'),
 ('arkansaslr','University of Arkansas at Little Rock','Little Rock','AR','USA'),
 ('arkansaspb','University of Arkansas at Pine Bluff','Pine Bluff','AR','USA'),
+('arkansaspb1927','Arkansas AM&N College','Pine Bluff','AR','USA'),
 ('arkansasst','Arkansas State University','Jonesboro','AR','USA'),
 ('arkmont','University of Arkansas at Monticello','Monticello','AR','USA'),
 ('arktech','Arkansas Tech University','Russellville','AR','USA'),
@@ -629426,22 +629473,28 @@ INSERT INTO `schools` VALUES
 ('belmontab','Belmont Abbey College','Belmont','NC','USA'),
 ('beloitwi','Beloit College','Beloit','WI','USA'),
 ('benedctnks','Benedictine College','Atchison','KS','USA'),
+('benedictsc','Benedict College','Columbia','SC','USA'),
 ('bethanywv','Bethany College','Bethany','WV','USA'),
 ('bethcook','Bethune-Cookman College','Daytona Beach','FL','USA'),
+('bethcook1872','Cookman Institute','Jacksonville','FL','USA'),
 ('betheltn','Bethel College','McKenzie','TN','USA'),
 ('biolaca','Biola University','La Mirada','CA','USA'),
 ('birmsouth','Birmingham-Southern College','Birmingham','AL','USA'),
+('bishoptx','Bishop College','Marshall','TX','USA'),
 ('blackbrnil','Blackburn College','Carlinville','IL','USA'),
 ('bloomsburg','Bloomsburg University of Pennsylvania','Bloomsburg','PA','USA'),
 ('bluefield','Bluefield College','Bluefield','VA','USA'),
+('bluefieldu1943','Bluefield State College','Bluefield','WV','USA'),
 ('boisest','Boise State University','Boise','ID','USA'),
 ('bostoncoll','Boston College','Chestnut Hill','MA','USA'),
 ('bostonuniv','Boston University','Boston','MA','USA'),
 ('bowdoinme','Bowdoin College','Brunswick','ME','USA'),
+('bowiest','Bowie State University','Bowie','MD','USA'),
 ('bowlgreen','Bowling Green State University','Bowling Green','OH','USA'),
 ('bradley','Bradley University','Peoria','IL','USA'),
 ('brandeisma','Brandeis University','Waltham','MA','USA'),
 ('brdgwatrva','Bridgewater College','Bridgewater','VA','USA'),
+('brewnormal','Brewer College','Greenwood','SC','USA'),
 ('brewparker','Brewton-Parker College','Mount Vernon','GA','USA'),
 ('bridgeport','University of Bridgeport','Bridgeport','CT','USA'),
 ('bridgwtrst','Bridgewater State College','Bridgewater','MA','USA'),
@@ -629455,6 +629508,7 @@ INSERT INTO `schools` VALUES
 ('byu','Brigham Young University','Provo','UT','USA'),
 ('caallan','Allan Hancock College','Santa Maria','CA','USA'),
 ('caallia','California Alliance','Los Angeles','California','USA'),
+('caallia1952','California Western University','San Diego','CA','USA'),
 ('caameri','American River College','Sacramento','CA','USA'),
 ('caantel','Antelope Valley College','Lancaster','CA','USA'),
 ('cabakjc','Bakersfield College','Bakersfield','CA','USA'),
@@ -629558,6 +629612,7 @@ INSERT INTO `schools` VALUES
 ('cawhjco','West Hills College','Coalinga','CA','USA'),
 ('cawlajc','West Los Angeles College','Culver City','CA','USA'),
 ('cawvjco','West Valley College','Saratoga','CA','USA'),
+('ccny','City College of New York','New York','NY','USA'),
 ('cconnst','Central Connecticut State University','New Britain','CT','USA'),
 ('ccri','Community College of Rhode Island','Warwick','RI','USA'),
 ('centenary','Centenary College of Louisiana','Shreveport','LA','USA'),
@@ -629576,6 +629631,8 @@ INSERT INTO `schools` VALUES
 ('cincy','University of Cincinnati','Cincinnati','OH','USA'),
 ('citadel','The Citadel','Charleston','SC','USA'),
 ('clarion','Clarion University of Pennsylvania','Clarion','PA','USA'),
+('clarkatl1865','Atlanta University','Atlanta','GA','USA'),
+('clarkatl1869','Clark College','Atlanta','GA','USA'),
 ('clarksonny','Clarkson University','Potsdam','NY','USA'),
 ('clemson','Clemson University','Clemson','SC','USA'),
 ('clevst','Cleveland State University','Cleveland','OH','USA'),
@@ -629629,7 +629686,9 @@ INSERT INTO `schools` VALUES
 ('depaul','DePaul University','Chicago','IL','USA'),
 ('depauwin','DePauw University','Greencastle','IN','USA'),
 ('detroit','University of Detroit Mercy','Detroit','MI','USA'),
+('detroit1911','University of Detroit','Detroit','MI','USA'),
 ('dickinson','Dickinson College','Carlisle','PA','USA'),
+('dillard1869','New Orleans University','New Orleans','LA','USA'),
 ('dominican','Dominican College','Orangeburg','NY','USA'),
 ('drake','Drake University','Des Moines','IA','USA'),
 ('dubuque','University of Dubuque','Dubuque','IA','USA'),
@@ -629640,6 +629699,7 @@ INSERT INTO `schools` VALUES
 ('eckerd','Eckerd College','St. Petersburg','FL','USA'),
 ('econnst','Eastern Connecticut State University','Willimantic','CT','USA'),
 ('edinboro','Edinboro University of Pennsylvania','Edinboro','PA','USA'),
+('edwaters','Edward Waters College','Jacksonville','FL','USA'),
 ('eillinois','Eastern Illinois University','Charleston','IL','USA'),
 ('ekentucky','Eastern Kentucky University','Richmond','KY','USA'),
 ('elizbthtwn','Elizabethtown College','Elizabethtown','PA','USA'),
@@ -629659,7 +629719,9 @@ INSERT INTO `schools` VALUES
 ('fairldick','Fairleigh Dickinson University','Metropolitan Campus','Teaneck','NJ'),
 ('fayetvilst','Fayetteville State University','Fayetteville','NC','USA'),
 ('ferrisst','Ferris State University','Big Rapids','MI','USA'),
+('ferrisst1898','Ferris Institute','Big Rapids','MI','USA'),
 ('ferrumva','Ferrum College','Ferrum','VA','USA'),
+('fisk','Fisk University','Nashville','TN','USA'),
 ('flagler','Flagler College','St. Augustine','FL','USA'),
 ('flatlantic','Florida Atlantic University','Boca Raton','FL','USA'),
 ('flbarry','Barry University','Miami Shores','FL','USA'),
@@ -629681,12 +629743,14 @@ INSERT INTO `schools` VALUES
 ('flmdkjc','Miami-Dade College','Kendall Campus','Miami','FL'),
 ('flmdnjc','Miami-Dade College','North Campus','Miami','FL'),
 ('flmdwjc','Miami-Dade College','Wolfson Campus','Miami','FL'),
+('flmemorial1918','Florida Normal & Industrial Institute','St. Augustine','FL','USA'),
 ('flnfcco','North Florida Community College','Madison','FL','USA'),
 ('flnovas','Nova Southeastern University','Fort Lauderdale','FL','USA'),
 ('flnwfsc','Northwest Florida State College','Niceville','FL','USA'),
 ('flokalo','Okaloosa-Walton College','Niceville','FL','USA'),
 ('florida','University of Florida','Gainesville','FL','USA'),
 ('floridaam','Florida Agricultural and Mechanical University','Tallahassee','FL','USA'),
+('floridaam1909','Florida A&M College','Tallahassee','FL','USA'),
 ('floridast','Florida State University','Tallahassee','FL','USA'),
 ('flpalme','Palmer College','DeFuniak Springs','FL','USA'),
 ('flpasco','Pasco-Hernando Community College','New Port Richey','FL','USA'),
@@ -629742,6 +629806,8 @@ INSERT INTO `schools` VALUES
 ('guilfordnc','Guilford College','Greensboro','NC','USA'),
 ('hamlinemn','Hamline University','St. Paul','MN','USA'),
 ('hampsydney','Hampden-Sydney College','Hampden-Sydney','VA','USA'),
+('hamptonva1930','Hampton Institute','Hampton','VA','USA'),
+('harbison','Harbison Agricultural College','Irmo','SC','USA'),
 ('harding','Harding University','Searcy','AR','USA'),
 ('hardinsimm','Hardin-Simmons University','Abilene','TX','USA'),
 ('hartford','University of Hartford','West Hartford','CT','USA'),
@@ -629751,7 +629817,9 @@ INSERT INTO `schools` VALUES
 ('hawaii','University of Hawaii at Manoa','Honolulu','HI','USA'),
 ('hawaiihilo','University of Hawaii at Hilo','Hilo','HI','USA'),
 ('hawaiipac','Hawaii Pacific University','Honolulu','HI','USA'),
+('hedding','Hedding College','Abingdon','IL','USA'),
 ('heidelberg','Heidelberg College','Tiffin','OH','USA'),
+('hendersontx','Henderson Institute','Henderson','TX','USA'),
 ('hendrixar','Hendrix College','Conway','AR','USA'),
 ('hendrsonst','Henderson State University','Arkadelphia','AR','USA'),
 ('highpoint','High Point University','High Point','NC','USA'),
@@ -629767,6 +629835,7 @@ INSERT INTO `schools` VALUES
 ('howrdpayne','Howard Payne University','Brownwood','TX','USA'),
 ('humboldtst','Humboldt State University','Arcata','CA','USA'),
 ('huntercuny','Hunter College','The City University of New York','New York','NY'),
+('husttillot1876','Samuel Huston College','Austin','TX','USA'),
 ('iadesmo','Des Moines University','Des Moines','IA','USA'),
 ('iadmacc','Des Moines Area Community College','Boone','IA','USA'),
 ('iaellsw','Ellsworth College','Iowa Falls','IA','USA'),
@@ -629800,6 +629869,7 @@ INSERT INTO `schools` VALUES
 ('illinco','Lincoln College','Lincoln','IL','USA'),
 ('illinois','University of Illinois at Urbana-Champaign','Champaign','IL','USA'),
 ('illinoisst','Illinois State University','Normal','IL','USA'),
+('illinoisst1857','Illinois State Normal University','Normal','IL','USA'),
 ('illogan','John A Logan College','Carterville','IL','USA'),
 ('illomba','Lombard College','Galesburg','IL','USA'),
 ('illtjco','Lincoln Trail College','Robinson','IL','USA'),
@@ -629808,6 +629878,7 @@ INSERT INTO `schools` VALUES
 ('ilmount','Mount Morris College','Mount Morris','IL','USA'),
 ('ilolney','Olney Central College','Olney','IL','USA'),
 ('ilparkl','Parkland College','Champaign','IL','USA'),
+('ilroosevelt','Roosevelt University','Chicago','IL','USA'),
 ('ilseijc','Southeastern Illinois College','Harrisburg','IL','USA'),
 ('ilshurt','Shurtleff College','Alton','IL','USA'),
 ('ilssjco','South Suburban College','South Holland','IL','USA'),
@@ -629838,6 +629909,9 @@ INSERT INTO `schools` VALUES
 ('jacksonst','Jackson State University','Jackson','MS','USA'),
 ('jacksonvil','Jacksonville University','Jacksonville','FL','USA'),
 ('jamesmad','James Madison University','Harrisonburg','VA','USA'),
+('jarvisu1929','Jarvis Christian College','Wood County','TX','USA'),
+('jcsunc','Johnson C. Smith University','Charlotte','NC','USA'),
+('jcsunc1878','Biddle University','Charlotte','NC','USA'),
 ('jksonvilst','Jacksonville State University','Jacksonville','AL','USA'),
 ('johnbrwnar','John Brown University','Siloam Springs','AR','USA'),
 ('johnshpkns','Johns Hopkins University','Baltimore','MD','USA'),
@@ -629850,8 +629924,10 @@ INSERT INTO `schools` VALUES
 ('kentst','Kent State University','Kent','OH','USA'),
 ('kentucky','University of Kentucky','Lexington','KY','USA'),
 ('kentuckyst','Kentucky State University','Frankfort','KY','USA'),
+('kentuckyst1902','Kentucky Normal & Industrial Institute for Colored Persons','Frankfort','KY','USA'),
 ('kenyonoh','Kenyon College','Gambier','OH','USA'),
 ('knoxil','Knox College','Galesburg','IL','USA'),
+('knoxville','Knoxville College','Knoxville','TN','USA'),
 ('ksbarto','Barton County Community College','Great Bend','KS','USA'),
 ('ksbutle','Butler County Community College','El Dorado','KS','USA'),
 ('kscloud','Cloud County Community College','Concordia','KS','USA'),
@@ -629880,24 +629956,29 @@ INSERT INTO `schools` VALUES
 ('lamar','Lamar University','Beaumont','TX','USA'),
 ('lambuthtn','Lambuth University','Jackson','TN','USA'),
 ('lanecol','Lane College','Jackson','TN','USA'),
+('langstonok1897','Oklahoma Colored Agricultural & Normal University','Langston','OK','USA'),
 ('lasalle','LaSalle University','Philadelphia','PA','USA'),
 ('latech','Louisiana Tech University','Ruston','LA','USA'),
 ('laverneca','University of La Verne','La Verne','CA','USA'),
 ('lebvalley','Lebanon Valley College','Annville','PA','USA'),
 ('lee','Lee University','Cleveland','TN','USA'),
 ('lehigh','Lehigh University','Bethlehem','PA','USA'),
+('leland','Leland College','New Orleans','LA','USA'),
 ('lemoyne','LeMoyne College','Syracuse','NY','USA'),
 ('lemoynowen','LeMoyne-Owen College','Memphis','TN','USA'),
+('lemoynowen1871','LeMoyne College','Memphis','TN','USA'),
 ('lenoirrhyn','Lenoir-Rhyne College','Hickory','NC','USA'),
 ('lewclarkor','Lewis and Clark College','Portland','OR','USA'),
 ('lewclarkst','Lewis-Clark State College','Lewiston','ID','USA'),
 ('lewisil','Lewis University','Romeoville','IL','USA'),
+('lhbelen','Colegio de Belén','La Habana','La Habana','Cuba'),
 ('liberty','Liberty University','Lynchburg','VA','USA'),
 ('lincolnlandcc','Lincoln Land Community College','Springfield','IL','USA'),
 ('lincolnmem','Lincoln Memorial University','Harrogate','TN','USA'),
 ('lincolnmo','Lincoln University','Jefferson City','MO','USA'),
 ('linfieldor','Linfield College','McMinnville','OR','USA'),
 ('lipscomb','Lipscomb University','Nashville','TN','USA'),
+('livingnc','Livingstone College','Salisbury','NC','USA'),
 ('lockhaven','Lock Haven University of Pennsylvania','Lock Haven','PA','USA'),
 ('longbeach','California State University Long Beach','Long Beach','CA','USA'),
 ('longisland','Long Island University','Brooklyn Campus','Brooklyn','NY'),
@@ -629919,6 +630000,7 @@ INSERT INTO `schools` VALUES
 ('madeajc','Dean College','Franklin','MA','USA'),
 ('maemers','Emerson College','Boston','MA','USA'),
 ('maine','University of Maine at Orono','Orono','ME','USA'),
+('malcomx1911','Crane Junior College','Chicago','IL','USA'),
 ('malowete','Lowell Technological Institute','Lowell','MA','USA'),
 ('mamassa','Massasoit Community College','Brockton','MA','USA'),
 ('mamerri','Merrimack College','North Andover','MA','USA'),
@@ -629954,6 +630036,7 @@ INSERT INTO `schools` VALUES
 ('mdmontg','Montgomery College','Rockville Campus','Rockville','MD'),
 ('mdrockh','Rock Hill College','Ellicott City','MD','USA'),
 ('mdstjoh','St. John\'s College','Annapolis','MD','USA'),
+('meharrytn','Meharry Medical College','Nashville','TN','USA'),
 ('memphis','University of Memphis','Memphis','TN','USA'),
 ('meramec','St. Louis Community College','Meramec Campus','Kirkwood','MO'),
 ('mercer','Mercer University','Macon','GA','USA'),
@@ -630015,8 +630098,11 @@ INSERT INTO `schools` VALUES
 ('montreatnc','Montreat College','Montreat','NC','USA'),
 ('morehead','Morehead State University','Morehead','KY','USA'),
 ('morehouse','Morehouse College','Atlanta','GA','USA'),
+('morehouse1897','Atlanta Baptist College','Atlanta','GA','USA'),
 ('morganst','Morgan State University','Baltimore','MD','USA'),
+('morganst1890','Morgan State College','Baltimore','MD','USA'),
 ('morolla','Missouri University of Science and Technology','Rolla','MO','USA'),
+('morrisbrown','Morris Brown College','Atlanta','GA','USA'),
 ('mosouthern','Missouri Southern State University','Joplin','MO','USA'),
 ('motarki','Tarkio College','Tarkio','MO','USA'),
 ('mothree','Three Rivers Community College','Poplar Bluff','MO','USA'),
@@ -630049,7 +630135,10 @@ INSERT INTO `schools` VALUES
 ('narizona','Northern Arizona University','Flagstaff','AZ','USA'),
 ('navy','United States Naval Academy','Annapolis','MD','USA'),
 ('ncat','North Carolina A&T State University','Greensboro','NC','USA'),
+('ncat1915','Negro A&T College of North Carolina','Greensboro','NC','USA'),
 ('ncbreva','Brevard College','Brevard','NC','USA'),
+('nccentral1923','Durham State Normal School for Negroes','Durham','NC','USA'),
+('nccentral1925','North Carolina College for Negroes','Durham','NC','USA'),
 ('ncchowa','Chowan College','Murfreesboro','NC','USA'),
 ('ncentralil','North Central College','Naperville','IL','USA'),
 ('nclouis','Louisburg College','Louisburg','NC','USA'),
@@ -630191,30 +630280,37 @@ INSERT INTO `schools` VALUES
 ('pacarli','Carlisle Indian Industrial School','Carlisle','PA','USA'),
 ('paccphi','Community College of Philadelphia','Philadelphia','PA','USA'),
 ('pacheyn','Cheyney University','Cheyney','PA','USA'),
+('pacheyn1913','Cheyney State Teachers College','Cheyney','PA','USA'),
 ('pacific','University of the Pacific','Stockton','CA','USA'),
 ('pacificor','Pacific University','Forest Grove','OR','USA'),
 ('padelaw','Delaware County Community College','Marple','PA','USA'),
 ('padesal','DeSales University','Center Valley','PA','USA'),
 ('pahahne','Hahnemann University','Philadelphia','PA','USA'),
 ('pahaver','Haverford College in Pennsylvania','Haverford','PA','USA'),
+('painega','Paine College','Augusta','GA','USA'),
 ('palaroc','LaRoche College','Pittsburgh','PA','USA'),
 ('palinco','Lincoln University','Lincoln University','PA','USA'),
 ('paschuy','Schuylkill College','Reading','PA','USA'),
 ('pavolan','Volant College','Volant','PA','USA'),
 ('pbsc','Palm Beach Community College','Lake Worth','FL','USA'),
 ('pennst','Pennsylvania State University','State College','PA','USA'),
+('pennst1874','Pennsylvania State College','State College','PA','USA'),
 ('pepperdine','Pepperdine University','Malibu','CA','USA'),
 ('pfeiffer','Pfeiffer University','Misenheimer','NC','USA'),
 ('philly','Philadelphia University','Philadelphia','PA','USA'),
 ('philsmith','Philander Smith College','Little Rock','AR','USA'),
+('philsmith1894','George Smith College','Sedalia','MO','USA'),
 ('piedmontga','Piedmont College','Demorest','GA','USA'),
+('pineywoods','Piney Woods College','Piney Woods','MS','USA'),
 ('pittsbst','Pittsburg State University','Pittsburg','KS','USA'),
+('pittsbst1903','Kansas State Normal School','Pittsburg','KS','USA'),
 ('pittsburgh','University of Pittsburgh','Pittsburgh','PA','USA'),
 ('plymouth','Plymouth State College','Plymouth','NH','USA'),
 ('pompitzer','Pomona College/Pitzer College','Claremont','CA','USA'),
 ('portland','University of Portland','Portland','OR','USA'),
 ('portlandst','Portland State University','Portland','OR','USA'),
 ('prairview','Prairie View A&M University','Prairie View','TX','USA'),
+('prairview1899','Prairie View State Normal & Industrial College','Prairie View','TX','USA'),
 ('presbytrn','Presbyterian College','Clinton','SC','USA'),
 ('princeton','Princeton University','Princeton','NJ','USA'),
 ('providence','Providence College','Providence','RI','USA'),
@@ -630222,6 +630318,7 @@ INSERT INTO `schools` VALUES
 ('ptlomanaz','Point Loma Nazarene University','San Diego','CA','USA'),
 ('ptparkpa','Point Park University','Pittsburgh','PA','USA'),
 ('pugetsound','University of Puget Sound','Tacoma','WA','USA'),
+('pugetsound1914','College of Puget Sound','Tacoma','WA','USA'),
 ('purdue','Purdue University','West Lafayette','IN','USA'),
 ('quincy','Quincy University','Quincy','IL','USA'),
 ('quinnipiac','Quinnipiac College','Hamden','CT','USA'),
@@ -630243,6 +630340,8 @@ INSERT INTO `schools` VALUES
 ('rollins','Rollins College','Winter Park','FL','USA'),
 ('rosehulman','Rose-Hulman Institute of Technology','Terre Haute','IN','USA'),
 ('rowannj','Rowan University','Glassboro','NJ','USA'),
+('rowannj1958','Glassboro State College','Glassboro','NJ','USA'),
+('rustms','Rust College','Holly Springs','MS','USA'),
 ('rutgers','Rutgers','the State University of New Jersey','New Brunswick','NJ'),
 ('sacstate','California State University Sacramento','Sacramento','CA','USA'),
 ('saginawval','Saginaw Valley State University','Saginaw','MI','USA'),
@@ -630258,6 +630357,7 @@ INSERT INTO `schools` VALUES
 ('santaclara','Santa Clara University','Santa Clara','CA','USA'),
 ('sarkansas','Southern Arkansas University','Magnolia','AR','USA'),
 ('savcolad','Savannah College of Arts and Design','Savannah','GA','USA'),
+('savst1890','Georgia State Industrial College','Savannah','GA','USA'),
 ('scarolina','University of South Carolina','Columbia','SC','USA'),
 ('scfranc','Francis Marion University','Florence','SC','USA'),
 ('schreiner','Schreiner University','Kerrville','TX','USA'),
@@ -630268,6 +630368,7 @@ INSERT INTO `schools` VALUES
 ('scupsta','University of South Carolina Upstate','Spartanburg','SC','USA'),
 ('sdakotast','South Dakota State University','Brookings','SD','USA'),
 ('sdcity','San Diego City College','San Diego','CA','USA'),
+('sdcity1914','San Diego Junior College','San Diego','CA','USA'),
 ('seattle','Seattle University','Seattle','WA','USA'),
 ('sefl','Southeastern University','Lakeland','FL','USA'),
 ('sela','Southeastern Louisiana University','Hammond','LA','USA'),
@@ -630320,6 +630421,7 @@ INSERT INTO `schools` VALUES
 ('stmichaels','St. Michael\'s College','Colchester','VT','USA'),
 ('stonybrook','Stony Brook University','Stony Brook','NY','USA'),
 ('stpeters','St. Peter\'s College','Jersey City','NJ','USA'),
+('stphilipstx','St. Philip\'s College','San Antonio','TX','USA'),
 ('strose','College of St. Rose','Albany','NY','USA'),
 ('stthomasfl','St. Thomas University','Miami Gardens','FL','USA'),
 ('stthomasmn','University of St. Thomas','St. Paul','MN','USA'),
@@ -630343,8 +630445,10 @@ INSERT INTO `schools` VALUES
 ('temple','Temple University','Philadelphia','PA','USA'),
 ('tennessee','University of Tennessee','Knoxville','TN','USA'),
 ('tennst','Tennessee State University','Nashville','TN','USA'),
+('tennst1925','Tennessee A&I State Normal College','Nashville','TN','USA'),
 ('texas','University of Texas at Austin','Austin','TX','USA'),
 ('texasam','Texas A&M University','College Station','TX','USA'),
+('texascoltx','Texas College','Tyler','TX','USA'),
 ('thielpa','Thiel College','Greenville','PA','USA'),
 ('thomasmore','Thomas More College','Crestview Hills','KY','USA'),
 ('tnchatt','Chattanooga State Technical Community College','Chattanooga','TN','USA'),
@@ -630361,6 +630465,7 @@ INSERT INTO `schools` VALUES
 ('tnvolun','Volunteer State Community College','Gallatin','TN','USA'),
 ('tnwesleyan','Tennessee Wesleyan College','Athens','TN','USA'),
 ('toledo','University of Toledo','Toledo','OH','USA'),
+('tougaloo','Tougaloo College','Tougaloo','MS','USA'),
 ('towson','Towson University','Towson','MD','USA'),
 ('trinityct','Trinity College','Hartford','CT','USA'),
 ('trinitytx','Trinity University','San Antonio','TX','USA'),
@@ -630372,6 +630477,7 @@ INSERT INTO `schools` VALUES
 ('tulsa','University of Tulsa','Tulsa','OK','USA'),
 ('tusculum','Tusculum College','Greenville','TN','USA'),
 ('tuskegee','Tuskegee University','Tuskegee','AL','USA'),
+('tuskegee1937','Tuskegee Institute','Tuskegee','AL','USA'),
 ('txalvin','Alvin Community College','Alvin','TX','USA'),
 ('txangel','Angelo State University','San Angelo','TX','USA'),
 ('txangjc','Angelina College','Lufkin','TX','USA'),
@@ -630413,6 +630519,7 @@ INSERT INTO `schools` VALUES
 ('txtexar','Texarkana College','Texarkana','TX','USA'),
 ('txtyler','Tyler Junior College','Tyler','TX','USA'),
 ('txutper','University of Texas of the Permian Basin','Odessa','TX','USA\n'),
+('txutper1973','University of Texas of the Permian Basin','Odessa','TX','USA'),
 ('txverno','Vernon College','Vernon','TX','USA'),
 ('txweath','Weatherford College','Weatherford','TX','USA'),
 ('txwesle','Wesley College','Greenville','TX','USA'),
@@ -630426,6 +630533,7 @@ INSERT INTO `schools` VALUES
 ('uconn','University of Connecticut','Storrs','CT','USA'),
 ('ucriver','University of California','Riverside','Riverside','CA'),
 ('ucsb','University of California','Santa Barbara','Santa Barbara','CA'),
+('ucsb1944','Santa Barbara College','Santa Barbara','CA','USA'),
 ('ucsd','University of California','San Diego','La Jolla','CA'),
 ('ulala','University of Louisiana at Lafayette','Lafayette','LA','USA'),
 ('ulamo','University of Louisiana at Monroe','Monroe','LA','USA'),
@@ -630444,6 +630552,7 @@ INSERT INTO `schools` VALUES
 ('uofsouth','University of the South','Sewanee','TN','USA'),
 ('upenn','University of Pennsylvania','Philadelphia','PA','USA'),
 ('upperiowa','Upper Iowa University','Fayette','IA','USA'),
+('uredlands','University of Redlands','Redlands','CA','USA'),
 ('ursinus','Ursinus College','Collegeville','PA','USA'),
 ('usc','University of Southern California','Los Angeles','CA','USA'),
 ('uscaiken','University of South Carolina Aiken','Aiken','SC','USA'),
@@ -630470,6 +630579,9 @@ INSERT INTO `schools` VALUES
 ('villanova','Villanova University','Villanova','PA','USA'),
 ('virginia','University of Virginia','Charlottesville','VA','USA'),
 ('virginiast','Virginia State University','Petersburg','VA','USA'),
+('virginiast1902','Virginia Normal & Industrial Institute','Petersburg','VA','USA'),
+('virginiast1930','Virginia State College for Negroes','Ettrick','VA','USA'),
+('virunion','Virginia Union University','Richmond','VA','USA'),
 ('viterbowi','Viterbo University','La Crosse','WI','USA'),
 ('vmi','Virginia Military Institute','Lexington','VA','USA'),
 ('wabashin','Wabash College','Crawfordsville','IN','USA'),
@@ -630483,6 +630595,7 @@ INSERT INTO `schools` VALUES
 ('wagreen','Green River Community College','Auburn','WA','USA'),
 ('wake','Wake Forest University','Winston-Salem','NC','USA'),
 ('walabama','University of West Alabama','Livingston','AL','USA'),
+('walden','Walden University','Nashville','TN','USA'),
 ('walower','Lower Columbia College','Longview','WA','USA'),
 ('waolymp','Olympic College','Bremerton','WA','USA'),
 ('warnerpac','Warner Pacific College','Portland','OR','USA'),
@@ -630502,6 +630615,7 @@ INSERT INTO `schools` VALUES
 ('waynesburg','Waynesburg College','Waynesburg','PA','USA'),
 ('waynest','Wayne State University','Detroit','MI','USA'),
 ('waynestne','Wayne State College','Wayne','NE','USA'),
+('wbapbible','Western Baptist College','Kansas City','MO','USA'),
 ('wcarolina','Western Carolina University','Cullowhee','NC','USA'),
 ('wchester','West Chester University of Pennsylvania','West Chester','PA','USA'),
 ('wconnst','Western Connecticut State University','Danbury','CT','USA'),
@@ -630517,6 +630631,7 @@ INSERT INTO `schools` VALUES
 ('wicarro','Carroll College','Waukesha','WI','USA'),
 ('wichitast','Wichita State University','Wichita','KS','USA'),
 ('widenerpa','Widener University','Chester','PA','USA'),
+('widenerpa1892','Pennsylvania Military College','Chester','PA','USA'),
 ('wilacrosse','University of Wisconsin at La Crosse','La Crosse','WI','USA'),
 ('wilawre','Lawrence University','Appleton','WI','USA'),
 ('wilbrforce','Wilberforce University','Wilberforce','OH','USA'),
@@ -630528,6 +630643,7 @@ INSERT INTO `schools` VALUES
 ('willmary','College of William and Mary','Williamsburg','VA','USA'),
 ('wingate','Wingate University','Wingate','NC','USA'),
 ('winstsalst','Winston-Salem State University','Winston-Salem','NC','USA'),
+('winstsalst1925','Winston-Salem Teachers College','Winston-Salem','NC','USA'),
 ('winthrop','Winthrop University','Rock Hill','SC','USA'),
 ('wioshkosh','University of Wisconsin at Oshkosh','Oshkosh','WI','USA'),
 ('wisacre','Sacred Heart College','Watertown','WI','USA'),
@@ -630550,6 +630666,7 @@ INSERT INTO `schools` VALUES
 ('wpaterson','William Paterson University','Wayne','NJ','USA'),
 ('wrightst','Wright State University','Dayton','OH','USA'),
 ('wshngtonmo','Washington University in St. Louis','St. Louis','MO','USA'),
+('wuquindaro','Western University','Quindaro','KS','USA'),
 ('wvirginia','West Virginia University','Morgantown','WV','USA'),
 ('wvpotom','Potomac State College','Keyser','WV','USA'),
 ('wvstate','West Virginia State University','Institute','WV','USA'),
@@ -630557,90 +630674,14 @@ INSERT INTO `schools` VALUES
 ('wwashngton','Western Washington University','Bellingham','WA','USA'),
 ('wyoming','University of Wyoming','Laramie','WY','USA'),
 ('xavier','Xavier University','Cincinnati','OH','USA'),
+('xavierla','Xavier University of Louisiana','New Orleans','LA','USA'),
+('xavierla1932','Xavier College','New Orleans','LA','USA'),
 ('yale','Yale University','New Haven','CT','USA'),
 ('youngst','Youngstown State University','Youngstown','OH','USA');
-INSERT INTO `schools` VALUES
-('alabamast1929','Alabama State Teachers College','Montgomery','AL','USA'),
-('alcornst1878','Alcorn A&M College','Lorman','MS','USA'),
-('almiles1898','Miles Memorial College','Fairfield','AL','USA'),
-('alstillman','Stillman Institute','Tuscaloosa','AL','USA'),
-('altallad','Talladega College','Talladega','AL','USA'),
-('arbaptist','Arkansas Baptist College','Little Rock','AR','USA'),
-('arkansaspb1927','Arkansas AM&N College','Pine Bluff','AR','USA'),
-('benedictsc','Benedict College','Columbia','SC','USA'),
-('bethcook1872','Cookman Institute','Jacksonville','FL','USA'),
-('bishoptx','Bishop College','Marshall','TX','USA'),
-('bluefieldu1943','Bluefield State College','Bluefield','WV','USA'),
-('bowiest','Bowie State University','Bowie','MD','USA'),
-('brewnormal','Brewer College','Greenwood','SC','USA'),
-('caallia1952','California Western University','San Diego','CA','USA'),
-('ccny','City College of New York','New York','NY','USA'),
-('clarkatl1865','Atlanta University','Atlanta','GA','USA'),
-('clarkatl1869','Clark College','Atlanta','GA','USA'),
-('detroit1911','University of Detroit','Detroit','MI','USA'),
-('dillard1869','New Orleans University','New Orleans','LA','USA'),
-('edwaters','Edward Waters College','Jacksonville','FL','USA'),
-('ferrisst1898','Ferris Institute','Big Rapids','MI','USA'),
-('fisk','Fisk University','Nashville','TN','USA'),
-('flmemorial1918','Florida Normal & Industrial Institute','St. Augustine','FL','USA'),
-('floridaam1909','Florida A&M College','Tallahassee','FL','USA'),
-('hamptonva1930','Hampton Institute','Hampton','VA','USA'),
-('harbison','Harbison Agricultural College','Irmo','SC','USA'),
-('hedding','Hedding College','Abingdon','IL','USA'),
-('hendersontx','Henderson Institute','Henderson','TX','USA'),
-('husttillot1876','Samuel Huston College','Austin','TX','USA'),
-('illinoisst1857','Illinois State Normal University','Normal','IL','USA'),
-('ilroosevelt','Roosevelt University','Chicago','IL','USA'),
-('jarvisu1929','Jarvis Christian College','Wood County','TX','USA'),
-('jcsunc','Johnson C. Smith University','Charlotte','NC','USA'),
-('jcsunc1878','Biddle University','Charlotte','NC','USA'),
-('kentuckyst1902','Kentucky Normal & Industrial Institute for Colored Persons','Frankfort','KY','USA'),
-('knoxville','Knoxville College','Knoxville','TN','USA'),
-('langstonok1897','Oklahoma Colored Agricultural & Normal University','Langston','OK','USA'),
-('leland','Leland College','New Orleans','LA','USA'),
-('lemoynowen1871','LeMoyne College','Memphis','TN','USA'),
-('lhbelen','Colegio de Belén','La Habana','La Habana','Cuba'),
-('livingnc','Livingstone College','Salisbury','NC','USA'),
-('malcomx1911','Crane Junior College','Chicago','IL','USA'),
-('meharrytn','Meharry Medical College','Nashville','TN','USA'),
-('morehouse1897','Atlanta Baptist College','Atlanta','GA','USA'),
-('morganst1890','Morgan State College','Baltimore','MD','USA'),
-('morrisbrown','Morris Brown College','Atlanta','GA','USA'),
-('ncat1915','Negro A&T College of North Carolina','Greensboro','NC','USA'),
-('nccentral1923','Durham State Normal School for Negroes','Durham','NC','USA'),
-('nccentral1925','North Carolina College for Negroes','Durham','NC','USA'),
-('pacheyn1913','Cheyney State Teachers College','Cheyney','PA','USA'),
-('painega','Paine College','Augusta','GA','USA'),
-('pennst1874','Pennsylvania State College','State College','PA','USA'),
-('philsmith1894','George Smith College','Sedalia','MO','USA'),
-('pineywoods','Piney Woods College','Piney Woods','MS','USA'),
-('pittsbst1903','Kansas State Normal School','Pittsburg','KS','USA'),
-('prairview1899','Prairie View State Normal & Industrial College','Prairie View','TX','USA'),
-('pugetsound1914','College of Puget Sound','Tacoma','WA','USA'),
-('rowannj1958','Glassboro State College','Glassboro','NJ','USA'),
-('rustms','Rust College','Holly Springs','MS','USA'),
-('savst1890','Georgia State Industrial College','Savannah','GA','USA'),
-('sdcity1914','San Diego Junior College','San Diego','CA','USA'),
-('stphilipstx','St. Philip\'s College','San Antonio','TX','USA'),
-('tennst1925','Tennessee A&I State Normal College','Nashville','TN','USA'),
-('texascoltx','Texas College','Tyler','TX','USA'),
-('tougaloo','Tougaloo College','Tougaloo','MS','USA'),
-('tuskegee1937','Tuskegee Institute','Tuskegee','AL','USA'),
-('txutper1973','University of Texas of the Permian Basin','Odessa','TX','USA'),
-('ucsb1944','Santa Barbara College','Santa Barbara','CA','USA'),
-('uredlands','University of Redlands','Redlands','CA','USA'),
-('virginiast1902','Virginia Normal & Industrial Institute','Petersburg','VA','USA'),
-('virginiast1930','Virginia State College for Negroes','Ettrick','VA','USA'),
-('virunion','Virginia Union University','Richmond','VA','USA'),
-('walden','Walden University','Nashville','TN','USA'),
-('wbapbible','Western Baptist College','Kansas City','MO','USA'),
-('widenerpa1892','Pennsylvania Military College','Chester','PA','USA'),
-('winstsalst1925','Winston-Salem Teachers College','Winston-Salem','NC','USA'),
-('wuquindaro','Western University','Quindaro','KS','USA'),
-('xavierla','Xavier University of Louisiana','New Orleans','LA','USA'),
-('xavierla1932','Xavier College','New Orleans','LA','USA');
 /*!40000 ALTER TABLE `schools` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `seriespost`
@@ -630648,7 +630689,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `seriespost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seriespost` (
   `seriespost_ID` int(12) NOT NULL AUTO_INCREMENT,
   `teamIDwinner` char(3) NOT NULL,
@@ -630671,6 +630712,7 @@ CREATE TABLE `seriespost` (
 -- Dumping data for table `seriespost`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `seriespost` WRITE;
 /*!40000 ALTER TABLE `seriespost` DISABLE KEYS */;
 INSERT INTO `seriespost` VALUES
@@ -631087,6 +631129,8 @@ INSERT INTO `seriespost` VALUES
 (1178,'LAN','TOR',2025,'WS',4,3,0);
 /*!40000 ALTER TABLE `seriespost` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `teams`
@@ -631094,7 +631138,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `teams`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `teams` (
   `teams_ID` int(12) NOT NULL AUTO_INCREMENT,
   `teamID` char(3) NOT NULL,
@@ -631160,6 +631204,7 @@ CREATE TABLE `teams` (
 -- Dumping data for table `teams`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `teams` WRITE;
 /*!40000 ALTER TABLE `teams` DISABLE KEYS */;
 INSERT INTO `teams` VALUES
@@ -634270,6 +634315,8 @@ INSERT INTO `teams` VALUES
 (6131,'WAS',2025,'NL','E','WSN','Washington Nationals',5,162,81,66,96,'N','N','N','N',687,5422,1313,258,28,161,443,1351,132,48,57,40,899,846,5.35,0,9,37,4270,1491,214,566,1248,94,131,0.984,'Nationals Park',1916768,96,97,NULL,NULL);
 /*!40000 ALTER TABLE `teams` ENABLE KEYS */;
 UNLOCK TABLES;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -634278,6 +634325,6 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-01-09 14:53:10
+-- Dump completed on 2026-10-10 22:52:24
