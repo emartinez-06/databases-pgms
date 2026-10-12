@@ -1,4 +1,41 @@
+# Local credentials (keep example files trackable)
 .env
-env
+.env.*
+!.env.example
+!.env.*.example
+
+# Virtual environments
+env/
+venv/
 .venv/
+
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Coverage reports
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Packaging output
+build/
+dist/
+*.egg-info/
+
+# Local database backups
+/backups/
+
+# Logs and editor temporary files
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
 __pycache__
