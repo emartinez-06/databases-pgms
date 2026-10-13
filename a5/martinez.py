@@ -41,14 +41,25 @@ class Franchise(Base):
 class Team(Base):
     __table__ = Table("teams", metadata, autoload_with=engine)
 
-# autolaod = reflection
-#
-activeFranchise = select(Franchise).where(Franchise.active == "Y")
 
+# autoload = reflection
+
+activeFranchises = select(Franchise.franchID, Franchise.franchName).where(
+    Franchise.active == "Y"
+)
 
 with engine.connect() as connection:
-    result = connection.execute(activeFranchise)
-    for row in result:
-
-
+    resultFranch = connection.execute(activeFranchises)
+    for franch in resultFranch:
+        # create a teams object with teamID, lgID, divID, franchID, and team_name, ow(NULL)
+        print(franch)
+        resultTeams = connection.execute(
+            select(Team.team_name).where(
+                Team.franchID == franch.franchID,
+                Team.yearID == 2025,
+            )
+        )
+        for team in resultTeams:
+            print("TEAM:", team)
+            print()
 engine.dispose()
