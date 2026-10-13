@@ -2,7 +2,7 @@
 # Assignment 5
 
 from sqlalchemy import create_engine, text, URL, MetaData, Table, select
-from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase, Session
 from config import Config
 
 url = URL.create(
@@ -44,22 +44,26 @@ class Team(Base):
 
 # autoload = reflection
 
-activeFranchises = select(Franchise.franchID, Franchise.franchName).where(
-    Franchise.active == "Y"
-)
+with Session(engine) as session:
+    franchQuery = select(Franchise.franchID).where(Franchise.active == "Y")
+    resultFranch = session.execute(franchQuery).all()
 
-with engine.connect() as connection:
-    resultFranch = connection.execute(activeFranchises)
-    for franch in resultFranch:
-        # create a teams object with teamID, lgID, divID, franchID, and team_name, ow(NULL)
-        print(franch)
-        resultTeams = connection.execute(
-            select(Team.team_name).where(
-                Team.franchID == franch.franchID,
-                Team.yearID == 2025,
-            )
+    for franchise in resultFranch:
+        teamQuery = select(Team).where(
+            Team.franchID == franchise.franchID,
+            Team.yearID == 2025,
         )
+        resultTeams = session.scalars(teamQuery).all()
+
         for team in resultTeams:
-            print("TEAM:", team)
-            print()
-engine.dispose()
+            newTeam = Team(
+                yearID=2026,
+                teamID=team.teamID,
+                lgID=team.lgID,
+                divID=team.divID,
+                franchID=team.franchID,
+                team_name=team.team_name,
+            )
+            session.add(newTeam)
+
+    session.commit()
