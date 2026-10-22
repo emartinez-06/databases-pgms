@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2025 Playoff Results</title>
+</head>
+<body>
+    <h1>2025 Playoff Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Round</th>
+                <th scope="col">Winner</th>
+                <th scope="col">Loser</th>
+                <th scope="col">Winner's games won</th>
+                <th scope="col">Loser's games won</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for series in results %}
+            <tr>
+                <td>{{ series.round }}</td>
+                <td>{{ series.winner }}</td>
+                <td>{{ series.loser }}</td>
+                <td>{{ series.winner_wins }}</td>
+                <td>{{ series.loser_wins }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5">No playoff series found for 2025.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
